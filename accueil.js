@@ -2,8 +2,15 @@ fetch("./FishEyeDataFR.json")
 .then(response => {
    return response.json();
 })
-    .then(photographers => console.log(photographers));
+    .then(photographers => {
+        
+        return console.log(photographers);
+    
 
+
+      
+      
+    });
 
     function profileTemplate(photographers) {
         return `
@@ -17,7 +24,8 @@ fetch("./FishEyeDataFR.json")
           </div>
         `;
       }
-      
-      document.getElementById("profiles").innerHTML = `
+
+    document.getElementById("profiles").innerHTML = `
+    
         ${photographers.map(profileTemplate).join("")}
       `;
