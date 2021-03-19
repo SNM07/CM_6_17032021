@@ -1,6 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 * {
   font-family: "Roboto", sans-serif;
+  width: auto;
+}
+
+.profileCard {
+  width: 100%;
+}
+.profileCard .profilePic {
+  width: 90%;
+  padding: 0 5% 0 5%;
+}
+
+.profiles {
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

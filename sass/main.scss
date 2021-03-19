@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 @import "./Utils/variables";
+@import "./Utils/mixins";
+@import "./Utils/functions";
 
 @import "./Base/fondations";
+
+@import "./Components/buttons";
+
+@import "./Layout/profileCards";
+
+@import "./Pages/accueil";
