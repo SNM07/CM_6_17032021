@@ -8,8 +8,12 @@
   width: 100%;
 }
 .profileCard .profilePic {
-  width: 90%;
-  padding: 0 5% 0 5%;
+  width: 300px;
+  display: flex;
+  margin: auto;
+  object-fit: cover;
+  height: 300px;
+  border-radius: 50%;
 }
 
 .profiles {

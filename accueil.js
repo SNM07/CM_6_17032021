@@ -1,37 +1,9 @@
-/*fetch("./FishEyeDataFR.json")
-.then(response => {
-   return response.json();
-})
-    .then(photographers => {
-        
-        return console.log(photographers);
-    
 
 
-      
-      
-    });
 
-    function profileTemplate(photographers) {
-        return `
-          <div class="profile">
-          <img class="profile-photo" src="${photographers.portrait}">
-          <h2 class="profile-name">${photographers.name}</h2>
-          <p class="profile-location"> ${photographers.city}, ${photographers.country}</p>
-          <p class="profile-tagline"> ${photographers.tagline}</p>
-          <p class="profile-price"> ${photographers.price}</p>
-          <p class="profile-tags"> ${photographers.tags}</p>
-          </div>
-        `;
-      }
 
-    document.getElementById("profiles").innerHTML = `
-    
-        ${photographers.map(profileTemplate).join("")}
-      `;
-      */
-      // const header = document.querySelector('header');
-      const section = document.querySelector('profiles');
+
+      /* const section = document.querySelector('profiles');
   
       let requestURL = './FishEyeDataFR.json';
       let request = new XMLHttpRequest();
@@ -43,17 +15,13 @@
         const profileTemplate = request.response;
         // populateHeader(profileTemplate);
         showProfile(profileTemplate);
-      }
+} */
+      
+
+
+
   
-      /* function populateHeader(obj) {
-        const myH1 = document.createElement('h1');
-        myH1.textContent = obj['squadName'];
-        header.appendChild(myH1);
-  
-        const myPara = document.createElement('p');
-        myPara.textContent = 'Hometown: ' + obj['homeTown'] + ' // Formed: ' + obj['formed'];
-        header.appendChild(myPara);
-      } */
+
   
       function showProfile(obj) {
         const photog = obj['photographers'];
@@ -98,4 +66,20 @@
   
           profiles.appendChild(myArticle);
         }
-      }
+}
+      
+fetch("./FishEyeDataFR.json")
+.then(response => {
+   return response.json();
+})
+
+    .then(object => {
+        const photographers = object.photographers;
+        const medias = object.medias;
+        console.log(object, photographers, medias);
+
+
+        showProfile(object);
+
+
+    });
