@@ -6,6 +6,7 @@
 
 .profileCard {
   width: 100%;
+  display: none;
 }
 .profileCard .profilePic {
   width: 300px;
@@ -14,6 +15,10 @@
   object-fit: cover;
   height: 300px;
   border-radius: 50%;
+}
+
+.show {
+  display: block;
 }
 
 .profiles {
