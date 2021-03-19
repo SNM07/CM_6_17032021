@@ -7,6 +7,7 @@
 .profileCard {
   width: 100%;
   display: none;
+  margin: 2rem 0 2rem 0;
 }
 .profileCard .profilePic {
   width: 300px;
@@ -15,14 +16,94 @@
   object-fit: cover;
   height: 300px;
   border-radius: 50%;
+  box-shadow: 3px 5px 16px rgba(82, 82, 82, 0.3);
+  backface-visibility: hidden;
+}
+.profileCard .profileName {
+  color: #D3573C;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 100;
+  margin: 2rem 0 1rem 0;
+}
+.profileCard .profileLocation {
+  text-align: center;
+  color: #901C1C;
+  margin: 1rem 0 1rem 0;
+}
+.profileCard .profileTagline {
+  text-align: center;
+  font-size: 0.8rem;
+}
+.profileCard .profilePrice {
+  text-align: center;
+  color: #525252;
+  font-size: 0.8rem;
 }
 
 .show {
   display: block;
 }
 
+header {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+header h1 {
+  grid-column: 2/span 1;
+  grid-row: 1/span 1;
+  font-size: 1rem;
+}
+
+.logo {
+  grid-column: 1/span 1;
+  grid-row: 1/span 1;
+}
+.logo img {
+  width: 100%;
+}
+
 .profiles {
   width: 100%;
+}
+
+nav {
+  grid-column: 1/span 2;
+  grid-row: 2/span 2;
+}
+
+#filterButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filterButton {
+  color: #901C1C;
+  font-weight: bold;
+  padding: 6px 8px 6px 8px;
+  background-color: white;
+  border: 1px solid rgba(82, 82, 82, 0.2);
+  border-radius: 16px;
+}
+
+.profileTags {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0;
+}
+.profileTags li {
+  display: block;
+  max-width: fit-content;
+  color: #901C1C;
+  font-weight: bold;
+  padding: 6px 8px 6px 8px;
+  background-color: white;
+  border: 1px solid rgba(82, 82, 82, 0.2);
+  border-radius: 16px;
 }
 
 /*# sourceMappingURL=style.css.map */
