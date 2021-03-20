@@ -94,21 +94,9 @@ fetch("./FishEyeDataFR.json")
         console.log(object, photographers, medias);
 
 
-        showProfile(object);
-
-        /* for (const photog of photographers) {
-          const article = Object.assign(
-            document.createElement("article"), {
-              textContent: photog.name,
-              className: `profileCard ${photog.tags.join(" ")}`
-            }
-          );
-          profiles.append(article);
-        } */
-    });
-
-
-filterSelection("all")
+      showProfile(object);
+      
+      filterSelection("all")
 
 function filterSelection(c) {
   var x, i;
@@ -157,14 +145,93 @@ function profRemoveClass(element, name) {
 
 // window.onload = filterSelection("all");
 
-/*
+
 // Add active class to the current control button (highlight it)
 var btnContainer = document.getElementById("filterButtons");
+
 var btns = btnContainer.getElementsByClassName("filterButton");
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function() {
     var current = document.getElementsByClassName("active");
     current[0].className = current[0].className.replace(" active", "");
     this.className += " active";
+    
   });
-}*/
+  
+}
+
+        /* for (const photog of photographers) {
+          const article = Object.assign(
+            document.createElement("article"), {
+              textContent: photog.name,
+              className: `profileCard ${photog.tags.join(" ")}`
+            }
+          );
+          profiles.append(article);
+        } */
+    });
+
+
+/* filterSelection("all")
+
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("profileCard");
+  if (c == "all") c = "";
+  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+  
+  for (i = 0; i < x.length; i++) {
+    profRemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) profAddClass(x[i], "show");
+  }
+  console.log(c);
+
+}
+
+
+// Show filtered elements
+function profAddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {
+      element.className += " " + arr2[i];
+    }
+  }
+}
+
+// Hide elements that are not selected
+function profRemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// document.body.onload = profAddClass("profileCard", "show");
+
+
+// document.getElementsByClassName("profileCard").addEventListener("load", filterSelection);
+
+// window.onload = filterSelection("all");
+
+
+// Add active class to the current control button (highlight it)
+var btnContainer = document.getElementById("filterButtons");
+
+var btns = btnContainer.getElementsByClassName("filterButton");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+    
+  });
+  
+} */
