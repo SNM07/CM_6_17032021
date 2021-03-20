@@ -172,7 +172,7 @@ for (var i = 0; i < btns.length; i++) {
     });
 
 
-/* filterSelection("all")
+ filterSelection("all")
 
 function filterSelection(c) {
   var x, i;
@@ -221,7 +221,7 @@ function profRemoveClass(element, name) {
 
 // window.onload = filterSelection("all");
 
-
+/*
 // Add active class to the current control button (highlight it)
 var btnContainer = document.getElementById("filterButtons");
 
