@@ -55,7 +55,7 @@ function showProfile(obj) {
           const catTags = photog[i].tags;
           for(let j = 0; j < catTags.length; j++) {
             const listTags = document.createElement('li');
-            listTags.textContent = catTags[j];
+            listTags.textContent = '# ' + catTags[j];
             myTags.appendChild(listTags);
             const profileCardClass = "profileCard";
             myArticle.setAttribute("class", profileCardClass+ " " + catTags.join(" ") );
