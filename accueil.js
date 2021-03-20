@@ -108,12 +108,14 @@ fetch("./FishEyeDataFR.json")
     });
 
 
-    filterSelection("all")
+filterSelection("all")
+
 function filterSelection(c) {
   var x, i;
   x = document.getElementsByClassName("profileCard");
   if (c == "all") c = "";
   // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+  
   for (i = 0; i < x.length; i++) {
     profRemoveClass(x[i], "show");
     if (x[i].className.indexOf(c) > -1) profAddClass(x[i], "show");
@@ -121,6 +123,7 @@ function filterSelection(c) {
   console.log(c);
 
 }
+
 
 // Show filtered elements
 function profAddClass(element, name) {
@@ -146,6 +149,14 @@ function profRemoveClass(element, name) {
   }
   element.className = arr1.join(" ");
 }
+
+// document.body.onload = profAddClass("profileCard", "show");
+
+
+// document.getElementsByClassName("profileCard").addEventListener("load", filterSelection);
+
+// window.onload = filterSelection("all");
+
 /*
 // Add active class to the current control button (highlight it)
 var btnContainer = document.getElementById("filterButtons");
