@@ -36,11 +36,13 @@
 .profileCard .profileTagline {
   text-align: center;
   font-size: 0.8rem;
+  margin: 0.4rem 0 0.4rem 0;
 }
 .profileCard .profilePrice {
   text-align: center;
   color: #525252;
   font-size: 0.8rem;
+  margin: 0.4rem 0 0.8rem 0;
 }
 
 .show {
@@ -52,6 +54,7 @@ header {
   background-color: white;
   z-index: 14;
   height: 10rem;
+  transition: transform 0.4s;
 }
 
 main {
@@ -64,6 +67,11 @@ main h1 {
   font-size: 1rem;
   margin-top: 2rem;
   color: #901C1C;
+}
+
+#nosPhotog {
+  display: block;
+  transition: transform 0.2s;
 }
 
 .logo {
@@ -119,6 +127,52 @@ nav {
   background-color: white;
   border: 1px solid rgba(82, 82, 82, 0.2);
   border-radius: 16px;
+}
+
+.scroll-down .page-header {
+  transform: translate3d(0, -100%, 0);
+}
+
+.scroll-down #nosPhotog {
+  transform: translate3d(0, -300%, 0);
+}
+
+.scroll-up .page-header {
+  transform: none;
+}
+
+.scroll-up #nosPhotog {
+  transform: none;
+}
+
+/* .scroll-up:not(.menu-open) .trigger-menu-wrapper {
+  background: var(--lightpurple);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+} */
+#contentButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+#contentButton {
+  display: none;
+  position: fixed;
+  top: 10px;
+  margin: auto;
+  z-index: 199;
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+  padding: 6px 8px 6px 8px;
+  margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+  background-color: #D3573C;
+  border: 2px solid white;
+  border-radius: 8px;
+}
+
+#contentButton:hover {
+  background-color: #901C1C;
+  color: #FAFAFA;
 }
 
 /*# sourceMappingURL=style.css.map */

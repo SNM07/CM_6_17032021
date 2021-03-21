@@ -3,7 +3,7 @@ header {
     background-color: white;
     z-index: 14;
     height: 10rem;
-    
+    transition: transform .4s;
 }
 
 main {
@@ -17,6 +17,11 @@ main {
     margin-top: 2rem;
     color: $color-primary-1;
 }
+}
+
+#nosPhotog{
+    display: block;
+    transition: transform .2s;
 }
 
 .logo{
@@ -62,3 +67,49 @@ padding: 0;
     @include boutonTags;
 }
 }
+
+.scroll-down .page-header {
+    transform: translate3d(0, -100%, 0);
+  }
+
+  .scroll-down #nosPhotog {
+    transform: translate3d(0, -300%, 0);
+  }
+  
+  .scroll-up .page-header {
+    transform: none;
+  }
+
+  .scroll-up #nosPhotog {
+    transform: none;
+  }
+  
+  /* .scroll-up:not(.menu-open) .trigger-menu-wrapper {
+    background: var(--lightpurple);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+  } */
+  #contentButtonContainer{
+      display: flex;
+      justify-content: center;
+  }
+
+  #contentButton {
+    display: none; 
+    position: fixed; 
+    top: 10px; 
+    margin: auto; 
+    z-index: 199; 
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+    padding: 6px 8px 6px 8px;
+    margin: .2rem .2rem .2rem .2rem;
+    background-color: $color-primary-2;
+    border: 2px solid white;
+    border-radius: 8px;
+  }
+  
+  #contentButton:hover {
+    background-color: $color-primary-1;
+    color: $color-secondary-2;
+  }
