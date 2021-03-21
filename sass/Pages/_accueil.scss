@@ -30,7 +30,7 @@ main {
     margin-bottom: 1rem;
     margin-top: 1rem;
     @include large-only{
-    width: 50%;
+    width: 26vw;
     }
     & img{
         width: 50%;
@@ -55,6 +55,10 @@ main {
 
 nav{
     float: left;
+    @include large-only{
+        width: 50vw;
+        padding: 2vw;
+    }
 }
 
 #filterButtons{
