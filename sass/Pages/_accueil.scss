@@ -25,6 +25,7 @@ main {
 }
 
 .logo{
+    cursor: pointer;
     float: left;
     margin-bottom: 1rem;
     margin-top: 1rem;
@@ -63,7 +64,6 @@ gap: .5rem;
 padding: 0;
 & li{
     display: block;
-    max-width: fit-content;
     @include boutonTags;
 }
 }

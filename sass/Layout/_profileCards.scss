@@ -1,7 +1,9 @@
 .profileCard {
-  width: 100%;
+  cursor: pointer;
+  width: fit-content;
   display: none;
-  margin: 0 0 3rem 0;
+  margin: auto;
+  margin-bottom: 3rem;
   & .profilePic {
     width: 300px;
     display: flex;

@@ -7,9 +7,11 @@
 }
 
 .profileCard {
-  width: 100%;
+  cursor: pointer;
+  width: fit-content;
   display: none;
-  margin: 0 0 3rem 0;
+  margin: auto;
+  margin-bottom: 3rem;
 }
 .profileCard .profilePic {
   width: 300px;
@@ -75,6 +77,7 @@ main h1 {
 }
 
 .logo {
+  cursor: pointer;
   float: left;
   margin-bottom: 1rem;
   margin-top: 1rem;
@@ -101,6 +104,7 @@ nav {
 }
 
 .filterButton {
+  cursor: pointer;
   color: #901C1C;
   font-weight: bold;
   padding: 6px 8px 6px 8px;
@@ -119,7 +123,7 @@ nav {
 }
 .profileTags li {
   display: block;
-  max-width: fit-content;
+  cursor: pointer;
   color: #901C1C;
   font-weight: bold;
   padding: 6px 8px 6px 8px;
