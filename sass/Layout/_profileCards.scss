@@ -4,6 +4,13 @@
   display: none;
   margin: auto;
   margin-bottom: 3rem;
+  @include large-only{
+    justify-self: center;
+    padding: 1vw;
+    max-width: 100%;
+    margin: 0;
+    margin-bottom: 3rem;
+  }
   & .profilePic {
     width: 300px;
     display: flex;
@@ -13,6 +20,11 @@
     border-radius: 50%;
     box-shadow: 3px 5px 16px rgba($color-secondary-1, 0.3);
     backface-visibility: hidden;
+    @include large-only{
+      width: 20vw;
+      height: 20vw;
+      max-width: 100%;
+    }
   }
   & .profileName {
     color: $color-primary-2;
@@ -20,6 +32,9 @@
     font-size: 3rem;
     font-weight: 100;
     margin: 2rem 0 1rem 0;
+    @include large-only{
+      font-size: 3.2vw;
+    }
   }
   & .profileLocation {
     text-align: center;
@@ -37,6 +52,21 @@
     font-size: 0.8rem;
     margin: .4rem 0 .8rem 0
   }
+  .profileTags {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: .5rem;
+    padding: 0;
+    @include large-only{
+      flex-wrap: wrap;
+      gap: 0;
+    }
+    & li{
+        display: block;
+        @include boutonTags;
+    }
+    }
 }
 
 .show {
