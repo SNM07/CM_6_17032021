@@ -1,0 +1,88 @@
+.profileCardPP {
+  cursor: pointer;
+  width: fit-content;
+  margin: auto;
+  margin-bottom: 3rem;
+  @include large-only{
+    justify-self: center;
+    padding: 1vw;
+    max-width: 100%;
+    margin: 0;
+    margin-bottom: 3rem;
+  }
+  & .profilePic {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 4;
+    width: 32vw;
+    justify-self: end;
+    display: flex;
+    object-fit: cover;
+    height: 32vw;
+    border-radius: 50%;
+    box-shadow: 1px 1px 5px rgba($color-secondary-1, 0.3);
+    backface-visibility: hidden;
+    @include large-only{
+      height: 22vw;
+      width: 22vw;
+    }
+  }
+  & .profileName {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    color: $color-primary-2;
+    font-size: 2.1rem;
+    font-weight: 100;
+    align-self: center;
+    @include large-only{
+      font-size: 3.2vw;
+    }
+  }
+  & .profileLocation {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+    color: $color-primary-1;
+    align-self: center;
+  }
+  & .profileTagline {
+    grid-column: 1 / span 1;
+    grid-row: 3 / span 1;
+    font-size: 0.9rem;
+    align-self: center;
+  }
+  & .profilePrice {
+    display: none;
+    
+  }
+  .profileTags {
+    grid-column: 1 / span 1;
+    grid-row: 4 / span 1;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 0;
+    @include large-only{
+      flex-wrap: wrap;
+      gap: 0;
+    }
+    & li{
+        display: block;
+        @include boutonTags;
+        font-size: .7rem;
+        white-space: nowrap;
+        height: fit-content;
+        line-height: .2rem;
+        margin: 0.1rem;
+        padding: 6px;
+        @include large-only{
+          font-size: .8rem;
+          padding: 10px;
+        }
+    }
+    }
+}
+
+.show {
+  display: block;
+}

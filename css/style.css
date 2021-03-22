@@ -102,6 +102,117 @@
   display: block;
 }
 
+.profileCardPP {
+  cursor: pointer;
+  width: fit-content;
+  margin: auto;
+  margin-bottom: 3rem;
+}
+@media screen and (min-width: 800px) {
+  .profileCardPP {
+    justify-self: center;
+    padding: 1vw;
+    max-width: 100%;
+    margin: 0;
+    margin-bottom: 3rem;
+  }
+}
+.profileCardPP .profilePic {
+  grid-column: 2/span 1;
+  grid-row: 1/span 4;
+  width: 32vw;
+  justify-self: end;
+  display: flex;
+  object-fit: cover;
+  height: 32vw;
+  border-radius: 50%;
+  box-shadow: 1px 1px 5px rgba(82, 82, 82, 0.3);
+  backface-visibility: hidden;
+}
+@media screen and (min-width: 800px) {
+  .profileCardPP .profilePic {
+    height: 22vw;
+    width: 22vw;
+  }
+}
+.profileCardPP .profileName {
+  grid-column: 1/span 1;
+  grid-row: 1/span 1;
+  color: #D3573C;
+  font-size: 2.1rem;
+  font-weight: 100;
+  align-self: center;
+}
+@media screen and (min-width: 800px) {
+  .profileCardPP .profileName {
+    font-size: 3.2vw;
+  }
+}
+.profileCardPP .profileLocation {
+  grid-column: 1/span 1;
+  grid-row: 2/span 1;
+  color: #901C1C;
+  align-self: center;
+}
+.profileCardPP .profileTagline {
+  grid-column: 1/span 1;
+  grid-row: 3/span 1;
+  font-size: 0.9rem;
+  align-self: center;
+}
+.profileCardPP .profilePrice {
+  display: none;
+}
+.profileCardPP .profileTags {
+  grid-column: 1/span 1;
+  grid-row: 4/span 1;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 0;
+}
+@media screen and (min-width: 800px) {
+  .profileCardPP .profileTags {
+    flex-wrap: wrap;
+    gap: 0;
+  }
+}
+.profileCardPP .profileTags li {
+  display: block;
+  cursor: pointer;
+  color: #901C1C;
+  font-weight: bold;
+  padding: 6px 8px 6px 8px;
+  margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+  background-color: white;
+  border: 1px solid rgba(82, 82, 82, 0.2);
+  border-radius: 16px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  height: fit-content;
+  line-height: 0.2rem;
+  margin: 0.1rem;
+  padding: 6px;
+}
+@media screen and (min-width: 800px) {
+  .profileCardPP .profileTags li {
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+}
+@media screen and (min-width: 800px) {
+  .profileCardPP .profileTags li {
+    font-size: 0.8rem;
+    padding: 10px;
+  }
+}
+
+.show {
+  display: block;
+}
+
 header {
   position: fixed;
   background-color: white;
@@ -250,6 +361,28 @@ padding: 0;
 #contentButton:hover {
   background-color: #901C1C;
   color: #FAFAFA;
+}
+
+.profileCardPP {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  height: 36vw;
+  width: 92vw;
+}
+@media screen and (min-width: 800px) {
+  .profileCardPP {
+    height: 22vw;
+    width: 88vw;
+    margin: 6vw;
+  }
+}
+
+#profilesPP {
+  width: 100%;
+  position: absolute;
+  margin: 0;
+  z-index: 1;
+  top: 12rem;
 }
 
 /*# sourceMappingURL=style.css.map */
