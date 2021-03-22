@@ -54,41 +54,51 @@ function showProfile(obj) {
 }
   
 function showGallery(obj) {
+    const photog = obj['photographers'];
     const photogal = obj['media'];
 
-    const photogID = photogal.photographerID;
-    photogID.textContent = photogal.photographerID
+    const photogID = photogal.map(photogal => photogal.photographerId);
     
     console.log(photogID);
 
-    const myPhotoCard = document.createElement('article');
-    const myPhotoImg = document.createElement('img');
-    const myPhotoTitle = document.createElement('h2');
-    const myPhotoPrice = document.createElement('p');
+    let photogIdentity = photog[0].id;
 
-    let myPhotoLikes = document.createElement('p');
+    console.log(photogIdentity);
 
-    myPhotoCard.setAttribute("class", "photoCard");
-    myPhotoImg.setAttribute("class", "photoImg");
-    myPhotoTitle.setAttribute("class", "photoTitle");
-    myPhotoPrice.setAttribute("class", "photoPrice");
-
-    myPhotoLikes.setAttribute("class", "photoLikes");
-
-    myPhotoImg.src = ("./images/" + photogID + photogal[i].image);
-    myPhotoTitle.textContent = photogal[i].image;
-    myPhotoPrice.textContent = photogal[i].price;
-
-    myPhotoLikes.textContent = photogal[i].likes + fa;
+    const photogPersonCard = photogID.filter((photogID) => photogID === photogIdentity);
 
 
-            myPhotoCard.appendChild(myPhotoImg);
-            myPhotoCard.appendChild(myPhotoTitle);
-            myPhotoCard.appendChild(myPhotoPrice);
-            myPhotoCard.appendChild(myPhotoLikes);
+    console.log(photogPersonCard);
+
+    for (let i = 0; i < photogPersonCard.length; i++) {
+        const myPhotoCard = document.createElement('article');
+        const myPhotoImg = document.createElement('img');
+        const myPhotoTitle = document.createElement('h2');
+        const myPhotoPrice = document.createElement('p');
+
+        let myPhotoLikes = document.createElement('p');
+
+        myPhotoCard.setAttribute("class", "photoCard");
+        myPhotoImg.setAttribute("class", "photoImg");
+        myPhotoTitle.setAttribute("class", "photoTitle");
+        myPhotoPrice.setAttribute("class", "photoPrice");
+
+        myPhotoLikes.setAttribute("class", "photoLikes");
+
+        myPhotoImg.src = ("./images/" + photogIdentity + "/" + photogPersonCard[i].image);
+        myPhotoTitle.textContent = photogPersonCard?.image;
+        myPhotoPrice.textContent = photogPersonCard[i].price;
+        console.log(photogPersonCard[i].price);
+        myPhotoLikes.textContent = photogPersonCard.likes;
+
+
+        myPhotoCard.appendChild(myPhotoImg);
+        myPhotoCard.appendChild(myPhotoTitle);
+        myPhotoCard.appendChild(myPhotoPrice);
+        myPhotoCard.appendChild(myPhotoLikes);
     
-            photoGallery.appendChild(myPhotoCard);
-
+        photoGallery.appendChild(myPhotoCard);
+    }
 }
         
   fetch("./FishEyeDataFR.json")
