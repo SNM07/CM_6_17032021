@@ -1,4 +1,5 @@
   
+// !! ça c'est la fonction qui affiche la profileCard (photo de profile, nom du photographe, ville, tags) RAS
 function showProfile(obj) {
     
   
@@ -52,24 +53,28 @@ function showProfile(obj) {
             profilesPP.appendChild(myArticle);
         //   }
 }
-  
+ 
+// !! ça c'est la fonction (en cours de construction) qui me pose problème pour afficher les cards de chaque photos correspondant à l'id du photographe associé
 function showGallery(obj) {
+    // !! je récupère les éléments du JSON
     const photog = obj['photographers'];
     const photogal = obj['media'];
-
+    // !! je récupère toutes les photographerID du JSON
     const photogID = photogal.map(photogal => photogal.photographerId);
     
     console.log(photogID);
-
+    // !! ça c'est provisoire, c'est pour avoir un photographe en input mais il va falloir que je trouve un moyen pour que cette page sache sur quel photographe (et quelle ID) l'utilisateur a cliqué sur la page d'accueil et j'ai aucune idée de comment procéder pour ça... Et faudra que ça fonctionne aussi sur la fonction showProfile d'ailleurs
     let photogIdentity = photog[0].id;
 
     console.log(photogIdentity);
-
+    // !! là je filtre pour ne garder que les photos associées à l'ID du photographe choisi
     const photogPersonCard = photogID.filter((photogID) => photogID === photogIdentity);
-
+    /* let testPrice = photogPersonCard.price;
+    console.log(testPrice);
+ */
 
     console.log(photogPersonCard);
-
+    // !! ici je créer mes éléments HTML 
     for (let i = 0; i < photogPersonCard.length; i++) {
         const myPhotoCard = document.createElement('article');
         const myPhotoImg = document.createElement('img');
@@ -77,30 +82,32 @@ function showGallery(obj) {
         const myPhotoPrice = document.createElement('p');
 
         let myPhotoLikes = document.createElement('p');
-
+        // !! ci-dessous un des multiples (dizaines de dizaine) test que j'ai fait pour tenter de récupérer les éléments adjacents à photographerID (que sur price pour le moment mais il faudra que ce soit sur tous les objets)
+        let testPrice = photogPersonCard.price;
+    console.log(testPrice);
+        // !! ajout de classes
         myPhotoCard.setAttribute("class", "photoCard");
         myPhotoImg.setAttribute("class", "photoImg");
         myPhotoTitle.setAttribute("class", "photoTitle");
         myPhotoPrice.setAttribute("class", "photoPrice");
 
         myPhotoLikes.setAttribute("class", "photoLikes");
-
+        // !! c'est en chantier y'a plein de choses que je vais devoir retoucher ici (notamment pour les titres de photos)
         myPhotoImg.src = ("./images/" + photogIdentity + "/" + photogPersonCard[i].image);
-        myPhotoTitle.textContent = photogPersonCard?.image;
+        myPhotoTitle.textContent = photogPersonCard.image;
         myPhotoPrice.textContent = photogPersonCard[i].price;
-        console.log(photogPersonCard[i].price);
         myPhotoLikes.textContent = photogPersonCard.likes;
 
-
+        // !! construction de l'HTML
         myPhotoCard.appendChild(myPhotoImg);
         myPhotoCard.appendChild(myPhotoTitle);
         myPhotoCard.appendChild(myPhotoPrice);
         myPhotoCard.appendChild(myPhotoLikes);
-    
+        // !! là ça m'a bien construit mon HTML mais il est vide parce que je n'arrive pas à récupérer les données des photos pour l'instant
         photoGallery.appendChild(myPhotoCard);
     }
 }
-        
+   // !! ça c'est le fetch avec les fonctions     
   fetch("./FishEyeDataFR.json")
   .then(response => {
      return response.json();
@@ -118,7 +125,7 @@ function showGallery(obj) {
         
         
     
-  
+  // !! j'ai laissé le truc du scroll mais je m'en sers pas encore, donc t'occupes pas de ce qu'il ya en dessous
   
           
           const body = document.body;
