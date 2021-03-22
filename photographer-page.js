@@ -51,7 +51,45 @@ function showProfile(obj) {
     
             profilesPP.appendChild(myArticle);
         //   }
-  }
+}
+  
+function showGallery(obj) {
+    const photogal = obj['media'];
+
+    const photogID = photogal.photographerID;
+    photogID.textContent = photogal.photographerID
+    
+    console.log(photogID);
+
+    const myPhotoCard = document.createElement('article');
+    const myPhotoImg = document.createElement('img');
+    const myPhotoTitle = document.createElement('h2');
+    const myPhotoPrice = document.createElement('p');
+
+    let myPhotoLikes = document.createElement('p');
+
+    myPhotoCard.setAttribute("class", "photoCard");
+    myPhotoImg.setAttribute("class", "photoImg");
+    myPhotoTitle.setAttribute("class", "photoTitle");
+    myPhotoPrice.setAttribute("class", "photoPrice");
+
+    myPhotoLikes.setAttribute("class", "photoLikes");
+
+    myPhotoImg.src = ("./images/" + photogID + photogal[i].image);
+    myPhotoTitle.textContent = photogal[i].image;
+    myPhotoPrice.textContent = photogal[i].price;
+
+    myPhotoLikes.textContent = photogal[i].likes + fa;
+
+
+            myPhotoCard.appendChild(myPhotoImg);
+            myPhotoCard.appendChild(myPhotoTitle);
+            myPhotoCard.appendChild(myPhotoPrice);
+            myPhotoCard.appendChild(myPhotoLikes);
+    
+            photoGallery.appendChild(myPhotoCard);
+
+}
         
   fetch("./FishEyeDataFR.json")
   .then(response => {
@@ -64,7 +102,9 @@ function showProfile(obj) {
           console.log(object, photographers, medias);
   
   
-        showProfile(object);
+          showProfile(object);
+          
+          showGallery(object);
         
         
     
