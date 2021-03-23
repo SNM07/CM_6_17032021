@@ -60,20 +60,28 @@ function showGallery(obj) {
     const photog = obj['photographers'];
     const photogal = obj['media'];
     // !! je récupère toutes les photographerID du JSON
-    const photogID = photogal.map(photogal => photogal.photographerId);
+  const photogID = photogal.map(photogal => photogal.photographerId);
+  const photogPrice = photogal.map(photogal => photogal.price);
     
-    console.log(photogID);
-    // !! ça c'est provisoire, c'est pour avoir un photographe en input mais il va falloir que je trouve un moyen pour que cette page sache sur quel photographe (et quelle ID) l'utilisateur a cliqué sur la page d'accueil et j'ai aucune idée de comment procéder pour ça... Et faudra que ça fonctionne aussi sur la fonction showProfile d'ailleurs
-    let photogIdentity = photog[0].id;
+  console.log(photogID);
+  console.log(photogPrice);
 
-    console.log(photogIdentity);
+    // !! ça c'est provisoire, c'est pour avoir un photographe en input mais il va falloir que je trouve un moyen pour que cette page sache sur quel photographe (et quelle ID) l'utilisateur a cliqué sur la page d'accueil et j'ai aucune idée de comment procéder pour ça... Et faudra que ça fonctionne aussi sur la fonction showProfile d'ailleurs
+  let photogIdentity = photog[0].id;
+  let photogBasePrice = photogal[0].price;
+
+  console.log(photogIdentity);
+  console.log(photogBasePrice);
     // !! là je filtre pour ne garder que les photos associées à l'ID du photographe choisi
     const photogPersonCard = photogID.filter((photogID) => photogID === photogIdentity);
     /* let testPrice = photogPersonCard.price;
     console.log(testPrice);
  */
-
-    console.log(photogPersonCard);
+    const photogPersonPrice = photogPrice.filter((photogPrice) => photogPrice === photogBasePrice);
+  console.log(photogPersonPrice);
+  console.log(photogPersonCard);
+  
+  
     // !! ici je créer mes éléments HTML 
     for (let i = 0; i < photogPersonCard.length; i++) {
         const myPhotoCard = document.createElement('article');
@@ -83,8 +91,13 @@ function showGallery(obj) {
 
         let myPhotoLikes = document.createElement('p');
         // !! ci-dessous un des multiples (dizaines de dizaine) test que j'ai fait pour tenter de récupérer les éléments adjacents à photographerID (que sur price pour le moment mais il faudra que ce soit sur tous les objets)
-        let testPrice = photogPersonCard.price;
-    console.log(testPrice);
+        let testPrice = photogal[i].price;
+      console.log(testPrice);
+      let testImg = photogal[i].image;
+      console.log(testImg);
+      
+      /* let photogPersonPrice = photogPrice.filter((photogPrice) => photogPrice === photogIdentity);
+      console.log(photogPersonPrice); */
         // !! ajout de classes
         myPhotoCard.setAttribute("class", "photoCard");
         myPhotoImg.setAttribute("class", "photoImg");
@@ -117,7 +130,6 @@ function showGallery(obj) {
           const photographers = object.photographers;
           const medias = object.medias;
           console.log(object, photographers, medias);
-  
   
           showProfile(object);
           
