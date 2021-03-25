@@ -213,6 +213,10 @@
   display: block;
 }
 
+.showCard {
+  display: block;
+}
+
 header {
   position: fixed;
   background-color: white;

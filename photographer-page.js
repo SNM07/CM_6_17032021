@@ -3,6 +3,25 @@ let profURL = window.location.search.substr(4);
 
 console.log(profURL);
 
+/* function filtrePhoto(obj){
+  const photogal = obj["media"];
+  const photogID = photogal.map((photogal) => photogal.photographerId);
+  const myPhotoCardInfo = document.getElementsByClassName("photoCard");
+
+
+  for (let i = 0; i < photogal.length; i++) {
+    const myPhotoCardInfo = document.getElementsByClassName("photoCard");
+    if (photogID[i] == profURL) {
+      myPhotoCardInfo.setAttribute("class", "showCard");
+      myPhotoCardInfo.classList.add("showCard");
+    }
+  }
+
+  console.log(photogID);
+  console.log(profURL);
+  console.log(myPhotoCardInfo);
+} */
+
 // !! ça c'est la fonction qui affiche la profileCard (photo de profile, nom du photographe, ville, tags) RAS
 function showProfile(obj) {
   const photog = obj["photographers"];
@@ -74,6 +93,8 @@ function showGallery(obj) {
   const photogPersonCard = photogID.filter(
     (photogID) => photogID === photogIdentity
   );
+
+  console.log(photogPersonCard);
   /* let testPrice = photogPersonCard.price;
     console.log(testPrice);
  */
@@ -128,6 +149,30 @@ function showGallery(obj) {
   );
   console.log(filteredPhotographers2); */
   // !! ici je créer mes éléments HTML
+  /* function testGal2(obj){
+    const photogal = obj.media;
+    if (photogal.photographerId === profURL) {
+      article.className += "show";
+      return true
+    }
+  }
+  console.log(testGal2()); */
+  /* const photID = photogal.photographerId;*/
+  /* function filtrePhoto(obj){
+    for (let j = 0; j < photogal.length; j++) {
+
+      if (photogID[j] == profURL) {
+      
+        alert("ok");
+        myPhotoCard.classList.add("showCard");
+      }
+    }
+    console.log(photID);
+
+    console.log(photogID);
+    console.log(profURL);
+  } */
+  
   for (let i = 0; i < photogPersonCard.length; i++) {
     const myPhotoCard = document.createElement("article");
     const myPhotoImg = document.createElement("img");
@@ -139,10 +184,13 @@ function showGallery(obj) {
     /* if (photogIdentity == photogPersonCard) {
       let testPrice3 = photogal[i].price;
     }; console.log(testPrice3); */
-    let testPrice = photogal[i].price;
+
+    /* let testPrice = photogal[i].price;
     console.log(testPrice);
     let testImg = photogal[i].image;
-    console.log(testImg);
+    console.log(testImg); */
+
+
     /* let testPrice2 = photogPersonPrice[i];
     console.log(testPrice2); */
     /* let photogPersonPrice = photogPrice.filter((photogPrice) => photogPrice === photogIdentity);
@@ -155,12 +203,25 @@ function showGallery(obj) {
 
     myPhotoLikes.setAttribute("class", "photoLikes");
     // !! c'est en chantier y'a plein de choses que je vais devoir retoucher ici (notamment pour les titres de photos)
+    
+    /* if (photogID[i] == profURL) {
+      
+      alert("ok");
+      myPhotoCard.classList.add("showCard");
+    } */
+    
+    
     myPhotoImg.src =
       "./images/" + photogIdentity + "/" + photogPersonCard[i].image;
     myPhotoTitle.textContent = photogPersonCard.image;
-    myPhotoPrice.textContent = photogPersonCard[i].price;
+    myPhotoPrice.textContent = photogal.price;
     myPhotoLikes.textContent = photogPersonCard.likes;
 
+    for (let j = 0; j < photogal.length; j++) {
+      if (photogID[j] == profURL) {
+        myPhotoCard.classList.add("showCard");
+      }
+    }
     // !! construction de l'HTML
     myPhotoCard.appendChild(myPhotoImg);
     myPhotoCard.appendChild(myPhotoTitle);
@@ -171,11 +232,11 @@ function showGallery(obj) {
   }
 }
 
-function testGal(obj) {
+/* function testGal(obj) {
   const photographers = obj["photographers"];
   const filteredPhotographers3 = photographers.filter(photographer => photographer.id === 283)
   console.log(filteredPhotographers3);
-}
+} */
 // !! ça c'est le fetch avec les fonctions
 fetch("./FishEyeDataFR.json")
   .then((response) => {
@@ -191,8 +252,13 @@ fetch("./FishEyeDataFR.json")
 
     showGallery(object);
 
-    testGal(object);
+    // filtrePhoto(object);
 
+    
+    /* testGal(object);
+
+    testGal2(object);
+ */
     // !! j'ai laissé le truc du scroll mais je m'en sers pas encore, donc t'occupes pas de ce qu'il ya en dessous
 
     const body = document.body;
