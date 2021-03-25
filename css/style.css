@@ -225,6 +225,14 @@
   display: none;
 }
 
+.photoImg {
+  width: 10vw;
+}
+
+.photoVid {
+  width: 20vw;
+}
+
 header {
   position: fixed;
   background-color: white;
