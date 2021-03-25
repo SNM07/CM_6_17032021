@@ -3,24 +3,6 @@ let profURL = window.location.search.substr(4);
 
 console.log(profURL);
 
-/* function filtrePhoto(obj){
-  const photogal = obj["media"];
-  const photogID = photogal.map((photogal) => photogal.photographerId);
-  const myPhotoCardInfo = document.getElementsByClassName("photoCard");
-
-
-  for (let i = 0; i < photogal.length; i++) {
-    const myPhotoCardInfo = document.getElementsByClassName("photoCard");
-    if (photogID[i] == profURL) {
-      myPhotoCardInfo.setAttribute("class", "showCard");
-      myPhotoCardInfo.classList.add("showCard");
-    }
-  }
-
-  console.log(photogID);
-  console.log(profURL);
-  console.log(myPhotoCardInfo);
-} */
 
 // !! ça c'est la fonction qui affiche la profileCard (photo de profile, nom du photographe, ville, tags) RAS
 function showProfile(obj) {
@@ -90,138 +72,62 @@ function showGallery(obj) {
   console.log(photogIdentity);
   console.log(photogBasePrice);
   // !! là je filtre pour ne garder que les photos associées à l'ID du photographe choisi
-  const photogPersonCard = photogID.filter(
+   /* const photogPersonCard = photogID.filter(
     (photogID) => photogID === photogIdentity
-  );
+  ); */
 
-  console.log(photogPersonCard);
-  /* let testPrice = photogPersonCard.price;
-    console.log(testPrice);
- */
-  /* const photogPersonPrice = photogPrice.filter(
-    (photogPrice) => photogPrice === photogBasePrice
-  );
-  console.log(photogPersonPrice);
-  console.log(photogPersonCard);
-
-  let photogPersonPrice2 = photogPrice.filter(
-    (ID) => ID === photogIdentity && ID === photogPersonCard
-  );
-
-  console.log(photogPersonPrice2); */
-  //
-  /* const photographers = [
-    {
-      id: 5,
-      photo: 'random1.png'
-    },
-    {
-      id: 3,
-      photo: 'random2.png'
-    },
-    {
-      id: 5,
-      photo: 'random3.png'
-    },
-    {
-      id: 6,
-      photo: 'random4.png'
-    },
-    {
-      id: 10,
-      photo: 'random5.png'
-    }
-  ]
+  // console.log(photogPersonCard); 
+   
   
-  const filteredPhotographers = photographers.filter(photographer => photographer.id === 5) */
-  /* const photographers = obj.photographers;
-  console.log(photographers);
-  const filteredPhotographers3 = photographers.filter(photographers => photographers.id === 283);
-  console.log(filteredPhotographers3);
- 
-   const filteredPhotographers = photogal.filter(
-    (photogID) => photogID === photogIdentity
-  );
-  console.log(filteredPhotographers);
-
-  const filteredPhotographers2 = photogal.filter(
-    (media) => media.photographerId === photogPersonCard
-  );
-  console.log(filteredPhotographers2); */
-  // !! ici je créer mes éléments HTML
-  /* function testGal2(obj){
-    const photogal = obj.media;
-    if (photogal.photographerId === profURL) {
-      article.className += "show";
-      return true
-    }
-  }
-  console.log(testGal2()); */
-  /* const photID = photogal.photographerId;*/
-  /* function filtrePhoto(obj){
-    for (let j = 0; j < photogal.length; j++) {
-
-      if (photogID[j] == profURL) {
-      
-        alert("ok");
-        myPhotoCard.classList.add("showCard");
-      }
-    }
-    console.log(photID);
-
-    console.log(photogID);
-    console.log(profURL);
-  } */
-  
-  for (let i = 0; i < photogPersonCard.length; i++) {
+  for (let i = 0; i < photogal.length; i++) {
     const myPhotoCard = document.createElement("article");
     const myPhotoImg = document.createElement("img");
     const myPhotoTitle = document.createElement("h2");
     const myPhotoPrice = document.createElement("p");
 
     let myPhotoLikes = document.createElement("p");
-    // !! ci-dessous un des multiples (dizaines de dizaine) test que j'ai fait pour tenter de récupérer les éléments adjacents à photographerID (que sur price pour le moment mais il faudra que ce soit sur tous les objets)
-    /* if (photogIdentity == photogPersonCard) {
-      let testPrice3 = photogal[i].price;
-    }; console.log(testPrice3); */
-
-    /* let testPrice = photogal[i].price;
-    console.log(testPrice);
-    let testImg = photogal[i].image;
-    console.log(testImg); */
-
-
-    /* let testPrice2 = photogPersonPrice[i];
-    console.log(testPrice2); */
-    /* let photogPersonPrice = photogPrice.filter((photogPrice) => photogPrice === photogIdentity);
-      console.log(photogPersonPrice); */
-    // !! ajout de classes
+    
     myPhotoCard.setAttribute("class", "photoCard");
     myPhotoImg.setAttribute("class", "photoImg");
     myPhotoTitle.setAttribute("class", "photoTitle");
     myPhotoPrice.setAttribute("class", "photoPrice");
 
     myPhotoLikes.setAttribute("class", "photoLikes");
-    // !! c'est en chantier y'a plein de choses que je vais devoir retoucher ici (notamment pour les titres de photos)
     
-    /* if (photogID[i] == profURL) {
-      
-      alert("ok");
-      myPhotoCard.classList.add("showCard");
-    } */
-    
-    
-    myPhotoImg.src =
-      "./images/" + photogIdentity + "/" + photogPersonCard[i].image;
-    myPhotoTitle.textContent = photogPersonCard.image;
-    myPhotoPrice.textContent = photogal.price;
-    myPhotoLikes.textContent = photogPersonCard.likes;
+    // myPhotoImg.src =
+    //   "./images/" + photogIdentity + "/" + photogal[i].image;
+    myPhotoTitle.textContent = photogal.image;
+    myPhotoPrice.textContent = photogPrice[i];
+    myPhotoLikes.textContent = photogal.likes;
 
-    for (let j = 0; j < photogal.length; j++) {
-      if (photogID[j] == profURL) {
-        myPhotoCard.classList.add("showCard");
+    
+    let myPhotogID = photogID[i];
+    console.log(myPhotogID)
+      //console.log(myPhotoPrice);
+    
+
+    //for (let j = 0; j < photogal.length; j++) {
+      let x = myPhotogID;
+      
+      // let x = z;
+      let y = profURL;
+      // console.log(x, y, x == y);
+      if (x == y) {
+        /* myPhotoImg.src =
+          "./images/" + photogIdentity + "/" + photogal[j].image; */
+          // myPhotoPrice.textContent = photogal[i].price;
+          // console.log(myPhotoPrice);
+          /* myPhotoCard.classList.remove("hideCard");
+        myPhotoCard.classList.add("showCard"); */
+        // myPhotoCard.classList.remove("hideCard");
+        myPhotoCard.style.display = "block";
+console.log("OK")
+      } else {
+        myPhotoCard.style.display = "none";
+        /* myPhotoCard.classList.remove("showCard");
+        myPhotoCard.classList.add("hideCard"); */
       }
-    }
+    // }
     // !! construction de l'HTML
     myPhotoCard.appendChild(myPhotoImg);
     myPhotoCard.appendChild(myPhotoTitle);
@@ -229,14 +135,15 @@ function showGallery(obj) {
     myPhotoCard.appendChild(myPhotoLikes);
     // !! là ça m'a bien construit mon HTML mais il est vide parce que je n'arrive pas à récupérer les données des photos pour l'instant
     photoGallery.appendChild(myPhotoCard);
+
+    /* if (x == y) {
+      myPhotoCard.style.display = "block";
+      console.log("OK")
+    } else {
+    } */
   }
 }
 
-/* function testGal(obj) {
-  const photographers = obj["photographers"];
-  const filteredPhotographers3 = photographers.filter(photographer => photographer.id === 283)
-  console.log(filteredPhotographers3);
-} */
 // !! ça c'est le fetch avec les fonctions
 fetch("./FishEyeDataFR.json")
   .then((response) => {

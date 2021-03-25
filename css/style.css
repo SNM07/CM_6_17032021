@@ -217,6 +217,14 @@
   display: block;
 }
 
+.hideCard {
+  display: none;
+}
+
+.myPhotoCard {
+  display: none;
+}
+
 header {
   position: fixed;
   background-color: white;
