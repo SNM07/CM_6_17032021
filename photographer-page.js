@@ -1,3 +1,8 @@
+
+let profURL = window.location.search.substr(4);
+
+console.log(profURL);
+
 // !! ça c'est la fonction qui affiche la profileCard (photo de profile, nom du photographe, ville, tags) RAS
 function showProfile(obj) {
   const photog = obj["photographers"];
@@ -72,7 +77,7 @@ function showGallery(obj) {
   /* let testPrice = photogPersonCard.price;
     console.log(testPrice);
  */
-  const photogPersonPrice = photogPrice.filter(
+  /* const photogPersonPrice = photogPrice.filter(
     (photogPrice) => photogPrice === photogBasePrice
   );
   console.log(photogPersonPrice);
@@ -82,7 +87,7 @@ function showGallery(obj) {
     (ID) => ID === photogIdentity && ID === photogPersonCard
   );
 
-  console.log(photogPersonPrice2);
+  console.log(photogPersonPrice2); */
   //
   /* const photographers = [
     {
@@ -108,8 +113,9 @@ function showGallery(obj) {
   ]
   
   const filteredPhotographers = photographers.filter(photographer => photographer.id === 5) */
- const photographers = obj["photographers"];
-  const filteredPhotographers3 = photographers.filter(photographer => photographer.id === 283)
+  /* const photographers = obj.photographers;
+  console.log(photographers);
+  const filteredPhotographers3 = photographers.filter(photographers => photographers.id === 283);
   console.log(filteredPhotographers3);
  
    const filteredPhotographers = photogal.filter(
@@ -120,7 +126,7 @@ function showGallery(obj) {
   const filteredPhotographers2 = photogal.filter(
     (media) => media.photographerId === photogPersonCard
   );
-  console.log(filteredPhotographers2);
+  console.log(filteredPhotographers2); */
   // !! ici je créer mes éléments HTML
   for (let i = 0; i < photogPersonCard.length; i++) {
     const myPhotoCard = document.createElement("article");
