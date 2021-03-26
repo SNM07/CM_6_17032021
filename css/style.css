@@ -218,12 +218,14 @@
   width: 80vw;
   height: 60vw;
   margin: auto;
+  margin-bottom: 1rem;
   cursor: pointer;
 }
 @media screen and (min-width: 800px) {
   .photoCard {
     width: auto;
     height: 40vw;
+    margin-bottom: 0;
   }
 }
 .photoCard .photoImg {
@@ -259,11 +261,14 @@
   font-weight: 500;
   color: #901C1C;
   padding: 0.5rem 0 0 0;
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
 }
 @media screen and (min-width: 800px) {
   .photoCard .photoTitle {
     top: 26vw;
-    width: 50%;
+    width: 60%;
     display: flex;
     flex-wrap: wrap;
   }
@@ -558,7 +563,7 @@ header {
 }
 @media screen and (min-width: 800px) {
   #photoGallery {
-    top: 50vw;
+    top: 60vw;
     display: grid;
     grid-template-columns: 33% 33% 33%;
     grid-auto-rows: 35vw;
@@ -569,6 +574,20 @@ header {
 
 .photoAHREF {
   padding: 1vw;
+}
+
+#photoFilter {
+  position: absolute;
+  top: 50vw;
+  left: 3vw;
+  padding: 3vw 0 3vw 0;
+  font-weight: bold;
+  display: none;
+}
+@media screen and (min-width: 800px) {
+  #photoFilter {
+    display: block;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

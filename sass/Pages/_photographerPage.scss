@@ -33,7 +33,7 @@ margin: 6vw;
     margin: auto;
     position: absolute;
     @include large-only{
-        top: 50vw;
+        top: 60vw;
         display: grid;
         grid-template-columns: 33% 33% 33%;
         grid-auto-rows: 35vw;
@@ -44,4 +44,16 @@ margin: 6vw;
 
 .photoAHREF{
     padding: 1vw;
+}
+
+#photoFilter{
+    position: absolute;
+    top: 50vw;
+    left: 3vw;
+    padding: 3vw 0 3vw 0;
+    font-weight: bold;
+    display: none;
+    @include large-only{
+        display: block;
+    }
 }

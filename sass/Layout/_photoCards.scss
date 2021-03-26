@@ -3,10 +3,12 @@
     width: 80vw;
     height: 60vw;
     margin: auto;
+    margin-bottom: 1rem;
     cursor: pointer;
     @include large-only{
         width: auto;
         height: 40vw;
+        margin-bottom: 0;
         
     }
     & .photoImg{
@@ -39,9 +41,12 @@
         font-weight: 500;
         color: $color-primary-1;
         padding: .5rem 0 0 0;
+        width: 60%;
+        display: flex;
+        flex-wrap: wrap;
         @include large-only{
             top: 26vw;
-            width: 50%;
+            width: 60%;
             display: flex;
             flex-wrap: wrap;
         }
