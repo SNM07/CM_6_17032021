@@ -83,6 +83,9 @@ function showGallery(obj) {
   const photogTitle = photogal.map((photogal) => photogal.title);
   let photogLikes = photogal.map((photogal) => photogal.likes);
 
+  const photogPhID = photogal.map((photogal) => photogal.id);
+
+
   console.log(photogID);
   console.log(photogVid);
 
@@ -110,6 +113,20 @@ function showGallery(obj) {
 
     let myPhotoLikes = document.createElement("p");
 
+    const myPhotoHeart = document.createElement("div");
+    myPhotoHeart.className = "like";
+    myPhotoHeart.setAttribute("onclick", "event.stopPropagation();")
+
+    const myPHInput = document.createElement("input");
+    myPHInput.setAttribute("type", "checkbox");
+    myPHInput.id = "heart" + photogPhID[i];
+    myPhotoHeart.appendChild(myPHInput);
+
+    const myPHLabel = document.createElement("label");
+    myPHLabel.setAttribute("for", "heart1" + photogPhID[i]);
+    myPHLabel.className = "far fa-heart";
+    myPhotoHeart.appendChild(myPHLabel);
+
     myPhotoCard.setAttribute("class", "photoCard");
     myPhotoImg.setAttribute("class", "photoImg");
     myPhotoVid.setAttribute("class", "photoVid");
@@ -117,6 +134,7 @@ function showGallery(obj) {
     myPhotoPrice.setAttribute("class", "photoPrice");
 
     myPhotoLikes.setAttribute("class", "photoLikes");
+    //myPhotoHeart.setAttribute("class", "like");
 
     myPhotoImg.src = "./images/" + photogID[i] + "/" + photogImg[i];
     /* myPhotoVid.src =
@@ -182,6 +200,8 @@ function showGallery(obj) {
     myPhotoCard.appendChild(myPhotoTitle);
     myPhotoCard.appendChild(myPhotoPrice);
     myPhotoCard.appendChild(myPhotoLikes);
+
+    myPhotoCard.appendChild(myPhotoHeart);
     // !! là ça m'a bien construit mon HTML mais il est vide parce que je n'arrive pas à récupérer les données des photos pour l'instant
     photoGallery.appendChild(myPhotoCard);
 

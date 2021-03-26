@@ -40,11 +40,21 @@
     & .photoLikes{
         position: absolute;
         top: 50vw;
-        right: 0;
+        right: 3vw;
         font-size: 1rem;
         font-weight: bold;
         color: $color-primary-1;
         padding: .5rem 0 0 0;
+    }
+    & .like{
+        position: absolute;
+        top: 50vw;
+        right: 0;
+        font-size: 1rem;
+        padding: .5rem 0 0 0;
+        & {
+        @include likeButton;
+        }
     }
     
 }

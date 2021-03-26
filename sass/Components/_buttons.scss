@@ -12,3 +12,71 @@
         white-space: nowrap;
     }
 }
+
+@mixin likeButton {
+    input {
+      display: none;
+      cursor: pointer;
+      & + .fa-heart {
+        transition: all ease-in-out;
+        color: $color-primary-1;
+        font-weight: 400;
+        opacity: 1;
+        cursor: pointer;
+      }
+  
+      &:checked + .fa-heart {
+        font-weight: 900 !important;
+        color: $color-primary-1;
+        animation: coeur 0.8s ease;
+        opacity: 1;
+      }
+    }
+    @include large-only {
+      .fa-heart:hover {
+        font-weight: 900 !important;
+        color: $color-primary-2;
+        animation: coeurHover 0.6s ease;
+        opacity: 1;
+        cursor: pointer;
+      }
+    }
+  
+    @keyframes coeur {
+      0% {
+        color: $color-primary-1;
+        opacity: 0.2;
+        font-weight: 400;
+      }
+  
+      10% {
+        color: lighten($color-primary-1, 70%);
+        opacity: 0.2;
+        font-weight: 900;
+      }
+      100% {
+        color: $color-primary-1;
+        opacity: 1;
+        font-weight: 900;
+      }
+    }
+  
+    @keyframes coeurHover {
+      0% {
+        color: $color-primary-1;
+        opacity: 0.2;
+        font-weight: 400;
+      }
+  
+      10% {
+        color: lighten($color-primary-2, 70%);
+        opacity: 0.2;
+        font-weight: 900;
+      }
+      100% {
+        color: $color-primary-2;
+        opacity: 1;
+        font-weight: 900;
+      }
+    }
+  }

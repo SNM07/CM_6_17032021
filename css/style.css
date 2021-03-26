@@ -256,11 +256,78 @@
 .photoCard .photoLikes {
   position: absolute;
   top: 50vw;
-  right: 0;
+  right: 3vw;
   font-size: 1rem;
   font-weight: bold;
   color: #901C1C;
   padding: 0.5rem 0 0 0;
+}
+.photoCard .like {
+  position: absolute;
+  top: 50vw;
+  right: 0;
+  font-size: 1rem;
+  padding: 0.5rem 0 0 0;
+}
+.photoCard .like input {
+  display: none;
+  cursor: pointer;
+}
+.photoCard .like input + .fa-heart {
+  transition: all ease-in-out;
+  color: #901C1C;
+  font-weight: 400;
+  opacity: 1;
+  cursor: pointer;
+}
+.photoCard .like input:checked + .fa-heart {
+  font-weight: 900 !important;
+  color: #901C1C;
+  animation: coeur 0.8s ease;
+  opacity: 1;
+}
+@media screen and (min-width: 800px) {
+  .photoCard .like .fa-heart:hover {
+    font-weight: 900 !important;
+    color: #D3573C;
+    animation: coeurHover 0.6s ease;
+    opacity: 1;
+    cursor: pointer;
+  }
+}
+@keyframes coeur {
+  0% {
+    color: #901C1C;
+    opacity: 0.2;
+    font-weight: 400;
+  }
+  10% {
+    color: white;
+    opacity: 0.2;
+    font-weight: 900;
+  }
+  100% {
+    color: #901C1C;
+    opacity: 1;
+    font-weight: 900;
+  }
+}
+@keyframes coeurHover {
+  0% {
+    color: #901C1C;
+    opacity: 0.2;
+    font-weight: 400;
+  }
+  10% {
+    color: white;
+    opacity: 0.2;
+    font-weight: 900;
+  }
+  100% {
+    color: #D3573C;
+    opacity: 1;
+    font-weight: 900;
+  }
 }
 
 header {
