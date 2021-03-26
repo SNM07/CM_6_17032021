@@ -143,7 +143,7 @@ function showGallery(obj) {
     myPhotoVid.setAttribute("height", "240"); */
     myPhotoVid.setAttribute("controls", "controls");
     myPhotoTitle.textContent = photogTitle[i];
-    myPhotoPrice.textContent = photogPrice[i];
+    myPhotoPrice.textContent = photogPrice[i] + " €";
     myPhotoLikes.textContent = photogLikes[i];
 
     let myPhotogID = photogID[i];

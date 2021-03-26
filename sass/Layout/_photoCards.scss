@@ -1,19 +1,50 @@
-.showCard{
-    display: block;
-}
-
-.hideCard{
-    display: none;
-}
-
-.myPhotoCard{
-    display: none;
-}
-
-.photoImg{
-    width: 10vw;
-}
-
-.photoVid{
-    width: 20vw;
+.photoCard{
+    position: relative;
+    width: 80vw;
+    height: 60vw;
+    margin: auto;
+    cursor: pointer;
+    & .photoImg{
+        object-fit: cover;
+        object-position: 50% 30%;
+        position: absolute;
+        width: 100%;
+        height: 50vw;
+        border-radius: .5rem .5rem .5rem .5rem;
+    }
+    & .photoVid{
+        object-fit: cover;
+        object-position: 50% 30%;
+        position: absolute;
+        width: 80vw;
+        overflow: hidden;
+        height: 50vw;
+    }
+    & .photoTitle{
+        position: absolute;
+        top: 50vw;
+        font-size: 1rem;
+        font-weight: 500;
+        color: $color-primary-1;
+        padding: .5rem 0 0 0;
+    }
+    & .photoPrice{
+        position: absolute;
+        top: 50vw;
+        right: 12vw;
+        font-size: .9rem;
+        font-weight: bold;
+        color: $color-primary-1;
+        padding: .6rem 0 0 0;
+    }
+    & .photoLikes{
+        position: absolute;
+        top: 50vw;
+        right: 0;
+        font-size: 1rem;
+        font-weight: bold;
+        color: $color-primary-1;
+        padding: .5rem 0 0 0;
+    }
+    
 }

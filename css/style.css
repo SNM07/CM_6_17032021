@@ -213,24 +213,54 @@
   display: block;
 }
 
-.showCard {
-  display: block;
+.photoCard {
+  position: relative;
+  width: 80vw;
+  height: 60vw;
+  margin: auto;
+  cursor: pointer;
 }
-
-.hideCard {
-  display: none;
+.photoCard .photoImg {
+  object-fit: cover;
+  object-position: 50% 30%;
+  position: absolute;
+  width: 100%;
+  height: 50vw;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
-
-.myPhotoCard {
-  display: none;
+.photoCard .photoVid {
+  object-fit: cover;
+  object-position: 50% 30%;
+  position: absolute;
+  width: 80vw;
+  overflow: hidden;
+  height: 50vw;
 }
-
-.photoImg {
-  width: 10vw;
+.photoCard .photoTitle {
+  position: absolute;
+  top: 50vw;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #901C1C;
+  padding: 0.5rem 0 0 0;
 }
-
-.photoVid {
-  width: 20vw;
+.photoCard .photoPrice {
+  position: absolute;
+  top: 50vw;
+  right: 12vw;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #901C1C;
+  padding: 0.6rem 0 0 0;
+}
+.photoCard .photoLikes {
+  position: absolute;
+  top: 50vw;
+  right: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #901C1C;
+  padding: 0.5rem 0 0 0;
 }
 
 header {
@@ -383,6 +413,10 @@ padding: 0;
   color: #FAFAFA;
 }
 
+header {
+  height: fit-content;
+}
+
 .profileCardPP {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -402,7 +436,17 @@ padding: 0;
   position: absolute;
   margin: 0;
   z-index: 1;
-  top: 12rem;
+  top: 8rem;
+}
+
+#photoGallery {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 20rem;
+  margin: auto;
+  position: absolute;
 }
 
 /*# sourceMappingURL=style.css.map */
