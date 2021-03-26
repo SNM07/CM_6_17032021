@@ -29,7 +29,19 @@ margin: 6vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    top: 20rem;
+    top: 75vw;
     margin: auto;
     position: absolute;
+    @include large-only{
+        top: 50vw;
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        grid-auto-rows: 35vw;
+        justify-content: center;
+        padding: 1vw;
+    }
+}
+
+.photoAHREF{
+    padding: 1vw;
 }

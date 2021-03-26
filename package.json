@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/SNM07/CM_6_17032021/issues"
   },
-  "homepage": "https://github.com/SNM07/CM_6_17032021#readme"
+  "homepage": "https://github.com/SNM07/CM_6_17032021#readme",
+  "dependencies": {
+    "simple-lightbox": "^2.1.0"
+  }
 }

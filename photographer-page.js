@@ -103,6 +103,11 @@ function showGallery(obj) {
   // console.log(photogPersonCard);
 
   for (let i = 0; i < photogal.length; i++) {
+    const myAHREF = document.createElement("a");
+    myAHREF.setAttribute("href", "./images/" + photogID[i] + "/" + photogImg[i]);
+    myAHREF.setAttribute("class", "photoAHREF");
+
+
     const myPhotoCard = document.createElement("article");
     const myPhotoImg = document.createElement("img");
 
@@ -189,6 +194,7 @@ function showGallery(obj) {
       myPhotoCard.classList.add("Delete");
       // Delete.parentNode.removeChild(Delete);
       document.querySelectorAll(".Delete").forEach((e) => e.remove());
+      myAHREF.classList.add("Delete");
 
       /* myPhotoCard.classList.remove("showCard");
         myPhotoCard.classList.add("hideCard"); */
@@ -202,8 +208,11 @@ function showGallery(obj) {
     myPhotoCard.appendChild(myPhotoLikes);
 
     myPhotoCard.appendChild(myPhotoHeart);
+    myAHREF.appendChild(myPhotoCard);
     // !! là ça m'a bien construit mon HTML mais il est vide parce que je n'arrive pas à récupérer les données des photos pour l'instant
-    photoGallery.appendChild(myPhotoCard);
+    //photoGallery.appendChild(myPhotoCard);
+    photoGallery.appendChild(myAHREF);
+
 
     /* if (x == y) {
       myPhotoCard.style.display = "block";
@@ -222,11 +231,17 @@ fetch("./FishEyeDataFR.json")
   .then((object) => {
     const photographers = object.photographers;
     const medias = object.medias;
+
     console.log(object, photographers, medias);
 
     showProfile(object);
 
     showGallery(object);
+
+    //new SimpleLightbox({elements: '.photoGallery a'});
+    /* SimpleLightbox.open({
+      items: ["./images/" + photogID[i] + "/" + photogImg[i];]
+  }); */
 
     // filtrePhoto(object);
 
@@ -290,3 +305,5 @@ function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+
+//var SimpleLightbox = require('simple-lightbox');
