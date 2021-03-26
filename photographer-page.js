@@ -80,6 +80,7 @@ function showGallery(obj) {
   const photogPrice = photogal.map((photogal) => photogal.price);
   const photogImg = photogal.map((photogal) => photogal.image);
   const photogVid = photogal.map((photogal) => photogal.video);
+  const photogTitle = photogal.map((photogal) => photogal.title);
   let photogLikes = photogal.map((photogal) => photogal.likes);
 
   console.log(photogID);
@@ -141,7 +142,7 @@ function showGallery(obj) {
     /* myPhotoVid.setAttribute("width", "320");
     myPhotoVid.setAttribute("height", "240"); */
     myPhotoVid.setAttribute("controls", "controls");
-    myPhotoTitle.textContent = photogImg[i];
+    myPhotoTitle.textContent = photogTitle[i];
     myPhotoPrice.textContent = photogPrice[i];
     myPhotoLikes.textContent = photogLikes[i];
 
