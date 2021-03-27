@@ -122,15 +122,15 @@ function showGallery(obj) {
 
     const myPhotoHeart = document.createElement("div");
     myPhotoHeart.className = "like";
-    myPhotoHeart.setAttribute("onclick", "event.stopPropagation();")
+    myPhotoHeart.setAttribute("onclick", "event.preventDefault();")
 
     const myPHInput = document.createElement("input");
-    myPHInput.setAttribute("type", "checkbox");
+    myPHInput.type = "checkbox";
     myPHInput.id = "heart" + photogPhID[i];
     myPhotoHeart.appendChild(myPHInput);
 
     const myPHLabel = document.createElement("label");
-    myPHLabel.setAttribute("for", "heart1" + photogPhID[i]);
+    myPHLabel.htmlFor = "heart" + photogPhID[i];
     myPHLabel.className = "far fa-heart";
     myPhotoHeart.appendChild(myPHLabel);
 
