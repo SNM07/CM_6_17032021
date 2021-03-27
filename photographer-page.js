@@ -112,8 +112,10 @@ function showGallery(obj) {
 
     const myPhotoCard = document.createElement("article");
     const myPhotoImg = document.createElement("img");
-
     const myPhotoVid = document.createElement("video");
+    //const myPhotoVid = createVid();
+    //const myPhotoVid = if ("video" in photogal[i]) { document.createElement("video") };
+    //function createVid() { if ("video" in photogal[i]) { document.createElement("video") } };
 
     const myPhotoTitle = document.createElement("h2");
     const myPhotoPrice = document.createElement("p");
@@ -148,10 +150,14 @@ function showGallery(obj) {
       "./images/" + photogID[i] + "/" + photogVid[i]; */
 
     if (photogImg[i] === undefined) {
+      myPhotoImg.classList.add("DeleteImg");
+      document.querySelectorAll(".DeleteImg").forEach((e) => e.remove());
       myPhotoImg.style.display = "none";
     }
 
     if (photogVid[i] === undefined) {
+      myPhotoVid.classList.add("DeleteVid");
+      document.querySelectorAll(".DeleteVid").forEach((e) => e.remove());
       myPhotoVid.style.display = "none";
     }
 
@@ -189,10 +195,10 @@ function showGallery(obj) {
       /* myPhotoCard.classList.remove("hideCard");
         myPhotoCard.classList.add("showCard"); */
       // myPhotoCard.classList.remove("hideCard");
-      myPhotoCard.style.display = "true";
+      // !!myPhotoCard.style.display = "true";
       console.log("OK");
     } else {
-      myPhotoCard.style.display = "none";
+      // !!myPhotoCard.style.display = "none";
       myPhotoCard.classList.add("Delete");
       // Delete.parentNode.removeChild(Delete);
       document.querySelectorAll(".Delete").forEach((e) => e.remove());

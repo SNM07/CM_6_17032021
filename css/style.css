@@ -965,4 +965,16 @@ header {
   }
 }
 
+.logo {
+  width: 100vw;
+}
+.logo img {
+  width: 50%;
+}
+@media screen and (min-width: 800px) {
+  .logo img {
+    width: 26vw;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */

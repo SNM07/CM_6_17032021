@@ -57,3 +57,13 @@ margin: 6vw;
         display: block;
     }
 }
+
+.logo{
+    width: 100vw;
+    & img{
+        width: 50%;
+        @include large-only{
+        width: 26vw;
+        }
+    }
+}
