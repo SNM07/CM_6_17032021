@@ -2,6 +2,8 @@ let profURL = window.location.search.substr(4);
 
 console.log(profURL);
 
+//import SimpleLightbox from "./node_modules\simple-lightbox\src\simpleLightbox.js";
+
 // !! ça c'est la fonction qui affiche la profileCard (photo de profile, nom du photographe, ville, tags) RAS
 function showProfile(obj) {
   const photog = obj["photographers"];
@@ -238,7 +240,9 @@ fetch("./FishEyeDataFR.json")
 
     showGallery(object);
 
-    //new SimpleLightbox({elements: '.photoGallery a'});
+
+    //var SimpleLightbox = require('simple-lightbox');
+    new SimpleLightbox({elements: '.photoGallery a'});
     /* SimpleLightbox.open({
       items: ["./images/" + photogID[i] + "/" + photogImg[i];]
   }); */
