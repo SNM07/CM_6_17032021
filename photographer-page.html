@@ -13,7 +13,12 @@
     ></script>
     <script src="./photographer-page.js"></script>
     <script src="./node_modules\simple-lightbox/src/simpleLightbox.js" ></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script>
+      (function () {
+        emailjs.init("user_puf8TmtfpdXTG2bY7o9Sk");
+      })();
+    </script>
   </head>
   <body>
     <header class="page-header">
@@ -31,6 +36,85 @@
         <p>Trier par</p>
       </section>
       <section id="photoGallery" class="photoGall"></section>
+<!-- // -->
+      <div class="bground">
+        <span class="popuptext" id="myPopup"
+          >Merci ! Votre message a été envoyé.</span
+        >
+
+        <div class="content">
+          <span id="close"></span>
+          <div class="modal-body">
+            <form
+              name="reserve"
+              action="index.html"
+              id="contact-form"
+              method="get"
+              onsubmit="return validate();"
+            >
+              <div class="formData">
+                <label for="first">Prénom</label><br />
+                <input
+                  class="text-control"
+                  type="text"
+                  id="first"
+                  name="first"
+                  minlength="2"
+                  required
+                  oninvalid="this.setCustomValidity('Veuillez entrer 2 caractères ou plus pour le champ du prénom.')"
+                  onchange="this.setCustomValidity('')"
+                /><br />
+              </div>
+              <div class="formData">
+                <label for="last">Nom</label><br />
+                <input
+                  class="text-control"
+                  type="text"
+                  id="last"
+                  name="last"
+                  minlength="2"
+                  required
+                  oninvalid="this.setCustomValidity('Veuillez entrer 2 caractères ou plus pour le champ du nom.')"
+                  onchange="this.setCustomValidity('')"
+                /><br />
+              </div>
+              <div class="formData">
+                <label for="email">E-mail</label><br />
+                <input
+                  class="text-control"
+                  type="email"
+                  id="email"
+                  name="email"
+                  pattern=".+@.+\..+"
+                  required
+                  oninvalid="this.setCustomValidity('Vous devez entrer une adresse email valide.')"
+                  onchange="this.setCustomValidity('')"
+                /><br />
+              </div>
+              <div class="formData">
+                <label for="birthdate">Date de naissance</label><br />
+                <input
+                  class="text-control"
+                  type="date"
+                  id="birthdate"
+                  name="birthdate"
+                  required
+                  oninvalid="this.setCustomValidity('Vous devez entrer votre date de naissance.')"
+                  onchange="this.setCustomValidity('')"
+                /><br />
+              </div>
+              
+              </div>
+              <input
+                class="btn-submit button"
+                type="submit"
+                value="C'est parti"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- // -->
     </main>
   </body>
 </html>
