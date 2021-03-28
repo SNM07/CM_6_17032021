@@ -3,12 +3,15 @@
   width: fit-content;
   margin: auto;
   margin-bottom: 3rem;
+  background-color: $color-secondary-2;
   @include large-only{
     justify-self: center;
     padding: 1vw;
     max-width: 100%;
     margin: 0;
     margin-bottom: 3rem;
+    padding: 5vw 3vw 5vw 3vw;
+    border-radius: .6rem;
   }
   & .profilePic {
     grid-column: 2 / span 1;
@@ -22,8 +25,9 @@
     box-shadow: 1px 1px 5px rgba($color-secondary-1, 0.3);
     backface-visibility: hidden;
     @include large-only{
-      height: 22vw;
-      width: 22vw;
+      height: 18vw;
+      width: 18vw;
+      align-self: center;
     }
   }
   & .profileName {
@@ -81,8 +85,19 @@
         }
     }
     }
+    
 }
 
 .show {
   display: block;
+}
+
+.profileContactButton{
+  @include buttonContact;
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  margin: auto;
+  left: 40vw;
+  top: 4vw;
 }

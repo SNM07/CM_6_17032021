@@ -2,6 +2,12 @@ header{
 height: fit-content;
 }
 
+main{
+    display: flex;
+    flex-direction: column;
+    padding: 6rem 5vw 5vw 5vw;
+}
+
 .profileCardPP {
     display: grid;
     // grid-template-columns: 58% 32%;
@@ -11,17 +17,17 @@ height: fit-content;
     @include large-only{
 height: 22vw;
 width: 88vw;
-margin: 6vw;
+margin: auto;
     }
     
 }
 
 #profilesPP{
     width: 100%;
-    position: absolute;
+    //position: absolute;
+    position: relative;
     margin: 0;
     z-index: 1;
-    top: 8rem;
 }
 
 #photoGallery{
@@ -31,23 +37,25 @@ margin: 6vw;
     justify-content: center;
     top: 75vw;
     margin: auto;
-    position: absolute;
+    //position: absolute;
     @include large-only{
-        top: 60vw;
+        top: 42vw;
         display: grid;
         grid-template-columns: 33% 33% 33%;
-        grid-auto-rows: 35vw;
+        grid-auto-rows: 32vw;
+        grid-gap: 2%;
+        max-width: 97%;
         justify-content: center;
-        padding: 1vw;
+        //padding: 1vw;
     }
 }
 
 .photoAHREF{
-    padding: 1vw;
+    //padding: 1vw;
 }
 
 #photoFilter{
-    position: absolute;
+    //position: absolute;
     top: 50vw;
     left: 3vw;
     padding: 3vw 0 3vw 0;
@@ -58,7 +66,7 @@ margin: 6vw;
     }
 }
 
-.logo{
+.logoP{
     width: 100vw;
     & img{
         width: 50%;

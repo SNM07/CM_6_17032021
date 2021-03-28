@@ -11,6 +11,14 @@ function showProfile(obj) {
   //  let i = 0;
   const profilID = photog.map((photog) => photog.id);
 
+  const myContact = document.createElement("button");
+  const contactText= document.createTextNode("Contactez-moi");
+  myContact.setAttribute("class", "profileContactButton");
+  myContact.appendChild(contactText);
+  profilesPP.appendChild(myContact);
+
+
+
   for (let i = 0; i < photog.length; i++) {
     const myArticle = document.createElement("article");
     const myImg = document.createElement("img");
@@ -19,6 +27,8 @@ function showProfile(obj) {
     const myPara2 = document.createElement("p");
     const myPara3 = document.createElement("p");
     const myTags = document.createElement("ul");
+    
+    
 
     myArticle.setAttribute("class", "profileCardPP");
     myImg.setAttribute("class", "profilePic");
@@ -27,6 +37,7 @@ function showProfile(obj) {
     myPara2.setAttribute("class", "profileTagline");
     myPara3.setAttribute("class", "profilePrice");
     myTags.setAttribute("class", "profileTags");
+
 
     myImg.src = "./images/Photographers-ID-Photos/" + photog[i].portrait;
     myH2.textContent = photog[i].name;
@@ -67,6 +78,7 @@ function showProfile(obj) {
     myArticle.appendChild(myPara2);
     myArticle.appendChild(myPara3);
     myArticle.appendChild(myTags);
+
 
     profilesPP.appendChild(myArticle);
   }

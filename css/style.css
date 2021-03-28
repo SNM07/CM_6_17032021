@@ -107,6 +107,7 @@
   width: fit-content;
   margin: auto;
   margin-bottom: 3rem;
+  background-color: #FAFAFA;
 }
 @media screen and (min-width: 800px) {
   .profileCardPP {
@@ -115,6 +116,8 @@
     max-width: 100%;
     margin: 0;
     margin-bottom: 3rem;
+    padding: 5vw 3vw 5vw 3vw;
+    border-radius: 0.6rem;
   }
 }
 .profileCardPP .profilePic {
@@ -131,8 +134,9 @@
 }
 @media screen and (min-width: 800px) {
   .profileCardPP .profilePic {
-    height: 22vw;
-    width: 22vw;
+    height: 18vw;
+    width: 18vw;
+    align-self: center;
   }
 }
 .profileCardPP .profileName {
@@ -211,6 +215,26 @@
 
 .show {
   display: block;
+}
+
+.profileContactButton {
+  background-color: #901C1C;
+  color: white;
+  width: 10vw;
+  height: 4.5vw;
+  border: none;
+  border-radius: 0.3rem;
+  align-content: center;
+  text-align: center;
+  font-size: 1.2vw;
+  line-height: 4.5vw;
+  cursor: pointer;
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  margin: auto;
+  left: 40vw;
+  top: 4vw;
 }
 
 .photoCard {
@@ -905,6 +929,12 @@ header {
   height: fit-content;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 6rem 5vw 5vw 5vw;
+}
+
 .profileCardPP {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -915,16 +945,15 @@ header {
   .profileCardPP {
     height: 22vw;
     width: 88vw;
-    margin: 6vw;
+    margin: auto;
   }
 }
 
 #profilesPP {
   width: 100%;
-  position: absolute;
+  position: relative;
   margin: 0;
   z-index: 1;
-  top: 8rem;
 }
 
 #photoGallery {
@@ -934,25 +963,20 @@ header {
   justify-content: center;
   top: 75vw;
   margin: auto;
-  position: absolute;
 }
 @media screen and (min-width: 800px) {
   #photoGallery {
-    top: 60vw;
+    top: 42vw;
     display: grid;
     grid-template-columns: 33% 33% 33%;
-    grid-auto-rows: 35vw;
+    grid-auto-rows: 32vw;
+    grid-gap: 2%;
+    max-width: 97%;
     justify-content: center;
-    padding: 1vw;
   }
 }
 
-.photoAHREF {
-  padding: 1vw;
-}
-
 #photoFilter {
-  position: absolute;
   top: 50vw;
   left: 3vw;
   padding: 3vw 0 3vw 0;
@@ -965,14 +989,14 @@ header {
   }
 }
 
-.logo {
+.logoP {
   width: 100vw;
 }
-.logo img {
+.logoP img {
   width: 50%;
 }
 @media screen and (min-width: 800px) {
-  .logo img {
+  .logoP img {
     width: 26vw;
   }
 }

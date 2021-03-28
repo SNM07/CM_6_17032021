@@ -1,82 +1,96 @@
 @mixin boutonTags {
-    cursor: pointer;
-    color: $color-primary-1;
-    font-weight: bold;
-    padding: 6px 8px 6px 8px;
-    margin: .2rem .2rem .2rem .2rem;
-    background-color: white;
-    border: 1px solid rgba($color-secondary-1, .2);
-    border-radius: 16px;
-    @include large-only{
-        font-size: .75rem;
-        white-space: nowrap;
-    }
+  cursor: pointer;
+  color: $color-primary-1;
+  font-weight: bold;
+  padding: 6px 8px 6px 8px;
+  margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+  background-color: white;
+  border: 1px solid rgba($color-secondary-1, 0.2);
+  border-radius: 16px;
+  @include large-only {
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
 }
 
 @mixin likeButton {
-    input {
-      display: none;
+  input {
+    display: none;
+    cursor: pointer;
+    & + .fa-heart {
+      transition: all ease-in-out;
+      color: $color-primary-1;
+      font-weight: 400;
+      opacity: 1;
       cursor: pointer;
-      & + .fa-heart {
-        transition: all ease-in-out;
-        color: $color-primary-1;
-        font-weight: 400;
-        opacity: 1;
-        cursor: pointer;
-      }
-  
-      &:checked + .fa-heart {
-        font-weight: 900 !important;
-        color: $color-primary-1;
-        animation: coeur 0.8s ease;
-        opacity: 1;
-      }
     }
-    @include large-only {
-      .fa-heart:hover {
-        font-weight: 900 !important;
-        color: $color-primary-2;
-        animation: coeurHover 0.6s ease;
-        opacity: 1;
-        cursor: pointer;
-      }
-    }
-  
-    @keyframes coeur {
-      0% {
-        color: $color-primary-1;
-        opacity: 0.2;
-        font-weight: 400;
-      }
-  
-      10% {
-        color: lighten($color-primary-1, 70%);
-        opacity: 0.2;
-        font-weight: 900;
-      }
-      100% {
-        color: $color-primary-1;
-        opacity: 1;
-        font-weight: 900;
-      }
-    }
-  
-    @keyframes coeurHover {
-      0% {
-        color: $color-primary-1;
-        opacity: 0.2;
-        font-weight: 400;
-      }
-  
-      10% {
-        color: lighten($color-primary-2, 70%);
-        opacity: 0.2;
-        font-weight: 900;
-      }
-      100% {
-        color: $color-primary-2;
-        opacity: 1;
-        font-weight: 900;
-      }
+
+    &:checked + .fa-heart {
+      font-weight: 900 !important;
+      color: $color-primary-1;
+      animation: coeur 0.8s ease;
+      opacity: 1;
     }
   }
+  @include large-only {
+    .fa-heart:hover {
+      font-weight: 900 !important;
+      color: $color-primary-2;
+      animation: coeurHover 0.6s ease;
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+
+  @keyframes coeur {
+    0% {
+      color: $color-primary-1;
+      opacity: 0.2;
+      font-weight: 400;
+    }
+
+    10% {
+      color: lighten($color-primary-1, 70%);
+      opacity: 0.2;
+      font-weight: 900;
+    }
+    100% {
+      color: $color-primary-1;
+      opacity: 1;
+      font-weight: 900;
+    }
+  }
+
+  @keyframes coeurHover {
+    0% {
+      color: $color-primary-1;
+      opacity: 0.2;
+      font-weight: 400;
+    }
+
+    10% {
+      color: lighten($color-primary-2, 70%);
+      opacity: 0.2;
+      font-weight: 900;
+    }
+    100% {
+      color: $color-primary-2;
+      opacity: 1;
+      font-weight: 900;
+    }
+  }
+}
+
+@mixin buttonContact {
+  background-color: $color-primary-1;
+  color: white;
+  width: 10vw;
+  height: 4.5vw;
+  border: none;
+  border-radius: .3rem;
+  align-content:center;
+  text-align: center;
+  font-size: 1.2vw;
+  line-height: 4.5vw;
+  cursor: pointer;
+}
