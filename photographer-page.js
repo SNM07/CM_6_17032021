@@ -2,6 +2,9 @@ let profURL = window.location.search.substr(4);
 
 console.log(profURL);
 
+//import { contactFormModule } from "./contactForm.js";
+
+
 //import SimpleLightbox from "./node_modules\simple-lightbox\src\simpleLightbox.js";
 
 // !! ça c'est la fonction qui affiche la profileCard (photo de profile, nom du photographe, ville, tags) RAS
@@ -13,7 +16,7 @@ function showProfile(obj) {
 
   const myContact = document.createElement("button");
   const contactText= document.createTextNode("Contactez-moi");
-  myContact.setAttribute("class", "profileContactButton");
+  myContact.setAttribute("class", "modal-btn");
   myContact.appendChild(contactText);
   profilesPP.appendChild(myContact);
 
@@ -258,9 +261,31 @@ fetch("./FishEyeDataFR.json")
 
     showGallery(object);
 
+    //import { contactFormModule } from "./contactForm.js";
+    //import * as contactFormModule from "./contactForm.js";
+    
+    
+    // !! import contactFormModule from "./contactForm.js";
+    // !! contactFormModule();
+    
+    
+    //new contactFormModule();
 
     //var SimpleLightbox = require('simple-lightbox');
-    new SimpleLightbox({elements: '.photoGallery a'});
+    
+    // !!import SimpleLightbox from "simplelightbox/dist/simple-lightbox.esm";
+    new SimpleLightbox({ elements: '.photoGallery a' });
+    let gallery = new SimpleLightbox('.photoGallery a');
+gallery.on('show.simplelightbox', function () {
+	// do something…
+});
+
+gallery.on('error.simplelightbox', function (e) {
+	console.log(e); // some usefull information
+});
+
+
+
     /* SimpleLightbox.open({
       items: ["./images/" + photogID[i] + "/" + photogImg[i];]
   }); */

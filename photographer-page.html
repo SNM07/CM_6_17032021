@@ -11,14 +11,15 @@
       src="https://kit.fontawesome.com/8c176d9289.js"
       crossorigin="anonymous"
     ></script>
-    <script src="./photographer-page.js"></script>
-    <script src="./node_modules\simple-lightbox/src/simpleLightbox.js" ></script>
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script type="module" src="./photographer-page.js"></script>
+    <script type="module" src="./node_modules\simple-lightbox/src/simpleLightbox.js" ></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     <script>
       (function () {
         emailjs.init("user_puf8TmtfpdXTG2bY7o9Sk");
       })();
     </script>
+    <script src="./contactForm.js" type="module"></script>
   </head>
   <body>
     <header class="page-header">
@@ -47,7 +48,7 @@
           <div class="modal-body">
             <form
               name="reserve"
-              action="index.html"
+              action="photographer-page.html"
               id="contact-form"
               method="get"
               onsubmit="return validate();"

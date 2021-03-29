@@ -217,7 +217,7 @@
   display: block;
 }
 
-.profileContactButton {
+.modal-btn {
   background-color: #901C1C;
   color: white;
   width: 10vw;
@@ -705,7 +705,7 @@ input[data-error]::after {
 }
 
 /* Toggle this class - hide and show the popup */
-.show {
+.showPopup {
   visibility: visible;
   -webkit-animation: fadeIn 4s;
   animation: fadeIn 4s both;
