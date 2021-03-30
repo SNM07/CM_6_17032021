@@ -322,7 +322,9 @@ fetch("./FishEyeDataFR.json")
     //var SimpleLightbox = require('simple-lightbox');
     
     // !!import SimpleLightbox from "simplelightbox/dist/simple-lightbox.esm";
-    new SimpleLightbox({ elements: '.photoGallery a' });
+    
+    
+    /* new SimpleLightbox({ elements: '.photoGallery a' });
     let gallery = new SimpleLightbox('.photoGallery a');
 gallery.on('show.simplelightbox', function () {
 	// do something…
@@ -330,7 +332,7 @@ gallery.on('show.simplelightbox', function () {
 
 gallery.on('error.simplelightbox', function (e) {
 	console.log(e); // some usefull information
-});
+}); */
 
 
 

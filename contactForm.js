@@ -44,9 +44,9 @@ export default function contactFormModule() {
   //myFormTitle.h2 = myFormName.h2;
   //console.log(x)
   console.log("FORMTITLE", myFormTitle.innerHTML)
-  myFormBody.appendChild(myFormTitle);
+  //myFormBody.appendChild(myFormTitle);
 
-  document.querySelectorAll('contact-form').addEventListener(validate());
+  // !!document.querySelectorAll('contact-form').addEventListener(validate());
 
   // Send form with EmailJS
   function validate() {
