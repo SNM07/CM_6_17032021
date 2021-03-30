@@ -46,6 +46,7 @@ export default function contactFormModule() {
   console.log("FORMTITLE", myFormTitle.innerHTML)
   myFormBody.appendChild(myFormTitle);
 
+  document.querySelectorAll('contact-form').addEventListener(validate());
 
   // Send form with EmailJS
   function validate() {
@@ -54,11 +55,11 @@ export default function contactFormModule() {
       last: document.getElementById("last").value,
       email: document.getElementById("email").value,
       message: document.getElementById("message").value,
-      photographerName: document.getElementById("photographerName").value,
+      photographerName: document.querySelector('.profileName').innerHTML,
     
     };
 
-    emailjs.send("service_fqmxk3h", "template_ ", varsForm).then(
+    emailjs.send("service_fqmxk3h", "template_uez9mo6", varsForm).then(
       function () {
         console.log("SUCCESS!");
       },

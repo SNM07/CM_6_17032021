@@ -303,7 +303,9 @@ fetch("./FishEyeDataFR.json")
 
     showGallery(object);
 
-    contactFormModule(); 
+    contactFormModule();
+    
+    //document.querySelector('contact-form').addEventListener(validate);
 
     //import { contactFormModule } from "./contactForm.js";
     //import * as contactFormModule from "./contactForm.js";
