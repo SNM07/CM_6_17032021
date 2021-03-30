@@ -405,6 +405,12 @@
 }
 
 /* Modal form */
+#formTitle {
+  font-size: 3rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
 .button {
   background-color: #901C1C;
   color: white;
@@ -417,10 +423,22 @@
   font-size: 1.2vw;
   line-height: 4.5vw;
   cursor: pointer;
+  line-height: auto;
+  margin: 0 8% 8% 8%;
+  width: 10rem;
+  height: 5rem;
+  font-size: 1.5rem;
 }
 .button:hover {
   background-color: #D3573C;
   color: black;
+}
+.button:hover {
+  background-color: white;
+}
+
+#message {
+  height: 12rem;
 }
 
 .smFont {
@@ -430,13 +448,13 @@
 .bground {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 999;
   left: 0;
   top: 0;
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: rgba(26, 39, 156, 0.4);
+  background-color: rgba(82, 82, 82, 0.6);
 }
 
 .content {
@@ -460,10 +478,10 @@
 
 label {
   font-family: var(--font-default);
-  font-size: 17px;
+  font-size: 1.8rem;
   font-weight: normal;
   display: inline-block;
-  margin-bottom: 11px;
+  margin: 5px;
 }
 
 input {
