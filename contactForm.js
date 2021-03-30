@@ -27,6 +27,25 @@ export default function contactFormModule() {
       modalbg.style.display = "none";
     }
   };
+  
+  //import * as currentName from currentName;
+  //const myFormTitle = document.createElement("h2");
+  //const myFormBody = document.getElementsByClassName("modal-body");
+  //myFormTitle.text = currName;
+  //myFormBody.appendChild(myFormTitle); 
+
+  const myFormBody = document.getElementsByClassName("modal-body");
+  //const myFormName = document.getElementsByClassName("formName");
+  //const myFormTitle = document.createElement("h2");
+  const myFormTitle = document.getElementById("formTitle");
+  //myFormName.id = myFormTitle.textcontent;
+  //myFormTitle.textcontent = document.querySelector('.formName').id;
+  myFormTitle.innerHTML = "Contactez-moi" + "</br>" + document.querySelector('.profileName').innerHTML;
+  //myFormTitle.h2 = myFormName.h2;
+  //console.log(x)
+  console.log("FORMTITLE", myFormTitle.innerHTML)
+  myFormBody.appendChild(myFormTitle);
+
 
   // Send form with EmailJS
   function validate() {
@@ -35,7 +54,7 @@ export default function contactFormModule() {
       last: document.getElementById("last").value,
       email: document.getElementById("email").value,
       message: document.getElementById("message").value,
-      photographerName: document.getElementById("phtographerName").value,
+      photographerName: document.getElementById("photographerName").value,
     
     };
 

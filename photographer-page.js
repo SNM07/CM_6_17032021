@@ -3,9 +3,12 @@ let profURL = window.location.search.substr(4);
 console.log(profURL);
 
 //import { contactFormModule } from "./contactForm.js";
+import contactFormModule from "./contactForm.js";
+    //contactFormModule();
+    
+//import SimpleLightbox from "simplelightbox/dist/simple-lightbox.esm";
 
-
-//import SimpleLightbox from "./node_modules\simple-lightbox\src\simpleLightbox.js";
+//import SimpleLightbox from "./node-modules/simple-lightbox/src/simpleLightbox.js";
 
 // !! ça c'est la fonction qui affiche la profileCard (photo de profile, nom du photographe, ville, tags) RAS
 function showProfile(obj) {
@@ -31,7 +34,7 @@ function showProfile(obj) {
     const myPara3 = document.createElement("p");
     const myTags = document.createElement("ul");
     
-    
+    //const myFormName = document.createElement("h2");
 
     myArticle.setAttribute("class", "profileCardPP");
     myImg.setAttribute("class", "profilePic");
@@ -41,6 +44,7 @@ function showProfile(obj) {
     myPara3.setAttribute("class", "profilePrice");
     myTags.setAttribute("class", "profileTags");
 
+    //myFormName.setAttribute("class", "formName");
 
     myImg.src = "./images/Photographers-ID-Photos/" + photog[i].portrait;
     myH2.textContent = photog[i].name;
@@ -65,15 +69,44 @@ function showProfile(obj) {
 
     let y = profURL;
 
+    let currentName = null;
+
     if (x == y) {
       myArticle.style.display = "true";
       console.log("OK");
+      
+      currentName = photog[i].name;
+      console.log("NAME", currentName)
+
     } else {
       myArticle.style.display = "none";
       myArticle.classList.add("Delete");
 
       document.querySelectorAll(".Delete").forEach((e) => e.remove());
     }
+
+    //let currName = null;
+    //let currName = x;
+
+    /* function getCurrentName() {
+      if (currentName !== null) {
+        console.log("NAME", currentName)
+        myFormName.textContent = currentName;
+        myFormName.setAttribute("id", currentName);
+        profilesPP.appendChild(myFormName);
+
+        //x = currentName;
+        //return currName;
+        //return currentName;
+        //export * from currentName;
+      }
+    }
+    getCurrentName();
+    
+    let currName = getCurrentName();
+    //let currName = getCurrentName();
+    console.log("CURRNAME", currName)
+    //export currentName; */
 
     myArticle.appendChild(myImg);
     myArticle.appendChild(myH2);
@@ -84,8 +117,15 @@ function showProfile(obj) {
 
 
     profilesPP.appendChild(myArticle);
+
+    
+    //export * from getCurrentName();
+    //return getCurrentName();
+    //contactFormModule();
   }
 }
+// console.log(getCurrentName())
+
 
 // !! ça c'est la fonction (en cours de construction) qui me pose problème pour afficher les cards de chaque photos correspondant à l'id du photographe associé
 function showGallery(obj) {
@@ -139,11 +179,13 @@ function showGallery(obj) {
 
     const myPhotoHeart = document.createElement("div");
     myPhotoHeart.className = "like";
-    myPhotoHeart.setAttribute("onclick", "event.preventDefault();")
+    //myPhotoHeart.setAttribute("onclick", "event.preventDefault();")
 
     const myPHInput = document.createElement("input");
     myPHInput.type = "checkbox";
     myPHInput.id = "heart" + photogPhID[i];
+    //myPHInput.setAttribute("onclick", "event.preventDefault();");
+    //myPHInput.addEventListener("click", e => e.preventDefault());
     myPhotoHeart.appendChild(myPHInput);
 
     const myPHLabel = document.createElement("label");
@@ -261,14 +303,18 @@ fetch("./FishEyeDataFR.json")
 
     showGallery(object);
 
+    contactFormModule(); 
+
     //import { contactFormModule } from "./contactForm.js";
     //import * as contactFormModule from "./contactForm.js";
+    (function () {
+      emailjs.init("user_puf8TmtfpdXTG2bY7o9Sk");
+    })();
     
+    //import contactFormModule from "./contactForm.js";
+    // !!contactFormModule();
     
-    // !! import contactFormModule from "./contactForm.js";
-    // !! contactFormModule();
-    
-    
+    //console.log(getCurrentName())
     //new contactFormModule();
 
     //var SimpleLightbox = require('simple-lightbox');

@@ -12,12 +12,12 @@
       crossorigin="anonymous"
     ></script>
     <script type="module" src="./photographer-page.js"></script>
-    <script type="module" src="./node_modules\simple-lightbox/src/simpleLightbox.js" ></script>
+    <script type="module" src="./node-modules/simple-lightbox/src/simpleLightbox.js" ></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     <script>
-      (function () {
+      /* (function () {
         emailjs.init("user_puf8TmtfpdXTG2bY7o9Sk");
-      })();
+      })(); */
     </script>
     <script src="./contactForm.js" type="module"></script>
   </head>
@@ -46,6 +46,7 @@
         <div class="content">
           <span id="close"></span>
           <div class="modal-body">
+            <h2 id="formTitle"></h2>
             <form
               name="reserve"
               action="photographer-page.html"
@@ -93,23 +94,23 @@
                 /><br />
               </div>
               <div class="formData">
-                <label for="birthdate">Date de naissance</label><br />
-                <input
+                <label for="message">Message</label><br />
+                <textarea
                   class="text-control"
-                  type="date"
-                  id="birthdate"
-                  name="birthdate"
+                  type="input"
+                  id="message"
+                  name="message"
                   required
                   oninvalid="this.setCustomValidity('Vous devez entrer votre date de naissance.')"
                   onchange="this.setCustomValidity('')"
-                /><br />
+                ></textarea><br />
               </div>
               
               </div>
               <input
                 class="btn-submit button"
                 type="submit"
-                value="C'est parti"
+                value="Envoyer"
               />
             </form>
           </div>

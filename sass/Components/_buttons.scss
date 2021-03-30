@@ -93,4 +93,8 @@
   font-size: 1.2vw;
   line-height: 4.5vw;
   cursor: pointer;
+  &:hover{
+    background-color: $color-primary-2;
+    color: black;
+  }
 }

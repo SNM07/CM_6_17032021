@@ -236,6 +236,10 @@
   left: 40vw;
   top: 4vw;
 }
+.modal-btn:hover {
+  background-color: #D3573C;
+  color: black;
+}
 
 .photoCard {
   position: relative;
@@ -402,17 +406,21 @@
 
 /* Modal form */
 .button {
-  background: #fe142f;
-  margin-top: 0.5em;
-  padding: 1em;
-  color: #fff;
-  border-radius: 15px;
+  background-color: #901C1C;
+  color: white;
+  width: 10vw;
+  height: 4.5vw;
+  border: none;
+  border-radius: 0.3rem;
+  align-content: center;
+  text-align: center;
+  font-size: 1.2vw;
+  line-height: 4.5vw;
   cursor: pointer;
-  font-size: 16px;
 }
-
 .button:hover {
-  background: #3876ac;
+  background-color: #D3573C;
+  color: black;
 }
 
 .smFont {
@@ -437,11 +445,11 @@
   max-width: 500px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
-  background: #232323;
+  background: #D3573C;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
-  color: #fff;
+  color: black;
   padding-top: 10px;
 }
 
@@ -494,23 +502,6 @@ input {
   border: 2px solid #e54858;
 }
 
-.evtQuant {
-  padding: 10px 0 10px 0;
-}
-
-.choixVilles {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-row-gap: 2vw;
-  padding: 10px 0 10px 0;
-}
-
-/* 
-input[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.4em;
-    color: red;
-} */
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -622,7 +613,7 @@ input[data-error]::after {
   transform: rotate(-45deg);
 }
 
-.btn-submit,
+/* .btn-submit,
 .btn-signup {
   background: #fe142f;
   display: block;
@@ -633,8 +624,7 @@ input[data-error]::after {
   color: #fff;
   cursor: pointer;
   border: 0;
-}
-
+} */
 /* custom select styles */
 .custom-select {
   position: relative;
