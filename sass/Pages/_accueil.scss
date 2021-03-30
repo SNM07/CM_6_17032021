@@ -8,7 +8,9 @@ header {
 
 main {
     height: 100vh;
- 
+    padding: 0 5vw 5vw 5vw;
+    display: flex;
+    justify-content: center;
 & h1{
     z-index: 99;
     position: fixed;

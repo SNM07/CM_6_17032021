@@ -2,10 +2,11 @@ header{
 height: fit-content;
 }
 
-main{
+#photographer-main{
     display: flex;
     flex-direction: column;
     padding: 6rem 5vw 5vw 5vw;
+    justify-content: normal;
 }
 
 .profileCardPP {

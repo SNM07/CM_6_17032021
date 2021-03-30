@@ -1127,6 +1127,9 @@ header {
 
 main {
   height: 100vh;
+  padding: 0 5vw 5vw 5vw;
+  display: flex;
+  justify-content: center;
 }
 main h1 {
   z-index: 99;
@@ -1271,10 +1274,11 @@ header {
   height: fit-content;
 }
 
-main {
+#photographer-main {
   display: flex;
   flex-direction: column;
   padding: 6rem 5vw 5vw 5vw;
+  justify-content: normal;
 }
 
 .profileCardPP {
