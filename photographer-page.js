@@ -253,46 +253,65 @@ function showGallery(obj) {
     // let x = z;
     let y = profURL;
     // console.log(x, y, x == y);
+    
+    // if (x == y) {
+    //   /* myPhotoImg.src =
+    //       "./images/" + photogIdentity + "/" + photogal[j].image; */
+    //   // myPhotoPrice.textContent = photogal[i].price;
+    //   // console.log(myPhotoPrice);
+    //   /* myPhotoCard.classList.remove("hideCard");
+    //     myPhotoCard.classList.add("showCard"); */
+    //   // myPhotoCard.classList.remove("hideCard");
+    //   // !!myPhotoCard.style.display = "true";
+    //   console.log(myPHInput.id)
+    //   let changeID2 = myPHInput.id;
+    //   console.log(changeID2)
+    //   //console.log("OK");
+    //   console.log(myPHInput[i])
+    //   myPHInput.classList.add("Visible");
+    //   console.log(myPHInput.className)
+    // } else {
+    //   // !!myPhotoCard.style.display = "none";
+    //   myPhotoCard.classList.add("Delete");
+    //   // Delete.parentNode.removeChild(Delete);
+    //   document.querySelectorAll(".Delete").forEach((e) => e.remove());
+    //   myAHREF.classList.add("Delete");
+
+    //   /* myPhotoCard.classList.remove("showCard");
+    //     myPhotoCard.classList.add("hideCard"); */
+    // }
+    
     if (x == y) {
-      /* myPhotoImg.src =
-          "./images/" + photogIdentity + "/" + photogal[j].image; */
-      // myPhotoPrice.textContent = photogal[i].price;
-      // console.log(myPhotoPrice);
-      /* myPhotoCard.classList.remove("hideCard");
-        myPhotoCard.classList.add("showCard"); */
-      // myPhotoCard.classList.remove("hideCard");
-      // !!myPhotoCard.style.display = "true";
+      
+      //construct();
       console.log(myPHInput.id)
       let changeID2 = myPHInput.id;
       console.log(changeID2)
-      //console.log("OK");
+      console.log(myPHInput[i])
       myPHInput.classList.add("Visible");
       console.log(myPHInput.className)
     } else {
-      // !!myPhotoCard.style.display = "none";
       myPhotoCard.classList.add("Delete");
-      // Delete.parentNode.removeChild(Delete);
       document.querySelectorAll(".Delete").forEach((e) => e.remove());
-      myAHREF.classList.add("Delete");
+      myAHREF.classList.add("Delete"); 
 
-      /* myPhotoCard.classList.remove("showCard");
-        myPhotoCard.classList.add("hideCard"); */
     }
-    
+
     // }
-    // !! construction de l'HTML
-    myPhotoCard.appendChild(myPhotoImg);
-    myPhotoCard.appendChild(myPhotoVid);
-    myPhotoCard.appendChild(myPhotoTitle);
-    myPhotoCard.appendChild(myPhotoPrice);
-    myPhotoCard.appendChild(myPhotoLikes);
+    //function construct() {
+      // !! construction de l'HTML
+      myPhotoCard.appendChild(myPhotoImg);
+      myPhotoCard.appendChild(myPhotoVid);
+      myPhotoCard.appendChild(myPhotoTitle);
+      myPhotoCard.appendChild(myPhotoPrice);
+      myPhotoCard.appendChild(myPhotoLikes);
 
-    myPhotoCard.appendChild(myPhotoHeart);
-    myAHREF.appendChild(myPhotoCard);
-    // !! là ça m'a bien construit mon HTML mais il est vide parce que je n'arrive pas à récupérer les données des photos pour l'instant
-    //photoGallery.appendChild(myPhotoCard);
-    photoGallery.appendChild(myAHREF);
-
+      myPhotoCard.appendChild(myPhotoHeart);
+      myAHREF.appendChild(myPhotoCard);
+      // !! là ça m'a bien construit mon HTML mais il est vide parce que je n'arrive pas à récupérer les données des photos pour l'instant
+      //photoGallery.appendChild(myPhotoCard);
+      photoGallery.appendChild(myAHREF);
+    //}
 
     /* if (x == y) {
       myPhotoCard.style.display = "block";
@@ -310,7 +329,7 @@ function showGallery(obj) {
     } */
     //console.log(changeID)
 
-    console.log(counter)
+    //console.log(counter)
     console.log(isChecked)
 
     /* document.querySelectorAll('input').click = function () {
@@ -318,31 +337,41 @@ function showGallery(obj) {
     } */
 
     var checkbox = document.querySelector("input[type=checkbox]");
-    var checkClass = document.getElementsByClassName("Visible");
+    //var checkClass = document.getElementsByClassName("Visible");
+    //var checkID = checkClass.id;
+
     //var checkbox = document.getElementsByClassName(".Visible input[type=checkbox]");
-    console.log(checkbox)
-    var counter = photogLikes;
+    //console.log(checkClass)
+    //console.log(checkbox)
+    //var counter = photogLikes;
 
     checkbox.addEventListener('change', function () {
-      for (var i = 0; i <= 10; i++) {
-        console.log(checkbox.className)
-        if (this.checked && checkClass == true) {
+     // for (var i = 0; i <= 10; i++) {
+      //console.log(checkClass)
+      //let u = checkClass.id;
+      let checkID = document.querySelector('.Visible').id;
+      console.log("AHAH", checkID)
+      //if (this.checked && checkClass === true) {
+        if (this.checked) {
           /* let w = counter;
           let z = counterInc;
           z = w++; */
-          var counter = photogLikes;
+
+          var counter = photogLikes[i];
           console.log(counter)
           counter[i] = counter[i] + 1;
           console.log(isChecked, "+1")
-          console.log(counter)
+          //console.log(counter)
           console.log("Checkbox is checked..");
           console.log(counter[i]);
         } else {
-          counter[i] = counter[i];
+          //counter[i] = counter[i];
+          //console.log(isChecked, "+0")
           console.log("Checkbox is not checked..");
         }
       }
-});
+//}
+);
 
     //console.log(document.querySelectorAll('input'))
 
