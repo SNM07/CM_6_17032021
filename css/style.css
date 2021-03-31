@@ -131,6 +131,7 @@
   border-radius: 50%;
   box-shadow: 1px 1px 5px rgba(82, 82, 82, 0.3);
   backface-visibility: hidden;
+  align-self: center;
 }
 @media screen and (min-width: 800px) {
   .profileCardPP .profilePic {
@@ -308,7 +309,7 @@
   font-size: 0.9rem;
   font-weight: bold;
   color: #901C1C;
-  padding: 0.6rem 0 0 0;
+  padding: 0.5rem 0 0 0;
 }
 @media screen and (min-width: 800px) {
   .photoCard .photoPrice {
@@ -1348,6 +1349,27 @@ header {
   .logoP img {
     width: 26vw;
   }
+}
+
+#contentButtonContainer2 {
+  display: flex;
+  justify-content: center;
+}
+
+#contentButton2 {
+  display: none;
+  position: fixed;
+  top: 10px;
+  margin: auto;
+  z-index: 199;
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+  padding: 6px 8px 6px 8px;
+  margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+  background-color: #D3573C;
+  border: 2px solid white;
+  border-radius: 8px;
 }
 
 /*# sourceMappingURL=style.css.map */

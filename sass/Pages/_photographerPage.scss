@@ -76,3 +76,24 @@ margin: auto;
         }
     }
 }
+
+#contentButtonContainer2{
+    display: flex;
+    justify-content: center;
+}
+
+#contentButton2 {
+  display: none; 
+  position: fixed; 
+  top: 10px; 
+  margin: auto; 
+  z-index: 199; 
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+  padding: 6px 8px 6px 8px;
+  margin: .2rem .2rem .2rem .2rem;
+  background-color: $color-primary-2;
+  border: 2px solid white;
+  border-radius: 8px;
+}

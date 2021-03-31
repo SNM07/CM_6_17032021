@@ -2,6 +2,9 @@ let profURL = window.location.search.substr(4);
 
 console.log(profURL);
 
+//let mybutton = document.getElementById("contentButton2");
+
+
 //import { contactFormModule } from "./contactForm.js";
 import contactFormModule from "./contactForm.js";
     //contactFormModule();
@@ -186,8 +189,11 @@ function showGallery(obj) {
     myPHInput.id = "heart" + photogPhID[i];
     //myPHInput.setAttribute("onclick", "event.preventDefault();");
     //myPHInput.addEventListener("click", e => e.preventDefault());
+    let changeID = myPHInput.id;
+    //console.log(changeID)
+    //myPHInput.setAttribute("onchange", checkboxChanged(this));
     myPhotoHeart.appendChild(myPHInput);
-
+    
     const myPHLabel = document.createElement("label");
     myPHLabel.htmlFor = "heart" + photogPhID[i];
     myPHLabel.className = "far fa-heart";
@@ -205,7 +211,7 @@ function showGallery(obj) {
     myPhotoImg.src = "./images/" + photogID[i] + "/" + photogImg[i];
     /* myPhotoVid.src =
       "./images/" + photogID[i] + "/" + photogVid[i]; */
-
+    
     if (photogImg[i] === undefined) {
       myPhotoImg.classList.add("DeleteImg");
       document.querySelectorAll(".DeleteImg").forEach((e) => e.remove());
@@ -234,8 +240,11 @@ function showGallery(obj) {
     myPhotoPrice.textContent = photogPrice[i] + " €";
     myPhotoLikes.textContent = photogLikes[i];
 
+    var counter2 = photogLikes[i];
+
     let myPhotogID = photogID[i];
-    console.log(myPhotogID);
+    //console.log(myPhotogID);
+    
     //console.log(myPhotoPrice);
 
     //for (let j = 0; j < photogal.length; j++) {
@@ -253,7 +262,12 @@ function showGallery(obj) {
         myPhotoCard.classList.add("showCard"); */
       // myPhotoCard.classList.remove("hideCard");
       // !!myPhotoCard.style.display = "true";
-      console.log("OK");
+      console.log(myPHInput.id)
+      let changeID2 = myPHInput.id;
+      console.log(changeID2)
+      //console.log("OK");
+      myPHInput.classList.add("Visible");
+      console.log(myPHInput.className)
     } else {
       // !!myPhotoCard.style.display = "none";
       myPhotoCard.classList.add("Delete");
@@ -264,6 +278,7 @@ function showGallery(obj) {
       /* myPhotoCard.classList.remove("showCard");
         myPhotoCard.classList.add("hideCard"); */
     }
+    
     // }
     // !! construction de l'HTML
     myPhotoCard.appendChild(myPhotoImg);
@@ -284,6 +299,99 @@ function showGallery(obj) {
       console.log("OK")
     } else {
     } */
+    ///////////////////////////////////////////////
+    //var counter = photogLikes[i];
+    
+    var isChecked = document.querySelectorAll("input:checked").length === 0 ? false : true;
+    //var isChecked = document.getElementsByClassName("Visible").length === 0 ? false : true;
+
+    /* function checkedBoxes() {
+      return document.querySelectorAll("input:checked").length === 0 ? false : true;
+    } */
+    //console.log(changeID)
+
+    console.log(counter)
+    console.log(isChecked)
+
+    /* document.querySelectorAll('input').click = function () {
+      console.log("AH")
+    } */
+
+    var checkbox = document.querySelector("input[type=checkbox]");
+    var checkClass = document.getElementsByClassName("Visible");
+    //var checkbox = document.getElementsByClassName(".Visible input[type=checkbox]");
+    console.log(checkbox)
+    var counter = photogLikes;
+
+    checkbox.addEventListener('change', function () {
+      for (var i = 0; i <= 10; i++) {
+        console.log(checkbox.className)
+        if (this.checked && checkClass == true) {
+          /* let w = counter;
+          let z = counterInc;
+          z = w++; */
+          var counter = photogLikes;
+          console.log(counter)
+          counter[i] = counter[i] + 1;
+          console.log(isChecked, "+1")
+          console.log(counter)
+          console.log("Checkbox is checked..");
+          console.log(counter[i]);
+        } else {
+          counter[i] = counter[i];
+          console.log("Checkbox is not checked..");
+        }
+      }
+});
+
+    //console.log(document.querySelectorAll('input'))
+
+    /* document.getElementsByClassName('far').onclick = function(e){
+      var isChecked = document.querySelectorAll("input:checked").length === 0 ? false : true;
+      console.log(isChecked)
+      if (isChecked == true) {
+        counter = counter + 1;
+        console.log(isChecked, "+1")
+      } else {
+        counter = counter;
+      }
+      console.log(isChecked);
+  }; */
+
+    /* if (isChecked == true) {
+      counter = counter + 1;
+      console.log(isChecked, "+1")
+    } else {
+      counter = counter;
+    } */
+    ///////////////////////////////////////////////
+     /* console.log(changeID)
+    function checkboxChanged(e) {
+      //Get the id of all checked checkboxes and store them as array
+        var c = []
+        if(document.querySelectorAll(changeID).checked) {
+          c.push(changeID);
+        }
+        
+        /* if(document.getElementById('checkbox2').checked) {
+          c.push('checkbox2');
+        } */ /*
+        
+        localStorage['test'] = c.toString();
+      } 
+      
+      function checkOnLocalStorage() {
+        if(!localStorage['test']) return;
+        var checked = localStorage['test'].split(',');
+        checked.map((id) => {
+          document.getElementById(id).checked=true;
+        })
+      }
+      
+      (function(){
+      checkOnLocalStorage();
+    })(); */
+    ///////////////////////////////
   }
 }
 
@@ -299,19 +407,51 @@ fetch("./FishEyeDataFR.json")
 
     console.log(object, photographers, medias);
 
+    /* (function () {
+      emailjs.init("user_puf8TmtfpdXTG2bY7o9Sk");
+    }); */
+
     showProfile(object);
 
     showGallery(object);
 
     contactFormModule();
     
+    /* function checkboxChanged(e) {
+      //Get the id of all checked checkboxes and store them as array
+        var c = []
+        if(document.getElementById("heart" + photogPhID[i]).checked) {
+          c.push("heart" + photogPhID[i]);
+        }
+        
+        if(document.getElementById('checkbox2').checked) {
+          c.push('checkbox2');
+        }
+        
+        localStorage['test'] = c.toString();
+      }
+      
+      function checkOnLocalStorage() {
+        if(!localStorage['test']) return;
+        var checked = localStorage['test'].split(',');
+        checked.map((id) => {
+          document.getElementById(id).checked=true;
+        })
+      }
+      
+      (function(){
+      checkOnLocalStorage();
+    })(); */
+
+
     //document.querySelector('contact-form').addEventListener(validate);
 
     //import { contactFormModule } from "./contactForm.js";
     //import * as contactFormModule from "./contactForm.js";
-    (function () {
+    
+    /* (function () {
       emailjs.init("user_puf8TmtfpdXTG2bY7o9Sk");
-    })();
+    })(); */
     
     //import contactFormModule from "./contactForm.js";
     // !!contactFormModule();
@@ -378,7 +518,7 @@ gallery.on('error.simplelightbox', function (e) {
     });
 
     //Get the button:
-    mybutton = document.getElementById("contentButton");
+    const mybutton = document.getElementById("contentButton2");
 
     // When the user scrolls down 20px from the top of the document, show the button
     window.onscroll = function () {
@@ -395,10 +535,13 @@ gallery.on('error.simplelightbox', function (e) {
         mybutton.style.display = "none";
       }
     }
+    
   });
 
+  document.getElementById("contentButton2").addEventListener("click", topFunction2);
+
 // When the user clicks on the button, scroll to the top of the document
-function topFunction() {
+function topFunction2() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
