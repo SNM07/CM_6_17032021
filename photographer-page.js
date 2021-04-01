@@ -372,13 +372,14 @@ function showGallery(obj) {
 
         //let priceIncr = photogHeart[i].closest(".photoLikes");
         //console.log("CLOSE", priceIncr)
-      
+        var c = []
+
         //if (this.checked && checkClass === true) {
         if (inH === true) {
           /* let w = counter;
           let z = counterInc;
           z = w++; */
-
+          
           //var counter = photogLikes[i];
           
           //console.log(counter)
@@ -386,17 +387,44 @@ function showGallery(obj) {
           console.log(inH, "+1")
           //console.log(counter)
           console.log("Checkbox is checked..");
+          c.push(changeID);
           //console.log(counter[i]);
         } else {
           //counter[i] = counter[i];
           //console.log(isChecked, "+0")
           console.log("Checkbox is not checked..");
         }
+        
+        localStorage['test'] = c.toString();
       }
+
+      function checkOnLocalStorage() {
+        if(!localStorage['test']) return;
+        var checked = localStorage['test'].split(',');
+        checked.map((id) => {
+          document.getElementById(id).checked=true;
+        })
+      }
+      
+      (function(){
+      checkOnLocalStorage();
+      })();
+      
     }
 //}
 );
 
+/* function checkOnLocalStorage() {
+  if(!localStorage['test']) return;
+  var checked = localStorage['test'].split(',');
+  checked.map((id) => {
+    document.getElementById(id).checked=true;
+  })
+}
+
+(function(){
+checkOnLocalStorage();
+})(); */
     //console.log(document.querySelectorAll('input'))
 
     /* document.getElementsByClassName('far').onclick = function(e){
