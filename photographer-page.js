@@ -337,7 +337,7 @@ function showGallery(obj) {
     } */
 
     var checkbox = document.querySelector("input[type=checkbox]");
-    //var checkClass = document.getElementsByClassName("Visible");
+    let checkClass = document.getElementsByClassName("Visible");
     //var checkID = checkClass.id;
 
     //var checkbox = document.getElementsByClassName(".Visible input[type=checkbox]");
@@ -346,30 +346,54 @@ function showGallery(obj) {
     //var counter = photogLikes;
 
     checkbox.addEventListener('change', function () {
-     // for (var i = 0; i <= 10; i++) {
+      // for (var i = 0; i <= 10; i++) {
       //console.log(checkClass)
+      //var checkClass = document.getElementsByClassName("Visible");
       //let u = checkClass.id;
-      let checkID = document.querySelector('.Visible').id;
-      console.log("AHAH", checkID)
-      //if (this.checked && checkClass === true) {
-        if (this.checked) {
+      //console.log("UHUH", u)
+      
+      let priceTag = document.querySelectorAll(".Visible .photoLikes");
+      priceTag = Array.from(priceTag);
+      console.log("TAG", priceTag)
+
+      //let checkID = document.querySelector('.Visible').id;
+      checkClass = Array.from(checkClass);
+      console.log(checkClass)
+      const photogHeart = checkClass.map((checkClass) => checkClass.id);
+      const photogHeartCheck = checkClass.map((checkClass) => checkClass.checked);
+      const photogPriceTag = priceTag.map((priceTag) => priceTag.value);
+      console.log("TAG2", photogPriceTag)
+
+      for (var i = 0; i <= 10; i++) {
+        
+        console.log("OHOH", photogHeart[i])
+        let inH = photogHeartCheck[i];
+        console.log('IN', inH)
+
+        //let priceIncr = photogHeart[i].closest(".photoLikes");
+        //console.log("CLOSE", priceIncr)
+      
+        //if (this.checked && checkClass === true) {
+        if (inH === true) {
           /* let w = counter;
           let z = counterInc;
           z = w++; */
 
-          var counter = photogLikes[i];
-          console.log(counter)
-          counter[i] = counter[i] + 1;
-          console.log(isChecked, "+1")
+          //var counter = photogLikes[i];
+          
+          //console.log(counter)
+          //counter[i] = counter[i] + 1;
+          console.log(inH, "+1")
           //console.log(counter)
           console.log("Checkbox is checked..");
-          console.log(counter[i]);
+          //console.log(counter[i]);
         } else {
           //counter[i] = counter[i];
           //console.log(isChecked, "+0")
           console.log("Checkbox is not checked..");
         }
       }
+    }
 //}
 );
 
