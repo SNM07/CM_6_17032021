@@ -387,7 +387,8 @@ function showGallery(obj) {
           console.log(inH, "+1")
           //console.log(counter)
           console.log("Checkbox is checked..");
-          c.push(changeID);
+          c.push(photogHeart);
+          console.log("LC", c)
           //console.log(counter[i]);
         } else {
           //counter[i] = counter[i];
