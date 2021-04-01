@@ -47,7 +47,7 @@ export default function contactFormModule() {
   //myFormBody.appendChild(myFormTitle);
 
   //document.querySelectorAll('contact-form').addEventListener(validate());
-  window.onload = function () {
+  /* window.onload = function () {
     document.getElementById('contact-form').addEventListener('submit', function (event) {
       event.preventDefault();
       // generate a five digit number for the contact_number variable
@@ -83,6 +83,6 @@ export default function contactFormModule() {
         setTimeout(() => (modalbg.style.display = "none"), 4000);
       } // If yes hide it after 4000 milliseconds
       return false;
-    }
+    } */
 }
     
