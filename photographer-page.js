@@ -314,8 +314,12 @@ function showGallery(obj) {
     // }
     //function construct() {
     // !! construction de l'HTML
-    myPhotoCard.appendChild(myPhotoImg);
-    myPhotoCard.appendChild(myPhotoVid);
+   if (photogImg[i] !== undefined) {
+      myPhotoCard.appendChild(myPhotoImg);
+    }
+    if (photogVid[i] !== undefined) {
+      myPhotoCard.appendChild(myPhotoVid);
+    }
     myPhotoCard.appendChild(myPhotoTitle);
     myPhotoCard.appendChild(myPhotoPrice);
     myPhotoCard.appendChild(myPhotoLikes);
@@ -363,10 +367,59 @@ function showGallery(obj) {
       
       console.log(this.id, this.checked)
       //localStorage["mapCoeur"][this.id] = this.checked;
+      const that = this;
+      const o = this.id;
+      //const m = o.previousSibling.innerHTML;
+      const u = that.parentNode;
+      console.log(u)
+
+      const h = that.parentNode.previousSibling.innerHTML;
+      console.log(h)
+
+      const g = that.parentNode.previousSibling.innerHTML;
+      console.log(g)
+
+      /* const j = document.createElement("p");
+      j.innerHTML = g;
+      j.className = "defaultLikes";
+      j.style.display = 'none';
+      u.appendChild(j);
+
+      console.log(j.innerHTML) */
+
+      //k = j.innerHTML;
+
+      //that.parentNode.previousSibling.innerHTML = j;
+      
+      //console.log(o.previousSibling.innerHTML)
      
       var c = []
-      
-      [this.id] = this.checked;
+      var localStorage = []
+
+      var check = true;
+      //this.checked = Boolean;
+      if (this.checked == true) {
+        const that = this;
+        
+        let h = that.parentNode.previousSibling.innerHTML;
+        h = ++h;
+        console.log(h)
+        that.parentNode.previousSibling.innerHTML = h;
+        check = this.checked;
+      } else {
+        check = false;
+        
+        const that = this;
+        
+        let h = that.parentNode.previousSibling.innerHTML;
+        h = --h;
+        that.parentNode.previousSibling.innerHTML = h;
+      }
+
+      localStorage[this.id];
+      console.log(check)
+      console.log(localStorage)
+      //[this.id] = this.checked;
       /* var ident = c.id;
       console.log(ident) */
       //localStorage["mapCoeur"][this.id] = this.checked;
