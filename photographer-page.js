@@ -169,8 +169,21 @@ function showGallery(obj) {
 
 
     const myPhotoCard = document.createElement("article");
+    //////////
+    /* if (photogImg[i] !== undefined) {
+      const myPhotoImg = document.createElement("img");
+      return myPhotoImg;
+    }
+
+    if (photogVid[i] !== undefined) {
+      const myPhotoVid = document.createElement("video");
+      return myPhotoVid;
+    } */
+    ////////////
+
     const myPhotoImg = document.createElement("img");
     const myPhotoVid = document.createElement("video");
+
     //const myPhotoVid = createVid();
     //const myPhotoVid = if ("video" in photogal[i]) { document.createElement("video") };
     //function createVid() { if ("video" in photogal[i]) { document.createElement("video") } };
@@ -185,6 +198,7 @@ function showGallery(obj) {
     //myPhotoHeart.setAttribute("onclick", "event.preventDefault();")
 
     const myPHInput = document.createElement("input");
+    //myPHInput.addEventListener('change', () => { console.log(id) });
     myPHInput.type = "checkbox";
     myPHInput.id = "heart" + photogPhID[i];
     //myPHInput.setAttribute("onclick", "event.preventDefault();");
@@ -211,7 +225,7 @@ function showGallery(obj) {
     myPhotoImg.src = "./images/" + photogID[i] + "/" + photogImg[i];
     /* myPhotoVid.src =
       "./images/" + photogID[i] + "/" + photogVid[i]; */
-    
+    ///////////
     if (photogImg[i] === undefined) {
       myPhotoImg.classList.add("DeleteImg");
       document.querySelectorAll(".DeleteImg").forEach((e) => e.remove());
@@ -223,7 +237,7 @@ function showGallery(obj) {
       document.querySelectorAll(".DeleteVid").forEach((e) => e.remove());
       myPhotoVid.style.display = "none";
     }
-
+    ////////
     if (myPhotoVid.canPlayType("video/mp4")) {
       myPhotoVid.setAttribute(
         "src",
@@ -293,24 +307,24 @@ function showGallery(obj) {
     } else {
       myPhotoCard.classList.add("Delete");
       document.querySelectorAll(".Delete").forEach((e) => e.remove());
-      myAHREF.classList.add("Delete"); 
+      myAHREF.classList.add("Delete");
 
     }
 
     // }
     //function construct() {
-      // !! construction de l'HTML
-      myPhotoCard.appendChild(myPhotoImg);
-      myPhotoCard.appendChild(myPhotoVid);
-      myPhotoCard.appendChild(myPhotoTitle);
-      myPhotoCard.appendChild(myPhotoPrice);
-      myPhotoCard.appendChild(myPhotoLikes);
+    // !! construction de l'HTML
+    myPhotoCard.appendChild(myPhotoImg);
+    myPhotoCard.appendChild(myPhotoVid);
+    myPhotoCard.appendChild(myPhotoTitle);
+    myPhotoCard.appendChild(myPhotoPrice);
+    myPhotoCard.appendChild(myPhotoLikes);
 
-      myPhotoCard.appendChild(myPhotoHeart);
-      myAHREF.appendChild(myPhotoCard);
-      // !! là ça m'a bien construit mon HTML mais il est vide parce que je n'arrive pas à récupérer les données des photos pour l'instant
-      //photoGallery.appendChild(myPhotoCard);
-      photoGallery.appendChild(myAHREF);
+    myPhotoCard.appendChild(myPhotoHeart);
+    myAHREF.appendChild(myPhotoCard);
+    // !! là ça m'a bien construit mon HTML mais il est vide parce que je n'arrive pas à récupérer les données des photos pour l'instant
+    //photoGallery.appendChild(myPhotoCard);
+    photoGallery.appendChild(myAHREF);
     //}
 
     /* if (x == y) {
@@ -336,7 +350,7 @@ function showGallery(obj) {
       console.log("AH")
     } */
 
-    var checkbox = document.querySelector("input[type=checkbox]");
+    //!!var checkbox = document.querySelector("input[type=checkbox]");
     let checkClass = document.getElementsByClassName("Visible");
     //var checkID = checkClass.id;
 
@@ -345,75 +359,88 @@ function showGallery(obj) {
     //console.log(checkbox)
     //var counter = photogLikes;
 
-    checkbox.addEventListener('change', function () {
-      // for (var i = 0; i <= 10; i++) {
-      //console.log(checkClass)
-      //var checkClass = document.getElementsByClassName("Visible");
-      //let u = checkClass.id;
-      //console.log("UHUH", u)
+    myPHInput.addEventListener('change', function () {
       
-      let priceTag = document.querySelectorAll(".Visible .photoLikes");
-      priceTag = Array.from(priceTag);
-      console.log("TAG", priceTag)
-
-      //let checkID = document.querySelector('.Visible').id;
-      checkClass = Array.from(checkClass);
-      console.log(checkClass)
-      const photogHeart = checkClass.map((checkClass) => checkClass.id);
-      const photogHeartCheck = checkClass.map((checkClass) => checkClass.checked);
-      const photogPriceTag = priceTag.map((priceTag) => priceTag.value);
-      console.log("TAG2", photogPriceTag)
-
-      for (var i = 0; i <= 10; i++) {
-        
-        console.log("OHOH", photogHeart[i])
-        let inH = photogHeartCheck[i];
-        console.log('IN', inH)
-
-        //let priceIncr = photogHeart[i].closest(".photoLikes");
-        //console.log("CLOSE", priceIncr)
-        var c = []
-
-        //if (this.checked && checkClass === true) {
-        if (inH === true) {
-          /* let w = counter;
-          let z = counterInc;
-          z = w++; */
-          
-          //var counter = photogLikes[i];
-          
-          //console.log(counter)
-          //counter[i] = counter[i] + 1;
-          console.log(inH, "+1")
-          //console.log(counter)
-          console.log("Checkbox is checked..");
-          c.push(photogHeart);
-          console.log("LC", c)
-          //console.log(counter[i]);
-        } else {
-          //counter[i] = counter[i];
-          //console.log(isChecked, "+0")
-          console.log("Checkbox is not checked..");
-        }
-        
-        localStorage['test'] = c.toString();
-      }
-
-      function checkOnLocalStorage() {
-        if(!localStorage['test']) return;
-        var checked = localStorage['test'].split(',');
-        checked.map((id) => {
-          document.getElementById(id).checked=true;
-        })
+      console.log(this.id, this.checked)
+      //localStorage["mapCoeur"][this.id] = this.checked;
+     
+      var c = []
+      
+      [this.id] = this.checked;
+      /* var ident = c.id;
+      console.log(ident) */
+      //localStorage["mapCoeur"][this.id] = this.checked;
+      if (document.querySelectorAll(this.id).checked) {
+        c.push(this.id);
       }
       
-      (function(){
-      checkOnLocalStorage();
-      })();
-      
+      localStorage['mapCoeur'] = c.toString();
+      //localStorage['mapCoeur'] = this.id.toString();
+    });
+
+    /* function checkOnLocalStorage() {
+      if (!localStorage['mapCoeur']) return;
+      var checked = localStorage['mapCoeur'].split(',');
+      checked.map((id) => {
+        document.getElementById(id).checked = true;
+      })
     }
-//}
-);
+    
+    (function () {
+      checkOnLocalStorage();
+    })(); */
+
+
+
+    /* let priceTag = document.querySelectorAll(".Visible .photoLikes");
+    priceTag = Array.from(priceTag);
+    console.log("TAG", priceTag)
+
+    checkClass = Array.from(checkClass);
+    console.log(checkClass)
+    const photogHeart = checkClass.map((checkClass) => checkClass.id);
+    const photogHeartCheck = checkClass.map((checkClass) => checkClass.checked);
+    const photogPriceTag = priceTag.map((priceTag) => priceTag.value);
+    console.log("TAG2", photogPriceTag)
+
+    for (var i = 0; i <= 10; i++) {
+      
+      console.log("OHOH", photogHeart[i])
+      let inH = photogHeartCheck[i];
+      console.log('IN', inH)
+
+      var c = []
+
+      if (inH === true) {
+        
+        console.log(inH, "+1")
+        console.log("Checkbox is checked..");
+        c.push(photogHeart);
+        console.log("LC", c)
+      } else {
+        console.log("Checkbox is not checked..");
+      }
+      
+      localStorage['test'] = c.toString();
+    }
+
+    function checkOnLocalStorage() {
+      if(!localStorage['test']) return;
+      var checked = localStorage['test'].split(',');
+      checked.map((id) => {
+        document.getElementById(id).checked=true;
+      })
+    }
+    
+    (function(){
+    checkOnLocalStorage();
+    })(); */
+      
+    //}
+    //}
+  }
+}
+//);
 
 /* function checkOnLocalStorage() {
   if(!localStorage['test']) return;
@@ -474,8 +501,8 @@ checkOnLocalStorage();
       checkOnLocalStorage();
     })(); */
     ///////////////////////////////
-  }
-}
+  //}
+//}
 
 // !! ça c'est le fetch avec les fonctions
 fetch("./FishEyeDataFR.json")
