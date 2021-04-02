@@ -181,8 +181,8 @@ function showGallery(obj) {
     } */
     ////////////
 
-    const myPhotoImg = document.createElement("img");
-    const myPhotoVid = document.createElement("video");
+    //const myPhotoImg = document.createElement("img");
+    //const myPhotoVid = document.createElement("video");
 
     //const myPhotoVid = createVid();
     //const myPhotoVid = if ("video" in photogal[i]) { document.createElement("video") };
@@ -214,19 +214,20 @@ function showGallery(obj) {
     myPhotoHeart.appendChild(myPHLabel);
 
     myPhotoCard.setAttribute("class", "photoCard");
-    myPhotoImg.setAttribute("class", "photoImg");
-    myPhotoVid.setAttribute("class", "photoVid");
+    //myPhotoImg.setAttribute("class", "photoImg");
+    //myPhotoVid.setAttribute("class", "photoVid");
     myPhotoTitle.setAttribute("class", "photoTitle");
     myPhotoPrice.setAttribute("class", "photoPrice");
 
     myPhotoLikes.setAttribute("class", "photoLikes");
     //myPhotoHeart.setAttribute("class", "like");
 
-    myPhotoImg.src = "./images/" + photogID[i] + "/" + photogImg[i];
+    //myPhotoImg.src = "./images/" + photogID[i] + "/" + photogImg[i];
+
     /* myPhotoVid.src =
       "./images/" + photogID[i] + "/" + photogVid[i]; */
     ///////////
-    if (photogImg[i] === undefined) {
+    /* if (photogImg[i] === undefined) {
       myPhotoImg.classList.add("DeleteImg");
       document.querySelectorAll(".DeleteImg").forEach((e) => e.remove());
       myPhotoImg.style.display = "none";
@@ -245,11 +246,11 @@ function showGallery(obj) {
       );
     } else {
       //myPhotoVid.setAttribute("src","movie.ogg");
-    }
+    } */
 
     /* myPhotoVid.setAttribute("width", "320");
     myPhotoVid.setAttribute("height", "240"); */
-    myPhotoVid.setAttribute("controls", "controls");
+    //myPhotoVid.setAttribute("controls", "controls");
     myPhotoTitle.textContent = photogTitle[i];
     myPhotoPrice.textContent = photogPrice[i] + " €";
     myPhotoLikes.textContent = photogLikes[i];
@@ -314,10 +315,27 @@ function showGallery(obj) {
     // }
     //function construct() {
     // !! construction de l'HTML
-   if (photogImg[i] !== undefined) {
+    if (photogImg[i] !== undefined) {
+      const myPhotoImg = document.createElement("img");
+      myPhotoImg.setAttribute("class", "photoImg");
+      myPhotoImg.src = "./images/" + photogID[i] + "/" + photogImg[i];
       myPhotoCard.appendChild(myPhotoImg);
     }
     if (photogVid[i] !== undefined) {
+      const myPhotoVid = document.createElement("video");
+      myPhotoVid.setAttribute("class", "photoVid");
+      if (myPhotoVid.canPlayType("video/mp4")) {
+        myPhotoVid.setAttribute(
+          "src",
+          "./images/" + photogID[i] + "/" + photogVid[i]
+        );
+      } else {
+        //myPhotoVid.setAttribute("src","movie.ogg");
+      }
+  
+      /* myPhotoVid.setAttribute("width", "320");
+      myPhotoVid.setAttribute("height", "240"); */
+      myPhotoVid.setAttribute("controls", "controls");
       myPhotoCard.appendChild(myPhotoVid);
     }
     myPhotoCard.appendChild(myPhotoTitle);
