@@ -380,12 +380,12 @@ function showGallery(obj) {
     //console.log(checkClass)
     //console.log(checkbox)
     //var counter = photogLikes;
-
+    var localStorage = []
     myPHInput.addEventListener('change', function () {
       
       console.log(this.id, this.checked)
       //localStorage["mapCoeur"][this.id] = this.checked;
-      const that = this;
+      /* const that = this;
       const o = this.id;
       //const m = o.previousSibling.innerHTML;
       const u = that.parentNode;
@@ -395,7 +395,7 @@ function showGallery(obj) {
       console.log(h)
 
       const g = that.parentNode.previousSibling.innerHTML;
-      console.log(g)
+      console.log(g) */
 
       /* const j = document.createElement("p");
       j.innerHTML = g;
@@ -412,14 +412,23 @@ function showGallery(obj) {
       //console.log(o.previousSibling.innerHTML)
      
       var c = []
-      var localStorage = []
+      //var localStorage = []
 
+      var id = this.id;
       var check = true;
+
+      /* c[id] = (checked ? 1 : 0)
+      console.log(c[id]) */
+      
       //this.checked = Boolean;
       if (this.checked == true) {
         const that = this;
         
         let h = that.parentNode.previousSibling.innerHTML;
+        //h = parseInt(h);
+        //parseInt(h);
+        //h = parseInt(that.parentNode.previousSibling.innerHTML);
+        //console.log(parseInt('45'))
         h = ++h;
         console.log(h)
         that.parentNode.previousSibling.innerHTML = h;
@@ -434,9 +443,25 @@ function showGallery(obj) {
         that.parentNode.previousSibling.innerHTML = h;
       }
 
-      localStorage[this.id];
+      c = check;
+      c[check];
+
+      if (c == true) { localStorage.push(id); }
+      if (c == false) { localStorage.pop(id); }
+      
+      /* for (var i = 0; i < localStorage.length; i++) {
+        if (c == true) { localStorage.push(id); }
+      } */
+      
+      //localStorage.push(id);
+      
+      localStorage["map"];
+      //localStorage.id = JSON.stringify;
+      //localStorage = JSON.stringify;
       console.log(check)
-      console.log(localStorage)
+      console.log("OK", localStorage)
+      var localString = JSON.stringify(localStorage);
+      console.log(localString)
       //[this.id] = this.checked;
       /* var ident = c.id;
       console.log(ident) */
@@ -445,7 +470,8 @@ function showGallery(obj) {
         c.push(this.id);
       }
       
-      localStorage['mapCoeur'] = c.toString();
+      //localStorage['mapCoeur'] = c.toString();
+      
       //localStorage['mapCoeur'] = this.id.toString();
     });
 
