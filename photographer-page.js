@@ -326,6 +326,7 @@ function showGallery(obj) {
     if (photogImg[i] !== undefined) {
       const myPhotoImg = document.createElement("img");
       myPhotoImg.setAttribute("class", "photoImg");
+      myPhotoImg.setAttribute("alt", photogTitle[i]);
       myPhotoImg.src = "./images/" + photogID[i] + "/" + photogImg[i];
       myAHREF.setAttribute("href", "./images/" + photogID[i] + "/" + photogImg[i]);
       myPhotoCard.appendChild(myPhotoImg);
@@ -641,6 +642,8 @@ fetch("./FishEyeDataFR.json")
       getCaptionFromTitleOrAlt: true,
       preload: 2,
       fullScreen: true,
+      hideBarsDelay: 0,
+      counter: false,
     }
     
     );

@@ -4,7 +4,7 @@
   "description": "CM_6_17032021",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./sass/main.scss:./css/style.css --style expanded",
+    "sass": "sass --watch ./sass/main.scss:./css/style.css --style expanded ./node_modules/lightgallery.js/src/sass/lightgallery.scss:./node_modules/lightgallery.js/dist/css/lightgallery.css --style expanded",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
