@@ -4,6 +4,10 @@ console.log(profURL);
 
 //let mybutton = document.getElementById("contentButton2");
 
+//require('fslightbox');
+
+//import * from './fslightbox/fslightbox.js';
+//import * from "./node_modules/fslightbox";
 
 //import { contactFormModule } from "./contactForm.js";
 import contactFormModule from "./contactForm.js";
@@ -164,8 +168,12 @@ function showGallery(obj) {
 
   for (let i = 0; i < photogal.length; i++) {
     const myAHREF = document.createElement("a");
-    myAHREF.setAttribute("href", "./images/" + photogID[i] + "/" + photogImg[i]);
+    //myAHREF.setAttribute("href", "./images/" + photogID[i] + "/" + photogImg[i]);
     myAHREF.setAttribute("class", "photoAHREF");
+    myAHREF.setAttribute("title", photogTitle[i]);
+    myAHREF.setAttribute("alt", photogTitle[i]);
+    //myAHREF.setAttribute("data-fslightbox", "gallery");
+
 
 
     const myPhotoCard = document.createElement("article");
@@ -319,11 +327,13 @@ function showGallery(obj) {
       const myPhotoImg = document.createElement("img");
       myPhotoImg.setAttribute("class", "photoImg");
       myPhotoImg.src = "./images/" + photogID[i] + "/" + photogImg[i];
+      myAHREF.setAttribute("href", "./images/" + photogID[i] + "/" + photogImg[i]);
       myPhotoCard.appendChild(myPhotoImg);
     }
     if (photogVid[i] !== undefined) {
       const myPhotoVid = document.createElement("video");
       myPhotoVid.setAttribute("class", "photoVid");
+      myAHREF.setAttribute("href", "./images/" + photogID[i] + "/" + photogVid[i]);
       if (myPhotoVid.canPlayType("video/mp4")) {
         myPhotoVid.setAttribute(
           "src",
@@ -622,6 +632,19 @@ fetch("./FishEyeDataFR.json")
     showGallery(object);
 
     contactFormModule();
+
+    lightGallery(document.getElementById('photoGallery'), {
+      //speed: "600",
+      //width: "90vw",
+      //height: "90%",
+      download: false,
+      getCaptionFromTitleOrAlt: true,
+      preload: 2,
+      fullScreen: true,
+    }
+    
+    );
+      console.log(lightGallery())
     
     /* function checkboxChanged(e) {
       //Get the id of all checked checkboxes and store them as array
