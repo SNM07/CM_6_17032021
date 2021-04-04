@@ -334,6 +334,8 @@ function showGallery(obj) {
     if (photogVid[i] !== undefined) {
       const myPhotoVid = document.createElement("video");
       myPhotoVid.setAttribute("class", "photoVid");
+      myPhotoVid.classList.add("lg-video-object");
+      myPhotoVid.classList.add("lg-html5");
       myAHREF.setAttribute("href", "./images/" + photogID[i] + "/" + photogVid[i]);
       if (myPhotoVid.canPlayType("video/mp4")) {
         myPhotoVid.setAttribute(
@@ -347,6 +349,16 @@ function showGallery(obj) {
       /* myPhotoVid.setAttribute("width", "320");
       myPhotoVid.setAttribute("height", "240"); */
       myPhotoVid.setAttribute("controls", "controls");
+      const myPhotoVidSource = document.createElement("source");
+      myPhotoVidSource.setAttribute(
+        "src",
+        "./images/" + photogID[i] + "/" + photogVid[i]
+      );
+      myPhotoVidSource.setAttribute("type", "video/mp4");
+      myPhotoVid.appendChild(myPhotoVidSource);
+      //const hiddendiv = document.createElement("div");
+      //hiddendiv.style.display = "none";
+      //hiddendiv.appendChild(myPhotoVid);
       myPhotoCard.appendChild(myPhotoVid);
     }
     myPhotoCard.appendChild(myPhotoTitle);
@@ -647,7 +659,9 @@ fetch("./FishEyeDataFR.json")
     }
     
     );
-      console.log(lightGallery())
+    console.log(lightGallery())
+    
+    
     
     /* function checkboxChanged(e) {
       //Get the id of all checked checkboxes and store them as array
