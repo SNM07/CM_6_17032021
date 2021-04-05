@@ -64,6 +64,8 @@ function showProfile(obj) {
     for (let j = 0; j < catTags.length; j++) {
       const listTags = document.createElement("li");
       listTags.textContent = "# " + catTags[j];
+      //let v = catTags[j];
+      listTags.value = catTags[j].value;
       myTags.appendChild(listTags);
       const profileCardClass = "profileCardPP";
       myArticle.setAttribute(
@@ -216,6 +218,7 @@ function showGallery(obj) {
     //myPHInput.addEventListener('change', () => { console.log(id) });
     myPHInput.type = "checkbox";
     myPHInput.id = "heart" + photogPhID[i];
+    myPHInput.setAttribute("onclick", "event.stopPropagation();");
     //myPHInput.setAttribute("onclick", "event.preventDefault();");
     //myPHInput.addEventListener("click", e => e.preventDefault());
     let changeID = myPHInput.id;
@@ -226,6 +229,7 @@ function showGallery(obj) {
     const myPHLabel = document.createElement("label");
     myPHLabel.htmlFor = "heart" + photogPhID[i];
     myPHLabel.className = "far fa-heart";
+    myPHLabel.setAttribute("onclick", "event.stopPropagation();");
     myPhotoHeart.appendChild(myPHLabel);
 
     myPhotoCard.setAttribute("class", "photoCard");
