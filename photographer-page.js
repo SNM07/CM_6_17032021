@@ -12,7 +12,8 @@ console.log(profURL);
 //import { contactFormModule } from "./contactForm.js";
 import contactFormModule from "./contactForm.js";
     //contactFormModule();
-    
+   
+    import photoFilter from "./photoFilter.js";
 //import SimpleLightbox from "simplelightbox/dist/simple-lightbox.esm";
 
 //import SimpleLightbox from "./node-modules/simple-lightbox/src/simpleLightbox.js";
@@ -149,6 +150,9 @@ function showGallery(obj) {
 
   const photogPhID = photogal.map((photogal) => photogal.id);
 
+  const photogDate = photogal.map((photogal) => photogal.date);
+  const photogTags = photogal.map((photogal) => photogal.tags);
+
 
   console.log(photogID);
   console.log(photogVid);
@@ -175,6 +179,8 @@ function showGallery(obj) {
     //myAHREF.setAttribute("data-fslightbox", "gallery");
 
 
+    const myPhotoDate = document.createElement("p");
+    const myPhotoTags = document.createElement("p");
 
     const myPhotoCard = document.createElement("article");
     //////////
@@ -204,6 +210,7 @@ function showGallery(obj) {
     const myPhotoHeart = document.createElement("div");
     myPhotoHeart.className = "like";
     //myPhotoHeart.setAttribute("onclick", "event.preventDefault();")
+    //myPhotoHeart.setAttribute("onclick", "e.stopPropagation();")
 
     const myPHInput = document.createElement("input");
     //myPHInput.addEventListener('change', () => { console.log(id) });
@@ -361,6 +368,17 @@ function showGallery(obj) {
       //hiddendiv.appendChild(myPhotoVid);
       myPhotoCard.appendChild(myPhotoVid);
     }
+
+    myPhotoDate.setAttribute("class", "photoDate");
+    myPhotoDate.textContent = photogDate[i];
+    myPhotoDate.style.display = "none";
+    myPhotoCard.appendChild(myPhotoDate);
+
+    myPhotoTags.setAttribute("class", "photoTags");
+    myPhotoTags.textContent = photogTags[i];
+    myPhotoTags.style.display = "none";
+    myPhotoCard.appendChild(myPhotoTags);
+
     myPhotoCard.appendChild(myPhotoTitle);
     myPhotoCard.appendChild(myPhotoPrice);
     myPhotoCard.appendChild(myPhotoLikes);
@@ -559,7 +577,26 @@ function showGallery(obj) {
     //}
     //}
   }
-}
+  //photoFilter();
+  //photoFilter();
+  document.getElementById("photoFilterDD").addEventListener("change", photoFilter);
+  function photoFilter() {
+    
+    var e = document.getElementById("photoFilterDD");
+var filterDropdown = e.options[e.selectedIndex].value;//change it here
+
+    if (filterDropdown == "Popularite") {
+      
+    }
+    if (filterDropdown == "Date") {
+
+    }
+    if (filterDropdown == "Titre") {
+
+    }
+//alert(selectedEquipmentDropdown);
+  }
+  }
 //);
 
 /* function checkOnLocalStorage() {
@@ -661,7 +698,7 @@ fetch("./FishEyeDataFR.json")
     );
     console.log(lightGallery())
     
-    
+    //setTimeout(photoFilter(), 1000);
     
     /* function checkboxChanged(e) {
       //Get the id of all checked checkboxes and store them as array
