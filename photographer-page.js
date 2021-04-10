@@ -63,9 +63,14 @@ function showProfile(obj) {
     const catTags = photog[i].tags;
     for (let j = 0; j < catTags.length; j++) {
       const listTags = document.createElement("li");
-      listTags.textContent = "# " + catTags[j];
+      //listTags.textContent = "# " + catTags[j];
       //let v = catTags[j];
-      listTags.value = catTags[j].value;
+      console.log(catTags[j])
+      listTags.title = catTags[j];
+      const listFilter = document.createElement("a");
+      listFilter.textContent = "# " + catTags[j];
+      listFilter.setAttribute("onclick", "tagFilter()");
+      listTags.appendChild(listFilter);
       myTags.appendChild(listTags);
       const profileCardClass = "profileCardPP";
       myArticle.setAttribute(
