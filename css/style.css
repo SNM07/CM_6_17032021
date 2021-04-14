@@ -1384,12 +1384,19 @@ header {
 
 .profileTags li input:checked + label {
   background-color: #901C1C;
+}
+
+.profileTags li.selected input:checked + label {
+  background-color: #901C1C;
   color: white;
 }
 
-/* .profileTags li.selected input:checked + label {
-  background-color: #901C1C;
-  color: white;
-} */
+.hidePhoto {
+  display: none;
+}
+
+.showPhoto {
+  display: initial;
+}
 
 /*# sourceMappingURL=style.css.map */

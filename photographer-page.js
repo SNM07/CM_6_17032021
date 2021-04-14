@@ -388,17 +388,35 @@ fetch("./FishEyeDataFR.json")
         var cT = [...cardTag].map((i) => i.dataset.tagscard);
         console.log(cT);
 
-        if (this.checked === true && this.dataset.tags == cT[i]) {
-          console.log("Checkbox is checked..", this.dataset.tags);
-          cardFilt[i].style.visibility = "visible";
-        } else {
-          console.log("Checkbox is not checked..");
-          cardFilt[i].style.visibility = "hidden";
-        }
-       /*  var tt3 = document.querySelectorAll("[data-tags]");
+        for (var i = 0; i < cT.length; i++) {
+          cardFilt[i].classList.add('hidePhoto');
 
-        var testtag3 = [...tt3].map((i) => i.dataset.tags);
-        console.log(testtag3); */
+          if (this.checked === true && this.dataset.tags == cT[i]) {
+            console.log("Checkbox is checked..", this.dataset.tags);
+
+            cardFilt[i].classList.add('showPhoto');
+          } 
+        }
+
+        for (var j = 0; j < cT.length; j++) {
+          if (this.checked === false && this.dataset.tags == cT[j]) {
+            
+            console.log("Checkbox is unchecked..", this.dataset.tags);
+           
+            cardFilt[j].classList.remove('showPhoto');
+          } 
+        }
+
+        var empty = [].filter.call( filtButton, function( el ) {
+          return !el.checked
+       });
+       
+        for (var h = 0; h < cT.length; h++) {
+          if (filtButton.length == empty.length) {
+            cardFilt[h].classList.remove('hidePhoto');
+          }
+        }
+        
       });
     }
 
