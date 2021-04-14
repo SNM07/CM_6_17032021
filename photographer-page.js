@@ -19,6 +19,15 @@ import contactFormModule from "./contactForm.js";
 //import SimpleLightbox from "./node-modules/simple-lightbox/src/simpleLightbox.js";
 
 // !! ça c'est la fonction qui affiche la profileCard (photo de profile, nom du photographe, ville, tags) RAS
+
+function tagFilter() {
+  const profList = document.getElementsByClassName("profileTags");
+  const profListItems = profList.li;
+  const profTitles = profListItems.title;
+  const selectedTag = this.profTitles;
+  console.log(profTitles, selectedTag)
+}
+
 function showProfile(obj) {
   const photog = obj["photographers"];
   // let profID = photog[0].id;
@@ -67,9 +76,10 @@ function showProfile(obj) {
       //let v = catTags[j];
       console.log(catTags[j])
       listTags.title = catTags[j];
+      listTags.setAttribute("data-tags", catTags[j]);
       const listFilter = document.createElement("a");
       listFilter.textContent = "# " + catTags[j];
-      listFilter.setAttribute("onclick", "tagFilter()");
+      //listFilter.setAttribute("onclick", "tagFilter()");
       listTags.appendChild(listFilter);
       myTags.appendChild(listTags);
       const profileCardClass = "profileCardPP";
@@ -100,6 +110,7 @@ function showProfile(obj) {
       document.querySelectorAll(".Delete").forEach((e) => e.remove());
     }
 
+    
     //let currName = null;
     //let currName = x;
 
@@ -238,6 +249,7 @@ function showGallery(obj) {
     myPhotoHeart.appendChild(myPHLabel);
 
     myPhotoCard.setAttribute("class", "photoCard");
+    myPhotoCard.setAttribute("data-tagsCard", photogTags[i]);
     //myPhotoImg.setAttribute("class", "photoImg");
     //myPhotoVid.setAttribute("class", "photoVid");
     myPhotoTitle.setAttribute("class", "photoTitle");
@@ -706,6 +718,50 @@ fetch("./FishEyeDataFR.json")
     
     );
     console.log(lightGallery())
+
+    /* testget();
+    function testget() { 
+    const profList = document.getElementsByClassName("profileTags");
+    const profListItems = profList.li;
+    const profTitles = profListItems.title;
+    const selectedTag = this.profTitles;
+    console.log(profTitles, selectedTag)
+    }
+    console.log(testget())
+ */
+    /* var testtag = document.querySelectorAll("li[data-tags]");
+    console.log(testtag)
+    
+    var testtag2 = document.querySelectorAll('[data-tags]');
+    console.log(testtag2) */
+    
+    /* document.querySelectorAll(".box").forEach(box => 
+      box.addEventListener("click", () => box.classList.toggle("red"))
+    ) */
+    
+    const filtButton = document.querySelectorAll(".profileTags > li > a");
+    //filtButton.addEventListener("click", filterTag());
+    filtButton.forEach(filtButton => 
+      filtButton.addEventListener("click", () => filterTag()))
+    
+    console.log(this.filtButton)
+
+    function filterTag() {
+      var tt3 = document.querySelectorAll('[data-tags]');
+      //console.log(tt3.getAttribute('[data-tags]'));
+      
+      var testtag3 = [...tt3].map(i => i.dataset.tags);
+      console.log(testtag3)
+
+      const cardTag = document.querySelectorAll('[data-tagscard]');
+      var cT = [...cardTag].map(i => i.dataset.tagscard);
+      console.log(cT)
+      const cardFilt = document.getElementsByClassName("photoAHREF");
+      if (testtag3 == cardTag) {
+        cardFilt.display = none;
+      }
+    }
+    //function tagFilter() {
     
     //setTimeout(photoFilter(), 1000);
     
