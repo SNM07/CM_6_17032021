@@ -1372,4 +1372,24 @@ header {
   border-radius: 8px;
 }
 
+.profileTags li {
+  cursor: pointer;
+}
+.profileTags li label {
+  cursor: pointer;
+}
+.profileTags li input[type=checkbox] {
+  width: 0;
+}
+
+.profileTags li input:checked + label {
+  background-color: #901C1C;
+  color: white;
+}
+
+/* .profileTags li.selected input:checked + label {
+  background-color: #901C1C;
+  color: white;
+} */
+
 /*# sourceMappingURL=style.css.map */

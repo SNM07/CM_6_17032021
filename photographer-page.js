@@ -77,9 +77,14 @@ function showProfile(obj) {
       console.log(catTags[j])
       listTags.title = catTags[j];
       listTags.setAttribute("data-tags", catTags[j]);
-      const listFilter = document.createElement("a");
+      const listFilter = document.createElement("label");
+      listFilter.setAttribute("for", catTags[j]);
+      const listInput = document.createElement("input");
+      listInput.setAttribute("id", catTags[j]);
+      listInput.setAttribute("type", "checkbox");
       listFilter.textContent = "# " + catTags[j];
       //listFilter.setAttribute("onclick", "tagFilter()");
+      listTags.appendChild(listInput);
       listTags.appendChild(listFilter);
       myTags.appendChild(listTags);
       const profileCardClass = "profileCardPP";
@@ -739,12 +744,12 @@ fetch("./FishEyeDataFR.json")
       box.addEventListener("click", () => box.classList.toggle("red"))
     ) */
     
-    const filtButton = document.querySelectorAll(".profileTags > li > a");
+    const filtButton = document.querySelectorAll(".profileTags > li > input");
     //filtButton.addEventListener("click", filterTag());
     filtButton.forEach(filtButton => 
       filtButton.addEventListener("click", () => filterTag()))
     
-    console.log(this.filtButton)
+    console.log(filtButton)
 
     function filterTag() {
       var tt3 = document.querySelectorAll('[data-tags]');
@@ -757,8 +762,10 @@ fetch("./FishEyeDataFR.json")
       var cT = [...cardTag].map(i => i.dataset.tagscard);
       console.log(cT)
       const cardFilt = document.getElementsByClassName("photoAHREF");
-      if (testtag3 == cardTag) {
-        cardFilt.display = none;
+      for (var i = 0; i <= 10; i++) {
+        if (testtag3 == cardTag) {
+          cardFilt.display = none;
+        }
       }
     }
     //function tagFilter() {
@@ -791,7 +798,32 @@ fetch("./FishEyeDataFR.json")
       checkOnLocalStorage();
     })(); */
 
+    /* document.querySelector(".profileTags").addEventListener("change", e => {
+      if(!e.target.matches("input[type=checkbox]") return;
+      
+      // If they all started out unchecked you can just do
+      e.target.parentElement.classList.toggle("checked");
+      
+      // If some start checked and some don't, instead do:
+      if(!e.target.parentElement.classList.contains("selected") && e.target.checked) return e.target.parentElementclassList.add("selected");
+      if(e.target.parentElementclassList.parentElement.contains("selected") && !e.target.checked) return e.target.parentElement.classList.remove("selected");
+    }) */
+//////////////////////////////////////////////////////////////////////
+    
+/* document.querySelector(".profileTags").addEventListener("change", e => {
+      if(!e.target.matches("input[type=checkbox]")) return;
+      
+      // If they all started out unchecked you can just do
+      e.target.parentElement.classList.toggle("checked");
+      
+      // If some start checked and some don't, instead do:
+      const li = e.target.parentElement;
+      if(!li.classList.contains("selected") && e.target.checked) return li.classList.add("selected");
+      if(li.classList.parentElement.contains("selected") && !e.target.checked) return li.classList.remove("selected");
+    }) */
 
+
+    ////////////////////////////////////////////////////////////////////////
     //document.querySelector('contact-form').addEventListener(validate);
 
     //import { contactFormModule } from "./contactForm.js";

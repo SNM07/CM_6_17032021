@@ -97,3 +97,27 @@ margin: auto;
   border: 2px solid white;
   border-radius: 8px;
 }
+
+.profileTags{
+    & li{
+        cursor: pointer;
+        & label{
+            cursor: pointer;
+            
+        }
+        & input[type="checkbox"]{
+            width: 0;
+       
+       
+    }
+    }
+}
+
+.profileTags li input:checked + label {
+    background-color: $color-primary-1;
+}
+
+.profileTags li.selected input:checked + label {
+    background-color: $color-primary-1;
+    color: white;
+}
