@@ -67,6 +67,7 @@ function showProfile(obj) {
       const listFilter = document.createElement("label");
       listFilter.setAttribute("for", catTags[j]);
       const listInput = document.createElement("input");
+      listInput.setAttribute("data-tags", catTags[j]);
       listInput.setAttribute("id", catTags[j]);
       listInput.setAttribute("type", "checkbox");
       listFilter.textContent = "# " + catTags[j];
@@ -401,26 +402,43 @@ fetch("./FishEyeDataFR.json")
     
     //Tag Filters
     const filtButton = document.querySelectorAll(".profileTags > li > input");
-    filtButton.forEach(filtButton => 
-      filtButton.addEventListener("click", () => filterTag()))
-    
-    console.log(filtButton)
+    //filtButton.forEach(filtButton =>
+    for (var i = 0; i < filtButton.length; i++) {
+      filtButton[i].addEventListener("change", function () {
+        /* if (this.checked) {
+          console.log("Checkbox is checked..");
+        } else {
+          console.log("Checkbox is not checked..");
+        } */
 
-    function filterTag() {
-      var tt3 = document.querySelectorAll('[data-tags]');
-      
-      var testtag3 = [...tt3].map(i => i.dataset.tags);
-      console.log(testtag3)
+        const cardFilt = document.getElementsByClassName("photoAHREF");
 
-      const cardTag = document.querySelectorAll('[data-tagscard]');
-      var cT = [...cardTag].map(i => i.dataset.tagscard);
-      console.log(cT)
-      const cardFilt = document.getElementsByClassName("photoAHREF");
-      for (var i = 0; i <= 10; i++) {
-        if (testtag3 == cardTag) {
-          cardFilt.display = none;
+        const cardTag = document.querySelectorAll('[data-tagscard]');
+        var cT = [...cardTag].map(i => i.dataset.tagscard);
+        console.log(cT)
+
+        if (this.checked === true && this.dataset.tags == cT) {
+          console.log("Checkbox is checked..", this.dataset.tags);
+          cardFilt.display = true;
+        } else {
+          console.log("Checkbox is not checked..");
+          cardFilt.display = false;
         }
-      }
+        var tt3 = document.querySelectorAll('[data-tags]');
+      
+        var testtag3 = [...tt3].map(i => i.dataset.tags);
+        console.log(testtag3)
+
+        /* const cardTag = document.querySelectorAll('[data-tagscard]');
+        var cT = [...cardTag].map(i => i.dataset.tagscard);
+        console.log(cT) */
+        //const cardFilt = document.getElementsByClassName("photoAHREF");
+        for (var i = 0; i <= 10; i++) {
+          if (testtag3 == cardTag) {
+            cardFilt.display = none;
+          }
+        }
+      })
     }
 
     //Tests background tag buttons
