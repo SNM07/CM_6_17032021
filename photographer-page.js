@@ -5,8 +5,8 @@ console.log(profURL);
 
 // Import contact form
 import contactFormModule from "./contactForm.js";
-    
- /*   
+
+/*   
     import photoFilter from "./photoFilter.js";
 
 function tagFilter() {
@@ -17,20 +17,17 @@ function tagFilter() {
   console.log(profTitles, selectedTag)
 } */
 
-
 // Display photographer profile
 function showProfile(obj) {
   const photog = obj["photographers"];
-  
+
   const profilID = photog.map((photog) => photog.id);
 
   const myContact = document.createElement("button");
-  const contactText= document.createTextNode("Contactez-moi");
+  const contactText = document.createTextNode("Contactez-moi");
   myContact.setAttribute("class", "modal-btn");
   myContact.appendChild(contactText);
   profilesPP.appendChild(myContact);
-
-
 
   for (let i = 0; i < photog.length; i++) {
     const myArticle = document.createElement("article");
@@ -40,7 +37,6 @@ function showProfile(obj) {
     const myPara2 = document.createElement("p");
     const myPara3 = document.createElement("p");
     const myTags = document.createElement("ul");
-    
 
     myArticle.setAttribute("class", "profileCardPP");
     myImg.setAttribute("class", "profilePic");
@@ -49,7 +45,6 @@ function showProfile(obj) {
     myPara2.setAttribute("class", "profileTagline");
     myPara3.setAttribute("class", "profilePrice");
     myTags.setAttribute("class", "profileTags");
-
 
     myImg.src = "./images/Photographers-ID-Photos/" + photog[i].portrait;
     myH2.textContent = photog[i].name;
@@ -60,8 +55,8 @@ function showProfile(obj) {
     const catTags = photog[i].tags;
     for (let j = 0; j < catTags.length; j++) {
       const listTags = document.createElement("li");
-      
-      console.log(catTags[j])
+
+      console.log(catTags[j]);
       listTags.title = catTags[j];
       listTags.setAttribute("data-tags", catTags[j]);
       const listFilter = document.createElement("label");
@@ -91,10 +86,9 @@ function showProfile(obj) {
     if (x == y) {
       myArticle.style.display = "true";
       console.log("OK");
-      
-      currentName = photog[i].name;
-      console.log("NAME", currentName)
 
+      currentName = photog[i].name;
+      console.log("NAME", currentName);
     } else {
       myArticle.style.display = "none";
       myArticle.classList.add("Delete");
@@ -102,8 +96,6 @@ function showProfile(obj) {
       document.querySelectorAll(".Delete").forEach((e) => e.remove());
     }
 
-    
-    
     myArticle.appendChild(myImg);
     myArticle.appendChild(myH2);
     myArticle.appendChild(myPara1);
@@ -111,11 +103,7 @@ function showProfile(obj) {
     myArticle.appendChild(myPara3);
     myArticle.appendChild(myTags);
 
-
     profilesPP.appendChild(myArticle);
-
-    
-    
   }
 }
 
@@ -135,7 +123,6 @@ function showGallery(obj) {
   const photogDate = photogal.map((photogal) => photogal.date);
   const photogTags = photogal.map((photogal) => photogal.tags);
 
-
   console.log(photogID);
   console.log(photogVid);
 
@@ -144,7 +131,6 @@ function showGallery(obj) {
 
   console.log(photogIdentity);
   console.log(photogBasePrice);
-  
 
   for (let i = 0; i < photogal.length; i++) {
     const myAHREF = document.createElement("a");
@@ -152,12 +138,11 @@ function showGallery(obj) {
     myAHREF.setAttribute("title", photogTitle[i]);
     myAHREF.setAttribute("alt", photogTitle[i]);
 
-
     const myPhotoDate = document.createElement("p");
     const myPhotoTags = document.createElement("p");
 
     const myPhotoCard = document.createElement("article");
-    
+
     const myPhotoTitle = document.createElement("h2");
     const myPhotoPrice = document.createElement("p");
 
@@ -165,16 +150,16 @@ function showGallery(obj) {
 
     const myPhotoHeart = document.createElement("div");
     myPhotoHeart.className = "like";
-    
+
     const myPHInput = document.createElement("input");
     myPHInput.type = "checkbox";
     myPHInput.id = "heart" + photogPhID[i];
     myPHInput.setAttribute("onclick", "event.stopPropagation();");
-   
+
     let changeID = myPHInput.id;
-    
+
     myPhotoHeart.appendChild(myPHInput);
-    
+
     const myPHLabel = document.createElement("label");
     myPHLabel.htmlFor = "heart" + photogPhID[i];
     myPHLabel.className = "far fa-heart";
@@ -183,12 +168,12 @@ function showGallery(obj) {
 
     myPhotoCard.setAttribute("class", "photoCard");
     myPhotoCard.setAttribute("data-tagsCard", photogTags[i]);
-    
+
     myPhotoTitle.setAttribute("class", "photoTitle");
     myPhotoPrice.setAttribute("class", "photoPrice");
 
     myPhotoLikes.setAttribute("class", "photoLikes");
-    
+
     myPhotoTitle.textContent = photogTitle[i];
     myPhotoPrice.textContent = photogPrice[i] + " €";
     myPhotoLikes.textContent = photogLikes[i];
@@ -196,33 +181,33 @@ function showGallery(obj) {
     var counter2 = photogLikes[i];
 
     let myPhotogID = photogID[i];
-    
+
     let x = myPhotogID;
 
     let y = profURL;
-    
+
     if (x == y) {
-      
-      console.log(myPHInput.id)
+      console.log(myPHInput.id);
       let changeID2 = myPHInput.id;
-      console.log(changeID2)
-      console.log(myPHInput[i])
+      console.log(changeID2);
+      console.log(myPHInput[i]);
       myPHInput.classList.add("Visible");
-      console.log(myPHInput.className)
+      console.log(myPHInput.className);
     } else {
       myPhotoCard.classList.add("Delete");
       document.querySelectorAll(".Delete").forEach((e) => e.remove());
       myAHREF.classList.add("Delete");
-
     }
 
-   
     if (photogImg[i] !== undefined) {
       const myPhotoImg = document.createElement("img");
       myPhotoImg.setAttribute("class", "photoImg");
       myPhotoImg.setAttribute("alt", photogTitle[i]);
       myPhotoImg.src = "./images/" + photogID[i] + "/" + photogImg[i];
-      myAHREF.setAttribute("href", "./images/" + photogID[i] + "/" + photogImg[i]);
+      myAHREF.setAttribute(
+        "href",
+        "./images/" + photogID[i] + "/" + photogImg[i]
+      );
       myPhotoCard.appendChild(myPhotoImg);
     }
     if (photogVid[i] !== undefined) {
@@ -230,7 +215,10 @@ function showGallery(obj) {
       myPhotoVid.setAttribute("class", "photoVid");
       myPhotoVid.classList.add("lg-video-object");
       myPhotoVid.classList.add("lg-html5");
-      myAHREF.setAttribute("href", "./images/" + photogID[i] + "/" + photogVid[i]);
+      myAHREF.setAttribute(
+        "href",
+        "./images/" + photogID[i] + "/" + photogVid[i]
+      );
       if (myPhotoVid.canPlayType("video/mp4")) {
         myPhotoVid.setAttribute(
           "src",
@@ -238,8 +226,7 @@ function showGallery(obj) {
         );
       } else {
       }
-  
-      
+
       myPhotoVid.setAttribute("controls", "controls");
       const myPhotoVidSource = document.createElement("source");
       myPhotoVidSource.setAttribute(
@@ -248,7 +235,7 @@ function showGallery(obj) {
       );
       myPhotoVidSource.setAttribute("type", "video/mp4");
       myPhotoVid.appendChild(myPhotoVidSource);
-      
+
       myPhotoCard.appendChild(myPhotoVid);
     }
 
@@ -268,42 +255,40 @@ function showGallery(obj) {
 
     myPhotoCard.appendChild(myPhotoHeart);
     myAHREF.appendChild(myPhotoCard);
-   
-    photoGallery.appendChild(myAHREF);
-    
-    // Photo Like stuff
-    var isChecked = document.querySelectorAll("input:checked").length === 0 ? false : true;
-    
-    console.log(isChecked)
 
-    
+    photoGallery.appendChild(myAHREF);
+
+    // Photo Like stuff
+    var isChecked =
+      document.querySelectorAll("input:checked").length === 0 ? false : true;
+
+    console.log(isChecked);
+
     let checkClass = document.getElementsByClassName("Visible");
-    
-    var localStorage = []
-    myPHInput.addEventListener('change', function () {
-      
-      console.log(this.id, this.checked)
-     
-      var c = []
+
+    var localStorage = [];
+    myPHInput.addEventListener("change", function () {
+      console.log(this.id, this.checked);
+
+      var c = [];
 
       var id = this.id;
       var check = true;
 
-      
       if (this.checked == true) {
         const that = this;
-        
+
         let h = that.parentNode.previousSibling.innerHTML;
-        
+
         h = ++h;
-        console.log(h)
+        console.log(h);
         that.parentNode.previousSibling.innerHTML = h;
         check = this.checked;
       } else {
         check = false;
-        
+
         const that = this;
-        
+
         let h = that.parentNode.previousSibling.innerHTML;
         h = --h;
         that.parentNode.previousSibling.innerHTML = h;
@@ -312,23 +297,23 @@ function showGallery(obj) {
       c = check;
       c[check];
 
-      if (c == true) { localStorage.push(id); }
-      if (c == false) { localStorage.pop(id); }
-      
-      
-      
+      if (c == true) {
+        localStorage.push(id);
+      }
+      if (c == false) {
+        localStorage.pop(id);
+      }
+
       localStorage["map"];
-      
-      console.log(check)
-      console.log("OK", localStorage)
+
+      console.log(check);
+      console.log("OK", localStorage);
       var localString = JSON.stringify(localStorage);
-      console.log(localString)
-      
+      console.log(localString);
+
       if (document.querySelectorAll(this.id).checked) {
         c.push(this.id);
       }
-      
-      
     });
 
     /* function checkOnLocalStorage() {
@@ -342,29 +327,23 @@ function showGallery(obj) {
     (function () {
       checkOnLocalStorage();
     })(); */
-
-
-
-   
   }
- 
-  document.getElementById("photoFilterDD").addEventListener("change", photoFilter);
+
+  document
+    .getElementById("photoFilterDD")
+    .addEventListener("change", photoFilter);
   function photoFilter() {
-    
     var e = document.getElementById("photoFilterDD");
-var filterDropdown = e.options[e.selectedIndex].value;//change it here
+    var filterDropdown = e.options[e.selectedIndex].value; //change it here
 
     if (filterDropdown == "Popularite") {
-      
     }
     if (filterDropdown == "Date") {
-
     }
     if (filterDropdown == "Titre") {
-
     }
   }
-  }
+}
 
 // Fetch JSON and use functions
 fetch("./FishEyeDataFR.json")
@@ -385,7 +364,7 @@ fetch("./FishEyeDataFR.json")
     contactFormModule();
 
     //Lightbox parameters
-    lightGallery(document.getElementById('photoGallery'), {
+    lightGallery(document.getElementById("photoGallery"), {
       //speed: "600",
       //width: "90vw",
       //height: "90%",
@@ -395,50 +374,32 @@ fetch("./FishEyeDataFR.json")
       fullScreen: true,
       hideBarsDelay: 0,
       counter: false,
-    }
-    
-    );
-    console.log(lightGallery())
-    
+    });
+    console.log(lightGallery());
+
     //Tag Filters
     const filtButton = document.querySelectorAll(".profileTags > li > input");
     //filtButton.forEach(filtButton =>
     for (var i = 0; i < filtButton.length; i++) {
       filtButton[i].addEventListener("change", function () {
-        /* if (this.checked) {
-          console.log("Checkbox is checked..");
-        } else {
-          console.log("Checkbox is not checked..");
-        } */
-
         const cardFilt = document.getElementsByClassName("photoAHREF");
 
-        const cardTag = document.querySelectorAll('[data-tagscard]');
-        var cT = [...cardTag].map(i => i.dataset.tagscard);
-        console.log(cT)
+        const cardTag = document.querySelectorAll("[data-tagscard]");
+        var cT = [...cardTag].map((i) => i.dataset.tagscard);
+        console.log(cT);
 
-        if (this.checked === true && this.dataset.tags == cT) {
+        if (this.checked === true && this.dataset.tags == cT[i]) {
           console.log("Checkbox is checked..", this.dataset.tags);
-          cardFilt.display = true;
+          cardFilt[i].style.visibility = "visible";
         } else {
           console.log("Checkbox is not checked..");
-          cardFilt.display = false;
+          cardFilt[i].style.visibility = "hidden";
         }
-        var tt3 = document.querySelectorAll('[data-tags]');
-      
-        var testtag3 = [...tt3].map(i => i.dataset.tags);
-        console.log(testtag3)
+       /*  var tt3 = document.querySelectorAll("[data-tags]");
 
-        /* const cardTag = document.querySelectorAll('[data-tagscard]');
-        var cT = [...cardTag].map(i => i.dataset.tagscard);
-        console.log(cT) */
-        //const cardFilt = document.getElementsByClassName("photoAHREF");
-        for (var i = 0; i <= 10; i++) {
-          if (testtag3 == cardTag) {
-            cardFilt.display = none;
-          }
-        }
-      })
+        var testtag3 = [...tt3].map((i) => i.dataset.tags);
+        console.log(testtag3); */
+      });
     }
 
     //Tests background tag buttons
@@ -453,9 +414,9 @@ fetch("./FishEyeDataFR.json")
       if(!e.target.parentElement.classList.contains("selected") && e.target.checked) return e.target.parentElementclassList.add("selected");
       if(e.target.parentElementclassList.parentElement.contains("selected") && !e.target.checked) return e.target.parentElement.classList.remove("selected");
     }) */
-//////////////////////////////////////////////////////////////////////
-    
-/* document.querySelector(".profileTags").addEventListener("change", e => {
+    //////////////////////////////////////////////////////////////////////
+
+    /* document.querySelector(".profileTags").addEventListener("change", e => {
       if(!e.target.matches("input[type=checkbox]")) return;
       
       // If they all started out unchecked you can just do
@@ -467,9 +428,8 @@ fetch("./FishEyeDataFR.json")
       if(li.classList.parentElement.contains("selected") && !e.target.checked) return li.classList.remove("selected");
     }) */
 
-
     ////////////////////////////////////////////////////////////////////////
-    
+
     //Scroll up
     const body = document.body;
 
@@ -518,10 +478,11 @@ fetch("./FishEyeDataFR.json")
         mybutton.style.display = "none";
       }
     }
-    
   });
 
-  document.getElementById("contentButton2").addEventListener("click", topFunction2);
+document
+  .getElementById("contentButton2")
+  .addEventListener("click", topFunction2);
 
 // When the user clicks on the button, scroll to the top of the document
 function topFunction2() {
@@ -531,33 +492,39 @@ function topFunction2() {
 
 //EmailJS stuff
 window.onload = function () {
-  document.getElementById('contact-form').addEventListener('submit', function (event) {
-    event.preventDefault();
-   
-    let varsForm = {
-      first: document.getElementById("first").value,
-      last: document.getElementById("last").value,
-      email: document.getElementById("email").value,
-      message: document.getElementById("message").value,
-      photographerName: document.querySelector('.profileName').innerHTML,
-  
-    };
+  document
+    .getElementById("contact-form")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
 
-    emailjs.send("service_fqmxk3h", "template_uez9mo6", varsForm, "user_puf8TmtfpdXTG2bY7o9Sk").then(
-      function () {
-        console.log("SUCCESS!");
-        Popup();
-      },
-      function (error) {
-        console.log("FAILED...", error);
-      }
-    );
-  
-  
-  });
+      let varsForm = {
+        first: document.getElementById("first").value,
+        last: document.getElementById("last").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value,
+        photographerName: document.querySelector(".profileName").innerHTML,
+      };
 
-    // Display and Close popup message and modal
-    const modalbg = document.querySelector(".bground");
+      emailjs
+        .send(
+          "service_fqmxk3h",
+          "template_uez9mo6",
+          varsForm,
+          "user_puf8TmtfpdXTG2bY7o9Sk"
+        )
+        .then(
+          function () {
+            console.log("SUCCESS!");
+            Popup();
+          },
+          function (error) {
+            console.log("FAILED...", error);
+          }
+        );
+    });
+
+  // Display and Close popup message and modal
+  const modalbg = document.querySelector(".bground");
 
   function Popup() {
     var popup = document.getElementById("myPopup");
@@ -569,4 +536,4 @@ window.onload = function () {
     } // If yes hide it after 4000 milliseconds
     return false;
   }
-}
+};
