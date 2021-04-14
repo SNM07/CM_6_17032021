@@ -1384,6 +1384,7 @@ header {
 
 .profileTags li input:checked + label {
   background-color: #901C1C;
+  color: white;
 }
 
 .profileTags li.selected input:checked + label {

@@ -115,6 +115,7 @@ margin: auto;
 
 .profileTags li input:checked + label {
     background-color: $color-primary-1;
+    color: white;
 }
 
 .profileTags li.selected input:checked + label {
