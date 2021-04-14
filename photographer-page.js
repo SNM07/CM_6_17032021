@@ -1,24 +1,13 @@
+// Get photographer profile ID
 let profURL = window.location.search.substr(4);
 
 console.log(profURL);
 
-//let mybutton = document.getElementById("contentButton2");
-
-//require('fslightbox');
-
-//import * from './fslightbox/fslightbox.js';
-//import * from "./node_modules/fslightbox";
-
-//import { contactFormModule } from "./contactForm.js";
+// Import contact form
 import contactFormModule from "./contactForm.js";
-    //contactFormModule();
-   
+    
+ /*   
     import photoFilter from "./photoFilter.js";
-//import SimpleLightbox from "simplelightbox/dist/simple-lightbox.esm";
-
-//import SimpleLightbox from "./node-modules/simple-lightbox/src/simpleLightbox.js";
-
-// !! ça c'est la fonction qui affiche la profileCard (photo de profile, nom du photographe, ville, tags) RAS
 
 function tagFilter() {
   const profList = document.getElementsByClassName("profileTags");
@@ -26,12 +15,13 @@ function tagFilter() {
   const profTitles = profListItems.title;
   const selectedTag = this.profTitles;
   console.log(profTitles, selectedTag)
-}
+} */
 
+
+// Display photographer profile
 function showProfile(obj) {
   const photog = obj["photographers"];
-  // let profID = photog[0].id;
-  //  let i = 0;
+  
   const profilID = photog.map((photog) => photog.id);
 
   const myContact = document.createElement("button");
@@ -51,7 +41,6 @@ function showProfile(obj) {
     const myPara3 = document.createElement("p");
     const myTags = document.createElement("ul");
     
-    //const myFormName = document.createElement("h2");
 
     myArticle.setAttribute("class", "profileCardPP");
     myImg.setAttribute("class", "profilePic");
@@ -61,7 +50,6 @@ function showProfile(obj) {
     myPara3.setAttribute("class", "profilePrice");
     myTags.setAttribute("class", "profileTags");
 
-    //myFormName.setAttribute("class", "formName");
 
     myImg.src = "./images/Photographers-ID-Photos/" + photog[i].portrait;
     myH2.textContent = photog[i].name;
@@ -72,8 +60,7 @@ function showProfile(obj) {
     const catTags = photog[i].tags;
     for (let j = 0; j < catTags.length; j++) {
       const listTags = document.createElement("li");
-      //listTags.textContent = "# " + catTags[j];
-      //let v = catTags[j];
+      
       console.log(catTags[j])
       listTags.title = catTags[j];
       listTags.setAttribute("data-tags", catTags[j]);
@@ -83,7 +70,6 @@ function showProfile(obj) {
       listInput.setAttribute("id", catTags[j]);
       listInput.setAttribute("type", "checkbox");
       listFilter.textContent = "# " + catTags[j];
-      //listFilter.setAttribute("onclick", "tagFilter()");
       listTags.appendChild(listInput);
       listTags.appendChild(listFilter);
       myTags.appendChild(listTags);
@@ -116,29 +102,7 @@ function showProfile(obj) {
     }
 
     
-    //let currName = null;
-    //let currName = x;
-
-    /* function getCurrentName() {
-      if (currentName !== null) {
-        console.log("NAME", currentName)
-        myFormName.textContent = currentName;
-        myFormName.setAttribute("id", currentName);
-        profilesPP.appendChild(myFormName);
-
-        //x = currentName;
-        //return currName;
-        //return currentName;
-        //export * from currentName;
-      }
-    }
-    getCurrentName();
     
-    let currName = getCurrentName();
-    //let currName = getCurrentName();
-    console.log("CURRNAME", currName)
-    //export currentName; */
-
     myArticle.appendChild(myImg);
     myArticle.appendChild(myH2);
     myArticle.appendChild(myPara1);
@@ -150,20 +114,14 @@ function showProfile(obj) {
     profilesPP.appendChild(myArticle);
 
     
-    //export * from getCurrentName();
-    //return getCurrentName();
-    //contactFormModule();
+    
   }
 }
-// console.log(getCurrentName())
 
-
-// !! ça c'est la fonction (en cours de construction) qui me pose problème pour afficher les cards de chaque photos correspondant à l'id du photographe associé
+// Display photographer gallery
 function showGallery(obj) {
-  // !! je récupère les éléments du JSON
   const photog = obj["photographers"];
   const photogal = obj["media"];
-  // !! je récupère toutes les photographerID du JSON
   const photogID = photogal.map((photogal) => photogal.photographerId);
   const photogPrice = photogal.map((photogal) => photogal.price);
   const photogImg = photogal.map((photogal) => photogal.image);
@@ -180,51 +138,25 @@ function showGallery(obj) {
   console.log(photogID);
   console.log(photogVid);
 
-  // !! ça c'est provisoire, c'est pour avoir un photographe en input mais il va falloir que je trouve un moyen pour que cette page sache sur quel photographe (et quelle ID) l'utilisateur a cliqué sur la page d'accueil et j'ai aucune idée de comment procéder pour ça... Et faudra que ça fonctionne aussi sur la fonction showProfile d'ailleurs
   let photogIdentity = photog[0].id;
   let photogBasePrice = photogal[0].price;
 
   console.log(photogIdentity);
   console.log(photogBasePrice);
-  // !! là je filtre pour ne garder que les photos associées à l'ID du photographe choisi
-  /* const photogPersonCard = photogID.filter(
-    (photogID) => photogID === photogIdentity
-  ); */
-
-  // console.log(photogPersonCard);
+  
 
   for (let i = 0; i < photogal.length; i++) {
     const myAHREF = document.createElement("a");
-    //myAHREF.setAttribute("href", "./images/" + photogID[i] + "/" + photogImg[i]);
     myAHREF.setAttribute("class", "photoAHREF");
     myAHREF.setAttribute("title", photogTitle[i]);
     myAHREF.setAttribute("alt", photogTitle[i]);
-    //myAHREF.setAttribute("data-fslightbox", "gallery");
 
 
     const myPhotoDate = document.createElement("p");
     const myPhotoTags = document.createElement("p");
 
     const myPhotoCard = document.createElement("article");
-    //////////
-    /* if (photogImg[i] !== undefined) {
-      const myPhotoImg = document.createElement("img");
-      return myPhotoImg;
-    }
-
-    if (photogVid[i] !== undefined) {
-      const myPhotoVid = document.createElement("video");
-      return myPhotoVid;
-    } */
-    ////////////
-
-    //const myPhotoImg = document.createElement("img");
-    //const myPhotoVid = document.createElement("video");
-
-    //const myPhotoVid = createVid();
-    //const myPhotoVid = if ("video" in photogal[i]) { document.createElement("video") };
-    //function createVid() { if ("video" in photogal[i]) { document.createElement("video") } };
-
+    
     const myPhotoTitle = document.createElement("h2");
     const myPhotoPrice = document.createElement("p");
 
@@ -232,19 +164,14 @@ function showGallery(obj) {
 
     const myPhotoHeart = document.createElement("div");
     myPhotoHeart.className = "like";
-    //myPhotoHeart.setAttribute("onclick", "event.preventDefault();")
-    //myPhotoHeart.setAttribute("onclick", "e.stopPropagation();")
-
+    
     const myPHInput = document.createElement("input");
-    //myPHInput.addEventListener('change', () => { console.log(id) });
     myPHInput.type = "checkbox";
     myPHInput.id = "heart" + photogPhID[i];
     myPHInput.setAttribute("onclick", "event.stopPropagation();");
-    //myPHInput.setAttribute("onclick", "event.preventDefault();");
-    //myPHInput.addEventListener("click", e => e.preventDefault());
+   
     let changeID = myPHInput.id;
-    //console.log(changeID)
-    //myPHInput.setAttribute("onchange", checkboxChanged(this));
+    
     myPhotoHeart.appendChild(myPHInput);
     
     const myPHLabel = document.createElement("label");
@@ -255,43 +182,12 @@ function showGallery(obj) {
 
     myPhotoCard.setAttribute("class", "photoCard");
     myPhotoCard.setAttribute("data-tagsCard", photogTags[i]);
-    //myPhotoImg.setAttribute("class", "photoImg");
-    //myPhotoVid.setAttribute("class", "photoVid");
+    
     myPhotoTitle.setAttribute("class", "photoTitle");
     myPhotoPrice.setAttribute("class", "photoPrice");
 
     myPhotoLikes.setAttribute("class", "photoLikes");
-    //myPhotoHeart.setAttribute("class", "like");
-
-    //myPhotoImg.src = "./images/" + photogID[i] + "/" + photogImg[i];
-
-    /* myPhotoVid.src =
-      "./images/" + photogID[i] + "/" + photogVid[i]; */
-    ///////////
-    /* if (photogImg[i] === undefined) {
-      myPhotoImg.classList.add("DeleteImg");
-      document.querySelectorAll(".DeleteImg").forEach((e) => e.remove());
-      myPhotoImg.style.display = "none";
-    }
-
-    if (photogVid[i] === undefined) {
-      myPhotoVid.classList.add("DeleteVid");
-      document.querySelectorAll(".DeleteVid").forEach((e) => e.remove());
-      myPhotoVid.style.display = "none";
-    }
-    ////////
-    if (myPhotoVid.canPlayType("video/mp4")) {
-      myPhotoVid.setAttribute(
-        "src",
-        "./images/" + photogID[i] + "/" + photogVid[i]
-      );
-    } else {
-      //myPhotoVid.setAttribute("src","movie.ogg");
-    } */
-
-    /* myPhotoVid.setAttribute("width", "320");
-    myPhotoVid.setAttribute("height", "240"); */
-    //myPhotoVid.setAttribute("controls", "controls");
+    
     myPhotoTitle.textContent = photogTitle[i];
     myPhotoPrice.textContent = photogPrice[i] + " €";
     myPhotoLikes.textContent = photogLikes[i];
@@ -299,47 +195,13 @@ function showGallery(obj) {
     var counter2 = photogLikes[i];
 
     let myPhotogID = photogID[i];
-    //console.log(myPhotogID);
     
-    //console.log(myPhotoPrice);
-
-    //for (let j = 0; j < photogal.length; j++) {
     let x = myPhotogID;
 
-    // let x = z;
     let y = profURL;
-    // console.log(x, y, x == y);
-    
-    // if (x == y) {
-    //   /* myPhotoImg.src =
-    //       "./images/" + photogIdentity + "/" + photogal[j].image; */
-    //   // myPhotoPrice.textContent = photogal[i].price;
-    //   // console.log(myPhotoPrice);
-    //   /* myPhotoCard.classList.remove("hideCard");
-    //     myPhotoCard.classList.add("showCard"); */
-    //   // myPhotoCard.classList.remove("hideCard");
-    //   // !!myPhotoCard.style.display = "true";
-    //   console.log(myPHInput.id)
-    //   let changeID2 = myPHInput.id;
-    //   console.log(changeID2)
-    //   //console.log("OK");
-    //   console.log(myPHInput[i])
-    //   myPHInput.classList.add("Visible");
-    //   console.log(myPHInput.className)
-    // } else {
-    //   // !!myPhotoCard.style.display = "none";
-    //   myPhotoCard.classList.add("Delete");
-    //   // Delete.parentNode.removeChild(Delete);
-    //   document.querySelectorAll(".Delete").forEach((e) => e.remove());
-    //   myAHREF.classList.add("Delete");
-
-    //   /* myPhotoCard.classList.remove("showCard");
-    //     myPhotoCard.classList.add("hideCard"); */
-    // }
     
     if (x == y) {
       
-      //construct();
       console.log(myPHInput.id)
       let changeID2 = myPHInput.id;
       console.log(changeID2)
@@ -353,9 +215,7 @@ function showGallery(obj) {
 
     }
 
-    // }
-    //function construct() {
-    // !! construction de l'HTML
+   
     if (photogImg[i] !== undefined) {
       const myPhotoImg = document.createElement("img");
       myPhotoImg.setAttribute("class", "photoImg");
@@ -376,11 +236,9 @@ function showGallery(obj) {
           "./images/" + photogID[i] + "/" + photogVid[i]
         );
       } else {
-        //myPhotoVid.setAttribute("src","movie.ogg");
       }
   
-      /* myPhotoVid.setAttribute("width", "320");
-      myPhotoVid.setAttribute("height", "240"); */
+      
       myPhotoVid.setAttribute("controls", "controls");
       const myPhotoVidSource = document.createElement("source");
       myPhotoVidSource.setAttribute(
@@ -389,9 +247,7 @@ function showGallery(obj) {
       );
       myPhotoVidSource.setAttribute("type", "video/mp4");
       myPhotoVid.appendChild(myPhotoVidSource);
-      //const hiddendiv = document.createElement("div");
-      //hiddendiv.style.display = "none";
-      //hiddendiv.appendChild(myPhotoVid);
+      
       myPhotoCard.appendChild(myPhotoVid);
     }
 
@@ -411,91 +267,33 @@ function showGallery(obj) {
 
     myPhotoCard.appendChild(myPhotoHeart);
     myAHREF.appendChild(myPhotoCard);
-    // !! là ça m'a bien construit mon HTML mais il est vide parce que je n'arrive pas à récupérer les données des photos pour l'instant
-    //photoGallery.appendChild(myPhotoCard);
+   
     photoGallery.appendChild(myAHREF);
-    //}
-
-    /* if (x == y) {
-      myPhotoCard.style.display = "block";
-      console.log("OK")
-    } else {
-    } */
-    ///////////////////////////////////////////////
-    //var counter = photogLikes[i];
     
+    // Photo Like stuff
     var isChecked = document.querySelectorAll("input:checked").length === 0 ? false : true;
-    //var isChecked = document.getElementsByClassName("Visible").length === 0 ? false : true;
-
-    /* function checkedBoxes() {
-      return document.querySelectorAll("input:checked").length === 0 ? false : true;
-    } */
-    //console.log(changeID)
-
-    //console.log(counter)
+    
     console.log(isChecked)
 
-    /* document.querySelectorAll('input').click = function () {
-      console.log("AH")
-    } */
-
-    //!!var checkbox = document.querySelector("input[type=checkbox]");
+    
     let checkClass = document.getElementsByClassName("Visible");
-    //var checkID = checkClass.id;
-
-    //var checkbox = document.getElementsByClassName(".Visible input[type=checkbox]");
-    //console.log(checkClass)
-    //console.log(checkbox)
-    //var counter = photogLikes;
+    
     var localStorage = []
     myPHInput.addEventListener('change', function () {
       
       console.log(this.id, this.checked)
-      //localStorage["mapCoeur"][this.id] = this.checked;
-      /* const that = this;
-      const o = this.id;
-      //const m = o.previousSibling.innerHTML;
-      const u = that.parentNode;
-      console.log(u)
-
-      const h = that.parentNode.previousSibling.innerHTML;
-      console.log(h)
-
-      const g = that.parentNode.previousSibling.innerHTML;
-      console.log(g) */
-
-      /* const j = document.createElement("p");
-      j.innerHTML = g;
-      j.className = "defaultLikes";
-      j.style.display = 'none';
-      u.appendChild(j);
-
-      console.log(j.innerHTML) */
-
-      //k = j.innerHTML;
-
-      //that.parentNode.previousSibling.innerHTML = j;
-      
-      //console.log(o.previousSibling.innerHTML)
      
       var c = []
-      //var localStorage = []
 
       var id = this.id;
       var check = true;
 
-      /* c[id] = (checked ? 1 : 0)
-      console.log(c[id]) */
       
-      //this.checked = Boolean;
       if (this.checked == true) {
         const that = this;
         
         let h = that.parentNode.previousSibling.innerHTML;
-        //h = parseInt(h);
-        //parseInt(h);
-        //h = parseInt(that.parentNode.previousSibling.innerHTML);
-        //console.log(parseInt('45'))
+        
         h = ++h;
         console.log(h)
         that.parentNode.previousSibling.innerHTML = h;
@@ -516,30 +314,20 @@ function showGallery(obj) {
       if (c == true) { localStorage.push(id); }
       if (c == false) { localStorage.pop(id); }
       
-      /* for (var i = 0; i < localStorage.length; i++) {
-        if (c == true) { localStorage.push(id); }
-      } */
       
-      //localStorage.push(id);
       
       localStorage["map"];
-      //localStorage.id = JSON.stringify;
-      //localStorage = JSON.stringify;
+      
       console.log(check)
       console.log("OK", localStorage)
       var localString = JSON.stringify(localStorage);
       console.log(localString)
-      //[this.id] = this.checked;
-      /* var ident = c.id;
-      console.log(ident) */
-      //localStorage["mapCoeur"][this.id] = this.checked;
+      
       if (document.querySelectorAll(this.id).checked) {
         c.push(this.id);
       }
       
-      //localStorage['mapCoeur'] = c.toString();
       
-      //localStorage['mapCoeur'] = this.id.toString();
     });
 
     /* function checkOnLocalStorage() {
@@ -556,55 +344,9 @@ function showGallery(obj) {
 
 
 
-    /* let priceTag = document.querySelectorAll(".Visible .photoLikes");
-    priceTag = Array.from(priceTag);
-    console.log("TAG", priceTag)
-
-    checkClass = Array.from(checkClass);
-    console.log(checkClass)
-    const photogHeart = checkClass.map((checkClass) => checkClass.id);
-    const photogHeartCheck = checkClass.map((checkClass) => checkClass.checked);
-    const photogPriceTag = priceTag.map((priceTag) => priceTag.value);
-    console.log("TAG2", photogPriceTag)
-
-    for (var i = 0; i <= 10; i++) {
-      
-      console.log("OHOH", photogHeart[i])
-      let inH = photogHeartCheck[i];
-      console.log('IN', inH)
-
-      var c = []
-
-      if (inH === true) {
-        
-        console.log(inH, "+1")
-        console.log("Checkbox is checked..");
-        c.push(photogHeart);
-        console.log("LC", c)
-      } else {
-        console.log("Checkbox is not checked..");
-      }
-      
-      localStorage['test'] = c.toString();
-    }
-
-    function checkOnLocalStorage() {
-      if(!localStorage['test']) return;
-      var checked = localStorage['test'].split(',');
-      checked.map((id) => {
-        document.getElementById(id).checked=true;
-      })
-    }
-    
-    (function(){
-    checkOnLocalStorage();
-    })(); */
-      
-    //}
-    //}
+   
   }
-  //photoFilter();
-  //photoFilter();
+ 
   document.getElementById("photoFilterDD").addEventListener("change", photoFilter);
   function photoFilter() {
     
@@ -620,74 +362,10 @@ var filterDropdown = e.options[e.selectedIndex].value;//change it here
     if (filterDropdown == "Titre") {
 
     }
-//alert(selectedEquipmentDropdown);
   }
   }
-//);
 
-/* function checkOnLocalStorage() {
-  if(!localStorage['test']) return;
-  var checked = localStorage['test'].split(',');
-  checked.map((id) => {
-    document.getElementById(id).checked=true;
-  })
-}
-
-(function(){
-checkOnLocalStorage();
-})(); */
-    //console.log(document.querySelectorAll('input'))
-
-    /* document.getElementsByClassName('far').onclick = function(e){
-      var isChecked = document.querySelectorAll("input:checked").length === 0 ? false : true;
-      console.log(isChecked)
-      if (isChecked == true) {
-        counter = counter + 1;
-        console.log(isChecked, "+1")
-      } else {
-        counter = counter;
-      }
-      console.log(isChecked);
-  }; */
-
-    /* if (isChecked == true) {
-      counter = counter + 1;
-      console.log(isChecked, "+1")
-    } else {
-      counter = counter;
-    } */
-    ///////////////////////////////////////////////
-     /* console.log(changeID)
-    function checkboxChanged(e) {
-      //Get the id of all checked checkboxes and store them as array
-        var c = []
-        if(document.querySelectorAll(changeID).checked) {
-          c.push(changeID);
-        }
-        
-        /* if(document.getElementById('checkbox2').checked) {
-          c.push('checkbox2');
-        } */ /*
-        
-        localStorage['test'] = c.toString();
-      } 
-      
-      function checkOnLocalStorage() {
-        if(!localStorage['test']) return;
-        var checked = localStorage['test'].split(',');
-        checked.map((id) => {
-          document.getElementById(id).checked=true;
-        })
-      }
-      
-      (function(){
-      checkOnLocalStorage();
-    })(); */
-    ///////////////////////////////
-  //}
-//}
-
-// !! ça c'est le fetch avec les fonctions
+// Fetch JSON and use functions
 fetch("./FishEyeDataFR.json")
   .then((response) => {
     return response.json();
@@ -699,16 +377,13 @@ fetch("./FishEyeDataFR.json")
 
     console.log(object, photographers, medias);
 
-    /* (function () {
-      emailjs.init("user_puf8TmtfpdXTG2bY7o9Sk");
-    }); */
-
     showProfile(object);
 
     showGallery(object);
 
     contactFormModule();
 
+    //Lightbox parameters
     lightGallery(document.getElementById('photoGallery'), {
       //speed: "600",
       //width: "90vw",
@@ -723,29 +398,9 @@ fetch("./FishEyeDataFR.json")
     
     );
     console.log(lightGallery())
-
-    /* testget();
-    function testget() { 
-    const profList = document.getElementsByClassName("profileTags");
-    const profListItems = profList.li;
-    const profTitles = profListItems.title;
-    const selectedTag = this.profTitles;
-    console.log(profTitles, selectedTag)
-    }
-    console.log(testget())
- */
-    /* var testtag = document.querySelectorAll("li[data-tags]");
-    console.log(testtag)
     
-    var testtag2 = document.querySelectorAll('[data-tags]');
-    console.log(testtag2) */
-    
-    /* document.querySelectorAll(".box").forEach(box => 
-      box.addEventListener("click", () => box.classList.toggle("red"))
-    ) */
-    
+    //Tag Filters
     const filtButton = document.querySelectorAll(".profileTags > li > input");
-    //filtButton.addEventListener("click", filterTag());
     filtButton.forEach(filtButton => 
       filtButton.addEventListener("click", () => filterTag()))
     
@@ -753,7 +408,6 @@ fetch("./FishEyeDataFR.json")
 
     function filterTag() {
       var tt3 = document.querySelectorAll('[data-tags]');
-      //console.log(tt3.getAttribute('[data-tags]'));
       
       var testtag3 = [...tt3].map(i => i.dataset.tags);
       console.log(testtag3)
@@ -768,35 +422,8 @@ fetch("./FishEyeDataFR.json")
         }
       }
     }
-    //function tagFilter() {
-    
-    //setTimeout(photoFilter(), 1000);
-    
-    /* function checkboxChanged(e) {
-      //Get the id of all checked checkboxes and store them as array
-        var c = []
-        if(document.getElementById("heart" + photogPhID[i]).checked) {
-          c.push("heart" + photogPhID[i]);
-        }
-        
-        if(document.getElementById('checkbox2').checked) {
-          c.push('checkbox2');
-        }
-        
-        localStorage['test'] = c.toString();
-      }
-      
-      function checkOnLocalStorage() {
-        if(!localStorage['test']) return;
-        var checked = localStorage['test'].split(',');
-        checked.map((id) => {
-          document.getElementById(id).checked=true;
-        })
-      }
-      
-      (function(){
-      checkOnLocalStorage();
-    })(); */
+
+    //Tests background tag buttons
 
     /* document.querySelector(".profileTags").addEventListener("change", e => {
       if(!e.target.matches("input[type=checkbox]") return;
@@ -824,50 +451,8 @@ fetch("./FishEyeDataFR.json")
 
 
     ////////////////////////////////////////////////////////////////////////
-    //document.querySelector('contact-form').addEventListener(validate);
-
-    //import { contactFormModule } from "./contactForm.js";
-    //import * as contactFormModule from "./contactForm.js";
     
-    /* (function () {
-      emailjs.init("user_puf8TmtfpdXTG2bY7o9Sk");
-    })(); */
-    
-    //import contactFormModule from "./contactForm.js";
-    // !!contactFormModule();
-    
-    //console.log(getCurrentName())
-    //new contactFormModule();
-
-    //var SimpleLightbox = require('simple-lightbox');
-    
-    // !!import SimpleLightbox from "simplelightbox/dist/simple-lightbox.esm";
-    
-    
-    /* new SimpleLightbox({ elements: '.photoGallery a' });
-    let gallery = new SimpleLightbox('.photoGallery a');
-gallery.on('show.simplelightbox', function () {
-	// do something…
-});
-
-gallery.on('error.simplelightbox', function (e) {
-	console.log(e); // some usefull information
-}); */
-
-
-
-    /* SimpleLightbox.open({
-      items: ["./images/" + photogID[i] + "/" + photogImg[i];]
-  }); */
-
-    // filtrePhoto(object);
-
-    /* testGal(object);
-
-    testGal2(object);
- */
-    // !! j'ai laissé le truc du scroll mais je m'en sers pas encore, donc t'occupes pas de ce qu'il ya en dessous
-
+    //Scroll up
     const body = document.body;
 
     const scrollUp = "scroll-up";
@@ -926,16 +511,11 @@ function topFunction2() {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
-//var SimpleLightbox = require('simple-lightbox');
+//EmailJS stuff
 window.onload = function () {
   document.getElementById('contact-form').addEventListener('submit', function (event) {
     event.preventDefault();
-    // generate a five digit number for the contact_number variable
-    
-    //this.contact_number.value = Math.random() * 100000 | 0;
-    
-    // Send form with EmailJS
-    //function validate() {
+   
     let varsForm = {
       first: document.getElementById("first").value,
       last: document.getElementById("last").value,
