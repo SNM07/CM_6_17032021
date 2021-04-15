@@ -132,6 +132,53 @@ function showGallery(obj) {
   console.log(photogIdentity);
   console.log(photogBasePrice);
 
+  ///////////////////////////////////////
+  /* sortMedia();
+  function sortMedia(mediasTab, by) {
+    var select = document.querySelector("select");
+
+    select.addEventListener("change", function (evt) {
+      var by = evt.target.value;
+
+      switch (by) {
+        case "Popularite":
+          compareMediaPopularity();
+          break;
+        case 'Date':
+          compareMediaDate();
+          break;
+        case 'Titre':
+          compareMediaTitle();
+          break;
+      }
+      return mediasTab;
+    });
+  }
+  console.log(compareMediaDate)
+
+  function compareMediaPopularity() {
+    photogLikes.sort(function (a, b) {
+      return a.localeCompare(b);
+    });
+    console.log()
+  }
+  
+  function compareMediaDate() {
+    photogDate.sort(function (a, b) {
+      return a.localeCompare(b);
+    });
+      
+      console.log()
+  }
+  
+  function compareMediaTitle() {
+    //var itemsTitles = photogTitle;
+    photogTitle.sort(function (a, b) {
+      return a.localeCompare(b);
+    });
+  } */
+  //////////////////////////////////////
+
   for (let i = 0; i < photogal.length; i++) {
     const myAHREF = document.createElement("a");
     myAHREF.setAttribute("class", "photoAHREF");
@@ -447,6 +494,66 @@ fetch("./FishEyeDataFR.json")
     }) */
 
     ////////////////////////////////////////////////////////////////////////
+
+    // init Isotope
+var $grid = $('.photoGall').isotope({
+  itemSelector: '.photoAHREF',
+  layoutMode: 'fitRows',
+  getSortData: {
+    Popularite: '.photoLikes',
+    Date: '.photoDate',
+    Titre: '.photoTitle',
+  }
+});
+
+// bind filter on select change
+$('.filters-select').on( 'change', function() {
+  var sortValue = this.value;
+  $grid.isotope({ sortBy: sortValue });
+});
+    
+/* $('.filters-select').on( 'change', function() {
+  // get filter value from option value
+  var filterValue = this.value;
+  // use filterFn if matches value
+  filterValue = filterFns[ filterValue ] || filterValue;
+  $grid.isotope({ filter: filterValue });
+  $grid.isotope({ sortBy: 'photoPop' });
+  $grid.isotope({ sortBy: 'photoDate' });
+  $grid.isotope({ sortBy: 'photoTitre' })
+}); */
+    
+/* $('#sorts').on('click', 'button', function() {
+  //Get the element name to sort 
+  var sortValue = $(this).attr('data-sort-by');
+  //Get the sorting direction: asc||desc 
+  var sortDirection = $(this).attr('data-sort-direction');
+  //convert it to a boolean 
+  sortDirection = sortDirection == 'asc';
+  // pass it to isotope 
+  $grid.isotope({ sortBy: sortValue, sortAscending: sortDirection });
+}); */
+
+/* function compareMediaPopularity() {
+  photogLikes.sort(function (a, b) {
+    return a.localeCompare(b);
+  });
+  console.log()
+}
+
+function compareMediaDate() {
+  photogDate.sort(function (a, b) {
+    return a.localeCompare(b);
+  });
+}
+
+function compareMediaTitle() {
+  //var itemsTitles = photogTitle;
+  photogTitle.sort(function (a, b) {
+    return a.localeCompare(b);
+  });
+} */
+    ///////////////////////////////////////////////////////////////////////
 
     //Scroll up
     const body = document.body;

@@ -26,6 +26,8 @@
       })(); */
     </script>
     <script src="./contactForm.js" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
   </head>
   <body>
     <header class="page-header">
@@ -41,7 +43,7 @@
       <section id="profilesPP"></section>
       <section id="photoFilter">
         <p>Trier par</p>
-        <select name="photo filter" id="photoFilterDD" >
+        <select class="filters-select" name="photo filter" id="photoFilterDD" >
           <option value="Popularite">Popularité</option>
           <option value="Date">Date</option>
           <option value="Titre">Titre</option>

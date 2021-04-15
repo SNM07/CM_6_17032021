@@ -42,6 +42,8 @@ margin: auto;
     @include large-only{
         top: 42vw;
         display: grid;
+        position: inherit !important;
+        height: inherit !important;
         grid-template-columns: 33% 33% 33%;
         grid-auto-rows: 32vw;
         grid-gap: 2%;
@@ -51,9 +53,12 @@ margin: auto;
     }
 }
 
-/* .photoAHREF{
+.photoAHREF{
     //padding: 1vw;
-} */
+    position: inherit !important;
+    top: inherit !important;
+    left: inherit !important;
+} 
 
 #photoFilter{
     //position: absolute;
