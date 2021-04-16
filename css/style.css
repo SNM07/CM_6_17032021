@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 * {
   font-family: "Roboto", sans-serif;
@@ -147,6 +148,8 @@
   font-size: 2.1rem;
   font-weight: 100;
   align-self: center;
+  position: inherit;
+  margin: 0;
 }
 @media screen and (min-width: 800px) {
   .profileCardPP .profileName {
@@ -218,28 +221,56 @@
   display: block;
 }
 
-.modal-btn {
+.contactFormButton {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+@media screen and (min-width: 800px) {
+  .contactFormButton {
+    margin: initial;
+    display: initial;
+    justify-content: initial;
+  }
+}
+.contactFormButton .modal-btn {
   background-color: #901C1C;
   color: white;
-  width: 10vw;
-  height: 4.5vw;
+  width: 35vw;
+  height: 8vw;
   border: none;
   border-radius: 0.3rem;
   align-content: center;
   text-align: center;
-  font-size: 1.2vw;
-  line-height: 4.5vw;
+  font-size: 4vw;
+  line-height: 8vw;
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   justify-content: center;
   display: flex;
   margin: auto;
-  left: 40vw;
-  top: 4vw;
+  bottom: 4vw;
 }
-.modal-btn:hover {
+.contactFormButton .modal-btn:hover {
   background-color: #D3573C;
   color: black;
+}
+@media screen and (min-width: 800px) {
+  .contactFormButton .modal-btn {
+    width: 10vw;
+    height: 4.5vw;
+    font-size: 1.2vw;
+    line-height: 4.5vw;
+  }
+}
+@media screen and (min-width: 800px) {
+  .contactFormButton .modal-btn {
+    position: absolute;
+    left: 40vw;
+    display: initial;
+    top: 4vw;
+    bottom: auto;
+  }
 }
 
 .photoCard {
@@ -415,14 +446,14 @@
 .button {
   background-color: #901C1C;
   color: white;
-  width: 10vw;
-  height: 4.5vw;
+  width: 35vw;
+  height: 8vw;
   border: none;
   border-radius: 0.3rem;
   align-content: center;
   text-align: center;
-  font-size: 1.2vw;
-  line-height: 4.5vw;
+  font-size: 4vw;
+  line-height: 8vw;
   cursor: pointer;
   line-height: auto;
   margin: 0 8% 8% 8%;
@@ -433,6 +464,14 @@
 .button:hover {
   background-color: #D3573C;
   color: black;
+}
+@media screen and (min-width: 800px) {
+  .button {
+    width: 10vw;
+    height: 4.5vw;
+    font-size: 1.2vw;
+    line-height: 4.5vw;
+  }
 }
 .button:hover {
   background-color: white;
@@ -1308,12 +1347,10 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  top: 75vw;
   margin: auto;
 }
 @media screen and (min-width: 800px) {
   #photoGallery {
-    top: 42vw;
     display: grid;
     position: inherit !important;
     height: inherit !important;
@@ -1340,7 +1377,10 @@ header {
 }
 @media screen and (min-width: 800px) {
   #photoFilter {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
   }
 }
 
@@ -1385,6 +1425,7 @@ header {
 }
 .profileTags li input[type=checkbox] {
   width: 0;
+  display: none;
 }
 
 .profileTags li input:checked + label {
@@ -1404,5 +1445,77 @@ header {
 .showPhoto {
   display: initial;
 }
+
+select {
+  width: 8rem;
+  padding: 12px;
+  color: white;
+  border: 0 !important;
+  background-color: #901C1C;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /*background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 140 140' width='24' height='24' xmlns='http://www.w3.org/2000/svg'><g><path d='m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z' fill='white'/></g></svg>");
+    background-size: .8em;
+    background-position: calc(100% - 1.3em) center;
+    background-repeat: no-repeat; */
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+/* .filters-select:after {
+  content: "▼";
+  padding: 12px 8px;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  z-index: 1;
+  text-align: center;
+  width: 10%;
+  height: 100%;
+  pointer-events: none;
+} */
+.selOpt:hover {
+  background-color: #D3573C;
+}
+
+select.filters-select {
+  background-image: linear-gradient(45deg, transparent 60%, white 60%), linear-gradient(135deg, white 60%, transparent 60%);
+  background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), 100% 0;
+  background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+  background-repeat: no-repeat;
+}
+
+select.filters-select:focus {
+  background-image: linear-gradient(45deg, white 60%, transparent 60%), linear-gradient(135deg, transparent 60%, white 60%);
+  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, 100% 0;
+  background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+  background-repeat: no-repeat;
+  border-color: grey;
+  outline: 0;
+}
+
+/* .filters-select{
+border-top: 3px solid white;
+        border-right: 3px solid white;
+        box-sizing: border-box;
+        content: '';
+        height: 16px;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate3d(-50%, -75%, 0px) rotate(135deg);
+        // Uncomment if you want it to move (probably better not to, looks weird)
+        // transition: transform 0.3s;
+        // will-change: transform;
+        width: 16px;
+    }
+
+    // The 'flip' state, just on hover for ease atm
+    &:hover {
+        transform: translate3d(-50%, -25%, 0px) rotate(-45deg);
+    } */
 
 /*# sourceMappingURL=style.css.map */
