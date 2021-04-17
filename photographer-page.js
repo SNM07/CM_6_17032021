@@ -559,7 +559,7 @@ fetch("./FishEyeDataFR.json")
           gutter: 35
         },
         getSortData: {
-          Popularite: '.photoLikes',
+          Popularite: '.photoLikes parseInt',
           Date: '.photoDate',
           Titre: '.photoTitle',
         }
@@ -568,7 +568,12 @@ fetch("./FishEyeDataFR.json")
       // bind filter on select change
       $('.filters-select').on('change', function () {
         var sortValue = this.value;
-        $grid.isotope({ sortBy: sortValue });
+        $grid.isotope({
+          sortBy: sortValue, sortAscending: {
+            Popularite: false,
+          Date: true,
+          Title: true,
+      } });
       });
 
       //$grid.isotope('updateSortData').isotope();
