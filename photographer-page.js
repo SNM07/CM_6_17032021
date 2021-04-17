@@ -267,6 +267,7 @@ function showGallery(obj) {
       myPhotoCard.appendChild(myPhotoImg);
     }
     if (photogVid[i] !== undefined) {
+      const myPhotoVidContainer = document.createElement("div");
       const myPhotoVid = document.createElement("video");
       myPhotoVid.setAttribute("class", "photoVid");
       myPhotoVid.classList.add("lg-video-object");
@@ -292,7 +293,38 @@ function showGallery(obj) {
       myPhotoVidSource.setAttribute("type", "video/mp4");
       myPhotoVid.appendChild(myPhotoVidSource);
 
-      myPhotoCard.appendChild(myPhotoVid);
+      myPhotoVidContainer.appendChild(myPhotoVid);
+      myPhotoCard.appendChild(myPhotoVidContainer);    }
+
+    if (photogVid[i] !== undefined) {
+      const myPhotoVidContainer = document.createElement("div");
+      const myPhotoVid = document.createElement("video");
+      myPhotoVid.setAttribute("class", "photoVid");
+      myPhotoVidContainer.setAttribute("display", "none");
+      myPhotoVid.classList.add("lg-video-object");
+      myPhotoVid.classList.add("lg-html5");
+      myAHREF.setAttribute(
+        "href",
+        "./images/" + photogID[i] + "/" + photogVid[i]
+      );
+      if (myPhotoVid.canPlayType("video/mp4")) {
+        myPhotoVid.setAttribute(
+          "src",
+          "./images/" + photogID[i] + "/" + photogVid[i]
+        );
+      } else {
+      }
+
+      myPhotoVid.setAttribute("controls", "controls");
+      const myPhotoVidSource = document.createElement("source");
+      myPhotoVidSource.setAttribute(
+        "src",
+        "./images/" + photogID[i] + "/" + photogVid[i]
+      );
+      myPhotoVidSource.setAttribute("type", "video/mp4");
+      myPhotoVid.appendChild(myPhotoVidSource);
+      myPhotoVidContainer.appendChild(myPhotoVid);
+      myPhotoCard.appendChild(myPhotoVidContainer);
     }
 
     myPhotoDate.setAttribute("class", "photoDate");
