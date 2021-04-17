@@ -41,24 +41,27 @@ margin: auto;
     //position: absolute;
     @include large-only{
         //top: 42vw;
-        display: grid;
-        position: inherit !important;
-        height: inherit !important;
-        grid-template-columns: 33% 33% 33%;
-        grid-auto-rows: 32vw;
-        grid-gap: 2%;
-        max-width: 97%;
-        justify-content: center;
+        //display: grid;
+        //position: inherit !important;
+        //height: inherit !important;
+        // grid-template-columns: 33% 33% 33%;
+        // grid-auto-rows: 32vw;
+        // grid-gap: 2%;
+        //max-width: 97%;
+        //justify-content: center;
         //padding: 1vw;
     }
 }
 
-.photoAHREF{
+/* .photoAHREF{
     //padding: 1vw;
     position: inherit !important;
     top: inherit !important;
     left: inherit !important;
-} 
+}  */
+.filtr-item {
+    width: 30%;
+}
 
 #photoFilter{
     //position: absolute;

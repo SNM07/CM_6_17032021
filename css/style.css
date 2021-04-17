@@ -274,8 +274,6 @@
 }
 
 .photoCard {
-  position: relative;
-  width: 80vw;
   height: 60vw;
   margin: auto;
   margin-bottom: 1rem;
@@ -283,7 +281,6 @@
 }
 @media screen and (min-width: 800px) {
   .photoCard {
-    width: auto;
     height: 40vw;
     margin-bottom: 0;
   }
@@ -1253,6 +1250,11 @@ nav {
   }
 }
 
+.active {
+  background-color: #901C1C;
+  color: white;
+}
+
 /* .profileTags {
 display: flex;
 flex-direction: row;
@@ -1349,23 +1351,14 @@ header {
   justify-content: center;
   margin: auto;
 }
-@media screen and (min-width: 800px) {
-  #photoGallery {
-    display: grid;
+/* .photoAHREF{
+    //padding: 1vw;
     position: inherit !important;
-    height: inherit !important;
-    grid-template-columns: 33% 33% 33%;
-    grid-auto-rows: 32vw;
-    grid-gap: 2%;
-    max-width: 97%;
-    justify-content: center;
-  }
-}
-
-.photoAHREF {
-  position: inherit !important;
-  top: inherit !important;
-  left: inherit !important;
+    top: inherit !important;
+    left: inherit !important;
+}  */
+.filtr-item {
+  width: 30%;
 }
 
 #photoFilter {

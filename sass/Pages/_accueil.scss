@@ -74,6 +74,11 @@ nav{
     @include boutonTags;
 }
 
+.active{
+    background-color: $color-primary-1;
+    color: white;
+}
+
 /* .profileTags {
 display: flex;
 flex-direction: row;

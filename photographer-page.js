@@ -488,6 +488,19 @@ fetch("./FishEyeDataFR.json")
       if(!e.target.parentElement.classList.contains("selected") && e.target.checked) return e.target.parentElementclassList.add("selected");
       if(e.target.parentElementclassList.parentElement.contains("selected") && !e.target.checked) return e.target.parentElement.classList.remove("selected");
     }) */
+    $(".profileTags").on("change", e => {
+
+      const liParent = $(e.target.parentElement);
+      const input = $(liParent.find('input'));
+      const isCheck = input.is(':checked');
+      if (isCheck) {
+          liParent.css('background-color', '#901C1C');
+      } else {
+          liParent.css('background-color', 'white');
+      }
+      //
+      // If some start checked and some don't, instead do:
+  })
     //////////////////////////////////////////////////////////////////////
 
     /* document.querySelector(".profileTags").addEventListener("change", e => {
@@ -509,6 +522,10 @@ fetch("./FishEyeDataFR.json")
 var $grid = $('.photoGall').isotope({
   itemSelector: '.photoAHREF',
   layoutMode: 'fitRows',
+  fitRows: {
+    columnWidth: 50,
+    gutter: 33
+  },
   getSortData: {
     Popularite: '.photoLikes',
     Date: '.photoDate',

@@ -1,12 +1,12 @@
 .photoCard{
-    position: relative;
-    width: 80vw;
+    //position: relative;
+    //width: 80vw;
     height: 60vw;
     margin: auto;
     margin-bottom: 1rem;
     cursor: pointer;
     @include large-only{
-        width: auto;
+        //width: 25vw;
         height: 40vw;
         margin-bottom: 0;
         
