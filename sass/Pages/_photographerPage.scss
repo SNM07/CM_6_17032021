@@ -38,6 +38,8 @@ margin: auto;
     justify-content: center;
     //top: 75vw;
     margin: auto;
+    position: inherit;
+    height: auto;
     //position: absolute;
     @include large-only{
         //top: 42vw;
@@ -60,7 +62,13 @@ margin: auto;
     left: inherit !important;
 }  */
 .filtr-item {
+    position: relative;
+    left: 0;
+    top: 0;
+    @include large-only{
+        position: absolute;
     width: 30%;
+    }
 }
 
 #photoFilter{

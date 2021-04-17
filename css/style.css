@@ -274,6 +274,8 @@
 }
 
 .photoCard {
+  position: relative;
+  width: 80vw;
   height: 60vw;
   margin: auto;
   margin-bottom: 1rem;
@@ -281,6 +283,8 @@
 }
 @media screen and (min-width: 800px) {
   .photoCard {
+    position: "";
+    width: 100%;
     height: 40vw;
     margin-bottom: 0;
   }
@@ -1350,6 +1354,8 @@ header {
   flex-direction: column;
   justify-content: center;
   margin: auto;
+  position: inherit;
+  height: auto;
 }
 /* .photoAHREF{
     //padding: 1vw;
@@ -1358,7 +1364,15 @@ header {
     left: inherit !important;
 }  */
 .filtr-item {
-  width: 30%;
+  position: relative;
+  left: 0;
+  top: 0;
+}
+@media screen and (min-width: 800px) {
+  .filtr-item {
+    position: absolute;
+    width: 30%;
+  }
 }
 
 #photoFilter {
