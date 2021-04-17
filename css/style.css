@@ -125,7 +125,7 @@
   grid-column: 2/span 1;
   grid-row: 1/span 4;
   width: 32vw;
-  justify-self: end;
+  justify-self: center;
   display: flex;
   object-fit: cover;
   height: 32vw;
@@ -136,6 +136,7 @@
 }
 @media screen and (min-width: 800px) {
   .profileCardPP .profilePic {
+    justify-self: end;
     height: 18vw;
     width: 18vw;
     align-self: center;
@@ -783,6 +784,26 @@ input {
     opacity: 0;
   }
 }
+.priceGlobLikes {
+  position: fixed;
+  right: 2rem;
+  bottom: 0;
+  padding: 1rem 1.6rem 1rem 1.6rem;
+  border-radius: 4px 4px 0 0;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  font-weight: bold;
+  z-index: 10;
+  background-color: #D3573C;
+}
+.priceGlobLikes .far {
+  font-weight: 800;
+  padding-right: 2rem;
+  padding-left: 0.5rem;
+  font-size: 0.9rem;
+}
+
 .slbOverlay, .slbWrapOuter, .slbWrap {
   position: fixed;
   top: 0;

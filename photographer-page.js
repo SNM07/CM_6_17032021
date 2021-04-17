@@ -131,11 +131,7 @@ function showGallery(obj) {
   console.log(photogID);
   console.log(photogVid);
 
-  let photogIdentity = photog[0].id;
-  let photogBasePrice = photogal[0].price;
 
-  console.log(photogIdentity);
-  console.log(photogBasePrice);
 
   ///////////////////////////////////////
   /* sortMedia();
@@ -212,7 +208,6 @@ function showGallery(obj) {
     myPHInput.id = "heart" + photogPhID[i];
     myPHInput.setAttribute("onclick", "event.stopPropagation();");
 
-    let changeID = myPHInput.id;
 
     myPhotoHeart.appendChild(myPHInput);
 
@@ -234,11 +229,9 @@ function showGallery(obj) {
     myPhotoPrice.textContent = photogPrice[i] + " €";
     myPhotoLikes.textContent = photogLikes[i];
 
-    var counter2 = photogLikes[i];
+    
 
-    let myPhotogID = photogID[i];
-
-    let x = myPhotogID;
+    let x = photogID[i];
 
     let y = profURL;
 
@@ -415,21 +408,7 @@ function showGallery(obj) {
     (function () {
       checkOnLocalStorage();
     })(); */
-  }
-
-  document
-    .getElementById("photoFilterDD")
-    .addEventListener("change", photoFilter);
-  function photoFilter() {
-    var e = document.getElementById("photoFilterDD");
-    var filterDropdown = e.options[e.selectedIndex].value; //change it here
-
-    if (filterDropdown == "Popularite") {
-    }
-    if (filterDropdown == "Date") {
-    }
-    if (filterDropdown == "Titre") {
-    }
+    
   }
 }
 
@@ -508,6 +487,49 @@ fetch("./FishEyeDataFR.json")
       });
     }
 
+    //var ar = $('.filtr-item').data('popularite');
+    //const cardLikes = document.getElementsByClassName("photoAHREF");
+    priceGlobalLikes();
+    function priceGlobalLikes() {
+      const cardLikes = document.querySelectorAll("[data-popularite]");
+      var cL = [...cardLikes].map((k) => parseInt(k.dataset.popularite));
+      console.log(cL)
+      /* for (var k = 0; k < cL.length; k++) {
+        var Selection = JSON.parse('[' + $(".filtr-item").data("popularite") + ']');
+        console.log(Selection)
+      } */
+      let array1 = cL;
+      const reducer = (accumulator, currentValue) => accumulator + currentValue;
+      console.log(array1.reduce(reducer));
+      let globalLikes = array1.reduce(reducer);
+      console.log(globalLikes)
+      let phPrice = document.getElementsByClassName("profilePrice")[0].innerHTML;
+      console.log(phPrice)
+
+      const mainCont = document.getElementById("photographer-main");
+
+      const myPriceGlobLikes = document.createElement("div");
+      const myGlobLikes = document.createElement("span");
+      const myGlobLikesHeart = document.createElement("span");
+      const myGlobPrice = document.createElement("span");
+
+      myPriceGlobLikes.setAttribute("class", "priceGlobLikes");
+      myGlobLikes.setAttribute("class", "globLikes");
+      myGlobLikesHeart.setAttribute("class", "globLikesHeart");
+      myGlobLikesHeart.classList.add("far");
+      myGlobLikesHeart.classList.add("fa-heart");
+      myGlobPrice.setAttribute("class", "globPrice");
+
+      myGlobLikes.textContent = globalLikes;
+      myGlobPrice.textContent = phPrice;
+
+      myPriceGlobLikes.appendChild(myGlobLikes);
+      myPriceGlobLikes.appendChild(myGlobLikesHeart);
+      myPriceGlobLikes.appendChild(myGlobPrice);
+
+      mainCont.appendChild(myPriceGlobLikes);
+
+    }
     //Tests background tag buttons
 
     /* document.querySelector(".profileTags").addEventListener("change", e => {

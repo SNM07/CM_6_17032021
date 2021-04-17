@@ -17,7 +17,7 @@
     grid-column: 2 / span 1;
     grid-row: 1 / span 4;
     width: 32vw;
-    justify-self: end;
+    justify-self: center;
     display: flex;
     object-fit: cover;
     height: 32vw;
@@ -26,6 +26,7 @@
     backface-visibility: hidden;
     align-self: center;
     @include large-only {
+      justify-self: end;
       height: 18vw;
       width: 18vw;
       align-self: center;
