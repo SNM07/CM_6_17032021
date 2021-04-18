@@ -5,6 +5,19 @@ console.log(profURL);
 
 // Import contact form
 import contactFormModule from "./contactForm.js";
+/*
+import customSelect from 'custom-select';
+customSelect(document.getElementById('photoFilterDD'));
+
+if (typeof require !== 'undefined') {
+  var customSelect = require("custom-select").default;
+  require("./node_modules/custom-select/build/custom-select.css");
+}
+ */
+const mySelects = customSelect("select");
+
+console.log(mySelects);
+
 
 //import Filterizr from './node_modules/filterizr/dist/filterizr.min.js';
 
@@ -968,3 +981,15 @@ function galleryCenter() {
 /*   }
 } */
 
+//const optionSelected = document.getElementsByClassName(is - selected)
+
+
+/* function removeOptions(selectbox)
+{
+	var i;
+	for(i=selectbox.options.length-1;i>=0;i--)
+	{
+	if(selectbox.options[i].selected)
+	selectbox.remove(i);
+	}
+} */
