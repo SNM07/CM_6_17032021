@@ -189,6 +189,7 @@ function showGallery(obj) {
     myAHREF.setAttribute("data-Titre", photogTitle[i]);
     myAHREF.setAttribute("title", photogTitle[i]);
     myAHREF.setAttribute("alt", photogTitle[i]);
+    myAHREF.setAttribute("data-html", "#lg-video-" + photogPhID[i]);
 
     const myPhotoDate = document.createElement("p");
     const myPhotoTags = document.createElement("p");
@@ -262,20 +263,22 @@ function showGallery(obj) {
     if (photogVid[i] !== undefined) {
       const myPhotoVidContainer = document.createElement("div");
       const myPhotoVid = document.createElement("video");
+      myPhotoVidContainer.setAttribute("id", "lg-video-" + photogPhID[i]);
       myPhotoVid.setAttribute("class", "photoVid");
       myPhotoVid.classList.add("lg-video-object");
       myPhotoVid.classList.add("lg-html5");
-      myAHREF.setAttribute(
+      /* myAHREF.setAttribute(
         "href",
         "./images/" + photogID[i] + "/" + photogVid[i]
-      );
-      if (myPhotoVid.canPlayType("video/mp4")) {
+      ); */
+
+      /* if (myPhotoVid.canPlayType("video/mp4")) {
         myPhotoVid.setAttribute(
           "src",
           "./images/" + photogID[i] + "/" + photogVid[i]
         );
       } else {
-      }
+      } */
 
       myPhotoVid.setAttribute("controls", "controls");
       const myPhotoVidSource = document.createElement("source");
@@ -294,19 +297,21 @@ function showGallery(obj) {
       const myPhotoVid = document.createElement("video");
       myPhotoVid.setAttribute("class", "photoVid");
       myPhotoVidContainer.setAttribute("display", "none");
+      myPhotoVidContainer.setAttribute("id", "lg-video-" + photogPhID[i]);
       myPhotoVid.classList.add("lg-video-object");
       myPhotoVid.classList.add("lg-html5");
-      myAHREF.setAttribute(
+      /* myAHREF.setAttribute(
         "href",
         "./images/" + photogID[i] + "/" + photogVid[i]
-      );
-      if (myPhotoVid.canPlayType("video/mp4")) {
+      ); */
+
+      /* if (myPhotoVid.canPlayType("video/mp4")) {
         myPhotoVid.setAttribute(
           "src",
           "./images/" + photogID[i] + "/" + photogVid[i]
         );
       } else {
-      }
+      } */
 
       myPhotoVid.setAttribute("controls", "controls");
       const myPhotoVidSource = document.createElement("source");
