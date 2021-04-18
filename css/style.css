@@ -1349,6 +1349,7 @@ header {
   flex-direction: column;
   padding: 6rem 5vw 5vw 5vw;
   justify-content: normal;
+  height: 100%;
 }
 
 .profileCardPP {
