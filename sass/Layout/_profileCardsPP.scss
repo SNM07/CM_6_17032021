@@ -3,8 +3,9 @@
   width: fit-content;
   margin: auto;
   margin-bottom: 3rem;
-  background-color: $color-secondary-2;
+  background-color: transparent;
   @include large-only {
+    background-color: $color-secondary-2;
     justify-self: center;
     padding: 1vw;
     max-width: 100%;
@@ -43,6 +44,8 @@
     margin: 0;
     @include large-only {
       font-size: 3.2vw;
+      background-color: transparent;
+      padding: 0;
     }
   }
   & .profileLocation {

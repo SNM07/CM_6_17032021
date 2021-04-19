@@ -116,10 +116,11 @@
   width: fit-content;
   margin: auto;
   margin-bottom: 3rem;
-  background-color: #FAFAFA;
+  background-color: transparent;
 }
 @media screen and (min-width: 800px) {
   .profileCardPP {
+    background-color: #FAFAFA;
     justify-self: center;
     padding: 1vw;
     max-width: 100%;
@@ -163,6 +164,8 @@
 @media screen and (min-width: 800px) {
   .profileCardPP .profileName {
     font-size: 3.2vw;
+    background-color: transparent;
+    padding: 0;
   }
 }
 .profileCardPP .profileLocation {
@@ -253,6 +256,7 @@
 .contactFormButton .modal-btn {
   background-color: #901C1C;
   color: white;
+  z-index: 150;
   width: 35vw;
   height: 8vw;
   border: none;
@@ -272,11 +276,15 @@
   background-color: #D3573C;
   color: black;
 }
+.contactFormButton .modal-btn:focus {
+  background-color: #D3573C;
+  color: black;
+}
 @media screen and (min-width: 800px) {
   .contactFormButton .modal-btn {
-    width: 10vw;
+    width: 12vw;
     height: 4.5vw;
-    font-size: 1.2vw;
+    font-size: 1.4vw;
     line-height: 4.5vw;
   }
 }
@@ -393,6 +401,11 @@
     top: 26vw;
   }
 }
+.photoCard .like:focus > .fa-heart {
+  font-weight: 900 !important;
+  color: #D3573C;
+  opacity: 1;
+}
 .photoCard .like input {
   display: none;
   cursor: pointer;
@@ -464,6 +477,7 @@
 .button {
   background-color: #901C1C;
   color: white;
+  z-index: 150;
   width: 35vw;
   height: 8vw;
   border: none;
@@ -483,11 +497,15 @@
   background-color: #D3573C;
   color: black;
 }
+.button:focus {
+  background-color: #D3573C;
+  color: black;
+}
 @media screen and (min-width: 800px) {
   .button {
-    width: 10vw;
+    width: 12vw;
     height: 4.5vw;
-    font-size: 1.2vw;
+    font-size: 1.4vw;
     line-height: 4.5vw;
   }
 }
@@ -809,7 +827,7 @@ input {
   border-top: 2px solid white;
   border-left: 2px solid white;
   border-right: 2px solid white;
-  display: flex;
+  display: none;
   flex-direction: row;
   align-items: baseline;
   font-weight: bold;
@@ -821,6 +839,11 @@ input {
   padding-right: 2rem;
   padding-left: 0.5rem;
   font-size: 0.9rem;
+}
+@media screen and (min-width: 800px) {
+  .priceGlobLikes {
+    display: flex;
+  }
 }
 
 .slbOverlay, .slbWrapOuter, .slbWrap {
@@ -1247,18 +1270,17 @@ main h1 {
   float: left;
   margin-bottom: 1rem;
   margin-top: 1rem;
-}
-@media screen and (min-width: 800px) {
-  .logo {
-    width: 26vw;
-  }
+  margin-left: 4vw;
+  /* @include large-only{
+  width: 20vw;
+  } */
 }
 .logo img {
   width: 50%;
 }
 @media screen and (min-width: 800px) {
   .logo img {
-    width: inherit;
+    width: 20vw;
   }
 }
 
@@ -1398,7 +1420,7 @@ header {
 #photographer-main {
   display: flex;
   flex-direction: column;
-  padding: 6rem 5vw 5vw 5vw;
+  padding: 7rem 5vw 5vw 5vw;
   justify-content: normal;
   height: 100%;
 }
@@ -1406,12 +1428,12 @@ header {
 .profileCardPP {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  height: 36vw;
-  width: 92vw;
+  height: 32vw;
+  width: 84vw;
 }
 @media screen and (min-width: 800px) {
   .profileCardPP {
-    height: 22vw;
+    height: 24vw;
     width: 88vw;
     margin: auto;
   }
@@ -1476,13 +1498,17 @@ header {
 
 .logoP {
   width: 100vw;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-left: 4vw;
+  cursor: pointer;
 }
 .logoP img {
   width: 50%;
 }
 @media screen and (min-width: 800px) {
   .logoP img {
-    width: 26vw;
+    width: 20vw;
   }
 }
 

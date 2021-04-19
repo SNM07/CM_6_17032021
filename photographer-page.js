@@ -42,6 +42,7 @@ function showProfile(obj) {
   const myContact = document.createElement("button");
   const contactText = document.createTextNode("Contactez-moi");
   myContactContainer.setAttribute("class", "contactFormButton");
+  myContactContainer.setAttribute("alt", "Contact me");
   myContact.setAttribute("class", "modal-btn");
   myContact.appendChild(contactText);
   myContactContainer.appendChild(myContact);
@@ -58,6 +59,7 @@ function showProfile(obj) {
 
     myArticle.setAttribute("class", "profileCardPP");
     myImg.setAttribute("class", "profilePic");
+    myImg.setAttribute("alt", photog[i].name);
     myH1.setAttribute("class", "profileName");
     myPara1.setAttribute("class", "profileLocation");
     myPara2.setAttribute("class", "profileTagline");
@@ -77,6 +79,7 @@ function showProfile(obj) {
       console.log(catTags[j]);
       listTags.title = catTags[j];
       listTags.setAttribute("data-tags", catTags[j]);
+      listTags.setAttribute("tabindex", "0");
       const listFilter = document.createElement("label");
       listFilter.setAttribute("for", catTags[j]);
       const listInput = document.createElement("input");
@@ -202,6 +205,7 @@ function showGallery(obj) {
     myAHREF.setAttribute("data-Titre", photogTitle[i]);
     myAHREF.setAttribute("title", photogTitle[i]);
     myAHREF.setAttribute("alt", photogTitle[i]);
+    myAHREF.setAttribute("aria-label", "image closeup view");
     myAHREF.setAttribute("data-html", "#lg-video-" + photogPhID[i]);
 
     const myPhotoDate = document.createElement("p");
@@ -216,11 +220,14 @@ function showGallery(obj) {
 
     const myPhotoHeart = document.createElement("div");
     myPhotoHeart.className = "like";
+    myPhotoHeart.setAttribute("aria-label", "likes");
+    myPhotoHeart.setAttribute("tabindex", "0");
 
     const myPHInput = document.createElement("input");
     myPHInput.type = "checkbox";
     myPHInput.id = "heart" + photogPhID[i];
     myPHInput.setAttribute("onclick", "event.stopPropagation();");
+    myPHInput.setAttribute("tabindex", "0");
 
 
     myPhotoHeart.appendChild(myPHInput);
@@ -447,6 +454,13 @@ fetch("./FishEyeDataFR.json")
     showGallery(object);
 
     contactFormModule();
+
+    const ariaContact = document.getElementsByClassName("contactFormButton");
+    const thisPhotographerName = document.getElementsByClassName("profileName");
+    let u = thisPhotographerName[0].innerHTML;
+    ariaContact[0].setAttribute("aria-label", "Contact me " + u);
+
+    
 
     //Lightbox parameters
     lightGallery(document.getElementById("photoGallery"), {

@@ -22,6 +22,11 @@
 }
 
 @mixin likeButton {
+  &:focus > .fa-heart {
+    font-weight: 900 !important;
+    color: $color-primary-2;
+    opacity: 1;
+  }
   input {
     display: none;
     cursor: pointer;
@@ -39,6 +44,7 @@
       animation: coeur 0.8s ease;
       opacity: 1;
     }
+    
   }
   @include large-only {
     .fa-heart:hover {
@@ -92,6 +98,7 @@
 @mixin buttonContact {
   background-color: $color-primary-1;
   color: white;
+  z-index: 150;
   width: 35vw;
   height: 8vw;
   border: none;
@@ -105,10 +112,14 @@
     background-color: $color-primary-2;
     color: black;
   }
+  &:focus{
+    background-color: $color-primary-2;
+    color: black;
+  }
   @include large-only{
-    width: 10vw;
+    width: 12vw;
   height: 4.5vw;
-  font-size: 1.2vw;
+  font-size: 1.4vw;
   line-height: 4.5vw;
   }
 }

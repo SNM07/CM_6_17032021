@@ -46,9 +46,9 @@
     <main id="photographer-main">
       <section id="profilesPP"></section>
       <section id="photoFilter">
-        <p>Trier par</p>
+        <p aria-label="Trier par">Trier par</p>
         <!-- <div class="custom-select" style="width:8rem;"> -->
-        <select class="filters-select" name="photo filter" id="photoFilterDD" >
+        <select class="filters-select" name="photo filter" id="photoFilterDD" aria-label="Order by">
           <option class="selOpt" value="Popularite">Popularité</option>
           <option class="selOpt" value="Date">Date</option>
           <option class="selOpt" value="Titre">Titre</option>
@@ -58,7 +58,7 @@
       <section id="photoGallery" class="photoGall filtr-container"></section>
 <!-- // -->
       <div class="bground">
-        <span class="popuptext" id="myPopup"
+        <span class="popuptext" id="myPopup" alt="Merci ! Votre message a été envoyé."
           >Merci ! Votre message a été envoyé.</span
         >
 

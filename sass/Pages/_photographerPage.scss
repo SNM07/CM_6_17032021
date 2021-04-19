@@ -5,7 +5,7 @@ height: fit-content;
 #photographer-main{
     display: flex;
     flex-direction: column;
-    padding: 6rem 5vw 5vw 5vw;
+    padding: 7rem 5vw 5vw 5vw;
     justify-content: normal;
     height: 100%;
 }
@@ -14,10 +14,10 @@ height: fit-content;
     display: grid;
     // grid-template-columns: 58% 32%;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    height: 36vw;
-    width: 92vw;
+    height: 32vw;
+    width: 84vw;
     @include large-only{
-height: 22vw;
+height: 24vw;
 width: 88vw;
 margin: auto;
     }
@@ -91,10 +91,14 @@ margin: auto;
 
 .logoP{
     width: 100vw;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-left: 4vw;
+    cursor: pointer;
     & img{
         width: 50%;
         @include large-only{
-        width: 26vw;
+        width: 20vw;
         }
     }
 }
