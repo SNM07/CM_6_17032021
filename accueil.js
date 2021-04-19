@@ -26,6 +26,12 @@ function showProfile(obj) {
     const myPara3 = document.createElement("p");
     const myTags = document.createElement("ul");
 
+    const myProfContainer = document.createElement("div");
+
+    myProfContainer.setAttribute("class", "profileContainer");
+    myProfContainer.setAttribute("tabindex", "0");
+    myProfContainer.setAttribute("title", photog[i].name);
+
     myArticle.setAttribute("class", "profileCard");
     myArticle.dataset.dataid = photog[i].id;
     myImg.setAttribute("class", "profilePic");
@@ -43,9 +49,16 @@ function showProfile(obj) {
 
     const catTags = photog[i].tags;
     for (let j = 0; j < catTags.length; j++) {
+      const listTagsCont = document.createElement("button");
+      listTagsCont.setAttribute("class", "listTagsCont");
+      listTagsCont.setAttribute("data-tagslist", catTags[j]);
+      listTagsCont.setAttribute("aria-label", catTags[j]);
+      listTagsCont.setAttribute("onclick", "filterSelection(this.getAttribute('data-tagslist'))");
       const listTags = document.createElement("li");
+      listTags.setAttribute("class", "tagsli");
       listTags.textContent = "# " + catTags[j];
-      myTags.appendChild(listTags);
+      listTagsCont.appendChild(listTags);
+      myTags.appendChild(listTagsCont);
       const profileCardClass = "profileCard";
       myArticle.setAttribute(
         "class",
@@ -62,7 +75,7 @@ function showProfile(obj) {
       photog[i].id +
       "'";
     // myArticle.onclick = location.href = myRedirect;
-    myArticle.setAttribute("onclick", myRedirect);
+    myProfContainer.setAttribute("onclick", myRedirect);
 
     console.log(myRedirect);
     /* for (const myTags of photog) {
@@ -75,8 +88,10 @@ function showProfile(obj) {
             profiles.append(article);
           } */
 
-    myArticle.appendChild(myImg);
-    myArticle.appendChild(myH2);
+    myArticle.appendChild(myProfContainer);
+    
+    myProfContainer.appendChild(myImg);
+    myProfContainer.appendChild(myH2);
     myArticle.appendChild(myPara1);
     myArticle.appendChild(myPara2);
     myArticle.appendChild(myPara3);
@@ -148,6 +163,17 @@ fetch("./FishEyeDataFR.json")
     var btnContainer = document.getElementById("filterButtons");
 
     var btns = btnContainer.getElementsByClassName("filterButton");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function () {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+      });
+    }
+
+    //var btnContainer = document.getElementById("filterButtons");
+
+    var btns = document.getElementsByClassName("listTagsCont");
     for (var i = 0; i < btns.length; i++) {
       btns[i].addEventListener("click", function () {
         var current = document.getElementsByClassName("active");
@@ -289,4 +315,7 @@ function topFunction() {
     document.body.classList.remove("scrollDown");
     document.body.classList.add("scrollUp");
   } */
+  filterSelection("all");
 }
+
+

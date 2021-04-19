@@ -98,6 +98,14 @@
     white-space: nowrap;
   }
 }
+.profileCard .profileTags li:hover {
+  color: white;
+  background-color: #901C1C;
+}
+.profileCard .profileTags li:focus {
+  color: white;
+  background-color: #901C1C;
+}
 
 .show {
   display: block;
@@ -210,6 +218,14 @@
     font-size: 0.75rem;
     white-space: nowrap;
   }
+}
+.profileCardPP .profileTags li:hover {
+  color: white;
+  background-color: #901C1C;
+}
+.profileCardPP .profileTags li:focus {
+  color: white;
+  background-color: #901C1C;
 }
 @media screen and (min-width: 800px) {
   .profileCardPP .profileTags li {
@@ -1189,6 +1205,11 @@ header {
   height: 10rem;
   transition: transform 0.4s;
 }
+@media screen and (min-width: 800px) {
+  header {
+    border-radius: 0 0 60px 0;
+  }
+}
 
 main {
   height: 100vh;
@@ -1203,6 +1224,17 @@ main h1 {
   font-size: 1rem;
   margin-top: 2rem;
   color: #901C1C;
+}
+@media screen and (min-width: 800px) {
+  main h1 {
+    font-size: 2.2vw;
+    font-weight: 400;
+    margin-top: 1rem;
+    right: 1rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+  }
 }
 
 #nosPhotog {
@@ -1277,10 +1309,29 @@ nav {
     white-space: nowrap;
   }
 }
+.filterButton:hover {
+  color: white;
+  background-color: #901C1C;
+}
+.filterButton:focus {
+  color: white;
+  background-color: #901C1C;
+}
 
 .active {
   background-color: #901C1C;
   color: white;
+}
+
+.active .tagsli {
+  background-color: #901C1C !important;
+  color: white !important;
+}
+
+.listTagsCont {
+  border: none;
+  background: transparent;
+  padding: 0;
 }
 
 /* .profileTags {

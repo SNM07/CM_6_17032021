@@ -11,39 +11,39 @@
   </head>
   <body>
     <header class="page-header">
-      <div class="logo" onclick="window.location.href='./'">
-        <img src=".\images\logo FishEye.png" />
+      <div class="logo" onclick="window.location.href='./'" alt="Fisheye Home page" tabindex="0">
+        <img src=".\images\logo FishEye.png"/>
       </div>
       <nav>
         <div id="filterButtons">
-          <button class="filterButton active" onclick="filterSelection('all')" onload="filterSelection('all')">
+          <button class="filterButton active" onclick="filterSelection('all')" onload="filterSelection('all')" aria-label="all tags">
             All Tags
           </button>
-          <button class="filterButton" onclick="filterSelection('portrait')">
+          <button class="filterButton" onclick="filterSelection('portrait')" aria-label="portrait">
             #Portrait
           </button>
-          <button class="filterButton" onclick="filterSelection('art')">
+          <button class="filterButton" onclick="filterSelection('art')" aria-label="art">
             #Art
           </button>
-          <button class="filterButton" onclick="filterSelection('fashion')">
+          <button class="filterButton" onclick="filterSelection('fashion')" aria-label="fashion">
             #Fashion
           </button>
           <button
             class="filterButton"
-            onclick="filterSelection('architecture')"
+            onclick="filterSelection('architecture')" aria-label="architecture"
           >
             #Architecture
           </button>
-          <button class="filterButton" onclick="filterSelection('travel')">
+          <button class="filterButton" onclick="filterSelection('travel')" aria-label="travel">
             #Travel
           </button>
-          <button class="filterButton" onclick="filterSelection('sport')">
+          <button class="filterButton" onclick="filterSelection('sport')" aria-label="sport">
             #Sport
           </button>
-          <button class="filterButton" onclick="filterSelection('animals')">
+          <button class="filterButton" onclick="filterSelection('animals')" aria-label="animals">
             #Animals
           </button>
-          <button class="filterButton" onclick="filterSelection('events')">
+          <button class="filterButton" onclick="filterSelection('events')" aria-label="events">
             #Events
           </button>
         </div>
@@ -51,7 +51,7 @@
       <!-- <h1>Nos photographes</h1> -->
     </header>
     <div id="contentButtonContainer">
-    <button onclick="topFunction()" id="contentButton" title="Go to top">Passer au contenu</button>
+    <button onclick="topFunction()" id="contentButton" title="Passer au contenu" tabindex="0">Passer au contenu</button>
     </div>
     <main>
       <h1 id="nosPhotog">Nos photographes</h1>

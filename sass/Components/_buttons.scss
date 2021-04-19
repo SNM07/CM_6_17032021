@@ -11,6 +11,14 @@
     font-size: 0.75rem;
     white-space: nowrap;
   }
+  &:hover{
+    color: white;
+    background-color: $color-primary-1;
+  }
+  &:focus{
+    color: white;
+    background-color: $color-primary-1;
+  }
 }
 
 @mixin likeButton {
