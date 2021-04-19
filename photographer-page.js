@@ -59,7 +59,7 @@ function showProfile(obj) {
 
     myArticle.setAttribute("class", "profileCardPP");
     myImg.setAttribute("class", "profilePic");
-    myImg.setAttribute("alt", photog[i].name);
+    myImg.setAttribute("alt", photog[i].name + " profile picture");
     myH1.setAttribute("class", "profileName");
     myPara1.setAttribute("class", "profileLocation");
     myPara2.setAttribute("class", "profileTagline");
@@ -236,6 +236,7 @@ function showGallery(obj) {
     myPHLabel.htmlFor = "heart" + photogPhID[i];
     myPHLabel.className = "far fa-heart";
     myPHLabel.setAttribute("onclick", "event.stopPropagation();");
+    //myPHLabel.setAttribute("aria-hidden", "false");
     myPhotoHeart.appendChild(myPHLabel);
 
     myPhotoCard.setAttribute("class", "photoCard");

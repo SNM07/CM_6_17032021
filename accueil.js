@@ -35,6 +35,7 @@ function showProfile(obj) {
     myArticle.setAttribute("class", "profileCard");
     myArticle.dataset.dataid = photog[i].id;
     myImg.setAttribute("class", "profilePic");
+    myImg.setAttribute("alt", photog[i].name + " profile picture");
     myH2.setAttribute("class", "profileName");
     myPara1.setAttribute("class", "profileLocation");
     myPara2.setAttribute("class", "profileTagline");
