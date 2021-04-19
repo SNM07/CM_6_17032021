@@ -30,7 +30,7 @@ function showProfile(obj) {
 
     myProfContainer.setAttribute("class", "profileContainer");
     myProfContainer.setAttribute("tabindex", "0");
-    myProfContainer.setAttribute("title", photog[i].name);
+    myProfContainer.setAttribute("title", photog[i].name + " card");
 
     myArticle.setAttribute("class", "profileCard");
     myArticle.dataset.dataid = photog[i].id;
