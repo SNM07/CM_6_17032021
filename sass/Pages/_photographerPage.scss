@@ -38,6 +38,7 @@ margin: auto;
     flex-direction: column;
     justify-content: center;
     //top: 75vw;
+    left: 5vw;
     margin: auto;
     position: inherit;
     height: auto;
@@ -55,6 +56,7 @@ margin: auto;
         //padding: 1vw;
         margin-left: -1%;
  margin-right: -4%;
+ left: 2.2vw;
     }
 }
 
@@ -150,6 +152,11 @@ margin: auto;
     color: white;
 }
 
+.profileTags > .is-checked {
+    background-color: $color-primary-1;
+    color: white;
+}
+
 .hidePhoto{
     display: none;
 }
@@ -168,3 +175,7 @@ margin: auto;
 //   .custom-select select {
 //     display: none; /*hide original SELECT element:*/
 //   }
+
+.profileTags > button {
+    @include boutonTags;
+}

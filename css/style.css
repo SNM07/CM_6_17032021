@@ -1451,6 +1451,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  left: 5vw;
   margin: auto;
   position: inherit;
   height: auto;
@@ -1459,6 +1460,7 @@ header {
   #photoGallery {
     margin-left: -1%;
     margin-right: -4%;
+    left: 2.2vw;
   }
 }
 
@@ -1554,6 +1556,11 @@ header {
   color: white;
 }
 
+.profileTags > .is-checked {
+  background-color: #901C1C;
+  color: white;
+}
+
 .hidePhoto {
   display: none;
 }
@@ -1633,5 +1640,29 @@ border-top: 3px solid white;
     &:hover {
         transform: translate3d(-50%, -25%, 0px) rotate(-45deg);
     } */
+.profileTags > button {
+  cursor: pointer;
+  color: #901C1C;
+  font-weight: bold;
+  padding: 6px 8px 6px 8px;
+  margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+  background-color: white;
+  border: 1px solid rgba(82, 82, 82, 0.2);
+  border-radius: 16px;
+}
+@media screen and (min-width: 800px) {
+  .profileTags > button {
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+}
+.profileTags > button:hover {
+  color: white;
+  background-color: #901C1C;
+}
+.profileTags > button:focus {
+  color: white;
+  background-color: #901C1C;
+}
 
 /*# sourceMappingURL=style.css.map */

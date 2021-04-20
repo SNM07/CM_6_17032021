@@ -18,7 +18,6 @@ const mySelects = customSelect("select");
 
 console.log(mySelects);
 
-
 //import Filterizr from './node_modules/filterizr/dist/filterizr.min.js';
 
 /*   
@@ -55,7 +54,7 @@ function showProfile(obj) {
     const myPara1 = document.createElement("p");
     const myPara2 = document.createElement("p");
     const myPara3 = document.createElement("p");
-    const myTags = document.createElement("ul");
+    const myTags = document.createElement("div");
 
     myArticle.setAttribute("class", "profileCardPP");
     myImg.setAttribute("class", "profilePic");
@@ -74,21 +73,21 @@ function showProfile(obj) {
 
     const catTags = photog[i].tags;
     for (let j = 0; j < catTags.length; j++) {
-      const listTags = document.createElement("li");
+      const listTags = document.createElement("button");
 
       console.log(catTags[j]);
       listTags.title = catTags[j];
-      listTags.setAttribute("data-tags", catTags[j]);
+      listTags.setAttribute("data-filter", "." + catTags[j]);
       listTags.setAttribute("tabindex", "0");
-      const listFilter = document.createElement("label");
+      /* const listFilter = document.createElement("label");
       listFilter.setAttribute("for", catTags[j]);
       const listInput = document.createElement("input");
       listInput.setAttribute("data-tags", catTags[j]);
       listInput.setAttribute("id", catTags[j]);
-      listInput.setAttribute("type", "checkbox");
-      listFilter.textContent = "# " + catTags[j];
-      listTags.appendChild(listInput);
-      listTags.appendChild(listFilter);
+      listInput.setAttribute("type", "checkbox"); */
+      listTags.textContent = "# " + catTags[j];
+      /* listTags.appendChild(listInput);
+      listTags.appendChild(listFilter); */
       myTags.appendChild(listTags);
       const profileCardClass = "profileCardPP";
       myArticle.setAttribute(
@@ -147,8 +146,6 @@ function showGallery(obj) {
   console.log(photogID);
   console.log(photogVid);
 
-
-
   ///////////////////////////////////////
   /* sortMedia();
   function sortMedia(mediasTab, by) {
@@ -200,6 +197,7 @@ function showGallery(obj) {
     const myAHREF = document.createElement("a");
     myAHREF.setAttribute("class", "photoAHREF");
     myAHREF.classList.add("filtr-item");
+    myAHREF.classList.add(photogTags[i]);
     myAHREF.setAttribute("data-Popularite", photogLikes[i]);
     myAHREF.setAttribute("data-Date", photogDate[i]);
     myAHREF.setAttribute("data-Titre", photogTitle[i]);
@@ -229,7 +227,6 @@ function showGallery(obj) {
     myPHInput.setAttribute("onclick", "event.stopPropagation();");
     myPHInput.setAttribute("tabindex", "0");
 
-
     myPhotoHeart.appendChild(myPHInput);
 
     const myPHLabel = document.createElement("label");
@@ -250,8 +247,6 @@ function showGallery(obj) {
     myPhotoTitle.textContent = photogTitle[i];
     myPhotoPrice.textContent = photogPrice[i] + " €";
     myPhotoLikes.textContent = photogLikes[i];
-
-    
 
     let x = photogID[i];
 
@@ -311,7 +306,8 @@ function showGallery(obj) {
       myPhotoVid.appendChild(myPhotoVidSource);
 
       myPhotoVidContainer.appendChild(myPhotoVid);
-      myPhotoCard.appendChild(myPhotoVidContainer);    }
+      myPhotoCard.appendChild(myPhotoVidContainer);
+    }
 
     if (photogVid[i] !== undefined) {
       const myPhotoVidContainer = document.createElement("div");
@@ -434,7 +430,6 @@ function showGallery(obj) {
     (function () {
       checkOnLocalStorage();
     })(); */
-    
   }
 }
 
@@ -461,8 +456,6 @@ fetch("./FishEyeDataFR.json")
     let u = thisPhotographerName[0].innerHTML;
     ariaContact[0].setAttribute("aria-label", "Contact me " + u);
 
-    
-
     //Lightbox parameters
     lightGallery(document.getElementById("photoGallery"), {
       //speed: "600",
@@ -476,9 +469,9 @@ fetch("./FishEyeDataFR.json")
       counter: false,
     });
     console.log(lightGallery());
-
+    ////////////////////////////////////////////////////////////////////////////
     //Tag Filters
-    const filtButton = document.querySelectorAll(".profileTags > li > input");
+    /*     const filtButton = document.querySelectorAll(".profileTags > li > input");
     //filtButton.forEach(filtButton =>
     for (var i = 0; i < filtButton.length; i++) {
       filtButton[i].addEventListener("change", function () {
@@ -518,15 +511,15 @@ fetch("./FishEyeDataFR.json")
         }
         
       });
-    }
-
+    } */
+    ///////////////////////////////////////////////////////////////////////////////
     //var ar = $('.filtr-item').data('popularite');
     //const cardLikes = document.getElementsByClassName("photoAHREF");
     priceGlobalLikes();
     function priceGlobalLikes() {
       const cardLikes = document.querySelectorAll("[data-popularite]");
       var cL = [...cardLikes].map((k) => parseInt(k.dataset.popularite));
-      console.log(cL)
+      console.log(cL);
       /* for (var k = 0; k < cL.length; k++) {
         var Selection = JSON.parse('[' + $(".filtr-item").data("popularite") + ']');
         console.log(Selection)
@@ -535,9 +528,10 @@ fetch("./FishEyeDataFR.json")
       const reducer = (accumulator, currentValue) => accumulator + currentValue;
       console.log(array1.reduce(reducer));
       let globalLikes = array1.reduce(reducer);
-      console.log(globalLikes)
-      let phPrice = document.getElementsByClassName("profilePrice")[0].innerHTML;
-      console.log(phPrice)
+      console.log(globalLikes);
+      let phPrice = document.getElementsByClassName("profilePrice")[0]
+        .innerHTML;
+      console.log(phPrice);
 
       const mainCont = document.getElementById("photographer-main");
 
@@ -561,7 +555,6 @@ fetch("./FishEyeDataFR.json")
       myPriceGlobLikes.appendChild(myGlobPrice);
 
       mainCont.appendChild(myPriceGlobLikes);
-
     }
     //Tests background tag buttons
 
@@ -575,19 +568,18 @@ fetch("./FishEyeDataFR.json")
       if(!e.target.parentElement.classList.contains("selected") && e.target.checked) return e.target.parentElementclassList.add("selected");
       if(e.target.parentElementclassList.parentElement.contains("selected") && !e.target.checked) return e.target.parentElement.classList.remove("selected");
     }) */
-    $(".profileTags").on("change", e => {
-
+    $(".profileTags").on("change", (e) => {
       const liParent = $(e.target.parentElement);
-      const input = $(liParent.find('input'));
-      const isCheck = input.is(':checked');
+      const input = $(liParent.find("input"));
+      const isCheck = input.is(":checked");
       if (isCheck) {
-          liParent.css('background-color', '#901C1C');
+        liParent.css("background-color", "#901C1C");
       } else {
-          liParent.css('background-color', 'white');
+        liParent.css("background-color", "white");
       }
       //
       // If some start checked and some don't, instead do:
-  })
+    });
     //////////////////////////////////////////////////////////////////////
 
     /* document.querySelector(".profileTags").addEventListener("change", e => {
@@ -606,36 +598,173 @@ fetch("./FishEyeDataFR.json")
 
     if (window.innerWidth > 800) {
       // init Isotope
-      var $grid = $('.photoGall').isotope({
-        itemSelector: '.photoAHREF',
-        layoutMode: 'fitRows',
+      var $grid = $(".photoGall").isotope({
+        itemSelector: ".photoAHREF",
+        layoutMode: "fitRows",
         fitRows: {
           columnWidth: 50,
-          gutter: 35
+          gutter: 35,
         },
         getSortData: {
-          Popularite: '.photoLikes parseInt',
-          Date: '.photoDate',
-          Titre: '.photoTitle',
-        }
+          Popularite: ".photoLikes parseInt",
+          Date: ".photoDate",
+          Titre: ".photoTitle",
+          filterValue: ".photoTags",
+        },
       });
 
       // bind filter on select change
-      $('.filters-select').on('change', function () {
+      $(".filters-select").on("change", function () {
         var sortValue = this.value;
         $grid.isotope({
-          sortBy: sortValue, sortAscending: {
+          sortBy: sortValue,
+          sortAscending: {
             Popularite: false,
-          Date: true,
-          Title: true,
-      } });
+            Date: true,
+            Title: true,
+          },
+        });
       });
 
-      //$grid.isotope('updateSortData').isotope();
-      console.log($grid)
-      var fitRows = Isotope.LayoutMode.modes.fitRows.prototype;
-    fitRows._resetLayout = function () {
+      /* $('.profileTags').on( 'click', 'button', function() {
+        var filterValue = $(this).attr('data-filter');
+        $grid.isotope({ filter: filterValue });
+      }); */
 
+      // store filter for each group
+      var filters = [];
+
+      // change is-checked class on buttons
+      $(".profileTags").on("click", "button", function (event) {
+        var $target = $(event.currentTarget);
+        $target.toggleClass("is-checked");
+        var isChecked = $target.hasClass("is-checked");
+        var filter = $target.attr("data-filter");
+        if (isChecked) {
+          addFilter(filter);
+        } else {
+          removeFilter(filter);
+        }
+        // filter isotope
+        // group filters together, inclusive
+        $grid.isotope({ filter: filters.join(",") });
+      });
+
+      function addFilter(filter) {
+        if (filters.indexOf(filter) == -1) {
+          filters.push(filter);
+        }
+      }
+
+      function removeFilter(filter) {
+        var index = filters.indexOf(filter);
+        if (index != -1) {
+          filters.splice(index, 1);
+        }
+      }
+
+      //$grid.isotope('updateSortData').isotope();
+      console.log($grid);
+
+      /////////////////////////////////////////////////////////////////
+      /* var fitRows = Isotope.LayoutMode.modes.fitRows.prototype;
+      fitRows._resetLayout = function () {
+        // pre-calculate offsets for centering each row
+        this.x = 0;
+        this.y = 0;
+        this.maxY = 0;
+        this._getMeasurement("gutter", "outerWidth");
+        this.centerX = [];
+        this.currentRow = 0;
+        this.initializing = true;
+        for (var i = 0, len = this.items.length; i < len; i++) {
+          var item = this.items[i];
+          this._getItemLayoutPosition(item);
+        }
+        this.centerX[this.currentRow].offset =
+          (this.isotope.size.innerWidth + this.gutter - this.x) / 2;
+        this.initializing = false;
+        this.currentRow = 0;
+
+        // centered offsets were calculated, reset layout
+        this.x = 0;
+        this.y = 0;
+        this.maxY = 0;
+        this._getMeasurement("gutter", "outerWidth");
+      };
+      fitRows._getItemLayoutPosition = function (item) {
+        item.getSize();
+        var itemWidth = item.size.outerWidth + this.gutter;
+        // if this element cannot fit in the current row
+        var containerWidth = this.isotope.size.innerWidth + this.gutter;
+        if (this.x !== 0 && itemWidth + this.x > containerWidth) {
+          if (this.initializing)
+            this.centerX[this.currentRow].offset =
+              (containerWidth - this.x) / 2;
+          this.currentRow++;
+
+          this.x = 0;
+          this.y = this.maxY;
+        }
+
+        if (this.initializing && this.x == 0) {
+          this.centerX.push({ offset: 0 });
+        }
+        //if (this.centerX[this.currentRow].offset < 0)
+        //  this.centerX[this.currentRow].offset = 0;
+
+        var position = {
+          x:
+            this.x +
+            (this.initializing ? 0 : this.centerX[this.currentRow].offset),
+          y: this.y,
+        };
+
+        this.maxY = Math.max(this.maxY, this.y + item.size.outerHeight);
+        this.x += itemWidth;
+
+        return position;
+      };
+    } else {
+    } */
+    }
+    /////////////////////////////////////////////////////////////
+    /*jshint browser: true, strict: true, undef: true, unused: true */
+
+/* (function (window, factory) {
+  'use strict';
+  // universal module definition
+  if (typeof define === 'function' && define.amd) {
+      // AMD
+      define([
+          'get-size/get-size',
+          'isotope/js/layout-mode'
+      ],
+        factory);
+  } else if (typeof module == 'object' && module.exports) {
+      // CommonJS
+      module.exports = factory(
+        require('get-size'),
+        require('isotope-layout/js/layout-mode')
+      );
+  } else {
+      // browser global
+      factory(
+        window.getSize,
+        window.Isotope.LayoutMode
+      );
+  }
+
+}(window, function factory(getSize, LayoutMode) {
+  'use strict';
+
+  // -------------------------- definition -------------------------- //
+
+  // create an Outlayer layout class
+  var FitRowsCentered = LayoutMode.create('fitRowsCentered');
+  var proto = FitRowsCentered.prototype;
+
+  proto._resetLayout = function () {
       // pre-calculate offsets for centering each row
       this.x = 0;
       this.y = 0;
@@ -644,11 +773,14 @@ fetch("./FishEyeDataFR.json")
       this.centerX = [];
       this.currentRow = 0;
       this.initializing = true;
-      for (var i = 0, len = this.items.length; i < len; i++) {
-        var item = this.items[i];
-        this._getItemLayoutPosition(item);
+
+      for (var i = 0, len = this.isotope.filteredItems.length; i < len; i++) {
+          var item = this.isotope.filteredItems[i];
+          this._getItemLayoutPosition(item);
       }
+
       this.centerX[this.currentRow].offset = (this.isotope.size.innerWidth + this.gutter - this.x) / 2;
+
       this.initializing = false;
       this.currentRow = 0;
 
@@ -656,42 +788,49 @@ fetch("./FishEyeDataFR.json")
       this.x = 0;
       this.y = 0;
       this.maxY = 0;
+
       this._getMeasurement('gutter', 'outerWidth');
-    };
-    fitRows._getItemLayoutPosition = function (item) {
+  };
+
+  proto._getItemLayoutPosition = function (item) {
       item.getSize();
       var itemWidth = item.size.outerWidth + this.gutter;
       // if this element cannot fit in the current row
       var containerWidth = this.isotope.size.innerWidth + this.gutter;
       if (this.x !== 0 && itemWidth + this.x > containerWidth) {
 
-        if (this.initializing)
-          this.centerX[this.currentRow].offset = (containerWidth - this.x) / 2;
-        this.currentRow++;
+          if (this.initializing)
+              this.centerX[this.currentRow].offset = (containerWidth - this.x) / 2;
+          this.currentRow++;
 
-        this.x = 0;
-        this.y = this.maxY;
+          this.x = 0;
+          this.y = this.maxY;
       }
 
       if (this.initializing && this.x == 0) {
-        this.centerX.push({ offset: 0 });
+          this.centerX.push({ offset: 0 });
       }
-      //if (this.centerX[this.currentRow].offset < 0)
-      //  this.centerX[this.currentRow].offset = 0;
 
       var position = {
-        x: this.x + (this.initializing ? 0 : this.centerX[this.currentRow].offset),
-        y: this.y
+          x: this.x + (this.initializing ? 0 : this.centerX[this.currentRow].offset),
+          y: this.y
       };
 
       this.maxY = Math.max(this.maxY, this.y + item.size.outerHeight);
       this.x += itemWidth;
 
       return position;
-    };
-    }else{}
-    ////////////////
-/* $('.filters-select').on( 'change', function() {
+  };
+
+  proto._getContainerSize = function () {
+      return { height: this.maxY };
+  };
+
+  return FitRowsCentered;
+
+})); */
+    /////////////////////////////////////////////////////////////
+    /* $('.filters-select').on( 'change', function() {
   // get filter value from option value
   var filterValue = this.value;
   // use filterFn if matches value
@@ -701,8 +840,8 @@ fetch("./FishEyeDataFR.json")
   $grid.isotope({ sortBy: 'photoDate' });
   $grid.isotope({ sortBy: 'photoTitre' })
 }); */
-    
-/* $('#sorts').on('click', 'button', function() {
+
+    /* $('#sorts').on('click', 'button', function() {
   //Get the element name to sort 
   var sortValue = $(this).attr('data-sort-by');
   //Get the sorting direction: asc||desc 
@@ -713,7 +852,7 @@ fetch("./FishEyeDataFR.json")
   $grid.isotope({ sortBy: sortValue, sortAscending: sortDirection });
 }); */
 
-/* function compareMediaPopularity() {
+    /* function compareMediaPopularity() {
   photogLikes.sort(function (a, b) {
     return a.localeCompare(b);
   });
@@ -740,7 +879,7 @@ function compareMediaTitle() {
     filterizr.sort('Popularite', 'asc');
     filterizr.sort('Date', 'asc');
     filterizr.sort('Titre', 'asc'); */
-////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
     //Scroll up
     const body = document.body;
 
@@ -849,9 +988,6 @@ window.onload = function () {
   }
 };
 
-
-
-
 // var x, i, j, l, ll, selElmnt, a, b, c;
 // /*look for any elements with the class "custom-select":*/
 // x = document.getElementsByClassName("custom-select");
@@ -931,13 +1067,12 @@ window.onload = function () {
 // then close all select boxes:*/
 // document.addEventListener("click", closeAllSelect);
 
-
 /* galleryCenter();
 function galleryCenter() {
   if (window.innerWidth > 800) { */
-    // Put the following code after isotope js include
-    // Override and customize Isotope FitRows layout mode: CENTER each rows
-  /*   var fitRows = Isotope.LayoutMode.modes.fitRows.prototype;
+// Put the following code after isotope js include
+// Override and customize Isotope FitRows layout mode: CENTER each rows
+/*   var fitRows = Isotope.LayoutMode.modes.fitRows.prototype;
     fitRows._resetLayout = function () {
 
       // pre-calculate offsets for centering each row
@@ -998,7 +1133,6 @@ function galleryCenter() {
 
 //const optionSelected = document.getElementsByClassName(is - selected)
 
-
 /* function removeOptions(selectbox)
 {
 	var i;
@@ -1008,3 +1142,164 @@ function galleryCenter() {
 	selectbox.remove(i);
 	}
 } */
+/*jshint browser: true, strict: true, undef: true, unused: true */
+
+/* (function (window, factory) {
+  'use strict';
+  // universal module definition
+  if (typeof define === 'function' && define.amd) {
+      // AMD
+      define([
+          'get-size/get-size',
+          'isotope/js/layout-mode'
+      ],
+        factory);
+  } else if (typeof module == 'object' && module.exports) {
+      // CommonJS
+      module.exports = factory(
+        require('get-size'),
+        require('isotope-layout/js/layout-mode')
+      );
+  } else {
+      // browser global
+      factory(
+        window.getSize,
+        window.Isotope.LayoutMode
+      );
+  }
+
+}(window, function factory(getSize, LayoutMode) {
+  'use strict';
+
+  // -------------------------- definition -------------------------- //
+
+  // create an Outlayer layout class
+  var FitRowsCentered = LayoutMode.create('fitRowsCentered');
+  var proto = FitRowsCentered.prototype;
+
+  proto._resetLayout = function () {
+      // pre-calculate offsets for centering each row
+      this.x = 0;
+      this.y = 0;
+      this.maxY = 0;
+      this._getMeasurement('gutter', 'outerWidth');
+      this.centerX = [];
+      this.currentRow = 0;
+      this.initializing = true;
+
+      for (var i = 0, len = this.isotope.filteredItems.length; i < len; i++) {
+          var item = this.isotope.filteredItems[i];
+          this._getItemLayoutPosition(item);
+      }
+
+      this.centerX[this.currentRow].offset = (this.isotope.size.innerWidth + this.gutter - this.x) / 2;
+
+      this.initializing = false;
+      this.currentRow = 0;
+
+      // centered offsets were calculated, reset layout
+      this.x = 0;
+      this.y = 0;
+      this.maxY = 0;
+
+      this._getMeasurement('gutter', 'outerWidth');
+  };
+
+  proto._getItemLayoutPosition = function (item) {
+      item.getSize();
+      var itemWidth = item.size.outerWidth + this.gutter;
+      // if this element cannot fit in the current row
+      var containerWidth = this.isotope.size.innerWidth + this.gutter;
+      if (this.x !== 0 && itemWidth + this.x > containerWidth) {
+
+          if (this.initializing)
+              this.centerX[this.currentRow].offset = (containerWidth - this.x) / 2;
+          this.currentRow++;
+
+          this.x = 0;
+          this.y = this.maxY;
+      }
+
+      if (this.initializing && this.x == 0) {
+          this.centerX.push({ offset: 0 });
+      }
+
+      var position = {
+          x: this.x + (this.initializing ? 0 : this.centerX[this.currentRow].offset),
+          y: this.y
+      };
+
+      this.maxY = Math.max(this.maxY, this.y + item.size.outerHeight);
+      this.x += itemWidth;
+
+      return position;
+  };
+
+  proto._getContainerSize = function () {
+      return { height: this.maxY };
+  };
+
+  return FitRowsCentered;
+
+})); */
+
+/* var fitRows = Isotope.LayoutMode.modes.fitRows.prototype;
+      fitRows._resetLayout = function () {
+        // pre-calculate offsets for centering each row
+        this.x = 0;
+        this.y = 0;
+        this.maxY = 0;
+        this._getMeasurement("gutter", "outerWidth");
+        this.centerX = [];
+        this.currentRow = 0;
+        this.initializing = true;
+        for (var i = 0, len = this.items.length; i < len; i++) {
+          var item = this.items[i];
+          this._getItemLayoutPosition(item);
+        }
+        this.centerX[this.currentRow].offset =
+          (this.isotope.size.innerWidth + this.gutter - this.x) / 2;
+        this.initializing = false;
+        this.currentRow = 0;
+
+        // centered offsets were calculated, reset layout
+        this.x = 0;
+        this.y = 0;
+        this.maxY = 0;
+        this._getMeasurement("gutter", "outerWidth");
+      };
+      fitRows._getItemLayoutPosition = function (item) {
+        item.getSize();
+        var itemWidth = item.size.outerWidth + this.gutter;
+        // if this element cannot fit in the current row
+        var containerWidth = this.isotope.size.innerWidth + this.gutter;
+        if (this.x !== 0 && itemWidth + this.x > containerWidth) {
+          if (this.initializing)
+            this.centerX[this.currentRow].offset =
+              (containerWidth - this.x) / 2;
+          this.currentRow++;
+
+          this.x = 0;
+          this.y = this.maxY;
+        }
+
+        if (this.initializing && this.x == 0) {
+          this.centerX.push({ offset: 0 });
+        }
+        //if (this.centerX[this.currentRow].offset < 0)
+        //  this.centerX[this.currentRow].offset = 0;
+
+        var position = {
+          x:
+            this.x +
+            (this.initializing ? 0 : this.centerX[this.currentRow].offset),
+          y: this.y,
+        };
+
+        this.maxY = Math.max(this.maxY, this.y + item.size.outerHeight);
+        this.x += itemWidth;
+
+        return position;
+      };
+    //} else {
+//} */
