@@ -286,6 +286,7 @@ function showGallery(obj) {
     if (photogVid[i] !== undefined) {
       const myPhotoVidContainer = document.createElement("div");
       const myPhotoVid = document.createElement("video");
+      myPhotoVid.setAttribute("tabindex", "-1");
       myPhotoVidContainer.setAttribute("id", "lg-video-" + photogPhID[i]);
       myPhotoVid.setAttribute("class", "photoVid");
       myPhotoVid.classList.add("lg-video-object");
@@ -372,74 +373,104 @@ function showGallery(obj) {
     photoGallery.appendChild(myAHREF);
 
     // Photo Like stuff
-    var isChecked =
-      document.querySelectorAll("input:checked").length === 0 ? false : true;
 
-    console.log(isChecked);
-
-    let checkClass = document.getElementsByClassName("Visible");
-
-    var localStorage = [];
-    myPHInput.addEventListener("change", function () {
-      console.log(this.id, this.checked);
-
-      var c = [];
-
-      var id = this.id;
-      var check = true;
-
-      if (this.checked == true) {
-        const that = this;
-
-        let h = that.parentNode.previousSibling.innerHTML;
-
-        h = ++h;
-        console.log(h);
-        that.parentNode.previousSibling.innerHTML = h;
-        check = this.checked;
-      } else {
-        check = false;
-
-        const that = this;
-
-        let h = that.parentNode.previousSibling.innerHTML;
-        h = --h;
-        that.parentNode.previousSibling.innerHTML = h;
+    /* document.addEventListener('keyup', event => {
+      if (event.code === 'Space') {
+        console.log('Space pressed')
+        //heartLike();
+        testheart();
       }
+    }) */
+    heartLike();
+    function heartLike() {
+      var isChecked =
+        document.querySelectorAll("input:checked").length === 0 ? false : true;
 
-      c = check;
-      c[check];
+      console.log(isChecked);
 
-      if (c == true) {
-        localStorage.push(id);
+      //let checkClass = document.getElementsByClassName("Visible");
+
+      var localStorage = [];
+      myPHInput.addEventListener("change", function () {
+        console.log(this.id, this.checked);
+
+        var c = [];
+
+        var id = this.id;
+        var check = true;
+
+        if (this.checked == true) {
+          const that = this;
+
+          let h = that.parentNode.previousSibling.innerHTML;
+
+          h = ++h;
+          console.log(h);
+          that.parentNode.previousSibling.innerHTML = h;
+          check = this.checked;
+        } else {
+          check = false;
+
+          const that = this;
+
+          let h = that.parentNode.previousSibling.innerHTML;
+          h = --h;
+          that.parentNode.previousSibling.innerHTML = h;
+        }
+
+        c = check;
+        c[check];
+
+        if (c == true) {
+          localStorage.push(id);
+        }
+        if (c == false) {
+          localStorage.pop(id);
+        }
+
+        localStorage["map"];
+
+        console.log(check);
+        console.log("OK", localStorage);
+        var localString = JSON.stringify(localStorage);
+        console.log(localString);
+
+        if (document.querySelectorAll(this.id).checked) {
+          c.push(this.id);
+        }
+      });
+
+      /* myPhotoHeart.addEventListener('keyup', event => {
+        if (event.code === 'Space') {
+          console.log('Space pressed')
+          heartLike();
+        }
       }
-      if (c == false) {
-        localStorage.pop(id);
-      }
+      ); */
 
-      localStorage["map"];
-
-      console.log(check);
-      console.log("OK", localStorage);
-      var localString = JSON.stringify(localStorage);
-      console.log(localString);
-
-      if (document.querySelectorAll(this.id).checked) {
-        c.push(this.id);
-      }
+      $(function() {
+        $(myPhotoHeart).keydown(function(e) {
+            switch (e.which) {
+                case 32: // up key
+                console.log("up")
+                e.preventDefault();
+                    $("input", this).trigger("click")
+                    break;
+            }
+        });
     });
-
-    /* function checkOnLocalStorage() {
-      if (!localStorage['mapCoeur']) return;
-      var checked = localStorage['mapCoeur'].split(',');
-      checked.map((id) => {
-        document.getElementById(id).checked = true;
-      })
+      /* function checkOnLocalStorage() {
+        if (!localStorage['mapCoeur']) return;
+        var checked = localStorage['mapCoeur'].split(',');
+        checked.map((id) => {
+          document.getElementById(id).checked = true;
+        })
+      }
+      
+      (function () {
+        checkOnLocalStorage();
+      })(); */
     }
-    
-    (function () {
-      checkOnLocalStorage();
-    })(); */
   }
 }
 
@@ -614,8 +645,8 @@ fetch("./FishEyeDataFR.json")
       var $grid = $(".photoGall").isotope({
         itemSelector: ".photoAHREF",
         layoutMode: "fitRows",
-        sortBy: "Popularite",
-        sortAscending: false,
+        //sortBy: "Popularite",
+        //sortAscending: false,
         fitRows: {
           columnWidth: 50,
           gutter: 30,
