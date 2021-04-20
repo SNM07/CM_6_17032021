@@ -211,9 +211,13 @@ function showGallery(obj) {
 
     const myPhotoCard = document.createElement("article");
 
+    const myPhotoInfos = document.createElement("div");
+    myPhotoInfos.setAttribute("class", "photosInfos");
     const myPhotoTitle = document.createElement("h2");
     const myPhotoPrice = document.createElement("p");
 
+    const myPhotoLikesCount = document.createElement("div");
+    myPhotoLikesCount.setAttribute("class", "photoLikesCount");
     let myPhotoLikes = document.createElement("p");
 
     const myPhotoHeart = document.createElement("div");
@@ -228,6 +232,7 @@ function showGallery(obj) {
     myPHInput.setAttribute("tabindex", "0");
 
     myPhotoHeart.appendChild(myPHInput);
+   
 
     const myPHLabel = document.createElement("label");
     myPHLabel.htmlFor = "heart" + photogPhID[i];
@@ -235,6 +240,8 @@ function showGallery(obj) {
     myPHLabel.setAttribute("onclick", "event.stopPropagation();");
     //myPHLabel.setAttribute("aria-hidden", "false");
     myPhotoHeart.appendChild(myPHLabel);
+
+    myPhotoLikesCount.appendChild(myPhotoHeart);
 
     myPhotoCard.setAttribute("class", "photoCard");
     myPhotoCard.setAttribute("data-tagsCard", photogTags[i]);
@@ -352,11 +359,14 @@ function showGallery(obj) {
     myPhotoTags.style.display = "none";
     myPhotoCard.appendChild(myPhotoTags);
 
-    myPhotoCard.appendChild(myPhotoTitle);
-    myPhotoCard.appendChild(myPhotoPrice);
-    myPhotoCard.appendChild(myPhotoLikes);
+    myPhotoInfos.appendChild(myPhotoTitle);
+    myPhotoInfos.appendChild(myPhotoPrice);
+    myPhotoLikesCount.appendChild(myPhotoLikes);
 
-    myPhotoCard.appendChild(myPhotoHeart);
+    myPhotoCard.appendChild(myPhotoInfos);
+
+    myPhotoLikesCount.appendChild(myPhotoHeart);
+    myPhotoInfos.appendChild(myPhotoLikesCount);
     myAHREF.appendChild(myPhotoCard);
 
     photoGallery.appendChild(myAHREF);
@@ -608,7 +618,7 @@ fetch("./FishEyeDataFR.json")
         sortAscending: false,
         fitRows: {
           columnWidth: 50,
-          gutter: 35,
+          gutter: 30,
         },
         getSortData: {
           Popularite: ".photoLikes parseInt",

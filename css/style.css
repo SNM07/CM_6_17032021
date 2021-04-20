@@ -301,7 +301,7 @@
 .photoCard {
   position: relative;
   width: 80vw;
-  height: 60vw;
+  height: 62vw;
   margin: auto;
   margin-bottom: 1rem;
   cursor: pointer;
@@ -310,7 +310,7 @@
   .photoCard {
     position: "";
     width: 100%;
-    height: 33vw;
+    height: 34vw;
     margin-bottom: 0;
   }
 }
@@ -340,9 +340,20 @@
     height: 25vw;
   }
 }
-.photoCard .photoTitle {
+.photoCard .photosInfos {
+  display: flex;
   position: absolute;
   top: 50vw;
+  width: 100%;
+  justify-content: space-between;
+  background-color: white;
+}
+@media screen and (min-width: 800px) {
+  .photoCard .photosInfos {
+    top: 26vw;
+  }
+}
+.photoCard .photosInfos .photoTitle {
   font-size: 1rem;
   font-weight: 500;
   color: #901C1C;
@@ -352,79 +363,56 @@
   flex-wrap: wrap;
 }
 @media screen and (min-width: 800px) {
-  .photoCard .photoTitle {
-    top: 26vw;
+  .photoCard .photosInfos .photoTitle {
     width: 60%;
     display: flex;
     flex-wrap: wrap;
   }
 }
-.photoCard .photoPrice {
-  position: absolute;
-  top: 50vw;
-  right: 14vw;
+.photoCard .photosInfos .photoPrice {
   font-size: 0.9rem;
   font-weight: bold;
   color: #901C1C;
   padding: 0.5rem 0 0 0;
 }
-@media screen and (min-width: 800px) {
-  .photoCard .photoPrice {
-    top: 26vw;
-    right: 4.5rem;
-  }
+.photoCard .photosInfos .photoLikesCount {
+  display: flex;
+  gap: 4px;
 }
-.photoCard .photoLikes {
-  position: absolute;
-  top: 50vw;
-  right: 5vw;
+.photoCard .photosInfos .photoLikesCount .photoLikes {
   font-size: 1rem;
   font-weight: bold;
   color: #901C1C;
   padding: 0.5rem 0 0 0;
 }
-@media screen and (min-width: 800px) {
-  .photoCard .photoLikes {
-    top: 26vw;
-    right: 1.5rem;
-  }
-}
-.photoCard .like {
-  position: absolute;
-  top: 50vw;
-  right: 0;
+.photoCard .photosInfos .photoLikesCount .like {
   font-size: 1rem;
   padding: 0.5rem 0 0 0;
 }
-@media screen and (min-width: 800px) {
-  .photoCard .like {
-    top: 26vw;
-  }
-}
-.photoCard .like:focus > .fa-heart {
+.photoCard .photosInfos .photoLikesCount .like:focus > .fa-heart {
   font-weight: 900 !important;
   color: #D3573C;
   opacity: 1;
 }
-.photoCard .like input {
+.photoCard .photosInfos .photoLikesCount .like input {
   display: none;
   cursor: pointer;
 }
-.photoCard .like input + .fa-heart {
+.photoCard .photosInfos .photoLikesCount .like input + .fa-heart {
   transition: all ease-in-out;
   color: #901C1C;
   font-weight: 400;
   opacity: 1;
   cursor: pointer;
 }
-.photoCard .like input:checked + .fa-heart {
+.photoCard .photosInfos .photoLikesCount .like input:checked + .fa-heart {
   font-weight: 900 !important;
   color: #901C1C;
   animation: coeur 0.8s ease;
   opacity: 1;
 }
 @media screen and (min-width: 800px) {
-  .photoCard .like .fa-heart:hover {
+  .photoCard .photosInfos .photoLikesCount .like .fa-heart:hover {
     font-weight: 900 !important;
     color: #D3573C;
     animation: coeurHover 0.6s ease;

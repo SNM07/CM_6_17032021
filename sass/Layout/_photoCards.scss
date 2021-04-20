@@ -1,7 +1,7 @@
 .photoCard{
     position: relative;
     width: 80vw;
-    height: 60vw;
+    height: 62vw;
     margin: auto;
     margin-bottom: 1rem;
     cursor: pointer;
@@ -9,7 +9,7 @@
         position: "";
         width: 100%;
         //width: 25vw;
-        height: 33vw;
+        height: 34vw;
         margin-bottom: 0;
         
     }
@@ -36,9 +36,19 @@
         }
     }
     
-    & .photoTitle{
+    & .photosInfos {
+        display: flex;
         position: absolute;
         top: 50vw;
+        width: 100%;
+        justify-content: space-between;
+        background-color: white;
+        @include large-only{
+            top: 26vw;
+        }
+        & .photoTitle{
+       // position: absolute;
+        //top: 50vw;
         font-size: 1rem;
         font-weight: 500;
         color: $color-primary-1;
@@ -47,51 +57,54 @@
         display: flex;
         flex-wrap: wrap;
         @include large-only{
-            top: 26vw;
+           // top: 26vw;
             width: 60%;
             display: flex;
             flex-wrap: wrap;
         }
     }
     & .photoPrice{
-        position: absolute;
-        top: 50vw;
-        right: 14vw;
+        //position: absolute;
+        //top: 50vw;
+        //right: 14vw;
         font-size: .9rem;
         font-weight: bold;
         color: $color-primary-1;
         padding: .5rem 0 0 0;
         @include large-only{
-            top: 26vw;
-            right: 4.5rem;
+           // top: 26vw;
+           // right: 4.5rem;
         }
     }
+    & .photoLikesCount{
+        display: flex;
+        gap: 4px;
     & .photoLikes{
-        position: absolute;
-        top: 50vw;
-        right: 5vw;
+       // position: absolute;
+        //top: 50vw;
+       // right: 5vw;
         font-size: 1rem;
         font-weight: bold;
         color: $color-primary-1;
         padding: .5rem 0 0 0;
         @include large-only{
-            top: 26vw;
-            right: 1.5rem;
+           // top: 26vw;
+            //right: 1.5rem;
         }
     }
     & .like{
-        position: absolute;
-        top: 50vw;
-        right: 0;
+        //position: absolute;
+       // top: 50vw;
+       // right: 0;
         font-size: 1rem;
         padding: .5rem 0 0 0;
         @include large-only{
-            top: 26vw;
+            //top: 26vw;
         }
         & {
         @include likeButton;
         }
     }
-    
-    
+}
+}  
 }
