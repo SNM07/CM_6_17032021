@@ -12,9 +12,9 @@
         showProfile(profileTemplate);
 } */
 
+
 function showProfile(obj) {
   const tagFilter = ["all"];
-
   const photog = obj["photographers"];
 
   for (let i = 0; i < photog.length; i++) {
