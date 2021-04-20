@@ -1,23 +1,10 @@
-/* const section = document.querySelector('profiles');
-  
-      let requestURL = './FishEyeDataFR.json';
-      let request = new XMLHttpRequest();
-      request.open('GET', requestURL);
-      request.responseType = 'json';
-      request.send();
-  
-      request.onload = function() {
-        const profileTemplate = request.response;
-        // populateHeader(profileTemplate);
-        showProfile(profileTemplate);
-} */
-
-
+//Construction of profile cards
 function showProfile(obj) {
-  const tagFilter = ["all"];
+  //Get JSON data
   const photog = obj["photographers"];
 
   for (let i = 0; i < photog.length; i++) {
+    //Create elements
     const myArticle = document.createElement("article");
     const myImg = document.createElement("img");
     const myH2 = document.createElement("h2");
@@ -25,36 +12,45 @@ function showProfile(obj) {
     const myPara2 = document.createElement("p");
     const myPara3 = document.createElement("p");
     const myTags = document.createElement("div");
-
     const myProfContainer = document.createElement("div");
 
-    myProfContainer.setAttribute("class", "profileContainer");
-    myProfContainer.setAttribute("tabindex", "0");
-    myProfContainer.setAttribute("title", photog[i].name + " card");
-
+    //Article attributes
     myArticle.setAttribute("class", "profileCard");
     myArticle.dataset.dataid = photog[i].id;
+
+    //Images attributes
     myImg.setAttribute("class", "profilePic");
     myImg.setAttribute("alt", photog[i].name + " profile picture");
-    myH2.setAttribute("class", "profileName");
-    myPara1.setAttribute("class", "profileLocation");
-    myPara2.setAttribute("class", "profileTagline");
-    myPara3.setAttribute("class", "profilePrice");
-    myTags.setAttribute("class", "profileTags");
-
     myImg.src = "./images/Photographers-ID-Photos/" + photog[i].portrait;
+
+    //Name attributes
+    myH2.setAttribute("class", "profileName");
     myH2.textContent = photog[i].name;
+
+    //Location attributes
+    myPara1.setAttribute("class", "profileLocation");
     myPara1.textContent = photog[i].city + ", " + photog[i].country;
+
+    //Tagline attributes
+    myPara2.setAttribute("class", "profileTagline");
     myPara2.textContent = photog[i].tagline;
+
+    //Price attributes
+    myPara3.setAttribute("class", "profilePrice");
     myPara3.textContent = photog[i].price + "€/jour";
 
+    //Tags attributes & generation
+    myTags.setAttribute("class", "profileTags");
     const catTags = photog[i].tags;
     for (let j = 0; j < catTags.length; j++) {
       const listTagsCont = document.createElement("button");
       listTagsCont.setAttribute("class", "listTagsCont");
       listTagsCont.setAttribute("data-tagslist", catTags[j]);
       listTagsCont.setAttribute("aria-label", catTags[j]);
-      listTagsCont.setAttribute("onclick", "filterSelection(this.getAttribute('data-tagslist'))");
+      listTagsCont.setAttribute(
+        "onclick",
+        "filterSelection(this.getAttribute('data-tagslist'))"
+      );
       const listTags = document.createElement("span");
       listTags.setAttribute("class", "tagsli");
       listTags.textContent = "# " + catTags[j];
@@ -66,8 +62,11 @@ function showProfile(obj) {
         profileCardClass + " " + catTags.join(" ")
       );
     }
-    /* redirect();
-          function redirect() { */
+
+    //Redirect container attributes
+    myProfContainer.setAttribute("class", "profileContainer");
+    myProfContainer.setAttribute("tabindex", "0");
+    myProfContainer.setAttribute("title", photog[i].name + " card");
     let myRedirect =
       "location.href=" +
       "'" +
@@ -75,22 +74,10 @@ function showProfile(obj) {
       "?id=" +
       photog[i].id +
       "'";
-    // myArticle.onclick = location.href = myRedirect;
     myProfContainer.setAttribute("onclick", myRedirect);
 
-    console.log(myRedirect);
-    /* for (const myTags of photog) {
-            const myArticle = Object.assign(
-              document.createElement("li"), {
-                textContent: photog.name,
-                className: `profileCard ${photog.tags.join(" ")}`
-              }
-            );
-            profiles.append(article);
-          } */
-
+    //Append elements
     myArticle.appendChild(myProfContainer);
-    
     myProfContainer.appendChild(myImg);
     myProfContainer.appendChild(myH2);
     myArticle.appendChild(myPara1);
@@ -102,153 +89,27 @@ function showProfile(obj) {
   }
 }
 
+//Fetch JSON & construct page
 fetch("./FishEyeDataFR.json")
   .then((response) => {
     return response.json();
   })
 
   .then((object) => {
-    const photographers = object.photographers;
-    const medias = object.medias;
-    console.log(object, photographers, medias);
-
     showProfile(object);
 
     filterSelection("all");
 
-    function filterSelection(c) {
-      var x, i;
-      x = document.getElementsByClassName("profileCard");
-      if (c == "all") c = "";
-      // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+    filterTagsButtons();
 
-      for (i = 0; i < x.length; i++) {
-        profRemoveClass(x[i], "show");
-        if (x[i].className.indexOf(c) > -1) profAddClass(x[i], "show");
-      }
-      console.log(c);
-    }
+    filterTagsButtonsPP();
 
-    // Show filtered elements
-    function profAddClass(element, name) {
-      var i, arr1, arr2;
-      arr1 = element.className.split(" ");
-      arr2 = name.split(" ");
-      for (i = 0; i < arr2.length; i++) {
-        if (arr1.indexOf(arr2[i]) == -1) {
-          element.className += " " + arr2[i];
-        }
-      }
-    }
-
-    // Hide elements that are not selected
-    function profRemoveClass(element, name) {
-      var i, arr1, arr2;
-      arr1 = element.className.split(" ");
-      arr2 = name.split(" ");
-      for (i = 0; i < arr2.length; i++) {
-        while (arr1.indexOf(arr2[i]) > -1) {
-          arr1.splice(arr1.indexOf(arr2[i]), 1);
-        }
-      }
-      element.className = arr1.join(" ");
-    }
-
-    // document.body.onload = profAddClass("profileCard", "show");
-
-    // document.getElementsByClassName("profileCard").addEventListener("load", filterSelection);
-
-    // window.onload = filterSelection("all");
-
-    // Add active class to the current control button (highlight it)
-    var btnContainer = document.getElementById("filterButtons");
-
-    var btns = btnContainer.getElementsByClassName("filterButton");
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].addEventListener("click", function () {
-        var current = document.getElementsByClassName("active");
-        current[0].className = current[0].className.replace(" active", "");
-        this.className += " active";
-      });
-    }
-
-    //var btnContainer = document.getElementById("filterButtons");
-
-    var btns = document.getElementsByClassName("listTagsCont");
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].addEventListener("click", function () {
-        var current = document.getElementsByClassName("active");
-        current[0].className = current[0].className.replace(" active", "");
-        this.className += " active";
-      });
-    }
-
-    /* for (const photog of photographers) {
-          const article = Object.assign(
-            document.createElement("article"), {
-              textContent: photog.name,
-              className: `profileCard ${photog.tags.join(" ")}`
-            }
-          );
-          profiles.append(article);
-        } */
-    const body = document.body;
-    // const menu = document.querySelector(".page-header");
-    /* const nav = document.querySelector(".page-header nav");
-        const menu = document.querySelector(".page-header .menu"); */
-    const scrollUp = "scroll-up";
-    const scrollDown = "scroll-down";
-    let lastScroll = 0;
-
-    /* menu.addEventListener("click", () => {
-          body.classList.toggle("menu-open");
-        }); */
-
-    window.addEventListener("scroll", () => {
-      const currentScroll = window.pageYOffset;
-      if (currentScroll <= 0) {
-        body.classList.remove(scrollUp);
-        body.classList.remove(scrollDown);
-        return;
-      }
-
-      if (currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
-        // down
-        body.classList.remove(scrollUp);
-        body.classList.add(scrollDown);
-      } else if (
-        currentScroll < lastScroll &&
-        body.classList.contains(scrollDown)
-      ) {
-        // up
-        body.classList.remove(scrollDown);
-        body.classList.add(scrollUp);
-      }
-      lastScroll = currentScroll;
-    });
-
-    //Get the button:
-    mybutton = document.getElementById("contentButton");
-
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function () {
-      scrollFunction();
-    };
-
-    function scrollFunction() {
-      if (
-        document.body.scrollTop > 80 ||
-        document.documentElement.scrollTop > 80
-      ) {
-        mybutton.style.display = "block";
-      } else {
-        mybutton.style.display = "none";
-      }
-    }
+    buttonPaC();
   });
 
 filterSelection("all");
 
+//Profiles Filter
 function filterSelection(c) {
   var x, i;
   x = document.getElementsByClassName("profileCard");
@@ -259,10 +120,9 @@ function filterSelection(c) {
     profRemoveClass(x[i], "show");
     if (x[i].className.indexOf(c) > -1) profAddClass(x[i], "show");
   }
-  console.log(c);
 }
 
-// Show filtered elements
+// Show filtered elements (filterSelection dependency)
 function profAddClass(element, name) {
   var i, arr1, arr2;
   arr1 = element.className.split(" ");
@@ -274,7 +134,7 @@ function profAddClass(element, name) {
   }
 }
 
-// Hide elements that are not selected
+// Hide elements that are not selected  (filterSelection dependency)
 function profRemoveClass(element, name) {
   var i, arr1, arr2;
   arr1 = element.className.split(" ");
@@ -287,36 +147,87 @@ function profRemoveClass(element, name) {
   element.className = arr1.join(" ");
 }
 
-// document.body.onload = profAddClass("profileCard", "show");
-
-// document.getElementsByClassName("profileCard").addEventListener("load", filterSelection);
-
-// window.onload = filterSelection("all");
-
-/*
-// Add active class to the current control button (highlight it)
-var btnContainer = document.getElementById("filterButtons");
-
-var btns = btnContainer.getElementsByClassName("filterButton");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-    
-  });
-  
-} */
-
-// When the user clicks on the button, scroll to the top of the document
+// When the user clicks on the button, scroll to the top of the document and display everything
 function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-  /* if (document.body.classList.contains("scrollDown")){
-    document.body.classList.remove("scrollDown");
-    document.body.classList.add("scrollUp");
-  } */
+
   filterSelection("all");
 }
 
+//Filter tags buttons
+function filterTagsButtons() {
+  var btnContainer = document.getElementById("filterButtons");
 
+  var btns = btnContainer.getElementsByClassName("filterButton");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function () {
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+  }
+}
+
+//Filter tags button in profile cards
+function filterTagsButtonsPP() {
+  var btns = document.getElementsByClassName("listTagsCont");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function () {
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+  }
+}
+
+//Passer au contenu button
+function buttonPaC() {
+  const body = document.body;
+
+  const scrollUp = "scroll-up";
+  const scrollDown = "scroll-down";
+  let lastScroll = 0;
+
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.pageYOffset;
+    if (currentScroll <= 0) {
+      body.classList.remove(scrollUp);
+      body.classList.remove(scrollDown);
+      return;
+    }
+
+    if (currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
+      // down
+      body.classList.remove(scrollUp);
+      body.classList.add(scrollDown);
+    } else if (
+      currentScroll < lastScroll &&
+      body.classList.contains(scrollDown)
+    ) {
+      // up
+      body.classList.remove(scrollDown);
+      body.classList.add(scrollUp);
+    }
+    lastScroll = currentScroll;
+  });
+
+  //Get the button:
+  mybutton = document.getElementById("contentButton");
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function () {
+    scrollFunction();
+  };
+
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 80 ||
+      document.documentElement.scrollTop > 80
+    ) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+}
