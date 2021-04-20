@@ -456,6 +456,9 @@ fetch("./FishEyeDataFR.json")
     let u = thisPhotographerName[0].innerHTML;
     ariaContact[0].setAttribute("aria-label", "Contact me " + u);
 
+
+    
+
     //Lightbox parameters
     lightGallery(document.getElementById("photoGallery"), {
       //speed: "600",
@@ -601,6 +604,8 @@ fetch("./FishEyeDataFR.json")
       var $grid = $(".photoGall").isotope({
         itemSelector: ".photoAHREF",
         layoutMode: "fitRows",
+        sortBy: "Popularite",
+        sortAscending: false,
         fitRows: {
           columnWidth: 50,
           gutter: 35,
@@ -666,6 +671,9 @@ fetch("./FishEyeDataFR.json")
       //$grid.isotope('updateSortData').isotope();
       console.log($grid);
 
+      
+
+      
       /////////////////////////////////////////////////////////////////
       /* var fitRows = Isotope.LayoutMode.modes.fitRows.prototype;
       fitRows._resetLayout = function () {
@@ -728,6 +736,8 @@ fetch("./FishEyeDataFR.json")
     } else {
     } */
     }
+
+    
     /////////////////////////////////////////////////////////////
     /*jshint browser: true, strict: true, undef: true, unused: true */
 
@@ -939,6 +949,8 @@ function topFunction2() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+
+
 
 //EmailJS stuff
 window.onload = function () {
@@ -1303,3 +1315,4 @@ function galleryCenter() {
       };
     //} else {
 //} */
+
