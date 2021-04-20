@@ -81,7 +81,7 @@
     gap: 0;
   }
 }
-.profileCard .profileTags li {
+.profileCard .profileTags button span {
   display: block;
   cursor: pointer;
   color: #901C1C;
@@ -91,18 +91,19 @@
   background-color: white;
   border: 1px solid rgba(82, 82, 82, 0.2);
   border-radius: 16px;
+  margin: 0;
 }
 @media screen and (min-width: 800px) {
-  .profileCard .profileTags li {
+  .profileCard .profileTags button span {
     font-size: 0.75rem;
     white-space: nowrap;
   }
 }
-.profileCard .profileTags li:hover {
+.profileCard .profileTags button span:hover {
   color: white;
   background-color: #901C1C;
 }
-.profileCard .profileTags li:focus {
+.profileCard .profileTags button span:focus {
   color: white;
   background-color: #901C1C;
 }
@@ -1339,9 +1340,9 @@ nav {
 }
 
 .listTagsCont {
-  border: none;
-  background: transparent;
-  padding: 0;
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
 }
 
 /* .profileTags {

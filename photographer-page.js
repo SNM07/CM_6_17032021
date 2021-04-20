@@ -645,8 +645,8 @@ fetch("./FishEyeDataFR.json")
       var $grid = $(".photoGall").isotope({
         itemSelector: ".photoAHREF",
         layoutMode: "fitRows",
-        //sortBy: "Popularite",
-        //sortAscending: false,
+        sortBy: "Popularite",
+        sortAscending: false,
         fitRows: {
           columnWidth: 50,
           gutter: 30,
@@ -714,7 +714,26 @@ fetch("./FishEyeDataFR.json")
 
       
 
+      /* sortFocus();
+      function sortFocus(sortClass) {
+        var button = $('div.isotope-button').first() ;       
+    
+        setTimeout(function() {
+            $('div.isotope-button.' + sortClass).each(function(index) {
+                var pos = $(this).position(), posx = (pos.left) / button.outerWidth(), posy = ((pos.top) / button.outerHeight()) + 1;
+                $(this).find('a').attr('tabindex', posy + '' + posx);
+            });
+        }, 1000);
+    } */
       
+      
+    $myIsotope.on('arrangeComplete', function (e, filteredItems) {
+      var tabIndex = 1;
+      $(filteredItems).each(function (index, item) {
+        $(item.element).find('a.title').attr('tabindex', tabIndex);
+        tabIndex++;
+      });
+    });
       /////////////////////////////////////////////////////////////////
       /* var fitRows = Isotope.LayoutMode.modes.fitRows.prototype;
       fitRows._resetLayout = function () {

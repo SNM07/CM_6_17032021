@@ -24,7 +24,7 @@ function showProfile(obj) {
     const myPara1 = document.createElement("p");
     const myPara2 = document.createElement("p");
     const myPara3 = document.createElement("p");
-    const myTags = document.createElement("ul");
+    const myTags = document.createElement("div");
 
     const myProfContainer = document.createElement("div");
 
@@ -55,7 +55,7 @@ function showProfile(obj) {
       listTagsCont.setAttribute("data-tagslist", catTags[j]);
       listTagsCont.setAttribute("aria-label", catTags[j]);
       listTagsCont.setAttribute("onclick", "filterSelection(this.getAttribute('data-tagslist'))");
-      const listTags = document.createElement("li");
+      const listTags = document.createElement("span");
       listTags.setAttribute("class", "tagsli");
       listTags.textContent = "# " + catTags[j];
       listTagsCont.appendChild(listTags);

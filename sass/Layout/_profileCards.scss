@@ -62,9 +62,10 @@
       flex-wrap: wrap;
       gap: 0;
     }
-    & li{
+    & button span{
         display: block;
         @include boutonTags;
+        margin: 0;
     }
     }
 }
