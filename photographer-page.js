@@ -219,48 +219,33 @@ function showGallery(obj) {
       myPhotoCard.appendChild(myPhotoImg);
     }
 
-    //Only display used videos + attributes & append
-    if (photogVid[i] !== undefined) {
-      const myPhotoVidContainer = document.createElement("div");
-      const myPhotoVid = document.createElement("video");
-      myPhotoVid.setAttribute("tabindex", "-1");
-      myPhotoVidContainer.setAttribute("id", "lg-video-" + photogPhID[i]);
-      myPhotoVid.setAttribute("class", "photoVid");
-      myPhotoVid.classList.add("lg-video-object");
-      myPhotoVid.classList.add("lg-html5");
-      myPhotoVid.setAttribute("controls", "controls");
-      const myPhotoVidSource = document.createElement("source");
-      myPhotoVidSource.setAttribute(
-        "src",
-        "./images/" + photogID[i] + "/" + photogVid[i]
-      );
-      myPhotoVidSource.setAttribute("type", "video/mp4");
-      myPhotoVid.appendChild(myPhotoVidSource);
+    //Only display used videos + attributes & append (and duplicate version for lightbox)
+    createVid("none", "-1");
+    createVid("block", "0");
 
-      myPhotoVidContainer.appendChild(myPhotoVid);
-      myPhotoCard.appendChild(myPhotoVidContainer);
+    function createVid(displayParam, tabindexParam) {
+      if (photogVid[i] !== undefined) {
+        const myPhotoVidContainer = document.createElement("div");
+        const myPhotoVid = document.createElement("video");
+        myPhotoVid.setAttribute("class", "photoVid");
+        myPhotoVid.setAttribute("tabindex", tabindexParam);
+        myPhotoVidContainer.setAttribute("display", displayParam);
+        myPhotoVidContainer.setAttribute("id", "lg-video-" + photogPhID[i]);
+        myPhotoVid.classList.add("lg-video-object");
+        myPhotoVid.classList.add("lg-html5");
+        myPhotoVid.setAttribute("controls", "controls");
+        const myPhotoVidSource = document.createElement("source");
+        myPhotoVidSource.setAttribute(
+          "src",
+          "./images/" + photogID[i] + "/" + photogVid[i]
+        );
+        myPhotoVidSource.setAttribute("type", "video/mp4");
+        myPhotoVid.appendChild(myPhotoVidSource);
+        myPhotoVidContainer.appendChild(myPhotoVid);
+        myPhotoCard.appendChild(myPhotoVidContainer);
+      }
     }
-
-    //Duplicate for lightbox
-    if (photogVid[i] !== undefined) {
-      const myPhotoVidContainer = document.createElement("div");
-      const myPhotoVid = document.createElement("video");
-      myPhotoVid.setAttribute("class", "photoVid");
-      myPhotoVidContainer.setAttribute("display", "none");
-      myPhotoVidContainer.setAttribute("id", "lg-video-" + photogPhID[i]);
-      myPhotoVid.classList.add("lg-video-object");
-      myPhotoVid.classList.add("lg-html5");
-      myPhotoVid.setAttribute("controls", "controls");
-      const myPhotoVidSource = document.createElement("source");
-      myPhotoVidSource.setAttribute(
-        "src",
-        "./images/" + photogID[i] + "/" + photogVid[i]
-      );
-      myPhotoVidSource.setAttribute("type", "video/mp4");
-      myPhotoVid.appendChild(myPhotoVidSource);
-      myPhotoVidContainer.appendChild(myPhotoVid);
-      myPhotoCard.appendChild(myPhotoVidContainer);
-    }
+    //////////////////////////////////////////////////////
 
     //Append elements
     myPhotoHeart.appendChild(myPHInput);
@@ -278,8 +263,8 @@ function showGallery(obj) {
 
     photoGallery.appendChild(myAHREF);
 
-    heartLike();
     //Like +  Local Storage
+    heartLike();
     function heartLike() {
       var isChecked =
         document.querySelectorAll("input:checked").length === 0 ? false : true;
@@ -509,26 +494,19 @@ fetch("./FishEyeDataFR.json")
       }
 
       //Test tags focus keyboard...
-
-      /* sortFocus();
-      function sortFocus(sortClass) {
-        var button = $('div.isotope-button').first() ;       
-    
-        setTimeout(function() {
-            $('div.isotope-button.' + sortClass).each(function(index) {
-                var pos = $(this).position(), posx = (pos.left) / button.outerWidth(), posy = ((pos.top) / button.outerHeight()) + 1;
-                $(this).find('a').attr('tabindex', posy + '' + posx);
-            });
-        }, 1000);
-    } */
-
-      /* $myIsotope.on("arrangeComplete", function (e, filteredItems) {
+      $grid.on("arrangeComplete", function (e, filteredItems) {
+        console.log('arrangeComplete')
+        
         var tabIndex = 1;
         $(filteredItems).each(function (index, item) {
           $(item.element).find("a.title").attr("tabindex", tabIndex);
           tabIndex++;
+          //item.element.tabindex.value = tabIndex;
+          item.element.setAttribute("tabindex", index);
+          console.log(index)
+          console.log(item.element)
         });
-      }); */
+      }).isotope();;
     }
 
     //Scroll up & reinitialize
@@ -579,13 +557,24 @@ fetch("./FishEyeDataFR.json")
         mybutton.style.display = "none";
       }
     }
+
+    //Change page title
+    changePageTitle();
+    function changePageTitle() {
+      let photographerNameTitle = document.getElementsByClassName(
+        "profileName"
+      )[0].innerHTML;
+      let newPageTitle =
+        "FishEye - " + photographerNameTitle + ", Photographer Page";
+      document.title = newPageTitle;
+    }
   });
 
+// When the user clicks on the button, scroll to the top of the document
 document
   .getElementById("contentButton2")
   .addEventListener("click", topFunction2);
 
-// When the user clicks on the button, scroll to the top of the document
 function topFunction2() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
@@ -639,3 +628,11 @@ window.onload = function () {
     return false;
   }
 };
+
+/* $myIsotope.on("arrangeComplete", function (e, filteredItems) {
+  var tabIndex = 1;
+  $(filteredItems).each(function (index, item) {
+    $(item.element).find("a.title").attr("tabindex", tabIndex);
+    tabIndex++;
+  });
+}); */

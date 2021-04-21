@@ -5,40 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FishEye - Photographer Page</title>
+    <link rel="icon" type="image/png" href=".\images\icon-FishEye.png" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./node_modules/lightgallery.js/dist/css/lightgallery.css">
     <link rel="stylesheet" href="./node_modules/custom-select/build/custom-select.css">
-
-    <!-- <link rel="stylesheet" href="./node_modules/simple-lightbox/dist/simpleLightbox.min.css" /> -->
-    <!-- <script src="./fslightbox/fslightbox.js"></script> -->
     <script type="module" src="./node_modules/lightgallery.js/dist/js/lightgallery.min.js"></script>
     <script type="module" src="./node_modules/lg-video.js/dist/lg-video.min.js"></script>
-    <!-- <script type="module" src="./node_modules/lg-fullscreen/dist/lg-fullscreen.min.js"></script> -->
     <script
       src="https://kit.fontawesome.com/8c176d9289.js"
       crossorigin="anonymous"
     ></script>
     <script type="module" src="./photographer-page.js"></script>
-    <!-- <script type="module" src="./node_modules/simple-lightbox/dist/simpleLightbox.min.js" ></script> -->
     <script type="module" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-    <script>
-      /* (function () {
-        emailjs.init("user_puf8TmtfpdXTG2bY7o9Sk");
-      })(); */
-    </script>
     <script src="./contactForm.js" type="module"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-    <!-- <script type="text/javascript" src="./node_modules/filterizr/dist/filterizr.min.js"></script> -->
-  
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>  
   </head>
   <body>
     <header class="page-header">
       <div class="logoP" onclick="window.location.href='./'" alt="Fisheye Home page" tabindex="0">
         <img src=".\images\logo FishEye.png" alt="Fisheye Logo"/>
       </div>
-      
     </header>
     <div id="contentButtonContainer2">
     <button onclick="topFunction2()" id="contentButton2" title="Reinitialisation">Passer au contenu</button>
@@ -47,13 +35,11 @@
       <section id="profilesPP"></section>
       <section id="photoFilter">
         <p aria-label="Trier par">Trier par</p>
-        <!-- <div class="custom-select" style="width:8rem;"> -->
         <select class="filters-select" name="photo filter" id="photoFilterDD" aria-label="Order by">
           <option class="selOpt" value="Popularite" selected>Popularité</option>
           <option class="selOpt" value="Date">Date</option>
           <option class="selOpt" value="Titre">Titre</option>
         </select>
-        <!-- </div> -->
       </section>
       <section id="photoGallery" class="photoGall filtr-container"></section>
 <!-- // -->
@@ -137,12 +123,6 @@
       </div>
       <!-- // -->
     </main>
-    <!-- <script src="./fslightbox/fslightbox.js"></script> -->
-    <!-- <script>
-      lightGallery(document.getElementById('photoGallery'));
-      console.log(lightGallery())
-  </script> -->
   <script src="./node_modules/custom-select/build/custom-select.min.js"></script>
-  <!-- <script src="./node_modules/custom-select/build/index.js"></script> -->
   </body>
 </html>
