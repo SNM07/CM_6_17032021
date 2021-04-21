@@ -284,7 +284,7 @@
 @media screen and (min-width: 800px) {
   .contactFormButton .modal-btn {
     width: 12vw;
-    height: 4.5vw;
+    height: 6vw;
     font-size: 1.4vw;
     line-height: 4.5vw;
   }
@@ -309,7 +309,6 @@
 }
 @media screen and (min-width: 800px) {
   .photoCard {
-    position: "";
     width: 100%;
     height: 34vw;
     margin-bottom: 0;
@@ -476,7 +475,7 @@
   font-size: 4vw;
   line-height: 8vw;
   cursor: pointer;
-  line-height: auto;
+  line-height: 2.5rem;
   margin: 0 8% 8% 8%;
   width: 10rem;
   height: 5rem;
@@ -493,9 +492,14 @@
 @media screen and (min-width: 800px) {
   .button {
     width: 12vw;
-    height: 4.5vw;
+    height: 6vw;
     font-size: 1.4vw;
     line-height: 4.5vw;
+  }
+}
+@media screen and (min-width: 800px) {
+  .button {
+    font-size: 2.2vw;
   }
 }
 .button:hover {

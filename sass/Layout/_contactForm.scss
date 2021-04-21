@@ -7,11 +7,14 @@
 
 .button {
     @include buttonContact;
-    line-height: auto;
+    line-height: 2.5rem;
     margin: 0 8% 8% 8%;
     width: 10rem;
     height: 5rem;
     font-size: 1.5rem;
+    @include large-only{
+      font-size: 2.2vw;
+    }
     &:hover{
       background-color: white;
     }
