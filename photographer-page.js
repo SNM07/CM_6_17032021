@@ -155,13 +155,14 @@ function showGallery(obj) {
     //Heart container attributes
     myPhotoHeart.className = "like";
     myPhotoHeart.setAttribute("aria-label", "likes");
-    myPhotoHeart.setAttribute("tabindex", "0");
+    //myPhotoHeart.setAttribute("tabindex", "0");
 
     //Heart checkbox input attributes
     myPHInput.type = "checkbox";
     myPHInput.id = "heart" + photogPhID[i];
     myPHInput.setAttribute("onclick", "event.stopPropagation();");
-    myPHInput.setAttribute("tabindex", "0");
+    myPHInput.classList.add("checkHeart");
+    //myPHInput.setAttribute("tabindex", "0");
 
     //Heart checkbox label attributes
     myPHLabel.htmlFor = "heart" + photogPhID[i];
@@ -220,6 +221,7 @@ function showGallery(obj) {
     }
 
     //Only display used videos + attributes & append (and duplicate version for lightbox)
+    
     createVid("none", "-1");
     createVid("block", "0");
 
@@ -228,7 +230,7 @@ function showGallery(obj) {
         const myPhotoVidContainer = document.createElement("div");
         const myPhotoVid = document.createElement("video");
         myPhotoVid.setAttribute("class", "photoVid");
-        myPhotoVid.setAttribute("tabindex", tabindexParam);
+        //myPhotoVid.setAttribute("tabindex", tabindexParam);
         myPhotoVidContainer.setAttribute("display", displayParam);
         myPhotoVidContainer.setAttribute("id", "lg-video-" + photogPhID[i]);
         myPhotoVid.classList.add("lg-video-object");
@@ -500,14 +502,23 @@ fetch("./FishEyeDataFR.json")
         console.log('arrangeComplete')
         
         var tabIndex = 1;
+        var tabIndex2 = 1;
+        var tabIndex3 = 1;
+
         $(filteredItems).each(function (index, item) {
           $(item.element).find("a.title").attr("tabindex", tabIndex);
-          tabIndex++;
-          //item.element.tabindex.value = tabIndex;
+          let t = tabIndex++;
+          index = (t * 10);
           item.element.setAttribute("tabindex", index);
-          console.log(index)
-          console.log(item.element)
-        });
+          
+          $(item.element).find(".like").attr("tabindex", tabIndex2);
+          tabIndex2 = index + 12;
+
+          $(item.element).find(".checkHeart").attr("tabindex", tabIndex3);
+          tabIndex3 = index + 12;
+          
+        })
+        
       }).isotope();;
     }
 
