@@ -1,4 +1,6 @@
-//Construction of profile cards
+import showProfileHome from "./JS/showProfileHome.js";
+
+/* //Construction of profile cards
 function showProfile(obj) {
   //Get JSON data
   const photog = obj["photographers"];
@@ -87,7 +89,7 @@ function showProfile(obj) {
 
     profiles.appendChild(myArticle);
   }
-}
+} */
 
 //Fetch JSON & construct page
 fetch("./FishEyeDataFR.json")
@@ -96,7 +98,8 @@ fetch("./FishEyeDataFR.json")
   })
 
   .then((object) => {
-    showProfile(object);
+    
+    showProfileHome(object);
 
     filterSelection("all");
 
@@ -105,11 +108,40 @@ fetch("./FishEyeDataFR.json")
     filterTagsButtonsPP();
 
     buttonPaC();
+    
   });
 
 filterSelection("all");
 
 //Profiles Filter
+document.getElementById("all").addEventListener("click", function(){
+  filterSelection("all")});
+document.getElementById("portrait").addEventListener("click", function () {
+  filterSelection("portrait")
+});
+document.getElementById("art").addEventListener("click", function(){
+  filterSelection("art")
+});
+document.getElementById("fashion").addEventListener("click", function(){
+  filterSelection("fashion")
+});
+document.getElementById("architecture").addEventListener("click", function(){
+  filterSelection("architecture")
+});
+document.getElementById("travel").addEventListener("click", function(){
+  filterSelection("travel")
+});
+document.getElementById("sport").addEventListener("click", function(){
+  filterSelection("sport")
+});
+document.getElementById("animals").addEventListener("click", function(){
+  filterSelection("animals")
+});
+document.getElementById("events").addEventListener("click", function(){
+  filterSelection("events")});
+
+
+
 function filterSelection(c) {
   var x, i;
   x = document.getElementsByClassName("profileCard");
@@ -148,6 +180,10 @@ function profRemoveClass(element, name) {
 }
 
 // When the user clicks on the button, scroll to the top of the document and display everything
+document.getElementById("contentButton").addEventListener("click", function(){
+  topFunction()});
+
+//document.getElementById("contentButton").onclick = topFunction();
 function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
@@ -213,7 +249,7 @@ function buttonPaC() {
   });
 
   //Get the button:
-  mybutton = document.getElementById("contentButton");
+  let mybutton = document.getElementById("contentButton");
 
   // When the user scrolls down 20px from the top of the document, show the button
   window.onscroll = function () {
@@ -231,3 +267,4 @@ function buttonPaC() {
     }
   }
 }
+

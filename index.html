@@ -8,7 +8,8 @@
     <link rel="icon" type="image/png" href="./images/icon-FishEye.png" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="stylesheet" href="./css/style.css" />
-    <script src="./accueil.js"></script>
+    <script src="./accueil.js" type="module"></script>
+    <script src="./JS/showProfileHome.js" type="module"></script>
   </head>
   <body>
     <header class="page-header">
@@ -23,64 +24,64 @@
         <div id="filterButtons">
           <button
             class="filterButton active"
-            onclick="filterSelection('all')"
             onload="filterSelection('all')"
+            id="all"
             aria-label="all tags"
           >
             All Tags
           </button>
           <button
             class="filterButton"
-            onclick="filterSelection('portrait')"
+            id="portrait"
             aria-label="portrait"
           >
             #Portrait
           </button>
           <button
             class="filterButton"
-            onclick="filterSelection('art')"
+            id="art"
             aria-label="art"
           >
             #Art
           </button>
           <button
             class="filterButton"
-            onclick="filterSelection('fashion')"
+            id="fashion"
             aria-label="fashion"
           >
             #Fashion
           </button>
           <button
             class="filterButton"
-            onclick="filterSelection('architecture')"
+            id="architecture"
             aria-label="architecture"
           >
             #Architecture
           </button>
           <button
             class="filterButton"
-            onclick="filterSelection('travel')"
+            id="travel"
             aria-label="travel"
           >
             #Travel
           </button>
           <button
             class="filterButton"
-            onclick="filterSelection('sport')"
+            id="sport"
             aria-label="sport"
           >
             #Sport
           </button>
           <button
             class="filterButton"
-            onclick="filterSelection('animals')"
+            id="animals"
             aria-label="animals"
           >
             #Animals
           </button>
           <button
             class="filterButton"
-            onclick="filterSelection('events')"
+            id="events"
             aria-label="events"
           >
             #Events
