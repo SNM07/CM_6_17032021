@@ -200,8 +200,10 @@ function filterTagsButtons() {
   }
 }
 
-profileFilter.filterSelection(this.getAttribute('data-tagslist'));
-
+document.getElementsByClassName("listTagsCont").addEventListener("click",
+profileFilter.filterSelection(this.getAttribute('data-tagslist')));
+console.log(profileFilter.filterSelection(this.getAttribute('data-tagslist'))
+)
 //Filter tags button in profile cards
 function filterTagsButtonsPP() {
   var btns = document.getElementsByClassName("listTagsCont");
