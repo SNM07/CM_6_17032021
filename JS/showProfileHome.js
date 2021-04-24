@@ -47,10 +47,10 @@ export default function showProfile(obj) {
         listTagsCont.setAttribute("class", "listTagsCont");
         listTagsCont.setAttribute("data-tagslist", catTags[j]);
         listTagsCont.setAttribute("aria-label", catTags[j]);
-        listTagsCont.setAttribute(
+        /* listTagsCont.setAttribute(
           "onclick",
           "filterSelection(this.getAttribute('data-tagslist'))"
-        );
+        ); */
         const listTags = document.createElement("span");
         listTags.setAttribute("class", "tagsli");
         listTags.textContent = "# " + catTags[j];

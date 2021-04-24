@@ -1,5 +1,5 @@
 import showProfileHome from "./JS/showProfileHome.js";
-
+import * as profileFilter from "./JS/profileFilter.js";
 /* //Construction of profile cards
 function showProfile(obj) {
   //Get JSON data
@@ -101,7 +101,7 @@ fetch("./FishEyeDataFR.json")
     
     showProfileHome(object);
 
-    filterSelection("all");
+    profileFilter.filterSelection("all");
 
     filterTagsButtons();
 
@@ -111,9 +111,14 @@ fetch("./FishEyeDataFR.json")
     
   });
 
-filterSelection("all");
+profileFilter.filterSelection("all");
+  
+profileFilter.listener();
+profileFilter.filterSelection();
+profileFilter.profAddClass();
+profileFilter.profRemoveClass();
 
-//Profiles Filter
+/* //Profiles Filter
 document.getElementById("all").addEventListener("click", function(){
   filterSelection("all")});
 document.getElementById("portrait").addEventListener("click", function () {
@@ -178,18 +183,8 @@ function profRemoveClass(element, name) {
   }
   element.className = arr1.join(" ");
 }
+ */
 
-// When the user clicks on the button, scroll to the top of the document and display everything
-document.getElementById("contentButton").addEventListener("click", function(){
-  topFunction()});
-
-//document.getElementById("contentButton").onclick = topFunction();
-function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-
-  filterSelection("all");
-}
 
 //Filter tags buttons
 function filterTagsButtons() {
@@ -204,6 +199,8 @@ function filterTagsButtons() {
     });
   }
 }
+
+profileFilter.filterSelection(this.getAttribute('data-tagslist'));
 
 //Filter tags button in profile cards
 function filterTagsButtonsPP() {
@@ -253,10 +250,7 @@ function buttonPaC() {
 
   // When the user scrolls down 20px from the top of the document, show the button
   window.onscroll = function () {
-    scrollFunction();
-  };
-
-  function scrollFunction() {
+    
     if (
       document.body.scrollTop > 80 ||
       document.documentElement.scrollTop > 80
@@ -265,6 +259,16 @@ function buttonPaC() {
     } else {
       mybutton.style.display = "none";
     }
+  }
+  mybutton.addEventListener("click", function(){
+    topFunction()});
+  
+  //document.getElementById("contentButton").onclick = topFunction();
+  function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  
+    profileFilter.filterSelection("all");
   }
 }
 
