@@ -1,5 +1,7 @@
 import showProfileHome from "./JS/showProfileHome.js";
 import * as profileFilter from "./JS/profileFilter.js";
+import * as boutonPac from "./JS/boutonPaC.js";
+
 /* //Construction of profile cards
 function showProfile(obj) {
   //Get JSON data
@@ -103,11 +105,11 @@ fetch("./FishEyeDataFR.json")
 
     profileFilter.filterSelection("all");
 
-    filterTagsButtons();
+    profileFilter.filterTagsButtons();
 
-    filterTagsButtonsPP();
+    profileFilter.filterTagsButtonsPP();
 
-    buttonPaC();
+    boutonPac.buttonPaC();
     
   });
 
@@ -117,6 +119,13 @@ profileFilter.listener();
 profileFilter.filterSelection();
 profileFilter.profAddClass();
 profileFilter.profRemoveClass();
+profileFilter.filterTagsButtons();
+profileFilter.filterTagsButtonsPP();
+
+boutonPac.buttonPaC();
+boutonPac.getScroll();
+boutonPac.scrollTop();
+boutonPac.topFunction();
 
 /* //Profiles Filter
 document.getElementById("all").addEventListener("click", function(){
@@ -186,7 +195,7 @@ function profRemoveClass(element, name) {
  */
 
 
-//Filter tags buttons
+/* //Filter tags buttons
 function filterTagsButtons() {
   var btnContainer = document.getElementById("filterButtons");
 
@@ -198,25 +207,38 @@ function filterTagsButtons() {
       this.className += " active";
     });
   }
-}
+} */
 
-document.getElementsByClassName("listTagsCont").addEventListener("click",
+/* document.getElementsByClassName("listTagsCont").addEventListener("click",
 profileFilter.filterSelection(this.getAttribute('data-tagslist')));
-console.log(profileFilter.filterSelection(this.getAttribute('data-tagslist'))
-)
-//Filter tags button in profile cards
+) */
+
+/* document.getElementsByClassName("listTagsCont").addEventListener("click",
+  profileFilter.filterSelection()); */
+
+/* //Filter tags button in profile cards
 function filterTagsButtonsPP() {
+
   var btns = document.getElementsByClassName("listTagsCont");
+  var btnContainer = document.getElementById("filterButtons");
+
+  var btnsUP = btnContainer.getElementsByClassName("filterButton");
+  console.log(btnsUP)
+
   for (var i = 0; i < btns.length; i++) {
+    
     btns[i].addEventListener("click", function () {
+      var btnsUP = btnContainer.getElementsByClassName("filterButton");
+  console.log(btnsUP)
       var current = document.getElementsByClassName("active");
+      console.log(current)
       current[0].className = current[0].className.replace(" active", "");
-      this.className += " active";
+      btnsUP.className += " active";
     });
   }
-}
+} */
 
-//Passer au contenu button
+/* //Passer au contenu button
 function buttonPaC() {
   const body = document.body;
 
@@ -274,3 +296,4 @@ function buttonPaC() {
   }
 }
 
+ */

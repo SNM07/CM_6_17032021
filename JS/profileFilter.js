@@ -27,6 +27,8 @@ export function listener() {
     document.getElementById("events").addEventListener("click", function () {
         filterSelection("events")
     });
+    /* document.getElementsByClassName("listTagsCont").addEventListener("click",
+    filterSelection(this.getAttribute('data-tagslist'))); */
 }
   
   
@@ -65,5 +67,41 @@ export function listener() {
       }
     }
     element.className = arr1.join(" ");
+}
+  
+//Filter tags buttons
+export function filterTagsButtons() {
+  var btnContainer = document.getElementById("filterButtons");
+
+  var btns = btnContainer.getElementsByClassName("filterButton");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function () {
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
   }
+}
+
+//Filter tags cards
+export function filterTagsButtonsPP() {
+
+  var btns = document.getElementsByClassName("listTagsCont");
+  var btnContainer = document.getElementById("filterButtons");
+
+  var btnsUP = btnContainer.getElementsByClassName("filterButton");
+  console.log(btnsUP)
+
+  for (var i = 0; i < btns.length; i++) {
+    
+    btns[i].addEventListener("click", function () {
+      var btnsUP = btnContainer.getElementsByClassName("filterButton");
+  console.log(btnsUP)
+      var current = document.getElementsByClassName("active");
+      console.log(current)
+      current[0].className = current[0].className.replace(" active", "");
+      btnsUP.className += " active";
+    });
+  }
+}
   
