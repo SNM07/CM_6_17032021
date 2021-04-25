@@ -4,10 +4,14 @@ let profURL = window.location.search.substr(4);
 // Import contact form
 import contactFormModule from "./contactForm.js";
 
+import showProfilePP from "./JS/showProfilePP.js";
+import * as showGallery from "./JS/showGallery.js";
+
+
 //Custom selectbox init
 const mySelects = customSelect("select");
 
-//Construct photographer profile
+/* //Construct photographer profile
 function showProfile(obj) {
   //Get JSON data
   const photog = obj["photographers"];
@@ -101,8 +105,8 @@ function showProfile(obj) {
 
     profilesPP.appendChild(myArticle);
   }
-}
-
+} */
+/* 
 //Construct photographer gallery
 function showGallery(obj) {
   //Get JSON data
@@ -333,22 +337,22 @@ function showGallery(obj) {
           }
         });
       });
-      /* 
-      //Local Storage test
-      function checkOnLocalStorage() {
-        if (!localStorage['mapCoeur']) return;
-        var checked = localStorage['mapCoeur'].split(',');
-        checked.map((id) => {
-          document.getElementById(id).checked = true;
-        })
-      }
       
-      (function () {
-        checkOnLocalStorage();
-      })(); */
+      // //Local Storage test
+      // function checkOnLocalStorage() {
+      //   if (!localStorage['mapCoeur']) return;
+      //   var checked = localStorage['mapCoeur'].split(',');
+      //   checked.map((id) => {
+      //     document.getElementById(id).checked = true;
+      //   })
+      // }
+      
+      // (function () {
+      //   checkOnLocalStorage();
+      // })();
     }
   }
-}
+} */
 
 // Fetch JSON and use functions
 fetch("./FishEyeDataFR.json")
@@ -357,11 +361,12 @@ fetch("./FishEyeDataFR.json")
   })
 
   .then((object) => {
-    showProfile(object);
+    showProfilePP(object);
     //showProfile2(object, mapJSON, contactModal);
     
 
-    showGallery(object);
+    showGallery.showGallery(object);
+    //showGallery.heartLike();
 
     contactFormModule();
 
