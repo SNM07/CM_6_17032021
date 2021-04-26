@@ -86,16 +86,16 @@ export function filterTagsButtons() {
 //Filter tags cards
 export function filterTagsButtonsPP() {
 
-  var btns = document.getElementsByClassName("listTagsCont");
-  var btnContainer = document.getElementById("filterButtons");
+  var btns2 = document.getElementsByClassName("listTagsCont");
+  //var btnContainer = document.getElementById("filterButtons");
 
-  var btnsUP = btnContainer.getElementsByClassName("filterButton");
+  var btnsUP = document.getElementsByClassName("filterButton");
   console.log(btnsUP)
 
-  for (var i = 0; i < btns.length; i++) {
+  for (var i = 0; i < btns2.length; i++) {
     
-    btns[i].addEventListener("click", function () {
-      var btnsUP = btnContainer.getElementsByClassName("filterButton");
+    btns2[i].addEventListener("click", function () {
+      var btnsUP = document.getElementsByClassName("filterButton");
   console.log(btnsUP)
       var current = document.getElementsByClassName("active");
       console.log(current)

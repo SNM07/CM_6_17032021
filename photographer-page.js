@@ -1,4 +1,4 @@
-// Import contact form
+// Import JS modules
 import contactFormModule from "./JS/contactForm.js";
 import showProfilePP from "./JS/showProfilePP.js";
 import * as showGallery from "./JS/showGallery.js";
@@ -9,12 +9,11 @@ import changePageTitle from "./JS/changePageTitle.js";
 import sortAndFilterParam from "./JS/sortAndFilterParam.js";
 import * as scrollTop from "./JS/scrollTop.js";
 
-// Fetch JSON and use functions
+// Fetch JSON and construct page
 fetch("./FishEyeDataFR.json")
   .then((response) => {
     return response.json();
   })
-
   .then((object) => {
     //Construct photographer profile
     showProfilePP(object);
