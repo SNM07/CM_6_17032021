@@ -6,6 +6,12 @@ import contactFormModule from "./JS/contactForm.js";
 
 import showProfilePP from "./JS/showProfilePP.js";
 import * as showGallery from "./JS/showGallery.js";
+import priceGlobalLikes from "./JS/priceGlobalLikes.js";
+import emailJSParam from "./JS/emailJSParam.js";
+import setAriaContactButton from "./JS/ariaContactButton.js";
+import changePageTitle from "./JS/changePageTitle.js";
+import sortAndFilterParam from "./JS/sortAndFilterParam.js";
+import * as scrollTop from "./JS/scrollTop.js";
 
 
 //Custom selectbox init
@@ -371,14 +377,14 @@ fetch("./FishEyeDataFR.json")
     contactFormModule();
 
     setAriaContactButton();
-    function setAriaContactButton() {
+    /* function setAriaContactButton() {
       const ariaContact = document.getElementsByClassName("contactFormButton");
       const thisPhotographerName = document.getElementsByClassName(
         "profileName"
       );
       let u = thisPhotographerName[0].innerHTML;
       ariaContact[0].setAttribute("aria-label", "Contact me " + u);
-    }
+    } */
 
     //Lightbox init & parameters
     lightGallery(document.getElementById("photoGallery"), {
@@ -392,7 +398,7 @@ fetch("./FishEyeDataFR.json")
 
     priceGlobalLikes();
 
-    //Global likes and price popup construction
+    /* //Global likes and price popup construction
     function priceGlobalLikes() {
       //Get all photos likes count
       const cardLikes = document.querySelectorAll("[data-popularite]");
@@ -436,9 +442,9 @@ fetch("./FishEyeDataFR.json")
       myPriceGlobLikes.appendChild(myGlobPrice);
 
       mainCont.appendChild(myPriceGlobLikes);
-    }
+    } */
 
-    //Isotope Sorting & Filtering for desktop view
+    /* //Isotope Sorting & Filtering for desktop view
     if (window.innerWidth > 800) {
       // init Isotope
       var $grid = $(".photoGall").isotope({
@@ -525,9 +531,12 @@ fetch("./FishEyeDataFR.json")
         })
         
       }).isotope();;
-    }
+    } */
 
-    //Scroll up & reinitialize
+    sortAndFilterParam();
+   /*  //Scroll up & reinitialize
+
+
     const body = document.body;
 
     const scrollUp = "scroll-up";
@@ -574,33 +583,42 @@ fetch("./FishEyeDataFR.json")
       } else {
         mybutton.style.display = "none";
       }
-    }
+    } */
+
+    window.onscroll = function () {
+      scrollTop.scrollFunction();
+    };
+
+    
+    window.addEventListener("scroll", function () { scrollTop.scrollUpDown() });
+
 
     //Change page title
     changePageTitle();
-    function changePageTitle() {
+    /* function changePageTitle() {
       let photographerNameTitle = document.getElementsByClassName(
         "profileName"
       )[0].innerHTML;
       let newPageTitle =
         "FishEye - " + photographerNameTitle + ", Photographer Page";
       document.title = newPageTitle;
-    }
+    } */
   });
 
 // When the user clicks on the button, scroll to the top of the document
 document
   .getElementById("contentButton2")
-  .addEventListener("click", topFunction2);
+  .addEventListener("click", function () { scrollTop.topFunction2() });
 
-function topFunction2() {
+/* function topFunction2() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   window.location.reload();
-}
+} */
 
 //EmailJS stuff
-window.onload = function () {
+window.onload = emailJSParam();
+/* function () {
   document
     .getElementById("contact-form")
     .addEventListener("submit", function (event) {
@@ -645,7 +663,7 @@ window.onload = function () {
     }
     return false;
   }
-};
+}; */
 
 /* $myIsotope.on("arrangeComplete", function (e, filteredItems) {
   var tabIndex = 1;
@@ -659,128 +677,3 @@ window.onload = function () {
 
 
 
-////////////////TEST FONCTION
-/* 
-//Construct photographer profile
-function showProfile2(object, mapJSON, contactModal) {
-  fetch("./FishEyeDataFR.json")
-    .then((response) => {
-      return response.json();
-    })
-
-    .then((object) => {
-      //Get JSON data
-      const photog = object["photographers"];
-      mapJSON(photog);
-      contactModal(photog);
-      console.log(mapJSON, contactModal);
-  
-      for (let i = 0; i < photog.length; i++) {
-        //Create elements
-        const myArticle = document.createElement("article");
-        const myImg = document.createElement("img");
-        const myH1 = document.createElement("h1");
-        const myPara1 = document.createElement("p");
-        const myPara2 = document.createElement("p");
-        const myPara3 = document.createElement("p");
-        const myTags = document.createElement("div");
-    
-        //Card attributes
-        myArticle.setAttribute("class", "profileCardPP");
-    
-        //Image attributes
-        myImg.setAttribute("class", "profilePic");
-        myImg.setAttribute("alt", photog[i].name + " profile picture");
-        myImg.src = "./images/Photographers-ID-Photos/" + photog[i].portrait;
-    
-        //Name attributes
-        myH1.setAttribute("class", "profileName");
-        myH1.textContent = photog[i].name;
-    
-        //Location attributes
-        myPara1.setAttribute("class", "profileLocation");
-        myPara1.textContent = photog[i].city + ", " + photog[i].country;
-    
-        //Tagline attributes
-        myPara2.setAttribute("class", "profileTagline");
-        myPara2.textContent = photog[i].tagline;
-    
-        //Price attributes
-        myPara3.setAttribute("class", "profilePrice");
-        myPara3.textContent = photog[i].price + "€/jour";
-    
-        //Tags attributes
-        myTags.setAttribute("class", "profileTags");
-        const catTags = photog[i].tags;
-        for (let j = 0; j < catTags.length; j++) {
-          const listTags = document.createElement("button");
-          listTags.title = catTags[j];
-          listTags.setAttribute("data-filter", "." + catTags[j]);
-          listTags.setAttribute("tabindex", "0");
-          listTags.textContent = "# " + catTags[j];
-          myTags.appendChild(listTags);
-          const profileCardClass = "profileCardPP";
-          myArticle.setAttribute(
-            "class",
-            profileCardClass + " " + catTags.join(" ")
-          );
-        }
-      
-        //Delete profiles of other photographers
-        let x = profilID[i];
-        let y = profURL;
-        let currentName = null;
-      
-        if (x == y) {
-          myArticle.style.display = "true";
-          currentName = photog[i].name;
-        } else {
-          myArticle.style.display = "none";
-          myArticle.classList.add("Delete");
-          document.querySelectorAll(".Delete").forEach((e) => e.remove());
-        }
-      
-        //Append Elements
-        myArticle.appendChild(myImg);
-        myArticle.appendChild(myH1);
-        myArticle.appendChild(myPara1);
-        myArticle.appendChild(myPara2);
-        myArticle.appendChild(myPara3);
-        myArticle.appendChild(myTags);
-      
-        profilesPP.appendChild(myArticle);
-      }
-    }
-    );
-}
-
-  
-  //Map JSON data
-  mapJSON();
-function mapJSON(photog) {
-  
-      const profilID = photog.map((photog) => photog.id);
-      console.log(profilID)
-    }
-    
-  
-  
-  //Contact button construction
-  contactModal();
-  function contactModal(photog) {
-    //photog = this.photog;
-    const myContactContainer = document.createElement("div");
-    const myContact = document.createElement("button");
-    const contactText = document.createTextNode("Contactez-moi");
-    myContactContainer.setAttribute("class", "contactFormButton");
-    myContactContainer.setAttribute("alt", "Contact me");
-    myContact.setAttribute("class", "modal-btn");
-    myContact.appendChild(contactText);
-    myContactContainer.appendChild(myContact);
-    profilesPP.appendChild(myContactContainer);
-}
-
-
-      
-  
- */
