@@ -1,5 +1,6 @@
 //Construct photographer gallery
 export function showGallery(obj) {
+  // Get photographer profile ID
     let profURL = window.location.search.substr(4);
 
     //Get JSON data
@@ -118,33 +119,8 @@ export function showGallery(obj) {
       }
   
       //Only display used videos + attributes & append (and duplicate version for lightbox)
-      
-      createVid("none", "-1");
-      createVid("block", "0");
-  
-      function createVid(displayParam, tabindexParam) {
-        if (photogVid[i] !== undefined) {
-          const myPhotoVidContainer = document.createElement("div");
-          const myPhotoVid = document.createElement("video");
-          myPhotoVid.setAttribute("class", "photoVid");
-          //myPhotoVid.setAttribute("tabindex", tabindexParam);
-          myPhotoVidContainer.setAttribute("display", displayParam);
-          myPhotoVidContainer.setAttribute("id", "lg-video-" + photogPhID[i]);
-          myPhotoVid.classList.add("lg-video-object");
-          myPhotoVid.classList.add("lg-html5");
-          myPhotoVid.setAttribute("controls", "controls");
-          const myPhotoVidSource = document.createElement("source");
-          myPhotoVidSource.setAttribute(
-            "src",
-            "./images/" + photogID[i] + "/" + photogVid[i]
-          );
-          myPhotoVidSource.setAttribute("type", "video/mp4");
-          myPhotoVid.appendChild(myPhotoVidSource);
-          myPhotoVidContainer.appendChild(myPhotoVid);
-          myPhotoCard.appendChild(myPhotoVidContainer);
-        }
-      }
-      //////////////////////////////////////////////////////
+      createVid(photogVid[i], photogPhID[i], photogID[i], myPhotoCard, "none", "-1");
+      createVid(photogVid[i], photogPhID[i], photogID[i], myPhotoCard, "block", "0");
   
       //Append elements
       myPhotoHeart.appendChild(myPHInput);
@@ -169,9 +145,6 @@ export function showGallery(obj) {
 
 //Like +  Local Storage
 export function heartLike() {
-  var isChecked =
-        document.querySelectorAll("input:checked").length === 0 ? false : true;
-    console.log(isChecked)
 
     let myPHInput = document.getElementsByClassName("checkHeart");
     let myPhotoHeart = document.getElementsByClassName("like");
@@ -182,7 +155,6 @@ export function heartLike() {
         var localStorage = [];
         //let myPHInput = document.getElementsByClassName("checkHeart");
         myPHInput[i].addEventListener("change", function () {
-            console.log(this.id, this.checked);
 
             var c = [];
 
@@ -193,9 +165,7 @@ export function heartLike() {
                 const that = this;
 
                 let h = that.parentNode.previousSibling.innerHTML;
-                console.log(h);
                 h = ++h;
-                console.log(h);
                 that.parentNode.previousSibling.innerHTML = h;
                 check = this.checked;
             } else {
@@ -220,10 +190,8 @@ export function heartLike() {
 
             localStorage["map"];
 
-            console.log(check);
-            console.log("OK", localStorage);
-            var localString = JSON.stringify(localStorage);
-            console.log(localString);
+            
+            //var localString = JSON.stringify(localStorage);
 
             if (document.querySelectorAll(this.id).checked) {
                 c.push(this.id);
@@ -235,7 +203,6 @@ export function heartLike() {
             $(myPhotoHeart).keydown(function (e) {
                 switch (e.which) {
                     case 32: // up key
-                        console.log("up");
                         e.preventDefault();
                         $("input", this).trigger("click");
                         break;
@@ -257,3 +224,27 @@ export function heartLike() {
         })(); */
     }
 }
+
+export function createVid(photogVid, photogPhID, photogID, myPhotoCard, displayParam, tabindexParam) {
+    
+    if (photogVid !== undefined) {
+      const myPhotoVidContainer = document.createElement("div");
+      const myPhotoVid = document.createElement("video");
+      myPhotoVid.setAttribute("class", "photoVid");
+      //myPhotoVid.setAttribute("tabindex", tabindexParam);
+      myPhotoVidContainer.setAttribute("display", displayParam);
+      myPhotoVidContainer.setAttribute("id", "lg-video-" + photogPhID);
+      myPhotoVid.classList.add("lg-video-object");
+      myPhotoVid.classList.add("lg-html5");
+      myPhotoVid.setAttribute("controls", "controls");
+      const myPhotoVidSource = document.createElement("source");
+      myPhotoVidSource.setAttribute(
+        "src",
+        "./images/" + photogID + "/" + photogVid
+      );
+      myPhotoVidSource.setAttribute("type", "video/mp4");
+      myPhotoVid.appendChild(myPhotoVidSource);
+      myPhotoVidContainer.appendChild(myPhotoVid);
+      myPhotoCard.appendChild(myPhotoVidContainer);
+    }
+  }

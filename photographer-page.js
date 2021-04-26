@@ -2,7 +2,7 @@
 let profURL = window.location.search.substr(4);
 
 // Import contact form
-import contactFormModule from "./contactForm.js";
+import contactFormModule from "./JS/contactForm.js";
 
 import showProfilePP from "./JS/showProfilePP.js";
 import * as showGallery from "./JS/showGallery.js";
