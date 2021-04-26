@@ -9,6 +9,9 @@ import changePageTitle from "./JS/changePageTitle.js";
 import sortAndFilterParam from "./JS/sortAndFilterParam.js";
 import * as scrollTop from "./JS/scrollTop.js";
 
+//Custom selectbox init
+const mySelects = customSelect("select");
+
 // Fetch JSON and construct page
 fetch("./FishEyeDataFR.json")
   .then((response) => {
@@ -29,15 +32,6 @@ fetch("./FishEyeDataFR.json")
     sortAndFilterParam();
     //Change page title
     changePageTitle();
-    //Lightbox init & parameters
-    lightGallery(document.getElementById("photoGallery"), {
-      download: false,
-      getCaptionFromTitleOrAlt: true,
-      preload: 2,
-      fullScreen: true,
-      hideBarsDelay: 0,
-      counter: false,
-    });
     //Scroll top features for header
     window.onscroll = function () {
       scrollTop.scrollFunction();
