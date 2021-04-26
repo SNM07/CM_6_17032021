@@ -40,6 +40,18 @@ export default function sortAndFilterParam() {
           Title: true,
         },
       });
+      //test rearrange after sorting
+      /* $gallery.data("lightGallery").destroy(true);
+      var slideID = $(this).attr('tabindex');
+      $gallery.data('lightGallery').slide(slideID);
+      $gallery.lightGallery({
+        download: false,
+        getCaptionFromTitleOrAlt: true,
+        preload: 2,
+        fullScreen: true,
+        hideBarsDelay: 0,
+        counter: false,
+      }); */
     });
 
     // bind filter on tags button change
@@ -59,11 +71,16 @@ export default function sortAndFilterParam() {
       // group filters together, inclusive
       $grid.isotope({ filter: filters.join(",") });
 
-      //test rearrange after filter
-      console.log(filter);
+      //rearrange after filtering
       $gallery.data("lightGallery").destroy(true);
       $gallery.lightGallery({
-        selector: filters.replace("*", ""),
+        selector: filters[0].replace("*", ""),
+        download: false,
+        getCaptionFromTitleOrAlt: true,
+        preload: 2,
+        fullScreen: true,
+        hideBarsDelay: 0,
+        counter: false,
       });
     });
 
@@ -80,11 +97,6 @@ export default function sortAndFilterParam() {
       }
     }
 
-    //Test rearrange in lightgallery
-    /* $gallery.data('lightGallery').destroy(true);
-    $gallery.lightGallery({
-      selector: filters.replace('*','')
-    }); */
     //Test tags focus keyboard...
     $grid
       .on("arrangeComplete", function (e, filteredItems) {
