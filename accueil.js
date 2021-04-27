@@ -23,12 +23,3 @@ fetch("./FishEyeDataFR.json")
 profileFilter.filterSelection("all");
 profileFilter.listener();
 profileFilter.filterSelection();
-profileFilter.profAddClass();
-profileFilter.profRemoveClass();
-profileFilter.filterTagsButtons();
-profileFilter.filterTagsButtonsPP();
-//Scroll top features bis
-boutonPac.buttonPaC();
-boutonPac.getScroll();
-boutonPac.scrollTop();
-boutonPac.topFunction();

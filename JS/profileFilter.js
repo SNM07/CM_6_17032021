@@ -99,8 +99,10 @@ export function filterTagsButtonsPP() {
   console.log(btnsUP)
       var current = document.getElementsByClassName("active");
       console.log(current)
-      current[0].className = current[0].className.replace(" active", "");
-      btnsUP.className += " active";
+      if (current.length !== 0) {
+        current[0].className = current[0].className.replace(" active", "");
+        btnsUP.className += " active";
+      }
     });
   }
 }
