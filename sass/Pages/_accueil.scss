@@ -159,3 +159,13 @@ padding: 0;
     background-color: $color-primary-1;
     color: $color-secondary-2;
   }
+
+  .filterProfiles.is-checked > span{
+    background-color: $color-primary-1 !important;
+    color: white !important;
+  }
+
+  .filterButton.filterProfiles.is-checked{
+    background-color: $color-primary-1 !important;
+    color: white !important;
+  }

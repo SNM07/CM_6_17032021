@@ -75,26 +75,30 @@ export function filterTagsButtons() {
 
   var btns = btnContainer.getElementsByClassName("filterButton");
   for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function () {
-      var current = document.getElementsByClassName("active");
-      current[0].className = current[0].className.replace(" active", "");
-      this.className += " active";
-    });
+    btns[i].addEventListener("click", filterProfiles);
   }
 }
 
+function filterProfiles() {
+  var current = document.getElementsByClassName("active");
+  var filtProf = document.getElementsByClassName("filterProfiles");
+  current[0].className = filtProf.className.replace(" active", "");
+  //this.className += " active";
+  filtProf.classList.add("active");
+}
 //Filter tags cards
 export function filterTagsButtonsPP() {
 
   var btns2 = document.getElementsByClassName("listTagsCont");
   //var btnContainer = document.getElementById("filterButtons");
 
-  var btnsUP = document.getElementsByClassName("filterButton");
-  console.log(btnsUP)
+  //var btnsUP = document.getElementsByClassName("filterButton");
+  //console.log(btnsUP) 
 
   for (var i = 0; i < btns2.length; i++) {
     
-    btns2[i].addEventListener("click", function () {
+    btns2[i].addEventListener("click",
+      /* function () {
       var btnsUP = document.getElementsByClassName("filterButton");
   console.log(btnsUP)
       var current = document.getElementsByClassName("active");
@@ -103,7 +107,9 @@ export function filterTagsButtonsPP() {
         current[0].className = current[0].className.replace(" active", "");
         btnsUP.className += " active";
       }
-    });
+      } */
+      filterProfiles
+    );
   }
 }
   

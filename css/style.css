@@ -9,13 +9,13 @@
 
 .profileCard {
   cursor: pointer;
-  width: fit-content;
-  display: none;
+  width: 100%;
   margin: auto;
   margin-bottom: 3rem;
 }
 @media screen and (min-width: 800px) {
   .profileCard {
+    width: 32%;
     justify-self: center;
     padding: 1vw;
     max-width: 100%;
@@ -1404,6 +1404,16 @@ padding: 0;
 #contentButton:hover {
   background-color: #901C1C;
   color: #FAFAFA;
+}
+
+.filterProfiles.is-checked > span {
+  background-color: #901C1C !important;
+  color: white !important;
+}
+
+.filterButton.filterProfiles.is-checked {
+  background-color: #901C1C !important;
+  color: white !important;
 }
 
 header {

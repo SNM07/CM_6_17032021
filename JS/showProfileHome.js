@@ -12,10 +12,12 @@ export default function showProfile(obj) {
       const myPara2 = document.createElement("p");
       const myPara3 = document.createElement("p");
       const myTags = document.createElement("div");
+      //const myTagsList = document.createElement("div");
       const myProfContainer = document.createElement("div");
   
       //Article attributes
       myArticle.setAttribute("class", "profileCard");
+      myArticle.classList.add("class", "all");
       myArticle.dataset.dataid = photog[i].id;
   
       //Images attributes
@@ -45,7 +47,9 @@ export default function showProfile(obj) {
       for (let j = 0; j < catTags.length; j++) {
         const listTagsCont = document.createElement("button");
         listTagsCont.setAttribute("class", "listTagsCont");
-        listTagsCont.setAttribute("data-tagslist", catTags[j]);
+        listTagsCont.classList.add("class", "filterProfiles");
+        listTagsCont.classList.add("class", catTags[j]);
+        listTagsCont.setAttribute("data-filter", "." + catTags[j]);
         listTagsCont.setAttribute("aria-label", catTags[j]);
         /* listTagsCont.setAttribute(
           "onclick",
@@ -57,9 +61,15 @@ export default function showProfile(obj) {
         listTagsCont.appendChild(listTags);
         myTags.appendChild(listTagsCont);
         const profileCardClass = "profileCard";
-        myArticle.setAttribute(
+        /* myTagsList.setAttribute(
           "class",
           profileCardClass + " " + catTags.join(" ")
+        );
+        myTagsList.style.display = "none";
+        myArticle.appendChild(myTagsList); */
+        myArticle.setAttribute(
+          "class",
+          profileCardClass + " all " + catTags.join(" ")
         );
       }
   

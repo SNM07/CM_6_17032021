@@ -41,7 +41,7 @@ export default function sortAndFilterParam() {
         },
       });
       //test rearrange after sorting
-      $gallery.data("lightGallery").destroy(true);
+      //$gallery.data("lightGallery").destroy(true);
       $gallery.lightGallery({
         download: false,
         getCaptionFromTitleOrAlt: true,
@@ -50,8 +50,8 @@ export default function sortAndFilterParam() {
         hideBarsDelay: 0,
         counter: false,
       }); 
-      var slideID = $(this).attr('tabindex');
-      $gallery.data('lightGallery').slide(slideID);
+      //var slideID = $(this).attr('tabindex');
+      //$gallery.data('lightGallery').slide(slideID);
     });
 
     // bind filter on tags button change

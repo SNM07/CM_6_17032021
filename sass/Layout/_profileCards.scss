@@ -1,10 +1,11 @@
 .profileCard {
   cursor: pointer;
-  width: fit-content;
-  display: none;
+  width: 100%;
+  //display: none;
   margin: auto;
   margin-bottom: 3rem;
   @include large-only{
+    width: 32%;
     justify-self: center;
     padding: 1vw;
     max-width: 100%;

@@ -8,9 +8,12 @@
     <link rel="icon" type="image/png" href="./images/icon-FishEye.png" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
     <script src="./accueil.js" type="module"></script>
     <script src="./JS/showProfileHome.js" type="module"></script>
-    <script src="./JS/profileFilter.js" type="module"></script>
+    <script src="./JS/filterHome.js" type="module"></script>
     <script src="./JS/boutonPaC.js" type="module"></script>
 
   </head>
@@ -26,65 +29,73 @@
       <nav aria-label="photographer-categories">
         <div id="filterButtons">
           <button
-            class="filterButton active"
-            onload="filterSelection('all')"
+            class="filterButton filterProfiles all is-checked"
             id="all"
+            data-filter=".all"
             aria-label="all tags"
           >
             All Tags
           </button>
           <button
-            class="filterButton"
+            class="filterButton filterProfiles portrait"
             id="portrait"
+            data-filter=".portrait"
             aria-label="portrait"
           >
             #Portrait
           </button>
           <button
-            class="filterButton"
+            class="filterButton filterProfiles art"
             id="art"
+            data-filter=".art"
             aria-label="art"
           >
             #Art
           </button>
           <button
-            class="filterButton"
+            class="filterButton filterProfiles fashion"
             id="fashion"
+            data-filter=".fashion"
             aria-label="fashion"
           >
             #Fashion
           </button>
           <button
-            class="filterButton"
+            class="filterButton filterProfiles architecture"
             id="architecture"
+            data-filter=".architecture"
             aria-label="architecture"
           >
             #Architecture
           </button>
           <button
-            class="filterButton"
+            class="filterButton filterProfiles travel"
             id="travel"
+            data-filter=".travel"
             aria-label="travel"
           >
             #Travel
           </button>
           <button
-            class="filterButton"
+            class="filterButton filterProfiles sport"
             id="sport"
+            data-filter=".sport"
             aria-label="sport"
           >
             #Sport
           </button>
           <button
-            class="filterButton"
+            class="filterButton filterProfiles animals"
             id="animals"
+            data-filter=".animals"
             aria-label="animals"
           >
             #Animals
           </button>
           <button
-            class="filterButton"
+            class="filterButton filterProfiles events"
             id="events"
+            data-filter=".events"
             aria-label="events"
           >
             #Events

@@ -1,7 +1,7 @@
 //Import JS modules
 import showProfileHome from "./JS/showProfileHome.js";
-import * as profileFilter from "./JS/profileFilter.js";
 import * as boutonPac from "./JS/boutonPaC.js";
+import filterHome from "./JS/filterHome.js";
 
 //Fetch JSON & construct page
 fetch("./FishEyeDataFR.json")
@@ -12,14 +12,8 @@ fetch("./FishEyeDataFR.json")
     //Construct photographers profiles
     showProfileHome(object);
     //Filter features
-    profileFilter.filterSelection("all");
-    profileFilter.filterTagsButtons();
-    profileFilter.filterTagsButtonsPP();
+    filterHome();
     //Scroll top features
     boutonPac.buttonPaC();
   });
 
-//Filter features bis
-profileFilter.filterSelection("all");
-profileFilter.listener();
-profileFilter.filterSelection();
