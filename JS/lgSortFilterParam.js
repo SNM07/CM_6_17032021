@@ -9,6 +9,10 @@ export default function sortAndFilterParam() {
     hideBarsDelay: 0,
     counter: false,
   });
+
+  /* $gallery.on('onAferAppendSlide.lg',function(event, index, dynamicEl, nextHtml, appendSubHtmlTo, fromTouch, fromThumb){
+    console.log(index, dynamicEl, nextHtml, appendSubHtmlTo, fromTouch, fromThumb);
+}); */
   //Isotope Sorting & Filtering for desktop view
   if (window.innerWidth > 800) {
     // init Isotope
@@ -118,6 +122,8 @@ export default function sortAndFilterParam() {
           $(item.element).find(".checkHeart").attr("tabindex", tabIndex3);
           tabIndex3 = index + 12;
         });
+        let $itemFocus = $(document).find("a.title").attr("tabindex", "10");
+        $itemFocus.focus();
       })
       .isotope();
   }
