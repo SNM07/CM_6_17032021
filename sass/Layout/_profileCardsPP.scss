@@ -76,7 +76,7 @@
       flex-wrap: wrap;
       gap: 0;
     }
-    & li {
+    /* & li {
       display: block;
       @include boutonTags;
       font-size: 0.7rem;
@@ -88,8 +88,8 @@
       @include large-only {
         font-size: 0.8rem;
         padding: 10px;
-      }
-    }
+      } 
+    }*/
   }
 }
 

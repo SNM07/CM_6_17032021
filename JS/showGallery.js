@@ -56,14 +56,14 @@ export function showGallery(obj) {
       //Heart container attributes
       myPhotoHeart.className = "like";
       myPhotoHeart.setAttribute("aria-label", "likes");
-      //myPhotoHeart.setAttribute("tabindex", "0");
+      myPhotoHeart.setAttribute("tabindex", "0");
   
       //Heart checkbox input attributes
       myPHInput.type = "checkbox";
       myPHInput.id = "heart" + photogPhID[i];
       myPHInput.setAttribute("onclick", "event.stopPropagation();");
       myPHInput.classList.add("checkHeart");
-      //myPHInput.setAttribute("tabindex", "0");
+      myPHInput.setAttribute("tabindex", "0");
   
       //Heart checkbox label attributes
       myPHLabel.htmlFor = "heart" + photogPhID[i];
@@ -234,7 +234,7 @@ export function createVid(photogVid, photogPhID, photogID, myPhotoCard, displayP
       const myPhotoVidContainer = document.createElement("div");
       const myPhotoVid = document.createElement("video");
       myPhotoVid.setAttribute("class", "photoVid");
-      //myPhotoVid.setAttribute("tabindex", tabindexParam);
+      myPhotoVid.setAttribute("tabindex", tabindexParam);
       myPhotoVidContainer.setAttribute("display", displayParam);
       myPhotoVidContainer.setAttribute("id", "lg-video-" + photogPhID);
       myPhotoVid.classList.add("lg-video-object");

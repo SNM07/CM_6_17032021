@@ -176,15 +176,29 @@ margin: auto;
 //     display: none; /*hide original SELECT element:*/
 //   }
 
-.filtButtonPP {
+/* .filtButtonPP {
     @include boutonTags;
-}
+} */
 
 .filtButtonPP{
-    background-color: white;
-    color: $color-primary-1  
+    @include boutonTags;
+
+    background-color: white ;
+    color: $color-primary-1  ;
+    &:focus{
+        background-color: $color-primary-1;
+        color: white;
 }
+}
+ /* .filtButtonPP:focus{
+    background-color: $color-primary-1;
+    color: white;
+}  */
 .filtButtonPP.is-checked{
     background-color: $color-primary-1;
     color: white;
 }
+/* .filtButtonPP:not(.is-checked){
+    background-color: white;
+    color: $color-primary-1;
+} */

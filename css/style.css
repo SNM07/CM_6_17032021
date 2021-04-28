@@ -193,48 +193,25 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   padding: 0;
+  /* & li {
+    display: block;
+    @include boutonTags;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    height: fit-content;
+    line-height: 0.2rem;
+    margin: 0.1rem;
+    padding: 6px;
+    @include large-only {
+      font-size: 0.8rem;
+      padding: 10px;
+    } 
+  }*/
 }
 @media screen and (min-width: 800px) {
   .profileCardPP .profileTags {
     flex-wrap: wrap;
     gap: 0;
-  }
-}
-.profileCardPP .profileTags li {
-  display: block;
-  cursor: pointer;
-  color: #901C1C;
-  font-weight: bold;
-  padding: 6px 8px 6px 8px;
-  margin: 0.2rem 0.2rem 0.2rem 0.2rem;
-  background-color: white;
-  border: 1px solid rgba(82, 82, 82, 0.2);
-  border-radius: 16px;
-  /* &:focus{
-    color: white;
-    background-color: $color-primary-1;
-  } */
-  font-size: 0.7rem;
-  white-space: nowrap;
-  height: fit-content;
-  line-height: 0.2rem;
-  margin: 0.1rem;
-  padding: 6px;
-}
-@media screen and (min-width: 800px) {
-  .profileCardPP .profileTags li {
-    font-size: 0.75rem;
-    white-space: nowrap;
-  }
-}
-.profileCardPP .profileTags li:hover {
-  color: white;
-  background-color: #901C1C;
-}
-@media screen and (min-width: 800px) {
-  .profileCardPP .profileTags li {
-    font-size: 0.8rem;
-    padding: 10px;
   }
 }
 
@@ -1652,6 +1629,9 @@ border-top: 3px solid white;
     &:hover {
         transform: translate3d(-50%, -25%, 0px) rotate(-45deg);
     } */
+/* .filtButtonPP {
+    @include boutonTags;
+} */
 .filtButtonPP {
   cursor: pointer;
   color: #901C1C;
@@ -1665,6 +1645,8 @@ border-top: 3px solid white;
     color: white;
     background-color: $color-primary-1;
   } */
+  background-color: white;
+  color: #901C1C;
 }
 @media screen and (min-width: 800px) {
   .filtButtonPP {
@@ -1676,15 +1658,23 @@ border-top: 3px solid white;
   color: white;
   background-color: #901C1C;
 }
-
-.filtButtonPP {
-  background-color: white;
-  color: #901C1C;
+.filtButtonPP:focus {
+  background-color: #901C1C;
+  color: white;
 }
 
+/* .filtButtonPP:focus{
+    background-color: $color-primary-1;
+    color: white;
+}  */
 .filtButtonPP.is-checked {
   background-color: #901C1C;
   color: white;
 }
+
+/* .filtButtonPP:not(.is-checked){
+    background-color: white;
+    color: $color-primary-1;
+} */
 
 /*# sourceMappingURL=style.css.map */

@@ -40,7 +40,22 @@ fetch("./FishEyeDataFR.json")
   let sec = document.getElementById('photoGallery');
   sec.appendChild(br);
   ////////////////////////////////
-  
+  /* let $foc = $(".filtButtonPP");
+  $foc.onfocusin = function() {
+    console.log(foc);
+  }
+  $foc.one('focusin', function () { console.log("foc"); $(this).css({ 'background-color': '#901C1C', "color": "white" });});
+  $foc.one('focusout', function () { console.log("foc"); $(this).css({ 'background-color': 'white', "color": "#901C1C" });});
+ */
+  /* let $check = $(".filtButtonPP");
+  if ($check.hasClass("is-checked")) {
+    $check.css({ 'background-color': '#901C1C', "color": "white" });
+  } else {
+    $check.css({ 'color': '#901C1C', "background-color": "white" });
+  } */
+  //$check.one('focusout', function () { console.log("foc"); $(this).css({ 'background-color': 'white', "color": "#901C1C" });});
+
+
   ////////////////
 });
 
