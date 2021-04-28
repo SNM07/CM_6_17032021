@@ -134,6 +134,15 @@ export default function sortAndFilterParam() {
         let $itemFocus = $(document).find("a.title").attr("tabindex", "10");
         $itemFocus.focus(); */
         sortOut();
+        $gallery.data("lightGallery").destroy(true);
+      $gallery.lightGallery({
+        download: false,
+        getCaptionFromTitleOrAlt: true,
+        preload: 2,
+        fullScreen: true,
+        hideBarsDelay: 0,
+        counter: false,
+      });
       })
       .isotope();
   }
