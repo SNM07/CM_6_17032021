@@ -15,7 +15,9 @@ export function showGallery(obj) {
     let photogLikes = photogal.map((photogal) => photogal.likes);
     const photogPhID = photogal.map((photogal) => photogal.id);
     const photogDate = photogal.map((photogal) => photogal.date);
-    const photogTags = photogal.map((photogal) => photogal.tags);
+  const photogTags = photogal.map((photogal) => photogal.tags);
+  
+  let val = 1;
   
     for (let i = 0; i < photogal.length; i++) {
       //Create elements
@@ -41,6 +43,7 @@ export function showGallery(obj) {
       myAHREF.setAttribute("alt", photogTitle[i]);
       myAHREF.setAttribute("aria-label", "image closeup view");
       myAHREF.setAttribute("data-html", "#lg-video-" + photogPhID[i]);
+      myAHREF.setAttribute("data-val", "");
       myAHREF.classList.add("filtr-item");
       myAHREF.classList.add(photogTags[i]);
   

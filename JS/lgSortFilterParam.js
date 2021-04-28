@@ -110,7 +110,16 @@ export default function sortAndFilterParam() {
         var tabIndex2 = 1;
         var tabIndex3 = 1;
 
+        var dataVal = 1;
+
         $(filteredItems).each(function (index, item) {
+          $(item.element).find("a.title").attr("data-val", dataVal);
+          let t = dataVal++;
+          index = t.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
+          item.element.setAttribute("data-val", index);
+        });
+
+        /* $(filteredItems).each(function (index, item) {
           $(item.element).find("a.title").attr("tabindex", tabIndex);
           let t = tabIndex++;
           index = t * 10;
@@ -123,8 +132,30 @@ export default function sortAndFilterParam() {
           tabIndex3 = index + 12;
         });
         let $itemFocus = $(document).find("a.title").attr("tabindex", "10");
-        $itemFocus.focus();
+        $itemFocus.focus(); */
+        sortOut();
       })
       .isotope();
   }
 }
+
+function sortOut() {
+  var classname = document.getElementsByClassName('photoAHREF');
+  var divs = [];
+  for (var i = 0; i < classname.length; ++i) {
+      divs.push(classname[i]);
+  }
+  //let ts = tabIndex.toString();
+  divs.sort(function(a, b) {
+      return a.dataset.val.localeCompare(b.dataset.val);
+  });
+  
+  var br = document.getElementsByTagName("br")[0];
+  let parent = document.getElementById("photoGallery");
+
+  divs.forEach(function (el) {
+      parent.insertBefore(el, br);
+  });
+
+}
+////////////////

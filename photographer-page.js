@@ -36,6 +36,12 @@ fetch("./FishEyeDataFR.json")
   window.addEventListener("scroll", function () {
     scrollTop.scrollUpDown();
   });
+  const br = document.createElement("br");
+  let sec = document.getElementById('photoGallery');
+  sec.appendChild(br);
+  ////////////////////////////////
+  
+  ////////////////
 });
 
 //Scroll to the top of the document
