@@ -59,6 +59,7 @@ export default function showProfilePP(obj) {
       for (let j = 0; j < catTags.length; j++) {
         const listTags = document.createElement("button");
         listTags.title = catTags[j];
+        listTags.classList.add("filtButtonPP");
         listTags.setAttribute("data-filter", "." + catTags[j]);
         listTags.setAttribute("tabindex", "0");
         listTags.textContent = "# " + catTags[j];

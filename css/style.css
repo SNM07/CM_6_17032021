@@ -91,6 +91,10 @@
   background-color: white;
   border: 1px solid rgba(82, 82, 82, 0.2);
   border-radius: 16px;
+  /* &:focus{
+    color: white;
+    background-color: $color-primary-1;
+  } */
   margin: 0;
 }
 @media screen and (min-width: 800px) {
@@ -100,10 +104,6 @@
   }
 }
 .profileCard .profileTags button span:hover {
-  color: white;
-  background-color: #901C1C;
-}
-.profileCard .profileTags button span:focus {
   color: white;
   background-color: #901C1C;
 }
@@ -210,6 +210,10 @@
   background-color: white;
   border: 1px solid rgba(82, 82, 82, 0.2);
   border-radius: 16px;
+  /* &:focus{
+    color: white;
+    background-color: $color-primary-1;
+  } */
   font-size: 0.7rem;
   white-space: nowrap;
   height: fit-content;
@@ -224,10 +228,6 @@
   }
 }
 .profileCardPP .profileTags li:hover {
-  color: white;
-  background-color: #901C1C;
-}
-.profileCardPP .profileTags li:focus {
   color: white;
   background-color: #901C1C;
 }
@@ -1317,6 +1317,10 @@ nav {
   background-color: white;
   border: 1px solid rgba(82, 82, 82, 0.2);
   border-radius: 16px;
+  /* &:focus{
+    color: white;
+    background-color: $color-primary-1;
+  } */
 }
 @media screen and (min-width: 800px) {
   .filterButton {
@@ -1325,10 +1329,6 @@ nav {
   }
 }
 .filterButton:hover {
-  color: white;
-  background-color: #901C1C;
-}
-.filterButton:focus {
   color: white;
   background-color: #901C1C;
 }
@@ -1346,7 +1346,7 @@ nav {
 .listTagsCont {
   border: none !important;
   background: transparent !important;
-  padding: 0 !important;
+  padding: 2px !important;
 }
 
 /* .profileTags {
@@ -1406,12 +1406,22 @@ padding: 0;
   color: #FAFAFA;
 }
 
+.filterProfiles:focus {
+  color: white;
+  background-color: #901C1C;
+}
+
 .filterProfiles.is-checked > span {
   background-color: #901C1C !important;
   color: white !important;
 }
 
 .filterButton.filterProfiles.is-checked {
+  background-color: #901C1C !important;
+  color: white !important;
+}
+
+.listTagsCont:focus > span {
   background-color: #901C1C !important;
   color: white !important;
 }
@@ -1549,21 +1559,20 @@ header {
   display: none;
 }
 
-.profileTags li input:checked + label {
-  background-color: #901C1C;
-  color: white;
+/* .profileTags li input:checked + label {
+    background-color: $color-primary-1;
+    color: white;
 }
 
 .profileTags li.selected input:checked + label {
-  background-color: #901C1C;
-  color: white;
+    background-color: $color-primary-1;
+    color: white;
 }
 
 .profileTags > .is-checked {
-  background-color: #901C1C;
-  color: white;
-}
-
+    background-color: $color-primary-1;
+    color: white;
+} */
 .hidePhoto {
   display: none;
 }
@@ -1643,7 +1652,7 @@ border-top: 3px solid white;
     &:hover {
         transform: translate3d(-50%, -25%, 0px) rotate(-45deg);
     } */
-.profileTags > button {
+.filtButtonPP {
   cursor: pointer;
   color: #901C1C;
   font-weight: bold;
@@ -1652,20 +1661,30 @@ border-top: 3px solid white;
   background-color: white;
   border: 1px solid rgba(82, 82, 82, 0.2);
   border-radius: 16px;
+  /* &:focus{
+    color: white;
+    background-color: $color-primary-1;
+  } */
 }
 @media screen and (min-width: 800px) {
-  .profileTags > button {
+  .filtButtonPP {
     font-size: 0.75rem;
     white-space: nowrap;
   }
 }
-.profileTags > button:hover {
+.filtButtonPP:hover {
   color: white;
   background-color: #901C1C;
 }
-.profileTags > button:focus {
-  color: white;
+
+.filtButtonPP {
+  background-color: white;
+  color: #901C1C;
+}
+
+.filtButtonPP.is-checked {
   background-color: #901C1C;
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */

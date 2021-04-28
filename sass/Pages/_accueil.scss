@@ -100,7 +100,7 @@ nav{
 .listTagsCont{
     border: none !important;
     background: transparent !important;
-    padding: 0 !important;
+    padding: 2px !important;
 }
 /* .profileTags {
 display: flex;
@@ -160,12 +160,22 @@ padding: 0;
     color: $color-secondary-2;
   }
 
+  .filterProfiles:focus{
+    color: white;
+    background-color: $color-primary-1;
+  }
+
   .filterProfiles.is-checked > span{
     background-color: $color-primary-1 !important;
     color: white !important;
   }
 
   .filterButton.filterProfiles.is-checked{
+    background-color: $color-primary-1 !important;
+    color: white !important;
+  }
+
+  .listTagsCont:focus > span{
     background-color: $color-primary-1 !important;
     color: white !important;
   }

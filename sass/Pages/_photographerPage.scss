@@ -142,7 +142,7 @@ margin: auto;
     }
 }
 
-.profileTags li input:checked + label {
+/* .profileTags li input:checked + label {
     background-color: $color-primary-1;
     color: white;
 }
@@ -155,7 +155,7 @@ margin: auto;
 .profileTags > .is-checked {
     background-color: $color-primary-1;
     color: white;
-}
+} */
 
 .hidePhoto{
     display: none;
@@ -176,6 +176,15 @@ margin: auto;
 //     display: none; /*hide original SELECT element:*/
 //   }
 
-.profileTags > button {
+.filtButtonPP {
     @include boutonTags;
+}
+
+.filtButtonPP{
+    background-color: white;
+    color: $color-primary-1  
+}
+.filtButtonPP.is-checked{
+    background-color: $color-primary-1;
+    color: white;
 }
