@@ -68,9 +68,24 @@ export default function sortAndFilterParam() {
       var filter = $target.attr("data-filter");
       if (isChecked) {
         addFilter(filter);
+        //tabFilter();
       } else {
         removeFilter(filter);
+        //tabFilter();
       }
+      /* function tabFilter() {
+        let $cont = $('.photoAHREF');
+
+        $cont.each(function () {
+          if ($cont.css('display') == 'none') {
+            $cont.attr("tabindex", "-1");
+          } else if ($cont.css('display') == 'block') {
+            $cont.attr("tabindex", "0");
+          }
+        }
+        );
+      } */
+
       // filter isotope
       // group filters together, inclusive
       $grid.isotope({ filter: filters.join(",") });
@@ -115,7 +130,7 @@ export default function sortAndFilterParam() {
         $(filteredItems).each(function (index, item) {
           $(item.element).find("a.title").attr("data-val", dataVal);
           let t = dataVal++;
-          index = t.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
+          index = t.toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false });
           item.element.setAttribute("data-val", index);
         });
 
@@ -133,17 +148,37 @@ export default function sortAndFilterParam() {
         $itemFocus.focus(); */
         sortOut();
         $gallery.data("lightGallery").destroy(true);
-      $gallery.lightGallery({
-        download: false,
-        getCaptionFromTitleOrAlt: true,
-        preload: 2,
-        fullScreen: true,
-        hideBarsDelay: 0,
-        counter: false,
-      });
+        $gallery.lightGallery({
+          download: false,
+          getCaptionFromTitleOrAlt: true,
+          preload: 2,
+          fullScreen: true,
+          hideBarsDelay: 0,
+          counter: false,
+        });
+        console.log("1")
+        //tabFilter();
+      
+        
       })
       .isotope();
+    
+    $grid.on('arrangeComplete',
+      function (event, filteredItems) {
+        
+        let $cont = $('.photoAHREF');
+
+        $cont.each(function () {
+          if ($cont.css('display') == 'none') {
+            console.log("none")
+            $cont.attr("tabindex", "-1");
+          } else if ($cont.css('display') == 'block') {
+            $cont.attr("tabindex", "0");
+          }
+        });
+      }).isotope();
   }
+
 }
 
 function sortOut() {

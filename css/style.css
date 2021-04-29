@@ -1464,6 +1464,7 @@ header {
   position: relative;
   left: 0;
   top: 0;
+  display: block;
 }
 @media screen and (min-width: 800px) {
   .filtr-item {
