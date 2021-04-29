@@ -1676,5 +1676,14 @@ border-top: 3px solid white;
     background-color: white;
     color: $color-primary-1;
 } */
+.not-checked {
+  background-color: white;
+  color: #901C1C;
+}
+
+.not-checked:focus {
+  background-color: #901C1C;
+  color: white;
+}
 
 /*# sourceMappingURL=style.css.map */

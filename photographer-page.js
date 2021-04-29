@@ -40,13 +40,22 @@ fetch("./FishEyeDataFR.json")
   let sec = document.getElementById('photoGallery');
   sec.appendChild(br);
   ////////////////////////////////
-  /* let $foc = $(".filtButtonPP");
-  $foc.onfocusin = function() {
+  /* let $foc = $(".is-checked");
+  $foc.onmouseup = function() {
     console.log(foc);
-  }
-  $foc.one('focusin', function () { console.log("foc"); $(this).css({ 'background-color': '#901C1C', "color": "white" });});
-  $foc.one('focusout', function () { console.log("foc"); $(this).css({ 'background-color': 'white', "color": "#901C1C" });});
- */
+    
+  } */
+  //$foc.one('focusin', function () { console.log("foc"); $(this).css({ 'background-color': '#901C1C !important', "color": "white !important" });});
+  
+  //$foc.one('mousedown', function () { console.log("foc"); $(this).css({ 'background-color': 'white', "color": "#901C1C" });});
+
+  //$foc.one('mouseup', function () { blur() });
+
+  //let $foc = $(".filtButtonPP");
+  /* $foc.onfocusin = function () {
+    console.log(foc);
+    $foc.toggleClass("not-checked");
+  } */
   /* let $check = $(".filtButtonPP");
   if ($check.hasClass("is-checked")) {
     $check.css({ 'background-color': '#901C1C', "color": "white" });

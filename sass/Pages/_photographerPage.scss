@@ -202,3 +202,14 @@ margin: auto;
     background-color: white;
     color: $color-primary-1;
 } */
+
+.not-checked{
+    background-color: white ;
+    color: $color-primary-1 ;
+}
+
+.not-checked:focus{
+    background-color: $color-primary-1;
+    color: white;
+
+}

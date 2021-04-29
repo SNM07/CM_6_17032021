@@ -124,10 +124,8 @@ export default function sortAndFilterParam() {
           let t = tabIndex++;
           index = t * 10;
           item.element.setAttribute("tabindex", index);
-
           $(item.element).find(".like").attr("tabindex", tabIndex2);
           tabIndex2 = index + 12;
-
           $(item.element).find(".checkHeart").attr("tabindex", tabIndex3);
           tabIndex3 = index + 12;
         });
