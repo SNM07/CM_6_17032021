@@ -40,6 +40,7 @@ fetch("./FishEyeDataFR.json")
   let sec = document.getElementById('photoGallery');
   sec.appendChild(br);
   ////////////////////////////////
+  
   /* let $foc = $(".is-checked");
   $foc.onmouseup = function() {
     console.log(foc);

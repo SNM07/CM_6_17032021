@@ -44,18 +44,18 @@ export default function sortAndFilterParam() {
           Title: true,
         },
       });
-      //test rearrange after sorting
-      //$gallery.data("lightGallery").destroy(true);
-      $gallery.lightGallery({
-        download: false,
-        getCaptionFromTitleOrAlt: true,
-        preload: 2,
-        fullScreen: true,
-        hideBarsDelay: 0,
-        counter: false,
-      }); 
-      //var slideID = $(this).attr('tabindex');
-      //$gallery.data('lightGallery').slide(slideID);
+      $grid.on("arrangeComplete", function () {
+        sortOut();
+        $gallery.data("lightGallery").destroy(true);
+        $gallery.lightGallery({
+          download: false,
+          getCaptionFromTitleOrAlt: true,
+          preload: 2,
+          fullScreen: true,
+          hideBarsDelay: 0,
+          counter: false,
+        });
+      });
     });
 
     // bind filter on tags button change
@@ -88,19 +88,29 @@ export default function sortAndFilterParam() {
 
       // filter isotope
       // group filters together, inclusive
-      $grid.isotope({ filter: filters.join(",") });
+      let filterTags = filters.join(",");
+      /*if (filters.length > 0) {
+        filterTags = filters.join(",");
+      } */
+      $grid.isotope({ filter: filterTags });
 
+      //let filterClass = filter.replace(".", "");
       //rearrange after filtering
-      $gallery.data("lightGallery").destroy(true);
-      $gallery.lightGallery({
-        selector: filters[0].replace("*", ""),
-        download: false,
-        getCaptionFromTitleOrAlt: true,
-        preload: 2,
-        fullScreen: true,
-        hideBarsDelay: 0,
-        counter: false,
+      //if (filters.length > 0) {
+      $grid.on("arrangeComplete", function () {
+        sortOut();
+        $gallery.data("lightGallery").destroy(true);
+        $gallery.lightGallery({
+          selector: filters[0].replace("*", ""),
+          download: false,
+          getCaptionFromTitleOrAlt: true,
+          preload: 2,
+          fullScreen: true,
+          hideBarsDelay: 0,
+          counter: false,
+        });
       });
+      //};
     });
 
     function addFilter(filter) {
@@ -121,33 +131,20 @@ export default function sortAndFilterParam() {
       .on("arrangeComplete", function (e, filteredItems) {
         console.log("arrangeComplete");
 
-        var tabIndex = 1;
-        var tabIndex2 = 1;
-        var tabIndex3 = 1;
-
         var dataVal = 1;
 
         $(filteredItems).each(function (index, item) {
           $(item.element).find("a.title").attr("data-val", dataVal);
           let t = dataVal++;
-          index = t.toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false });
+          index = t.toLocaleString("en-US", {
+            minimumIntegerDigits: 2,
+            useGrouping: false,
+          });
           item.element.setAttribute("data-val", index);
         });
 
-        /* $(filteredItems).each(function (index, item) {
-          $(item.element).find("a.title").attr("tabindex", tabIndex);
-          let t = tabIndex++;
-          index = t * 10;
-          item.element.setAttribute("tabindex", index);
-          $(item.element).find(".like").attr("tabindex", tabIndex2);
-          tabIndex2 = index + 12;
-          $(item.element).find(".checkHeart").attr("tabindex", tabIndex3);
-          tabIndex3 = index + 12;
-        });
-        let $itemFocus = $(document).find("a.title").attr("tabindex", "10");
-        $itemFocus.focus(); */
-        sortOut();
-        $gallery.data("lightGallery").destroy(true);
+        //sortOut();
+        /* $gallery.data("lightGallery").destroy(true);
         $gallery.lightGallery({
           download: false,
           getCaptionFromTitleOrAlt: true,
@@ -155,49 +152,53 @@ export default function sortAndFilterParam() {
           fullScreen: true,
           hideBarsDelay: 0,
           counter: false,
-        });
-        console.log("1")
+        }); */
+        console.log("1");
         //tabFilter();
-      
-        
       })
       .isotope();
-    
-    $grid.on('arrangeComplete',
-      function (event, filteredItems) {
-        
-        let $cont = $('.photoAHREF');
 
-        $cont.each(function () {
-          if ($cont.css('display') == 'none') {
-            console.log("none")
-            $cont.attr("tabindex", "-1");
-          } else if ($cont.css('display') == 'block') {
-            $cont.attr("tabindex", "0");
-          }
+    $grid
+      .on("arrangeComplete", function () {
+        let $cont = $('a[style*="block"]');
+        let $cont2 = $('a[style*="display: none"]');
+        console.log($cont2)
+        let $contAll = $(".photoAHREF");
+        $contAll.each(function () {
+          $contAll.attr("tabindex", "0");
+
         });
-      }).isotope();
-  }
 
+        $contAll.each(function () {
+          $cont2.attr("tabindex", "-1");
+
+        });
+        $contAll.each(function () {
+          console.log($cont)
+          $cont.attr("tabindex", "0");
+        });
+
+      })
+      .isotope();
+  }
 }
 
 function sortOut() {
-  var classname = document.getElementsByClassName('photoAHREF');
+  var classname = document.getElementsByClassName("photoAHREF");
   var divs = [];
   for (var i = 0; i < classname.length; ++i) {
-      divs.push(classname[i]);
+    divs.push(classname[i]);
   }
   //let ts = tabIndex.toString();
-  divs.sort(function(a, b) {
-      return a.dataset.val.localeCompare(b.dataset.val);
+  divs.sort(function (a, b) {
+    return a.dataset.val.localeCompare(b.dataset.val);
   });
-  
+
   var br = document.getElementsByTagName("br")[0];
   let parent = document.getElementById("photoGallery");
 
   divs.forEach(function (el) {
-      parent.insertBefore(el, br);
+    parent.insertBefore(el, br);
   });
-
 }
 ////////////////
