@@ -1,4 +1,4 @@
-export default function sortAndFilterParam() {
+export function sortAndFilterParam() {
   ////Lightbox init & parameters
   let $gallery = $("#photoGallery");
   $gallery.lightGallery({
@@ -138,7 +138,8 @@ export default function sortAndFilterParam() {
     
     //Set tabindex -1 on hidden cards
     $grid
-    .on("arrangeComplete", function () {
+      .on("arrangeComplete", function () {
+        
       let $cont = $('a[style*="block"]');
       let $cont2 = $('a[style*="display: none"]');
       let $contAll = $(".photoAHREF");
@@ -170,8 +171,15 @@ function removeFilter(filters, filter) {
   }
 }
 
+//create br
+export function creatBR() {
+  const br = document.createElement("br");
+  let sec = document.getElementById('photoGallery');
+  sec.appendChild(br);
+}
+
 //Reorder HTML elements
-function sortOut() {
+export function sortOut() {
   var classname = document.getElementsByClassName("photoAHREF");
   var divs = [];
   for (var i = 0; i < classname.length; ++i) {
