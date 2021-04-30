@@ -92,10 +92,28 @@ export function sortAndFilterParam() {
     var filters = [];
     // change is-checked class on buttons
     $(".profileTags").on("click", "button", function (event) {
+      //$(".filtButtonPP").removeClass("is-checked");
       var $target = $(event.currentTarget);
-      $target.toggleClass("is-checked");
-      var isChecked = $target.hasClass("is-checked");
       var filter = $target.attr("data-filter");
+
+      let $butFilt = $(".filtButtonPP");
+      let $otherFilters = $butFilt.map(function() {
+        return $(this).data('filter');
+      }).get();
+      $otherFilters.forEach(function ($otherFilters) {
+        if ($otherFilters != filter) {
+          $butFilt.not(["data-filter" == filter]).removeClass("is-checked");
+        }
+      });
+
+      var isAlreadyChecked = $target.hasClass("is-checked");
+      if (isAlreadyChecked == true) {
+        $target.removeClass("is-checked");
+      } else {
+        $target.addClass("is-checked");
+      }
+
+      var isChecked = $target.hasClass("is-checked");
       if (isChecked) {
         addFilter(filters, filter);
       } else {
@@ -107,13 +125,17 @@ export function sortAndFilterParam() {
       let filterTags = filters.join(",");
 
       //Filtering
-      $grid.isotope({ filter: filterTags });
+      if (filters.length > 0) {
+        $grid.isotope({ filter: filter });
+      } else {
+        $grid.isotope({ filter: "*" });
+      }
 
       //After filtering rearrange, order HTML elements and recreate lightbox
-      $grid.on("arrangeComplete", function () {
+      $grid.one("arrangeComplete", function () {
         sortOut();
         destroyGal($gallery, filters);
-        createFiltGal($gallery, filters);
+        createFiltGal($gallery, filters, filter);
       });
     });
     
@@ -207,10 +229,10 @@ function destroyGal($gallery, filters) {
 }
 
 //Filtering recreate lightbox gallery
-function createFiltGal($gallery, filters) {
+function createFiltGal($gallery, filters, filter) {
   if (filters.length > 0) {
     $gallery.lightGallery({
-      selector: filters[0].replace("*", ""),
+      selector: filter,
       download: false,
       getCaptionFromTitleOrAlt: true,
       preload: 2,
