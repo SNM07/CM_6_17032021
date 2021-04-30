@@ -10,11 +10,11 @@ export default function sortAndFilterParam() {
     counter: false,
   });
   ///////////////////
+  //Isotope Filtering for mobile view
   if (window.innerWidth < 800) {
     var $grid = $(".photoGall").isotope({
       itemSelector: ".photoAHREF",
       layoutMode: "vertical",
-
       fitRows: {
         columnWidth: 50,
         gutter: 30,
@@ -30,9 +30,9 @@ export default function sortAndFilterParam() {
       var isChecked = $target.hasClass("is-checked");
       var filter = $target.attr("data-filter");
       if (isChecked) {
-        addFilter(filter);
+        addFilter(filters, filter);
       } else {
-        removeFilter(filter);
+        removeFilter(filters, filter);
       }
 
       let filterTags = filters.join(",");
@@ -62,7 +62,7 @@ export default function sortAndFilterParam() {
       },
     });
 
-    // bind sorter on select change
+    // bind sorter on select change and sorting
     $(".filters-select").on("change", function () {
       var sortValue = this.value;
       $grid.isotope({
@@ -73,6 +73,7 @@ export default function sortAndFilterParam() {
           Title: true,
         },
       });
+      //After sorting rearrange, order HTML elements and recreate lightbox
       $grid.on("arrangeComplete", function () {
         sortOut();
         $gallery.data("lightGallery").destroy(true);
@@ -96,18 +97,18 @@ export default function sortAndFilterParam() {
       var isChecked = $target.hasClass("is-checked");
       var filter = $target.attr("data-filter");
       if (isChecked) {
-        addFilter(filter);
+        addFilter(filters, filter);
       } else {
-        removeFilter(filter);
+        removeFilter(filters, filter);
       }
 
-      // filter isotope
       // group filters together, inclusive
       let filterTags = filters.join(",");
 
+      //Filtering
       $grid.isotope({ filter: filterTags });
 
-      //recreate lightbox + HTML order after filter
+      //After filtering rearrange, order HTML elements and recreate lightbox
       $grid.on("arrangeComplete", function () {
         sortOut();
         destroyGal($gallery, filters);
@@ -115,23 +116,10 @@ export default function sortAndFilterParam() {
       });
     });
     
-    function addFilter(filter) {
-      if (filters.indexOf(filter) == -1) {
-        filters.push(filter);
-      }
-    }
     
-    function removeFilter(filter) {
-      var index = filters.indexOf(filter);
-      if (index != -1) {
-        filters.splice(index, 1);
-      }
-    }
-    
-    //Test tags focus keyboard...
+    //Reattribute data-val from reorder
     $grid
     .on("arrangeComplete", function (e, filteredItems) {
-      console.log("arrangeComplete");
       
       var dataVal = 1;
       
@@ -145,10 +133,10 @@ export default function sortAndFilterParam() {
         item.element.setAttribute("data-val", index);
       });
       
-      console.log("1");
     })
     .isotope();
     
+    //Set tabindex -1 on hidden cards
     $grid
     .on("arrangeComplete", function () {
       let $cont = $('a[style*="block"]');
@@ -157,7 +145,6 @@ export default function sortAndFilterParam() {
       $contAll.each(function () {
         $contAll.attr("tabindex", "0");
       });
-      
       $contAll.each(function () {
         $cont2.attr("tabindex", "-1");
       });
@@ -169,6 +156,21 @@ export default function sortAndFilterParam() {
   }
 }
 
+//Add/remove filter
+function addFilter(filters, filter) {
+  if (filters.indexOf(filter) == -1) {
+    filters.push(filter);
+  }
+}
+
+function removeFilter(filters, filter) {
+  var index = filters.indexOf(filter);
+  if (index != -1) {
+    filters.splice(index, 1);
+  }
+}
+
+//Reorder HTML elements
 function sortOut() {
   var classname = document.getElementsByClassName("photoAHREF");
   var divs = [];
@@ -187,14 +189,15 @@ function sortOut() {
     parent.insertBefore(el, br);
   });
 }
-////////////////
 
+//Filtering destroy lightbox gallery
 function destroyGal($gallery, filters) {
   if (filters.length > 0) {
     $gallery.data("lightGallery").destroy(true);
   }
 }
 
+//Filtering recreate lightbox gallery
 function createFiltGal($gallery, filters) {
   if (filters.length > 0) {
     $gallery.lightGallery({
