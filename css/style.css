@@ -1405,6 +1405,7 @@ padding: 0;
 
 header {
   height: fit-content;
+  height: auto;
 }
 
 #photographer-main {

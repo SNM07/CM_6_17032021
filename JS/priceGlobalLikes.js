@@ -41,5 +41,14 @@ export default function priceGlobalLikes() {
     myPriceGlobLikes.appendChild(myGlobLikesHeart);
     myPriceGlobLikes.appendChild(myGlobPrice);
 
-    mainCont.appendChild(myPriceGlobLikes);
+  mainCont.appendChild(myPriceGlobLikes);
+  
+  let $addHeart = $(".checkHeart");
+
+  if ($addHeart.is(':checked')) {
+    myGlobLikes.textContent = globalLikes++;
+  } else if (!$addHeart.is(':checked')) {
+    myGlobLikes.textContent = globalLikes--;
+  }
+  
   }
