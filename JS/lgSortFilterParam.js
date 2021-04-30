@@ -101,10 +101,17 @@ export function sortAndFilterParam() {
         return $(this).data('filter');
       }).get();
       $otherFilters.forEach(function ($otherFilters) {
+        console.log($otherFilters)
         if ($otherFilters != filter) {
-          $butFilt.not(["data-filter" == filter]).removeClass("is-checked");
+          console.log($otherFilters, "DIF")
+          this.$butFilt.removeClass("is-checked");
         }
       });
+
+      //$butFilt.not(["data-filter" == filter]).removeClass("is-checked");
+
+      //c = a.substring(b.length)
+
 
       var isAlreadyChecked = $target.hasClass("is-checked");
       if (isAlreadyChecked == true) {
