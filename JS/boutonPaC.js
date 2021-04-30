@@ -14,17 +14,19 @@ export function buttonPaC() {
   });
 }
 
+let lastScroll =  document.documentElement.scrollTop;
+
 export function getScroll() {
   const body = document.body;
 
   const scrollUp = "scroll-up";
   const scrollDown = "scroll-down";
-  let lastScroll = 0;
 
   const currentScroll = window.pageYOffset;
   if (currentScroll <= 0) {
     body.classList.remove(scrollUp);
     body.classList.remove(scrollDown);
+    lastScroll = currentScroll;
     return;
   }
 

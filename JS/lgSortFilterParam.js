@@ -100,6 +100,7 @@ export function sortAndFilterParam() {
         addFilter(filters, filter);
       } else {
         removeFilter(filters, filter);
+        $target.blur();
       }
 
       // group filters together, inclusive
