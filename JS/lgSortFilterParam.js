@@ -9,12 +9,44 @@ export default function sortAndFilterParam() {
     hideBarsDelay: 0,
     counter: false,
   });
+///////////////////
+  if (window.innerWidth < 800) {
+    var $grid = $(".photoGall").isotope({
+      itemSelector: ".photoAHREF",
+      layoutMode: "vertical",
+  
+      fitRows: {
+        columnWidth: 50,
+        gutter: 30,
+      },
+      getSortData: {
 
+        filterValue: ".photoTags",
+      },
+    });
+  
+    $(".profileTags").on("click", "button", function (event) {
+      var $target = $(event.currentTarget);
+      $target.toggleClass("is-checked");
+      var isChecked = $target.hasClass("is-checked");
+      var filter = $target.attr("data-filter");
+      if (isChecked) {
+        addFilter(filter);
+      } else {
+        removeFilter(filter);
+      }
+ 
+      let filterTags = filters.join(",");
+ 
+      $grid.isotope({ filter: filterTags });
+    });
+  }
+  //////////////////////
   /* $gallery.on('onAferAppendSlide.lg',function(event, index, dynamicEl, nextHtml, appendSubHtmlTo, fromTouch, fromThumb){
     console.log(index, dynamicEl, nextHtml, appendSubHtmlTo, fromTouch, fromThumb);
 }); */
   //Isotope Sorting & Filtering for desktop view
-  if (window.innerWidth > 800) {
+  if (window.innerWidth >= 800) {
     // init Isotope
     var $grid = $(".photoGall").isotope({
       itemSelector: ".photoAHREF",
@@ -162,7 +194,6 @@ export default function sortAndFilterParam() {
       .on("arrangeComplete", function () {
         let $cont = $('a[style*="block"]');
         let $cont2 = $('a[style*="display: none"]');
-        console.log($cont2)
         let $contAll = $(".photoAHREF");
         $contAll.each(function () {
           $contAll.attr("tabindex", "0");
@@ -174,7 +205,6 @@ export default function sortAndFilterParam() {
 
         });
         $contAll.each(function () {
-          console.log($cont)
           $cont.attr("tabindex", "0");
         });
 
