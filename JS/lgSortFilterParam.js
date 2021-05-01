@@ -104,7 +104,11 @@ export function sortAndFilterParam() {
         console.log($otherFilters)
         if ($otherFilters != filter) {
           console.log($otherFilters, "DIF")
-          this.$butFilt.removeClass("is-checked");
+          $($butFilt[0]).removeClass("is-checked");
+          console.log($($butFilt[0]))
+        } else {
+          $($butFilt[0]).addClass("is-checked");
+          console.log($($butFilt[0]))
         }
       });
 
@@ -113,12 +117,12 @@ export function sortAndFilterParam() {
       //c = a.substring(b.length)
 
 
-      var isAlreadyChecked = $target.hasClass("is-checked");
+      /* var isAlreadyChecked = $target.hasClass("is-checked");
       if (isAlreadyChecked == true) {
         $target.removeClass("is-checked");
       } else {
         $target.addClass("is-checked");
-      }
+      } */
 
       var isChecked = $target.hasClass("is-checked");
       if (isChecked) {
@@ -182,6 +186,7 @@ export function sortAndFilterParam() {
       $contAll.each(function () {
         $cont.attr("tabindex", "0");
       });
+        sortOut();
     })
     .isotope();
   }

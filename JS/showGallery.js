@@ -219,12 +219,16 @@ export function heartLike() {
     })(); */
   }
   $(function () {
-    $(myPhotoHeart).keydown(function (e) {
-      switch (e.which) {
+    $(myPhotoHeart).keydown(function (event) {
+      switch (event.which) {
         case 32: // space key
-          e.preventDefault();
+          event.preventDefault();
+          event.stopPropagation();
+          
+          //$(".photoAHREF").on("click", function (e) { e.preventDefault(); });
           $($("input", this)[0]).trigger("click");
           break;
+        
       }
     });
   });
