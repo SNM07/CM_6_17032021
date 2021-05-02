@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 * {
   font-family: "Roboto", sans-serif;
@@ -91,10 +90,6 @@
   background-color: white;
   border: 1px solid rgba(82, 82, 82, 0.2);
   border-radius: 16px;
-  /* &:focus{
-    color: white;
-    background-color: $color-primary-1;
-  } */
   margin: 0;
 }
 @media screen and (min-width: 800px) {
@@ -244,14 +239,16 @@
   font-size: 4vw;
   line-height: 8vw;
   cursor: pointer;
+  border: 2px solid white;
   position: fixed;
   justify-content: center;
   display: flex;
   margin: auto;
   bottom: 4vw;
+  line-height: 7vw;
 }
 .contactFormButton .modal-btn:hover {
-  background-color: #D3573C;
+  background-color: #D3573C !important;
   color: black;
 }
 .contactFormButton .modal-btn:focus {
@@ -268,11 +265,27 @@
 }
 @media screen and (min-width: 800px) {
   .contactFormButton .modal-btn {
+    line-height: 4.5vw;
+    border: none;
     position: absolute;
-    left: 40vw;
+    left: 35%;
     display: initial;
     top: 4vw;
     bottom: auto;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .contactFormButton .modal-btn {
+    line-height: 4.5vw;
+    border: none;
+    position: absolute;
+    left: 35%;
+    display: initial;
+    top: 4vw;
+    bottom: auto;
+    width: 10vw;
+    height: 5vw;
+    font-size: 1.2vw;
   }
 }
 
@@ -434,8 +447,8 @@
 
 /* Modal form */
 #formTitle {
-  font-size: 3rem;
-  font-weight: 400;
+  font-size: 2.5rem;
+  font-weight: 600;
   margin-bottom: 10px;
 }
 
@@ -452,14 +465,14 @@
   font-size: 4vw;
   line-height: 8vw;
   cursor: pointer;
-  line-height: 2.5rem;
-  margin: 0 8% 8% 8%;
-  width: 10rem;
-  height: 5rem;
+  line-height: 1.5rem;
+  margin: 4% auto 8% auto;
+  width: 12rem !important;
+  height: 3rem;
   font-size: 1.5rem;
 }
 .button:hover {
-  background-color: #D3573C;
+  background-color: #D3573C !important;
   color: black;
 }
 .button:focus {
@@ -476,15 +489,25 @@
 }
 @media screen and (min-width: 800px) {
   .button {
-    font-size: 2.2vw;
+    margin: 3% 8% 8% 0;
+    line-height: 2rem;
+    height: 4rem;
+    font-size: 1.2rem !important;
   }
 }
 .button:hover {
-  background-color: white;
+  background-color: #dc7b66;
+  font-weight: bold;
+  border: 2px solid white;
+}
+.button:focus {
+  background-color: #dc7b66;
+  font-weight: bold;
+  border: 2px solid white;
 }
 
 #message {
-  height: 12rem;
+  height: 10rem;
 }
 
 .smFont {
@@ -506,6 +529,7 @@
 .content {
   margin: 5% auto;
   width: 100%;
+  max-height: 90vh;
   max-width: 500px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
@@ -517,17 +541,23 @@
   padding-top: 10px;
 }
 
+#contact-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .modal-body {
   padding: 15px 8%;
-  margin: 15px auto;
+  margin: auto;
 }
 
 .formData label {
   font-family: var(--font-default);
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: normal;
   display: inline-block;
-  margin: 5px;
+  margin-top: 5px;
 }
 
 input {
@@ -677,18 +707,6 @@ input {
   transform: rotate(-45deg);
 }
 
-/* .btn-submit,
-.btn-signup {
-  background: #fe142f;
-  display: block;
-  margin: 0 auto;
-  border-radius: 7px;
-  font-size: 1rem;
-  padding: 12px 82px;
-  color: #fff;
-  cursor: pointer;
-  border: 0;
-} */
 /* custom select styles */
 .custom-select {
   position: relative;
@@ -703,21 +721,6 @@ input {
 
 .select-selected {
   background-color: #fff;
-}
-
-/* Style the arrow inside the select element: */
-.select-selected:after {
-  position: absolute;
-  content: "";
-  top: 10px;
-  right: 13px;
-  width: 11px;
-  height: 11px;
-  border: 3px solid transparent;
-  border-bottom-color: #f00;
-  border-left-color: #f00;
-  transform: rotate(-48deg);
-  border-radius: 5px 0 5px 0;
 }
 
 @keyframes modalopen {
@@ -1294,10 +1297,6 @@ nav {
   background-color: white;
   border: 1px solid rgba(82, 82, 82, 0.2);
   border-radius: 16px;
-  /* &:focus{
-    color: white;
-    background-color: $color-primary-1;
-  } */
 }
 @media screen and (min-width: 800px) {
   .filterButton {
@@ -1411,9 +1410,14 @@ header {
 #photographer-main {
   display: flex;
   flex-direction: column;
-  padding: 7rem 5vw 5vw 5vw;
+  padding: 26vw 5vw 5vw 5vw;
   justify-content: normal;
   height: 100%;
+}
+@media screen and (min-width: 800px) {
+  #photographer-main {
+    padding: 7rem 5vw 5vw 5vw !important;
+  }
 }
 
 .profileCardPP {
@@ -1433,8 +1437,13 @@ header {
 #profilesPP {
   width: 100%;
   position: relative;
-  margin: 0;
+  margin: 2vw 0 10vw 0;
   z-index: 1;
+}
+@media screen and (min-width: 800px) {
+  #profilesPP {
+    margin: 0;
+  }
 }
 
 #photoGallery {
@@ -1569,28 +1578,12 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  /*background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 140 140' width='24' height='24' xmlns='http://www.w3.org/2000/svg'><g><path d='m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z' fill='white'/></g></svg>");
-    background-size: .8em;
-    background-position: calc(100% - 1.3em) center;
-    background-repeat: no-repeat; */
 }
 
 select::-ms-expand {
   display: none;
 }
 
-/* .filters-select:after {
-  content: "▼";
-  padding: 12px 8px;
-  position: absolute;
-  right: 10px;
-  top: 0;
-  z-index: 1;
-  text-align: center;
-  width: 10%;
-  height: 100%;
-  pointer-events: none;
-} */
 .selOpt:hover {
   background-color: #D3573C;
 }
@@ -1601,7 +1594,6 @@ select.filters-select {
   background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
   background-repeat: no-repeat;
 }
-
 select.filters-select:focus {
   background-image: linear-gradient(45deg, white 60%, transparent 60%), linear-gradient(135deg, transparent 60%, white 60%);
   background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, 100% 0;
@@ -1611,26 +1603,6 @@ select.filters-select:focus {
   outline: 0;
 }
 
-/* .filters-select{
-border-top: 3px solid white;
-        border-right: 3px solid white;
-        box-sizing: border-box;
-        content: '';
-        height: 16px;
-        left: 50%;
-        position: absolute;
-        top: 50%;
-        transform: translate3d(-50%, -75%, 0px) rotate(135deg);
-        // Uncomment if you want it to move (probably better not to, looks weird)
-        // transition: transform 0.3s;
-        // will-change: transform;
-        width: 16px;
-    }
-
-    // The 'flip' state, just on hover for ease atm
-    &:hover {
-        transform: translate3d(-50%, -25%, 0px) rotate(-45deg);
-    } */
 /* .filtButtonPP {
     @include boutonTags;
 } */
@@ -1643,10 +1615,6 @@ border-top: 3px solid white;
   background-color: white;
   border: 1px solid rgba(82, 82, 82, 0.2);
   border-radius: 16px;
-  /* &:focus{
-    color: white;
-    background-color: $color-primary-1;
-  } */
   background-color: white;
   color: #901C1C;
 }

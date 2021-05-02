@@ -109,17 +109,34 @@
   }
   & .modal-btn {
     @include buttonContact;
+    border: 2px solid white;
     position: fixed;
     justify-content: center;
     display: flex;
     margin: auto;
     bottom: 4vw;
+    line-height: 7vw;
     @include large-only {
+      line-height: 4.5vw;
+      border: none;
       position: absolute;
-      left: 40vw;
+      left: 35%;
       display: initial;
       top: 4vw;
       bottom: auto;
     }
+    @media screen and (min-width: 1600px){
+      line-height: 4.5vw;
+      border: none;
+      position: absolute;
+      left: 35%;
+      display: initial;
+      top: 4vw;
+      bottom: auto;
+      width: 10vw;
+      height: 5vw;
+      font-size: 1.2vw;
+    }
+
   }
 }

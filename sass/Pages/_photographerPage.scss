@@ -1,64 +1,69 @@
-header{
-height: fit-content;
-height: auto;
+header {
+  height: fit-content;
+  height: auto;
 }
 
-#photographer-main{
-    display: flex;
-    flex-direction: column;
-    padding: 7rem 5vw 5vw 5vw;
-    justify-content: normal;
-    height: 100%;
+#photographer-main {
+  display: flex;
+  flex-direction: column;
+  padding: 26vw 5vw 5vw 5vw;
+  justify-content: normal;
+  height: 100%;
+  @include large-only {
+    padding: 7rem 5vw 5vw 5vw !important;
+  }
 }
 
 .profileCardPP {
-    display: grid;
-    // grid-template-columns: 58% 32%;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    height: 32vw;
-    width: 84vw;
-    @include large-only{
-height: 24vw;
-width: 88vw;
-margin: auto;
-    }
-    
-}
-
-#profilesPP{
-    width: 100%;
-    //position: absolute;
-    position: relative;
-    margin: 0;
-    z-index: 1;
-}
-
-#photoGallery{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    //top: 75vw;
-    left: 5vw;
+  display: grid;
+  // grid-template-columns: 58% 32%;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  height: 32vw;
+  width: 84vw;
+  @include large-only {
+    height: 24vw;
+    width: 88vw;
     margin: auto;
-    position: inherit;
-    height: auto;
-    //position: absolute;
-    @include large-only{
-        //top: 42vw;
-        //display: grid;
-        //position: inherit !important;
-        //height: inherit !important;
-        // grid-template-columns: 33% 33% 33%;
-        // grid-auto-rows: 32vw;
-        // grid-gap: 2%;
-        //max-width: 97%;
-        //justify-content: center;
-        //padding: 1vw;
-        margin-left: -1%;
- margin-right: -4%;
- left: 2.2vw;
-    }
+  }
+}
+
+#profilesPP {
+  width: 100%;
+  //position: absolute;
+  position: relative;
+  margin: 2vw 0 10vw 0;
+  z-index: 1;
+  @include large-only {
+    margin: 0;
+  }
+}
+
+#photoGallery {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  //top: 75vw;
+  left: 5vw;
+  margin: auto;
+  position: inherit;
+  height: auto;
+  //position: absolute;
+  @include large-only {
+    //top: 42vw;
+    //display: grid;
+    //position: inherit !important;
+    //height: inherit !important;
+    // grid-template-columns: 33% 33% 33%;
+    // grid-auto-rows: 32vw;
+    // grid-gap: 2%;
+    //max-width: 97%;
+    //justify-content: center;
+    //padding: 1vw;
+    margin-left: -1%;
+    margin-right: -4%;
+    left: 2.2vw;
+  }
 }
 
 /* .photoAHREF{
@@ -68,80 +73,77 @@ margin: auto;
     left: inherit !important;
 }  */
 .filtr-item {
-    position: relative;
-    left: 0;
-    top: 0;
-    display: block;
-    @include large-only{
-        position: absolute;
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+  @include large-only {
+    position: absolute;
     width: 30%;
-    }
+  }
 }
 
-#photoFilter{
-    //position: absolute;
-    top: 50vw;
-    left: 3vw;
-    padding: 3vw 0 3vw 0;
-    font-weight: bold;
-    display: none;
-    @include large-only{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 2rem;
-    }
-}
-
-.logoP{
-    width: 100vw;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    margin-left: 4vw;
-    cursor: pointer;
-    & img{
-        width: 50%;
-        @include large-only{
-        width: 20vw;
-        }
-    }
-}
-
-#contentButtonContainer2{
+#photoFilter {
+  //position: absolute;
+  top: 50vw;
+  left: 3vw;
+  padding: 3vw 0 3vw 0;
+  font-weight: bold;
+  display: none;
+  @include large-only {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+.logoP {
+  width: 100vw;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-left: 4vw;
+  cursor: pointer;
+  & img {
+    width: 50%;
+    @include large-only {
+      width: 20vw;
+    }
+  }
+}
+
+#contentButtonContainer2 {
+  display: flex;
+  justify-content: center;
 }
 
 #contentButton2 {
-  display: none; 
-  position: fixed; 
-  top: 10px; 
-  margin: auto; 
-  z-index: 199; 
+  display: none;
+  position: fixed;
+  top: 10px;
+  margin: auto;
+  z-index: 199;
   cursor: pointer;
   color: black;
   font-weight: bold;
   padding: 6px 8px 6px 8px;
-  margin: .2rem .2rem .2rem .2rem;
+  margin: 0.2rem 0.2rem 0.2rem 0.2rem;
   background-color: $color-primary-2;
   border: 2px solid white;
   border-radius: 8px;
 }
 
-.profileTags{
-    & li{
-        cursor: pointer;
-        & label{
-            cursor: pointer;
-            
-        }
-        & input[type="checkbox"]{
-            width: 0;
-            display: none;
-       
-       
+.profileTags {
+  & li {
+    cursor: pointer;
+    & label {
+      cursor: pointer;
     }
+    & input[type="checkbox"] {
+      width: 0;
+      display: none;
     }
+  }
 }
 
 /* .profileTags li input:checked + label {
@@ -159,12 +161,12 @@ margin: auto;
     color: white;
 } */
 
-.hidePhoto{
-    display: none;
+.hidePhoto {
+  display: none;
 }
 
-.showPhoto{
-    display: initial;
+.showPhoto {
+  display: initial;
 }
 
 @include selectBox;
@@ -173,7 +175,7 @@ margin: auto;
 //     position: relative;
 //     font-family: Arial;
 //   }
-  
+
 //   .custom-select select {
 //     display: none; /*hide original SELECT element:*/
 //   }
@@ -182,36 +184,35 @@ margin: auto;
     @include boutonTags;
 } */
 
-.filtButtonPP{
-    @include boutonTags;
+.filtButtonPP {
+  @include boutonTags;
 
-    background-color: white ;
-    color: $color-primary-1  ;
-    &:focus{
-        background-color: $color-primary-1;
-        color: white;
+  background-color: white;
+  color: $color-primary-1;
+  &:focus {
+    background-color: $color-primary-1;
+    color: white;
+  }
 }
-}
- /* .filtButtonPP:focus{
+/* .filtButtonPP:focus{
     background-color: $color-primary-1;
     color: white;
 }  */
-.filtButtonPP.is-checked{
-    background-color: $color-primary-1;
-    color: white;
+.filtButtonPP.is-checked {
+  background-color: $color-primary-1;
+  color: white;
 }
 /* .filtButtonPP:not(.is-checked){
     background-color: white;
     color: $color-primary-1;
 } */
 
-.not-checked{
-    background-color: white ;
-    color: $color-primary-1 ;
+.not-checked {
+  background-color: white;
+  color: $color-primary-1;
 }
 
-.not-checked:focus{
-    background-color: $color-primary-1;
-    color: white;
-
+.not-checked:focus {
+  background-color: $color-primary-1;
+  color: white;
 }
