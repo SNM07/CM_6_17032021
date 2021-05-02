@@ -1,7 +1,7 @@
 //Import JS modules
-import showProfileHome from "./JS/showProfileHome.js";
-import * as boutonPac from "./JS/boutonPaC.js";
-import filterHome from "./JS/filterHome.js";
+import showProfileHome from "./JS/HomePage/showProfileHome.js";
+import * as boutonPac from "./JS/HomePage/boutonPaC.js";
+import filterHome from "./JS/HomePage/filterHome.js";
 
 //Fetch JSON & construct page
 fetch("./FishEyeDataFR.json")

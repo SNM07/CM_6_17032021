@@ -1,13 +1,13 @@
 // Import JS modules
-import contactFormModule from "./JS/contactForm.js";
-import showProfilePP from "./JS/showProfilePP.js";
-import * as showGallery from "./JS/showGallery.js";
-import priceGlobalLikes from "./JS/priceGlobalLikes.js";
-import emailJSParam from "./JS/emailJSParam.js";
-import setAriaContactButton from "./JS/ariaContactButton.js";
-import changePageTitle from "./JS/changePageTitle.js";
-import * as sortAndFilterParam from "./JS/lgSortFilterParam.js";
-import * as scrollTop from "./JS/scrollTop.js";
+import contactFormModule from "./JS/PhotographerPage/contactForm.js";
+import showProfilePP from "./JS/PhotographerPage/showProfilePP.js";
+import * as showGallery from "./JS/PhotographerPage/showGallery.js";
+import * as priceGlobalLikes from "./JS/PhotographerPage/priceGlobalLikes.js";
+import emailJSParam from "./JS/PhotographerPage/emailJSParam.js";
+import setAriaContactButton from "./JS/PhotographerPage/ariaContactButton.js";
+import changePageTitle from "./JS/PhotographerPage/changePageTitle.js";
+import * as sortAndFilterParam from "./JS/PhotographerPage/lgSortFilterParam.js";
+import * as scrollTop from "./JS/PhotographerPage/scrollTop.js";
 
 // Fetch JSON and construct page
 fetch("./FishEyeDataFR.json")
@@ -24,7 +24,7 @@ fetch("./FishEyeDataFR.json")
     //Set aria-label of contact button
     setAriaContactButton();
     //Construct fixed popup with photographer fees and global likes
-    priceGlobalLikes();
+    priceGlobalLikes.priceGlobalLikes();
     //Configuration of sorting and filtering features
     sortAndFilterParam.sortAndFilterParam();
     sortAndFilterParam.creatBR();
@@ -38,21 +38,8 @@ fetch("./FishEyeDataFR.json")
     window.addEventListener("scroll", function () {
       scrollTop.scrollUpDown();
     });
-
-    $(".checkHeart").change(function () {
-      let globalLikesString = $(".globLikes").html();
-      let globalLikes = parseInt(globalLikesString);
-      let myGlobLikes = $(".globLikes");
-
-      let plusLikes = globalLikes + 1;
-      let moinsLikes = globalLikes - 1;
-
-      if (this.checked) {
-        myGlobLikes.text(plusLikes);
-      } else {
-        myGlobLikes.text(moinsLikes);
-      }
-    });
+    //Add photo likes to global likes popup
+    priceGlobalLikes.addLikeToGlobalLikes();
   });
 
 //Scroll to the top of the document
