@@ -100,17 +100,25 @@ export function sortAndFilterParam() {
       let $otherFilters = $butFilt.map(function() {
         return $(this).data('filter');
       }).get();
-      $otherFilters.forEach(function ($otherFilters) {
-        console.log($otherFilters)
-        if ($otherFilters != filter) {
-          console.log($otherFilters, "DIF")
-          $($butFilt[0]).removeClass("is-checked");
-          console.log($($butFilt[0]))
+      //let $butFromData = $butFilt.find("[data-filter='" + $otherFilters[i] + "']");
+
+      //$otherFilters.forEach(function ($otherFilters) {
+      for (let i = 0; i < $butFilt.length; i++) {
+        let $butFromData = document.querySelectorAll(`[data-filter='${$otherFilters[i]}']`);
+
+        console.log($butFromData)
+        if ($otherFilters[i] != filter) {
+          console.log($otherFilters[i], "DIF")
+          //let $butFromDataBlock = $butFilt.find("[data-filter='" + $otherFilters + "']");
+          $($butFromData[0]).removeClass("is-checked");
+          console.log($butFromData, "BLOCK")
         } else {
-          $($butFilt[0]).addClass("is-checked");
-          console.log($($butFilt[0]))
+         // let $butFromDataPass = $butFilt.find("[data-filter='" + $otherFilters + "']");
+          $($butFromData[0]).addClass("is-checked");
+          console.log($butFromData, "PASS")
         }
-      });
+      }
+      //});
 
       //$butFilt.not(["data-filter" == filter]).removeClass("is-checked");
 
