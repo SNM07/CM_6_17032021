@@ -1,109 +1,82 @@
-.photoCard{
-    position: relative;
-    width: 80vw;
-    height: 62vw;
-    margin: auto;
-    margin-bottom: 1rem;
-    cursor: pointer;
-    @include large-only{
-        width: 100%;
-        //width: 25vw;
-        height: 34vw;
-        margin-bottom: 0;
-        
+.photoCard {
+  position: relative;
+  width: 80vw;
+  height: 62vw;
+  margin: auto;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  @include large-only {
+    width: 100%;
+    height: 34vw;
+    margin-bottom: 0;
+  }
+  & .photoImg {
+    object-fit: cover;
+    object-position: 50% 30%;
+    position: absolute;
+    width: 100%;
+    height: 50vw;
+    border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+    @include large-only {
+      height: 25vw;
     }
-    & .photoImg{
-        object-fit: cover;
-        object-position: 50% 30%;
-        position: absolute;
-        width: 100%;
-        height: 50vw;
-        border-radius: .5rem .5rem .5rem .5rem;
-        @include large-only{
-            height: 25vw;
-        }
+  }
+  & .photoVid {
+    object-fit: cover;
+    object-position: 50% 30%;
+    position: absolute;
+    width: 100%;
+    height: 50vw;
+    border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+    @include large-only {
+      height: 25vw;
     }
-    & .photoVid{
-        object-fit: cover;
-        object-position: 50% 30%;
-        position: absolute;
-        width: 100%;
-        height: 50vw;
-        border-radius: .5rem .5rem .5rem .5rem;
-        @include large-only{
-            height: 25vw;
-        }
+  }
+
+  & .photosInfos {
+    display: flex;
+    position: absolute;
+    top: 50vw;
+    width: 100%;
+    justify-content: space-between;
+    background-color: white;
+    @include large-only {
+      top: 26vw;
     }
-    
-    & .photosInfos {
-        display: flex;
-        position: absolute;
-        top: 50vw;
-        width: 100%;
-        justify-content: space-between;
-        background-color: white;
-        @include large-only{
-            top: 26vw;
-        }
-        & .photoTitle{
-       // position: absolute;
-        //top: 50vw;
-        font-size: 1rem;
-        font-weight: 500;
-        color: $color-primary-1;
-        padding: .5rem 0 0 0;
+    & .photoTitle {
+      font-size: 1rem;
+      font-weight: 500;
+      color: $color-primary-1;
+      padding: 0.5rem 0 0 0;
+      width: 60%;
+      display: flex;
+      flex-wrap: wrap;
+      @include large-only {
         width: 60%;
         display: flex;
         flex-wrap: wrap;
-        @include large-only{
-           // top: 26vw;
-            width: 60%;
-            display: flex;
-            flex-wrap: wrap;
-        }
+      }
     }
-    & .photoPrice{
-        //position: absolute;
-        //top: 50vw;
-        //right: 14vw;
-        font-size: .9rem;
-        font-weight: bold;
-        color: $color-primary-1;
-        padding: .5rem 0 0 0;
-        @include large-only{
-           // top: 26vw;
-           // right: 4.5rem;
-        }
+    & .photoPrice {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: $color-primary-1;
+      padding: 0.5rem 0 0 0;
     }
-    & .photoLikesCount{
-        display: flex;
-        gap: 4px;
-    & .photoLikes{
-       // position: absolute;
-        //top: 50vw;
-       // right: 5vw;
+    & .photoLikesCount {
+      display: flex;
+      gap: 4px;
+      & .photoLikes {
         font-size: 1rem;
         font-weight: bold;
         color: $color-primary-1;
-        padding: .5rem 0 0 0;
-        @include large-only{
-           // top: 26vw;
-            //right: 1.5rem;
-        }
-    }
-    & .like{
-        //position: absolute;
-       // top: 50vw;
-       // right: 0;
+        padding: 0.5rem 0 0 0;
+      }
+      & .like {
         font-size: 1rem;
-        padding: .5rem 0 0 0;
-        @include large-only{
-            //top: 26vw;
-        }
-        & {
+        padding: 0.5rem 0 0 0;
         @include likeButton;
-        }
+      }
     }
-}
-}  
+  }
 }

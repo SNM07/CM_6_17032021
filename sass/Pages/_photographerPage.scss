@@ -16,7 +16,6 @@ header {
 
 .profileCardPP {
   display: grid;
-  // grid-template-columns: 58% 32%;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   height: 32vw;
   width: 84vw;
@@ -29,7 +28,6 @@ header {
 
 #profilesPP {
   width: 100%;
-  //position: absolute;
   position: relative;
   margin: 2vw 0 10vw 0;
   z-index: 1;
@@ -43,35 +41,17 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  //top: 75vw;
   left: 5vw;
   margin: auto;
   position: inherit;
   height: auto;
-  //position: absolute;
   @include large-only {
-    //top: 42vw;
-    //display: grid;
-    //position: inherit !important;
-    //height: inherit !important;
-    // grid-template-columns: 33% 33% 33%;
-    // grid-auto-rows: 32vw;
-    // grid-gap: 2%;
-    //max-width: 97%;
-    //justify-content: center;
-    //padding: 1vw;
     margin-left: -1%;
     margin-right: -4%;
     left: 2.2vw;
   }
 }
 
-/* .photoAHREF{
-    //padding: 1vw;
-    position: inherit !important;
-    top: inherit !important;
-    left: inherit !important;
-}  */
 .filtr-item {
   position: relative;
   left: 0;
@@ -84,7 +64,6 @@ header {
 }
 
 #photoFilter {
-  //position: absolute;
   top: 50vw;
   left: 3vw;
   padding: 3vw 0 3vw 0;
@@ -146,21 +125,6 @@ header {
   }
 }
 
-/* .profileTags li input:checked + label {
-    background-color: $color-primary-1;
-    color: white;
-}
-
-.profileTags li.selected input:checked + label {
-    background-color: $color-primary-1;
-    color: white;
-}
-
-.profileTags > .is-checked {
-    background-color: $color-primary-1;
-    color: white;
-} */
-
 .hidePhoto {
   display: none;
 }
@@ -170,19 +134,6 @@ header {
 }
 
 @include selectBox;
-
-// .custom-select {
-//     position: relative;
-//     font-family: Arial;
-//   }
-
-//   .custom-select select {
-//     display: none; /*hide original SELECT element:*/
-//   }
-
-/* .filtButtonPP {
-    @include boutonTags;
-} */
 
 .filtButtonPP {
   @include boutonTags;
@@ -194,18 +145,11 @@ header {
     color: white;
   }
 }
-/* .filtButtonPP:focus{
-    background-color: $color-primary-1;
-    color: white;
-}  */
+
 .filtButtonPP.is-checked {
   background-color: $color-primary-1;
   color: white;
 }
-/* .filtButtonPP:not(.is-checked){
-    background-color: white;
-    color: $color-primary-1;
-} */
 
 .not-checked {
   background-color: white;
