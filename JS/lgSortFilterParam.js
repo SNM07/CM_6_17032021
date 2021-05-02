@@ -92,7 +92,6 @@ export function sortAndFilterParam() {
     var filters = [];
     // change is-checked class on buttons
     $(".profileTags").on("click", "button", function (event) {
-      //$(".filtButtonPP").removeClass("is-checked");
       var $target = $(event.currentTarget);
       var filter = $target.attr("data-filter");
 
@@ -100,37 +99,22 @@ export function sortAndFilterParam() {
       let $otherFilters = $butFilt.map(function() {
         return $(this).data('filter');
       }).get();
-      //let $butFromData = $butFilt.find("[data-filter='" + $otherFilters[i] + "']");
-
-      //$otherFilters.forEach(function ($otherFilters) {
+      
       for (let i = 0; i < $butFilt.length; i++) {
         let $butFromData = document.querySelectorAll(`[data-filter='${$otherFilters[i]}']`);
 
         console.log($butFromData)
         if ($otherFilters[i] != filter) {
-          console.log($otherFilters[i], "DIF")
-          //let $butFromDataBlock = $butFilt.find("[data-filter='" + $otherFilters + "']");
           $($butFromData[0]).removeClass("is-checked");
-          console.log($butFromData, "BLOCK")
         } else {
-         // let $butFromDataPass = $butFilt.find("[data-filter='" + $otherFilters + "']");
-          $($butFromData[0]).addClass("is-checked");
-          console.log($butFromData, "PASS")
+          if ($($butFromData[0]).hasClass("is-checked") == true) {
+            $($butFromData[0]).removeClass("is-checked");
+          } else {
+            $($butFromData[0]).addClass("is-checked");
+            console.log($butFromData, "PASS")
+          }
         }
       }
-      //});
-
-      //$butFilt.not(["data-filter" == filter]).removeClass("is-checked");
-
-      //c = a.substring(b.length)
-
-
-      /* var isAlreadyChecked = $target.hasClass("is-checked");
-      if (isAlreadyChecked == true) {
-        $target.removeClass("is-checked");
-      } else {
-        $target.addClass("is-checked");
-      } */
 
       var isChecked = $target.hasClass("is-checked");
       if (isChecked) {
