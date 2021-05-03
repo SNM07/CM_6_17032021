@@ -1,12 +1,9 @@
 //Passer au contenu button
-export function buttonPaC() {
-    
+function buttonPaC() {
   window.addEventListener("scroll", getScroll);
 
-  //Get the button:
   let mybutton = document.getElementById("contentButton");
 
-  // When the user scrolls down 20px from the top of the document, show the button
   window.onscroll = scrollTop;
 
   mybutton.addEventListener("click", function () {
@@ -14,9 +11,10 @@ export function buttonPaC() {
   });
 }
 
-let lastScroll =  document.documentElement.scrollTop;
+//Detect scroll and add/remove classes
+let lastScroll = document.documentElement.scrollTop;
 
-export function getScroll() {
+function getScroll() {
   const body = document.body;
 
   const scrollUp = "scroll-up";
@@ -45,8 +43,9 @@ export function getScroll() {
   lastScroll = currentScroll;
 }
 
-export function scrollTop() {
-    let mybutton = document.getElementById("contentButton");
+//Header show/hide on scroll
+function scrollTop() {
+  let mybutton = document.getElementById("contentButton");
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
     mybutton.style.display = "block";
   } else {
@@ -54,9 +53,13 @@ export function scrollTop() {
   }
 }
 
-//document.getElementById("contentButton").onclick = topFunction();
-export function topFunction() {
+//Go to top and reinit
+function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   window.location.reload();
 }
+
+//Export functions
+export { buttonPaC, getScroll, scrollTop, topFunction };
+
