@@ -1,5 +1,5 @@
 //Global likes and price popup construction
-export function priceGlobalLikes() {
+function priceGlobalLikes() {
   //Get all photos likes count
   const cardLikes = document.querySelectorAll("[data-popularite]");
 
@@ -41,17 +41,10 @@ export function priceGlobalLikes() {
   myPriceGlobLikes.appendChild(myGlobPrice);
 
   mainCont.appendChild(myPriceGlobLikes);
-
-  let $addHeart = $(".checkHeart");
-
-  if ($addHeart.is(":checked")) {
-    myGlobLikes.textContent = globalLikes++;
-  } else if (!$addHeart.is(":checked")) {
-    myGlobLikes.textContent = globalLikes--;
-  }
 }
 
-export function addLikeToGlobalLikes() {
+//Update global likes from individual likes 
+function addLikeToGlobalLikes() {
   $(".checkHeart").change(function () {
     let globalLikesString = $(".globLikes").html();
     let globalLikes = parseInt(globalLikesString);
@@ -67,3 +60,6 @@ export function addLikeToGlobalLikes() {
     }
   });
 }
+
+//Export functions
+export { priceGlobalLikes, addLikeToGlobalLikes };

@@ -11,7 +11,7 @@ function buttonPaC() {
   });
 }
 
-//Detect scroll and add/remove classes
+//Detect scroll and show/hide header on scroll
 let lastScroll = document.documentElement.scrollTop;
 
 function getScroll() {
@@ -43,7 +43,7 @@ function getScroll() {
   lastScroll = currentScroll;
 }
 
-//Header show/hide on scroll
+//Show/hide button on scroll
 function scrollTop() {
   let mybutton = document.getElementById("contentButton");
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {

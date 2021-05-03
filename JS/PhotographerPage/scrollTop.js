@@ -1,7 +1,8 @@
  //Scroll up & reinitialize
 let lastScroll =  document.documentElement.scrollTop;
  
-export function scrollUpDown() {
+//Detect scroll and show/hide header
+function scrollUpDown() {
     const body = document.body;
 
  const scrollUp = "scroll-up";
@@ -30,13 +31,9 @@ export function scrollUpDown() {
    lastScroll = currentScroll;
  }
 
- //Get the button:
- const mybutton = document.getElementById("contentButton2");
-
- // When the user scrolls down 20px from the top of the document, show the button
- 
-
- export function scrollFunction() {
+ //Show/hide button on scroll
+ function scrollFunction() {
+  const mybutton = document.getElementById("contentButton2"); 
    if (
      document.body.scrollTop > 80 ||
      document.documentElement.scrollTop > 80
@@ -47,8 +44,12 @@ export function scrollUpDown() {
    }
 }
  
-export function topFunction2() {
+//Scroll top and reinit on click
+function topFunction2() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     window.location.reload();
-  }
+}
+  
+//Export functions
+export { scrollUpDown, scrollFunction, topFunction2 };
