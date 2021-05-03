@@ -1,8 +1,8 @@
-export default function contactFormModule() {
+//Contact form modal parameters
+function contactFormModule() {
   // DOM Elements
   const modalbg = document.querySelector(".bground");
   const modalBtn = document.querySelectorAll(".modal-btn");
-  const formData = document.querySelectorAll(".formData");
 
   // Get the <span> element that closes the modal
   const modalClose = document.getElementById("close");
@@ -27,10 +27,13 @@ export default function contactFormModule() {
     }
   };
 
-  const myFormBody = document.getElementsByClassName("modal-body");
+  //Set photographer name in contact form
   const myFormTitle = document.getElementById("formTitle");
   myFormTitle.innerHTML =
     "Contactez-moi" +
     "</br>" +
     document.querySelector(".profileName").innerHTML;
 }
+
+//Export function
+export { contactFormModule as default };
