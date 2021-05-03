@@ -106,6 +106,7 @@ function createGalleryCard(
     //Heart checkbox label attributes
     myPHLabel.htmlFor = "heart" + photogPhID[i];
     myPHLabel.className = "far fa-heart";
+    myPHLabel.innerHTML = ".";
     myPHLabel.setAttribute("onclick", "event.stopPropagation();");
 
     //Card sub container attributes

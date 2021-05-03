@@ -30,7 +30,6 @@ fetch("./FishEyeDataFR.json")
     sortAndFilterParam.creatBR();
     //sortAndFilterParam.sortOut();
     sortAndFilterParam.setTabIndex();
-    sortAndFilterParam.dataVal();
     //Change page title
     changePageTitle();
     //Scroll top features for header

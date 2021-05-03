@@ -111,7 +111,6 @@ function desktopFilter($gallery) {
         .on("arrangeComplete", function () { setTabIndex }).isotope();
       console.log("OK")
     });
-
     if( document.readyState !== 'loading' ) {
       console.log( 'document is already ready, just execute code here' );
       $grid
