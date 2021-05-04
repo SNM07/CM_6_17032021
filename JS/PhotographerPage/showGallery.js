@@ -71,6 +71,7 @@ function createGalleryCard(
     const myPhotoHeart = document.createElement("div");
     const myPHInput = document.createElement("input");
     const myPHLabel = document.createElement("label");
+    const myPHSpan = document.createElement("span");
 
     //Card container attributes
     myAHREF.setAttribute("class", "photoAHREF");
@@ -106,35 +107,38 @@ function createGalleryCard(
     //Heart checkbox label attributes
     myPHLabel.htmlFor = "heart" + photogPhID[i];
     myPHLabel.className = "far fa-heart";
-    myPHLabel.innerHTML = ".";
     myPHLabel.setAttribute("onclick", "event.stopPropagation();");
 
+    //Label's span attributes
+    myPHSpan.className = "labeltext";
+    myPHSpan.innerHTML = ".";
+    
     //Card sub container attributes
     myPhotoCard.setAttribute("class", "photoCard");
     myPhotoCard.setAttribute("data-tagsCard", photogTags[i]);
-
+    
     //Title attributes
     myPhotoTitle.setAttribute("class", "photoTitle");
     myPhotoTitle.textContent = photogTitle[i];
-
+    
     //Price attributes
     myPhotoPrice.setAttribute("class", "photoPrice");
     myPhotoPrice.textContent = photogPrice[i] + " €";
-
+    
     //Likes count attributes
     myPhotoLikes.setAttribute("class", "photoLikes");
     myPhotoLikes.textContent = photogLikes[i];
-
+    
     //Date attributes
     myPhotoDate.setAttribute("class", "photoDate");
     myPhotoDate.textContent = photogDate[i];
     myPhotoDate.style.display = "none";
-
+    
     //Tags attributes
     myPhotoTags.setAttribute("class", "photoTags");
     myPhotoTags.textContent = photogTags[i];
     myPhotoTags.style.display = "none";
-
+    
     //Only display used images + attributes & append
     if (photogImg[i] !== undefined) {
       const myPhotoImg = document.createElement("img");
@@ -144,41 +148,42 @@ function createGalleryCard(
       myAHREF.setAttribute(
         "href",
         "./images/" + photogID[i] + "/" + photogImg[i]
-      );
-      myPhotoCard.appendChild(myPhotoImg);
-    }
-
-    //Only display used videos + attributes & append (and duplicate version for lightbox)
-    createVid(
-      photogVid[i],
-      photogPhID[i],
-      photogID[i],
-      myPhotoCard,
-      "none",
-      "-1"
-    );
-    createVid(
-      photogVid[i],
-      photogPhID[i],
-      photogID[i],
-      myPhotoCard,
-      "block",
-      "0"
-    );
-
-    //Append elements
-    myPhotoHeart.appendChild(myPHInput);
-    myPhotoHeart.appendChild(myPHLabel);
-    myPhotoLikesCount.appendChild(myPhotoHeart);
-    myPhotoCard.appendChild(myPhotoDate);
-    myPhotoCard.appendChild(myPhotoTags);
-    myPhotoInfos.appendChild(myPhotoTitle);
-    myPhotoInfos.appendChild(myPhotoPrice);
-    myPhotoLikesCount.appendChild(myPhotoLikes);
-    myPhotoCard.appendChild(myPhotoInfos);
-    myPhotoLikesCount.appendChild(myPhotoHeart);
-    myPhotoInfos.appendChild(myPhotoLikesCount);
-    myAHREF.appendChild(myPhotoCard);
+        );
+        myPhotoCard.appendChild(myPhotoImg);
+      }
+      
+      //Only display used videos + attributes & append (and duplicate version for lightbox)
+      createVid(
+        photogVid[i],
+        photogPhID[i],
+        photogID[i],
+        myPhotoCard,
+        "none",
+        "-1"
+        );
+        createVid(
+          photogVid[i],
+          photogPhID[i],
+          photogID[i],
+          myPhotoCard,
+          "block",
+          "0"
+          );
+          
+          //Append elements
+          myPHLabel.appendChild(myPHSpan);
+          myPhotoHeart.appendChild(myPHInput);
+          myPhotoHeart.appendChild(myPHLabel);
+          myPhotoLikesCount.appendChild(myPhotoHeart);
+          myPhotoCard.appendChild(myPhotoDate);
+          myPhotoCard.appendChild(myPhotoTags);
+          myPhotoInfos.appendChild(myPhotoTitle);
+          myPhotoInfos.appendChild(myPhotoPrice);
+          myPhotoLikesCount.appendChild(myPhotoLikes);
+          myPhotoCard.appendChild(myPhotoInfos);
+          myPhotoLikesCount.appendChild(myPhotoHeart);
+          myPhotoInfos.appendChild(myPhotoLikesCount);
+          myAHREF.appendChild(myPhotoCard);
 
     photoGallery.appendChild(myAHREF);
   }
