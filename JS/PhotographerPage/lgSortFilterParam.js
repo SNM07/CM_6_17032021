@@ -151,7 +151,6 @@ function setButtonFilter(e, $grid, $gallery) {
       `[data-filter='${$otherFilters[i]}']`
     );
 
-    console.log($butFromData);
     if ($otherFilters[i] != filter) {
       $($butFromData[0]).removeClass("is-checked");
     } else {
@@ -159,7 +158,6 @@ function setButtonFilter(e, $grid, $gallery) {
         $($butFromData[0]).removeClass("is-checked");
       } else {
         $($butFromData[0]).addClass("is-checked");
-        console.log($butFromData, "PASS");
       }
     }
   }

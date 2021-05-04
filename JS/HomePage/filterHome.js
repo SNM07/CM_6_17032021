@@ -33,13 +33,14 @@ function tagsClickFilt($prof) {
 }
 
 // Bind filter on tags button change and set class on buttons
+var filters = [];
 function tagsFiltering(e, $prof) {
-  var filters = [];
-  let chList = document.getElementsByClassName("filterProfiles");
+  //var filterJoin = [];
+  /* let chList = document.getElementsByClassName("filterProfiles");
   for (var i = 0; i < chList.length; i++) {
     let chClasses = chList[i].classList;
     chClasses.remove("is-checked");
-  }
+  } */
   var $target = $(e.currentTarget);
   $target[0].classList.add("is-checked");
   var isChecked = $target.hasClass("is-checked");
@@ -50,6 +51,7 @@ function tagsFiltering(e, $prof) {
   for (var i = 0; i < sameFil.length; i++) {
     sameFil[i].classList.add("is-checked");
   }
+  
 
   if (isChecked) {
     addFilter(filter, filters);
@@ -57,7 +59,8 @@ function tagsFiltering(e, $prof) {
     removeFilter(filter, filters);
   }
 
-  $prof.isotope({ filter: filter2 });
+  let filterJoin = filters.join(", ");
+  $prof.isotope({ filter: filterJoin });
 }
 
 //Add filters
