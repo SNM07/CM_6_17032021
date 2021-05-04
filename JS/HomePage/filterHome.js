@@ -32,31 +32,15 @@ function tagsClickFilt($prof) {
   });
 }
 
-// Bind filter on tags button change and set class on buttons
-var filters = [];
+
 function tagsFiltering(e, $prof) {
-  //var filterJoin = [];
-  /* let chList = document.getElementsByClassName("filterProfiles");
-  for (var i = 0; i < chList.length; i++) {
-    let chClasses = chList[i].classList;
-    chClasses.remove("is-checked");
-  } */
   var $target = $(e.currentTarget);
-  $target[0].classList.add("is-checked");
-  var isChecked = $target.hasClass("is-checked");
-  var filter = $target.attr("data-filter");
-  var filter2 = $target.attr("data-filter");
+  var isCheckedProcess = !$target.hasClass("is-checked");
 
-  var sameFil = document.querySelectorAll(filter);
-  for (var i = 0; i < sameFil.length; i++) {
-    sameFil[i].classList.add("is-checked");
-  }
-  
-
-  if (isChecked) {
-    addFilter(filter, filters);
+  if (isCheckedProcess) {
+    addFilter($target);
   } else {
-    removeFilter(filter, filters);
+    removeFilter($target);
   }
 
   let filterJoin = filters.join(", ");
@@ -64,19 +48,34 @@ function tagsFiltering(e, $prof) {
 }
 
 //Add filters
-function addFilter(filter, filters) {
+function addFilter($target) {
+  var filter = $target.attr("data-filter");
+  const sameFil = $(document.querySelectorAll(filter));
+
+  sameFil.addClass("is-checked");
+  $target.addClass("is-checked");
+
   if (filters.indexOf(filter) == -1) {
     filters.push(filter);
   }
 }
 
 //Remove filters
-function removeFilter(filter, filters) {
-  var index = filters.indexOf(filter);
+function removeFilter($target) {
+  var filter = $target.attr("data-filter");
+  const sameFil = $(document.querySelectorAll(filter));
+
+  sameFil.removeClass("is-checked");
+  $target.removeClass("is-checked");
+  $target.blur();
+  const index = filters.indexOf(filter);
   if (index != -1) {
     filters.splice(index, 1);
   }
 }
+
+// Bind filter on tags button change and set class on buttons
+var filters = [];
 
 //Export function
 export { filterHome as default };

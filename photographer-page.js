@@ -27,9 +27,7 @@ fetch("./FishEyeDataFR.json")
     priceGlobalLikes.priceGlobalLikes();
     //Configuration of sorting and filtering features
     sortAndFilterParam.sortAndFilterParam();
-    sortAndFilterParam.creatBR();
-    //sortAndFilterParam.sortOut();
-    sortAndFilterParam.setTabIndex();
+
     //Change page title
     changePageTitle();
     //Scroll top features for header

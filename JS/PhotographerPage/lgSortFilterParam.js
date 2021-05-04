@@ -1,24 +1,13 @@
 function sortAndFilterParam() {
   ////Lightbox init & parameters
-  let $gallery = $("#photoGallery");
-  $gallery.lightGallery({
-    download: false,
-    getCaptionFromTitleOrAlt: true,
-    preload: 2,
-    fullScreen: true,
-    hideBarsDelay: 0,
-    counter: false,
-  });
-
   //Isotope Filtering for mobile view
-  mobileFilter($gallery);
-
+  mobileFilter();
   //Isotope Sorting & Filtering for desktop view
-  desktopFilter($gallery);
+  desktopFilter();
 }
 
 //Isotope Filtering for mobile view//
-function mobileFilter($gallery) {
+function mobileFilter() {
   if (window.innerWidth < 800) {
     //Init isotope / create grid
     var $grid = $(".photoGall").isotope({
@@ -35,20 +24,23 @@ function mobileFilter($gallery) {
 
     //Filter function on click event
     $(".profileTags").on("click", "button", function (e) {
-      setButtonFilter(e, $grid, $gallery);
+      setButtonFilter(e, $grid);
     });
+
+    creatBR();
   }
 }
 ////////////////////////////////////////////////
 
 //Isotope Sorting & Filtering for desktop view//
-function desktopFilter($gallery) {
+function desktopFilter() {
+  console.log('-----desktopFilter-----');
   if (window.innerWidth >= 800) {
     // Init isotope / create grid
     var $grid = $(".photoGall").isotope({
       itemSelector: ".photoAHREF",
       layoutMode: "fitRows",
-      sortBy: "Popularite",
+      sortBy: "Titre",
       sortAscending: false,
       fitRows: {
         columnWidth: 50,
@@ -64,6 +56,7 @@ function desktopFilter($gallery) {
 
     // bind sorter on select change and sorting
     $(".filters-select").on("change", function () {
+
       var sortValue = this.value;
       $grid.isotope({
         sortBy: sortValue,
@@ -73,160 +66,98 @@ function desktopFilter($gallery) {
           Title: true,
         },
       });
-      //After sorting rearrange, order HTML elements and recreate lightbox
-      $grid.one("arrangeComplete", function () {
-        sortOut();
-        destroySortGal($gallery);
-        createSortGal($gallery);
-      });
     });
 
     // bind filter on tags button change
     // change is-checked class on buttons
     $(".profileTags").on("click", "button", function (e) {
-      setButtonFilter(e, $grid, $gallery);
+      setButtonFilter(e, $grid);
     });
 
     //Reattribute data-val from reorder
     $grid
       .on("arrangeComplete", function (e, filteredItems) {
         //dataVal(filteredItems)
-        var dataVal = 1;
+          console.log('--------arrangeComplete-----', $(filteredItems));
+          var dataVal = 1;
 
-        $(filteredItems).each(function (index, item) {
-          $(item.element).find("a.title").attr("data-val", dataVal);
-          let t = dataVal++;
-          index = t.toLocaleString("en-US", {
-            minimumIntegerDigits: 2,
-            useGrouping: false,
+          $(filteredItems).each(function (index, item) {
+            console.log(index, item);
+            $(item.element).find("a.title").attr("data-val", dataVal);
+            let t = dataVal++;
+            index = t.toLocaleString("en-US", {
+              minimumIntegerDigits: 2,
+              useGrouping: false,
+            });
+            item.element.setAttribute("data-val", index);
           });
-          item.element.setAttribute("data-val", index);
-        });
-      })
-      .isotope();
 
-    //Set tabindex -1 on hidden cards
-    /*     window.addEventListener("DOMContentLoaded", function () {
-      $grid
-        .on("arrangeComplete", function () { setTabIndex }).isotope();
-      console.log("OK")
-    });
-    if( document.readyState !== 'loading' ) {
-      console.log( 'document is already ready, just execute code here' );
-      $grid
-        .on("arrangeComplete", function () { setTabIndex }).isotope();
-  } else {
-      document.addEventListener('DOMContentLoaded', function () {
-          console.log( 'document was not ready, place code here' );
-          $grid
-        .on("arrangeComplete", function () { setTabIndex }).isotope();
-      });
-  } */
+          sortOut();
 
-    $grid
-      .on("arrangeComplete", function () {
-        setTabIndex;
+
+          destroyGalery();
+          createGalery();
+
+          setTabIndex();
       })
-      .isotope();
+
+    creatBR();
+
+    setTimeout(() => {
+        $(".filters-select").trigger('change');
+    }, 0);
   }
 }
 
 ////////////////////////////////////////////////
 
 //Set button filter
-function setButtonFilter(e, $grid, $gallery) {
-  var filters = [];
+function setButtonFilter(e, $grid) {
+
   var $target = $(e.currentTarget);
-  var filter = $target.attr("data-filter");
+  var isCheckedProcess = !$target.hasClass("is-checked");
 
-  let $butFilt = $(".filtButtonPP");
-  let $otherFilters = $butFilt
-    .map(function () {
-      return $(this).data("filter");
-    })
-    .get();
 
-  for (let i = 0; i < $butFilt.length; i++) {
-    let $butFromData = document.querySelectorAll(
-      `[data-filter='${$otherFilters[i]}']`
-    );
-
-    if ($otherFilters[i] != filter) {
-      $($butFromData[0]).removeClass("is-checked");
-    } else {
-      if ($($butFromData[0]).hasClass("is-checked") == true) {
-        $($butFromData[0]).removeClass("is-checked");
-      } else {
-        $($butFromData[0]).addClass("is-checked");
-      }
-    }
-  }
-
-  var isChecked = $target.hasClass("is-checked");
-  if (isChecked) {
-    addFilter(filters, filter);
+  if (isCheckedProcess) {
+    addFilter($target);
   } else {
-    removeFilter(filters, filter);
-    $target.blur();
+    removeFilter($target);
   }
 
   //Filtering
+  let filterJoin = "*";
   if (filters.length > 0) {
-    $grid.isotope({ filter: filter });
-  } else {
-    $grid.isotope({ filter: "*" });
+    filterJoin = filters.join(", ");
   }
 
-  //After filtering rearrange, order HTML elements and recreate lightbox
-  $grid.one("arrangeComplete", function () {
-    sortOut();
-    destroyGal($gallery, filters);
-    createFiltGal($gallery, filters, filter);
-  });
+  $grid.isotope({ filter: filterJoin });
+
 }
 
 ////
 
 //Add filter
-function addFilter(filters, filter) {
+function addFilter($target) {
+  var filter = $target.attr("data-filter")
+
+  $target.addClass('is-checked')
+
   if (filters.indexOf(filter) == -1) {
     filters.push(filter);
   }
 }
 
 //Remove filter
-function removeFilter(filters, filter) {
+function removeFilter($target) {
+  var filter = $target.attr("data-filter")
+
+  $target.removeClass('is-checked')
+  $target.blur();
+
   var index = filters.indexOf(filter);
   if (index != -1) {
     filters.splice(index, 1);
   }
-}
-
-//////////////////////////////////
-
-/* if( document.readyState !== 'loading' ) {
-  console.log( 'document is already ready, just execute code here' );
-   setTabIndex();
-} else {
-  document.addEventListener('DOMContentLoaded', function () {
-      console.log( 'document was not ready, place code here' );
-     setTabIndex();
-  });
-} */
-
-//Reattribute data-val from reorder
-function dataVal(filteredItems) {
-  var dataVal = 1;
-
-  $(filteredItems).each(function (index, item) {
-    $(item.element).find("a.title").attr("data-val", dataVal);
-    let t = dataVal++;
-    index = t.toLocaleString("en-US", {
-      minimumIntegerDigits: 2,
-      useGrouping: false,
-    });
-    item.element.setAttribute("data-val", index);
-  });
 }
 
 //Set tabindex -1 on hidden cards
@@ -273,46 +204,54 @@ function sortOut() {
   });
 }
 
-//////////////////////////////////
-
-//Filtering destroy lightbox gallery
-function destroyGal($gallery, filters) {
-  if (filters.length > 0) {
-    $gallery.data("lightGallery").destroy(true);
-  }
+function destroyGalery() {
+  $gallery.data("lightGallery").destroy(true);
 }
 
 //Filtering recreate lightbox gallery
-function createFiltGal($gallery, filters, filter) {
-  if (filters.length > 0) {
-    $gallery.lightGallery({
-      selector: filter,
+function createGalery() {
+  const filters = $('.filtButtonPP.is-checked')
+
+  let data = {
       download: false,
       getCaptionFromTitleOrAlt: true,
       preload: 2,
       fullScreen: true,
       hideBarsDelay: 0,
       counter: false,
-    });
   }
+
+  if (filters.length > 0) {
+      let filter = ""
+      $.each(filters, (index, elt) => {
+          if (filter !== '') {
+              filter = filter + ','
+          }
+
+          filter = filter + $(elt).data('filter')
+      })
+
+      data.selector = filter
+  }
+
+  $gallery.lightGallery(data);
 }
 
 //Sorting destroy lightbox gallery
-function destroySortGal($gallery) {
+function destroySortGal() {
   $gallery.data("lightGallery").destroy(true);
 }
 
-//Sorting recreate lightbox gallery
-function createSortGal($gallery) {
-  $gallery.lightGallery({
+var filters = [];
+let $gallery = $("#photoGallery");
+$gallery.lightGallery({
     download: false,
     getCaptionFromTitleOrAlt: true,
     preload: 2,
     fullScreen: true,
     hideBarsDelay: 0,
     counter: false,
-  });
-}
+});
 
 //Export functions
-export { sortAndFilterParam, creatBR, sortOut, dataVal, setTabIndex };
+export { sortAndFilterParam, creatBR, sortOut, setTabIndex };
