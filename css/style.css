@@ -1188,6 +1188,10 @@ select::-ms-expand {
   display: none;
 }
 
+.selOpt {
+  color: black;
+}
+
 .selOpt:hover {
   background-color: #D3573C;
 }
