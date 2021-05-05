@@ -1,38 +1,58 @@
 //Master function - Mobile/Desktop switch
 function filterHome() {
-  if (window.innerWidth < 800) {
-    filterHomeParam("vertical");
-  }
-  if (window.innerWidth >= 800) {
-    filterHomeParam("fitRows");
-  }
-}
-
-//Filter parameters
-function filterHomeParam(layoutModeParam) {
-  let $prof = $("#profiles");
-  $prof.isotope({
+  //Init parameters
+  let dataIsotope = {
     itemSelector: ".profileCard",
-    layoutMode: layoutModeParam,
     fitRows: {
       columnWidth: 50,
       gutter: 6,
     },
-    getSortData: {
-      filterValue: ".profileCard",
-    },
-  });
-  tagsClickFilt($prof);
-}
+  };
 
-//On button click
-function tagsClickFilt($prof) {
+  //Isotope Filtering for mobile view
+  if (window.innerWidth < 800) {
+    dataIsotope.layoutMode = "vertical";
+    dataIsotope.getSortData = {
+      filterValue: ".profileCard",
+    };
+
+    //Isotope Sorting & Filtering for desktop view
+  } else {
+    dataIsotope.layoutMode = "fitRows";
+    dataIsotope.getSortData = {
+      filterValue: ".profileCard",
+    };
+  }
+
+  var $prof = $("#profiles").isotope(dataIsotope);
+
+  //On button click
   $(document).on("click", ".filterProfiles", function (e) {
     tagsFiltering(e, $prof);
   });
+
+  //Responsive grid display
+  var id;
+
+  $(window).on("resize", function () {
+    var mq = window.matchMedia("(min-width: 800px)");
+    if (mq.matches) {
+      clearTimeout(id);
+      id = setTimeout(function () {
+        $("#profiles").isotope({
+          layoutMode: "fitRows",
+          getSortData: {
+            filterValue: ".profileCard",
+          },
+        });
+      }, 0);
+    }
+  });
 }
 
+//////////////////
 
+//Filtering items
 function tagsFiltering(e, $prof) {
   var $target = $(e.currentTarget);
   var isCheckedProcess = !$target.hasClass("is-checked");
@@ -74,7 +94,9 @@ function removeFilter($target) {
   }
 }
 
-// Bind filter on tags button change and set class on buttons
+////////////////////
+
+//Global Variables//
 var filters = [];
 
 //Export function

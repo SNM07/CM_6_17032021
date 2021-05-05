@@ -1,6 +1,5 @@
 function sortAndFilterParam() {
   ////Init parameters
-
   let dataIsotope = {
     itemSelector: ".photoAHREF",
     fitRows: {
@@ -11,7 +10,6 @@ function sortAndFilterParam() {
 
   //Isotope Filtering for mobile view
   if (window.innerWidth < 800) {
-    console.log("petit");
     dataIsotope.layoutMode = "vertical";
     dataIsotope.getSortData = {
       Popularite: ".photoLikes parseInt",
@@ -22,10 +20,9 @@ function sortAndFilterParam() {
     dataIsotope.sortBy = "Titre";
     dataIsotope.sortAscending = false;
     dataIsotope.layoutMode = "fitRows";
-  }
-  //Isotope Sorting & Filtering for desktop view
-  else {
-    console.log("grand");
+
+    //Isotope Sorting & Filtering for desktop view
+  } else {
     dataIsotope.getSortData = {
       Popularite: ".photoLikes parseInt",
       Date: ".photoDate",
@@ -65,7 +62,6 @@ function sortAndFilterParam() {
     var dataVal = 1;
 
     $(filteredItems).each(function (index, item) {
-      console.log(index, item);
       $(item.element).find("a.title").attr("data-val", dataVal);
       let t = dataVal++;
       index = t.toLocaleString("en-US", {
@@ -79,8 +75,8 @@ function sortAndFilterParam() {
     sortOut();
 
     //Recreate Lightbox
-    destroyGalery();
-    createGalery();
+    destroyGallery();
+    createGallery();
 
     //Set tabindex for hidden elements
     setTabIndex();
@@ -103,7 +99,7 @@ function sortAndFilterParam() {
       clearTimeout(id);
       id = setTimeout(function () {
         $(".filters-select").trigger("change");
-      }, 1000);
+      }, 0);
     }
   });
 }
@@ -129,7 +125,7 @@ function setButtonFilter(e, $grid) {
   $grid.isotope({ filter: filterJoin });
 }
 
-////
+/////////////
 
 //Add filter
 function addFilter($target) {
@@ -199,12 +195,13 @@ function sortOut() {
   });
 }
 
-function destroyGalery() {
+//Destroy gallery
+function destroyGallery() {
   $gallery.data("lightGallery").destroy(true);
 }
 
 //Filtering recreate lightbox gallery
-function createGalery() {
+function createGallery() {
   const filters = $(".filtButtonPP.is-checked");
 
   let data = {
@@ -216,6 +213,7 @@ function createGalery() {
     counter: false,
   };
 
+  //Set selector after filtering
   if (filters.length > 0) {
     let filter = "";
     $.each(filters, (index, elt) => {
@@ -232,11 +230,9 @@ function createGalery() {
   $gallery.lightGallery(data);
 }
 
-//Sorting destroy lightbox gallery
-function destroySortGal() {
-  $gallery.data("lightGallery").destroy(true);
-}
+////////////////////
 
+//Global variables//
 var filters = [];
 let $gallery = $("#photoGallery");
 $gallery.lightGallery({

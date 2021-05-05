@@ -6,7 +6,7 @@
   @include large-only {
     width: 32%;
     justify-self: center;
-    padding: 1vw;
+    padding: 2vw;
     max-width: 100%;
     margin: 0;
     margin-bottom: 3rem;
@@ -33,7 +33,7 @@
     font-weight: 100;
     margin: 2rem 0 1rem 0;
     @include large-only {
-      font-size: 3.2vw;
+      font-size: 3vw;
     }
   }
   & .profileLocation {
