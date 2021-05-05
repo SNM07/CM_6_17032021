@@ -1010,6 +1010,10 @@ nav {
   color: white !important;
 }
 
+#all {
+  display: none;
+}
+
 header {
   height: fit-content;
   height: auto;
