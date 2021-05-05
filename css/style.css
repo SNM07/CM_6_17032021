@@ -1190,6 +1190,8 @@ select::-ms-expand {
 
 .selOpt {
   color: black;
+  background-color: white;
+  display: none;
 }
 
 .selOpt:hover {

@@ -137,10 +137,12 @@
     display: none;
   }
 
-  .selOpt{
+  .selOpt {
     color: black;
+    background-color: white;
+    display: none;
   }
-  
+
   .selOpt:hover {
     background-color: $color-primary-2;
   }
