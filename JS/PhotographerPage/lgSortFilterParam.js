@@ -1,114 +1,96 @@
 function sortAndFilterParam() {
   ////Lightbox init & parameters
+  
+  let dataIsotope = {
+    itemSelector: ".photoAHREF",
+    fitRows: {
+      columnWidth: 50,
+      gutter: 30,
+    },
+    
+  }
+  //window.addEventListener('resize', "arrangeComplete");
+  
   //Isotope Filtering for mobile view
-  mobileFilter();
-  //Isotope Sorting & Filtering for desktop view
-  desktopFilter();
-}
-
-//Isotope Filtering for mobile view//
-function mobileFilter() {
   if (window.innerWidth < 800) {
-    //Init isotope / create grid
-    var $grid = $(".photoGall").isotope({
-      itemSelector: ".photoAHREF",
-      layoutMode: "vertical",
-      fitRows: {
-        columnWidth: 50,
-        gutter: 30,
-      },
-      getSortData: {
-        filterValue: ".photoTags",
-      },
-    });
-
-    //Filter function on click event
-    $(".profileTags").on("click", "button", function (e) {
-      setButtonFilter(e, $grid);
-    });
-
-    creatBR();
+    console.log("petit")
+    dataIsotope.layoutMode = "vertical";
+    dataIsotope.getSortData = {
+      filterValue: ".photoTags",
+    };
   }
-}
-////////////////////////////////////////////////
+  //Isotope Sorting & Filtering for desktop view
+  else {
+    console.log("grand")
+    dataIsotope.getSortData = {
+      Popularite: ".photoLikes parseInt",
+      Date: ".photoDate",
+      Titre: ".photoTitle",
+      filterValue: ".photoTags",
+    }
+    dataIsotope.sortBy = "Titre"
+    dataIsotope.sortAscending = false
+    dataIsotope.layoutMode = "fitRows"
+    
+  }
+  
+  var $grid = $(".photoGall").isotope(dataIsotope);
 
-//Isotope Sorting & Filtering for desktop view//
-function desktopFilter() {
-  console.log('-----desktopFilter-----');
-  if (window.innerWidth >= 800) {
-    // Init isotope / create grid
-    var $grid = $(".photoGall").isotope({
-      itemSelector: ".photoAHREF",
-      layoutMode: "fitRows",
-      sortBy: "Titre",
-      sortAscending: false,
-      fitRows: {
-        columnWidth: 50,
-        gutter: 30,
-      },
-      getSortData: {
-        Popularite: ".photoLikes parseInt",
-        Date: ".photoDate",
-        Titre: ".photoTitle",
-        filterValue: ".photoTags",
+  //Filter function on click event
+  $(".profileTags").on("click", "button", function (e) {
+    setButtonFilter(e, $grid);
+  });
+
+  creatBR();
+  
+
+  // bind sorter on select change and sorting
+  $(".filters-select").on("change", function () {
+
+    var sortValue = this.value;
+    $grid.isotope({
+      sortBy: sortValue,
+      sortAscending: {
+        Popularite: false,
+        Date: true,
+        Title: true,
       },
     });
+  });
 
-    // bind sorter on select change and sorting
-    $(".filters-select").on("change", function () {
 
-      var sortValue = this.value;
-      $grid.isotope({
-        sortBy: sortValue,
-        sortAscending: {
-          Popularite: false,
-          Date: true,
-          Title: true,
-        },
+  //Reattribute data-val from reorder
+  $grid
+    .on("arrangeComplete", function (e, filteredItems) {
+      var dataVal = 1;
+
+      $(filteredItems).each(function (index, item) {
+        console.log(index, item);
+        $(item.element).find("a.title").attr("data-val", dataVal);
+        let t = dataVal++;
+        index = t.toLocaleString("en-US", {
+          minimumIntegerDigits: 2,
+          useGrouping: false,
+        });
+        item.element.setAttribute("data-val", index);
       });
-    });
 
-    // bind filter on tags button change
-    // change is-checked class on buttons
-    $(".profileTags").on("click", "button", function (e) {
-      setButtonFilter(e, $grid);
-    });
-
-    //Reattribute data-val from reorder
-    $grid
-      .on("arrangeComplete", function (e, filteredItems) {
-        //dataVal(filteredItems)
-          console.log('--------arrangeComplete-----', $(filteredItems));
-          var dataVal = 1;
-
-          $(filteredItems).each(function (index, item) {
-            console.log(index, item);
-            $(item.element).find("a.title").attr("data-val", dataVal);
-            let t = dataVal++;
-            index = t.toLocaleString("en-US", {
-              minimumIntegerDigits: 2,
-              useGrouping: false,
-            });
-            item.element.setAttribute("data-val", index);
-          });
-
-          sortOut();
+      sortOut();
 
 
-          destroyGalery();
-          createGalery();
+      destroyGalery();
+      createGalery();
 
-          setTabIndex();
-      })
+      setTabIndex();
+    })
 
-    creatBR();
+  creatBR();
 
-    setTimeout(() => {
-        $(".filters-select").trigger('change');
-    }, 0);
-  }
+  setTimeout(() => {
+    $(".filters-select").trigger('change');
+  }, 0);
+  
 }
-
 ////////////////////////////////////////////////
 
 //Set button filter
