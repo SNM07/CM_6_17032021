@@ -448,9 +448,19 @@
 
 /* Modal form */
 #formTitle {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 600;
   margin-bottom: 10px;
+}
+@media screen and (min-width: 800px) {
+  #formTitle {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (max-width: 340px) {
+  #formTitle {
+    font-size: 2rem;
+  }
 }
 
 .button {
@@ -508,7 +518,7 @@
 }
 
 #message {
-  height: 10rem;
+  height: 18vh;
 }
 
 .smFont {
@@ -528,9 +538,8 @@
 }
 
 .content {
-  margin: 5% auto;
+  margin: 7% auto;
   width: 100%;
-  max-height: 90vh;
   max-width: 500px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
@@ -551,6 +560,7 @@
 .modal-body {
   padding: 15px 8%;
   margin: auto;
+  height: 90%;
 }
 
 .formData label {
@@ -573,7 +583,7 @@ input {
   width: 100%;
   border-radius: 8px;
   font-size: 20px;
-  height: 48px;
+  height: 6vh;
 }
 
 .formData[data-error]::after {
