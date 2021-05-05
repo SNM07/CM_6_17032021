@@ -1,39 +1,42 @@
 function sortAndFilterParam() {
-  ////Lightbox init & parameters
-  
+  ////Init parameters
+
   let dataIsotope = {
     itemSelector: ".photoAHREF",
     fitRows: {
       columnWidth: 50,
       gutter: 30,
     },
-    
-  }
-  //window.addEventListener('resize', "arrangeComplete");
-  
+  };
+
   //Isotope Filtering for mobile view
   if (window.innerWidth < 800) {
-    console.log("petit")
+    console.log("petit");
     dataIsotope.layoutMode = "vertical";
-    dataIsotope.getSortData = {
-      filterValue: ".photoTags",
-    };
-  }
-  //Isotope Sorting & Filtering for desktop view
-  else {
-    console.log("grand")
     dataIsotope.getSortData = {
       Popularite: ".photoLikes parseInt",
       Date: ".photoDate",
       Titre: ".photoTitle",
       filterValue: ".photoTags",
-    }
-    dataIsotope.sortBy = "Titre"
-    dataIsotope.sortAscending = false
-    dataIsotope.layoutMode = "fitRows"
-    
+    };
+    dataIsotope.sortBy = "Titre";
+    dataIsotope.sortAscending = false;
+    dataIsotope.layoutMode = "fitRows";
   }
-  
+  //Isotope Sorting & Filtering for desktop view
+  else {
+    console.log("grand");
+    dataIsotope.getSortData = {
+      Popularite: ".photoLikes parseInt",
+      Date: ".photoDate",
+      Titre: ".photoTitle",
+      filterValue: ".photoTags",
+    };
+    dataIsotope.sortBy = "Titre";
+    dataIsotope.sortAscending = false;
+    dataIsotope.layoutMode = "fitRows";
+  }
+
   var $grid = $(".photoGall").isotope(dataIsotope);
 
   //Filter function on click event
@@ -41,12 +44,11 @@ function sortAndFilterParam() {
     setButtonFilter(e, $grid);
   });
 
+  //Create br at the end of the section
   creatBR();
-  
 
   // bind sorter on select change and sorting
   $(".filters-select").on("change", function () {
-
     var sortValue = this.value;
     $grid.isotope({
       sortBy: sortValue,
@@ -58,47 +60,59 @@ function sortAndFilterParam() {
     });
   });
 
-
   //Reattribute data-val from reorder
-  $grid
-    .on("arrangeComplete", function (e, filteredItems) {
-      var dataVal = 1;
+  $grid.on("arrangeComplete", function (e, filteredItems) {
+    var dataVal = 1;
 
-      $(filteredItems).each(function (index, item) {
-        console.log(index, item);
-        $(item.element).find("a.title").attr("data-val", dataVal);
-        let t = dataVal++;
-        index = t.toLocaleString("en-US", {
-          minimumIntegerDigits: 2,
-          useGrouping: false,
-        });
-        item.element.setAttribute("data-val", index);
+    $(filteredItems).each(function (index, item) {
+      console.log(index, item);
+      $(item.element).find("a.title").attr("data-val", dataVal);
+      let t = dataVal++;
+      index = t.toLocaleString("en-US", {
+        minimumIntegerDigits: 2,
+        useGrouping: false,
       });
+      item.element.setAttribute("data-val", index);
+    });
 
-      sortOut();
+    //Rearrange HTML elements
+    sortOut();
 
+    //Recreate Lightbox
+    destroyGalery();
+    createGalery();
 
-      destroyGalery();
-      createGalery();
+    //Set tabindex for hidden elements
+    setTabIndex();
+  });
 
-      setTabIndex();
-    })
-
+  //Create br at the end of the section
   creatBR();
 
+  //Arrange by popularity on windows first load
   setTimeout(() => {
-    $(".filters-select").trigger('change');
+    $(".filters-select").trigger("change");
   }, 0);
-  
+
+  //Responsive grid display
+  var id;
+
+  $(window).on("resize", function (e) {
+    var mq = window.matchMedia("(min-width: 800px)");
+    if (mq.matches) {
+      clearTimeout(id);
+      id = setTimeout(function () {
+        $(".filters-select").trigger("change");
+      }, 1000);
+    }
+  });
 }
 ////////////////////////////////////////////////
 
 //Set button filter
 function setButtonFilter(e, $grid) {
-
   var $target = $(e.currentTarget);
   var isCheckedProcess = !$target.hasClass("is-checked");
-
 
   if (isCheckedProcess) {
     addFilter($target);
@@ -113,16 +127,15 @@ function setButtonFilter(e, $grid) {
   }
 
   $grid.isotope({ filter: filterJoin });
-
 }
 
 ////
 
 //Add filter
 function addFilter($target) {
-  var filter = $target.attr("data-filter")
+  var filter = $target.attr("data-filter");
 
-  $target.addClass('is-checked')
+  $target.addClass("is-checked");
 
   if (filters.indexOf(filter) == -1) {
     filters.push(filter);
@@ -131,9 +144,9 @@ function addFilter($target) {
 
 //Remove filter
 function removeFilter($target) {
-  var filter = $target.attr("data-filter")
+  var filter = $target.attr("data-filter");
 
-  $target.removeClass('is-checked')
+  $target.removeClass("is-checked");
   $target.blur();
 
   var index = filters.indexOf(filter);
@@ -192,28 +205,28 @@ function destroyGalery() {
 
 //Filtering recreate lightbox gallery
 function createGalery() {
-  const filters = $('.filtButtonPP.is-checked')
+  const filters = $(".filtButtonPP.is-checked");
 
   let data = {
-      download: false,
-      getCaptionFromTitleOrAlt: true,
-      preload: 2,
-      fullScreen: true,
-      hideBarsDelay: 0,
-      counter: false,
-  }
+    download: false,
+    getCaptionFromTitleOrAlt: true,
+    preload: 2,
+    fullScreen: true,
+    hideBarsDelay: 0,
+    counter: false,
+  };
 
   if (filters.length > 0) {
-      let filter = ""
-      $.each(filters, (index, elt) => {
-          if (filter !== '') {
-              filter = filter + ','
-          }
+    let filter = "";
+    $.each(filters, (index, elt) => {
+      if (filter !== "") {
+        filter = filter + ",";
+      }
 
-          filter = filter + $(elt).data('filter')
-      })
+      filter = filter + $(elt).data("filter");
+    });
 
-      data.selector = filter
+    data.selector = filter;
   }
 
   $gallery.lightGallery(data);
@@ -227,12 +240,12 @@ function destroySortGal() {
 var filters = [];
 let $gallery = $("#photoGallery");
 $gallery.lightGallery({
-    download: false,
-    getCaptionFromTitleOrAlt: true,
-    preload: 2,
-    fullScreen: true,
-    hideBarsDelay: 0,
-    counter: false,
+  download: false,
+  getCaptionFromTitleOrAlt: true,
+  preload: 2,
+  fullScreen: true,
+  hideBarsDelay: 0,
+  counter: false,
 });
 
 //Export functions
