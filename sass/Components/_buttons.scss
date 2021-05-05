@@ -104,7 +104,8 @@
   line-height: 8vw;
   cursor: pointer;
   &:hover {
-    background-color: $color-primary-2 !important;
+    background-color: $color-primary-2;
+    font-weight: bold;
     color: black;
   }
   &:focus {

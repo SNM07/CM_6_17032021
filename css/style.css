@@ -234,7 +234,8 @@
   line-height: 7vw;
 }
 .contactFormButton .modal-btn:hover {
-  background-color: #D3573C !important;
+  background-color: #D3573C;
+  font-weight: bold;
   color: black;
 }
 .contactFormButton .modal-btn:focus {
@@ -483,7 +484,8 @@
   font-size: 1.5rem;
 }
 .button:hover {
-  background-color: #D3573C !important;
+  background-color: #D3573C;
+  font-weight: bold;
   color: black;
 }
 .button:focus {
