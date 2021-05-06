@@ -51,6 +51,11 @@
     font-size: 3vw;
   }
 }
+@media screen and (min-width: 1200px) {
+  .profileCard .profileName {
+    font-size: 2.5vw;
+  }
+}
 .profileCard .profileLocation {
   text-align: center;
   color: #901C1C;
@@ -101,10 +106,6 @@
 .profileCard .profileTags button span:hover {
   color: white;
   background-color: #901C1C;
-}
-
-.show {
-  display: block;
 }
 
 .profileCardPP {
@@ -674,7 +675,7 @@
   }
 }
 
-header {
+body header {
   position: fixed;
   background-color: white;
   z-index: 14;
@@ -682,90 +683,40 @@ header {
   transition: transform 0.4s;
 }
 @media screen and (min-width: 800px) {
-  header {
+  body header {
     border-radius: 0 0 60px 0;
   }
 }
-
-main {
-  height: 100vh;
-  padding: 0 5vw 5vw 5vw;
-  display: flex;
-  justify-content: center;
-}
-main h1 {
-  z-index: 99;
-  position: fixed;
-  right: 2rem;
-  font-size: 1rem;
-  margin-top: 2rem;
-  color: #901C1C;
-}
-@media screen and (min-width: 800px) {
-  main h1 {
-    font-size: 2.2vw;
-    font-weight: 400;
-    margin-top: 1rem;
-    right: 1rem;
-    background-color: white;
-    padding: 1rem;
-    border-radius: 10px;
-  }
-}
-
-#nosPhotog {
-  display: block;
-  transition: transform 0.2s;
-}
-
-.logo {
+body header .logo {
   cursor: pointer;
   float: left;
   margin-bottom: 1rem;
   margin-top: 1rem;
   margin-left: 4vw;
 }
-.logo img {
+body header .logo img {
   width: 50%;
 }
 @media screen and (min-width: 800px) {
-  .logo img {
+  body header .logo img {
     width: 20vw;
   }
 }
-
-#profiles {
-  width: 100%;
-  position: absolute;
-  z-index: 1;
-  top: 12rem;
-}
-@media screen and (min-width: 800px) {
-  #profiles {
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
-    justify-content: center;
-    padding: 1vw;
-  }
-}
-
-nav {
+body header nav {
   float: left;
 }
 @media screen and (min-width: 800px) {
-  nav {
+  body header nav {
     width: 50vw;
     padding: 2vw;
   }
 }
-
-#filterButtons {
+body header nav #filterButtons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-
-.filterButton {
+body header nav #filterButtons .filterButton {
   cursor: pointer;
   color: #901C1C;
   font-weight: bold;
@@ -776,54 +727,31 @@ nav {
   border-radius: 16px;
 }
 @media screen and (min-width: 800px) {
-  .filterButton {
+  body header nav #filterButtons .filterButton {
     font-size: 0.75rem;
     white-space: nowrap;
   }
 }
-.filterButton:hover {
+body header nav #filterButtons .filterButton:hover {
   color: white;
   background-color: #901C1C;
 }
-
-.active {
+body header nav #filterButtons .filterButton:focus {
   background-color: #901C1C;
   color: white;
 }
-
-.active .tagsli {
+body header nav #filterButtons .filterButton.filterProfiles.is-checked {
   background-color: #901C1C !important;
   color: white !important;
 }
-
-.listTagsCont {
-  border: none !important;
-  background: transparent !important;
-  padding: 2px !important;
+body header nav #filterButtons #all {
+  display: none;
 }
-
-.scroll-down .page-header {
-  transform: translate3d(0, -100%, 0);
-}
-
-.scroll-down #nosPhotog {
-  transform: translate3d(0, -300%, 0);
-}
-
-.scroll-up .page-header {
-  transform: none;
-}
-
-.scroll-up #nosPhotog {
-  transform: none;
-}
-
-#contentButtonContainer {
+body #contentButtonContainer {
   display: flex;
   justify-content: center;
 }
-
-#contentButton {
+body #contentButtonContainer #contentButton {
   display: none;
   position: fixed;
   top: 10px;
@@ -838,41 +766,89 @@ nav {
   border: 2px solid white;
   border-radius: 8px;
 }
-
-#contentButton:hover {
+body #contentButtonContainer #contentButton:hover {
   background-color: #901C1C;
   color: #FAFAFA;
 }
-
-.filterProfiles:focus {
+body #home-main {
+  height: 100vh;
+  padding: 0 5vw 5vw 5vw;
+  display: flex;
+  justify-content: center;
+}
+body #home-main #nosPhotog {
+  display: block;
+  transition: transform 0.2s;
+  z-index: 99;
+  position: fixed;
+  right: 2rem;
+  font-size: 1rem;
+  margin-top: 2rem;
+  color: #901C1C;
+}
+@media screen and (min-width: 800px) {
+  body #home-main #nosPhotog {
+    font-size: 2.2vw;
+    font-weight: 400;
+    margin-top: 1rem;
+    right: 1rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+}
+body #home-main #profiles {
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 12rem;
+}
+@media screen and (min-width: 800px) {
+  body #home-main #profiles {
+    top: 10rem;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    justify-content: center;
+    padding: 1vw;
+  }
+}
+body #home-main #profiles .profileTags .listTagsCont {
+  border: none !important;
+  background: transparent !important;
+  padding: 2px !important;
+}
+body #home-main #profiles .profileTags .listTagsCont:focus > span {
+  background-color: #901C1C !important;
+  color: white !important;
+}
+body #home-main #profiles .profileTags .filterProfiles:focus {
   color: white;
   background-color: #901C1C;
 }
-
-.filterProfiles.is-checked > span {
+body #home-main #profiles .profileTags .filterProfiles.is-checked > span {
   background-color: #901C1C !important;
   color: white !important;
 }
 
-.filterButton.filterProfiles.is-checked {
-  background-color: #901C1C !important;
-  color: white !important;
+.scroll-down .page-header {
+  transform: translate3d(0, -100%, 0);
+}
+.scroll-down #nosPhotog {
+  transform: translate3d(0, -300%, 0);
 }
 
-.listTagsCont:focus > span {
-  background-color: #901C1C !important;
-  color: white !important;
+.scroll-up .page-header {
+  transform: none;
+}
+.scroll-up #nosPhotog {
+  transform: none;
 }
 
-#all {
-  display: none;
-}
-
-body .page-header {
+body header {
   height: fit-content;
   height: auto;
 }
-body .page-header .logoP {
+body header .logoP {
   width: 100vw;
   margin-bottom: 1rem;
   margin-top: 1rem;
@@ -880,11 +856,11 @@ body .page-header .logoP {
   display: block;
   cursor: pointer;
 }
-body .page-header .logoP img {
+body header .logoP img {
   width: 50%;
 }
 @media screen and (min-width: 800px) {
-  body .page-header .logoP img {
+  body header .logoP img {
     width: 20vw;
   }
 }
