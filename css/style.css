@@ -137,7 +137,6 @@
   border-radius: 50%;
   box-shadow: 1px 1px 5px rgba(82, 82, 82, 0.3);
   backface-visibility: hidden;
-  align-self: center;
 }
 @media screen and (min-width: 800px) {
   .profileCardPP .profilePic {
@@ -289,8 +288,8 @@
 
 .photoCard {
   position: relative;
-  width: 80vw;
-  height: 62vw;
+  width: 90vw;
+  height: 76vw;
   margin: auto;
   margin-bottom: 1rem;
   cursor: pointer;
@@ -304,10 +303,10 @@
 }
 .photoCard .photoImg {
   object-fit: cover;
-  object-position: 50% 30%;
+  object-position: 50% 25%;
   position: absolute;
   width: 100%;
-  height: 50vw;
+  height: 62vw;
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
 @media screen and (min-width: 800px) {
@@ -317,10 +316,10 @@
 }
 .photoCard .photoVid {
   object-fit: cover;
-  object-position: 50% 30%;
+  object-position: 50% 25%;
   position: absolute;
   width: 100%;
-  height: 50vw;
+  height: 62vw;
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
 @media screen and (min-width: 800px) {
@@ -331,7 +330,7 @@
 .photoCard .photosInfos {
   display: flex;
   position: absolute;
-  top: 50vw;
+  top: 64vw;
   width: 100%;
   justify-content: space-between;
   background-color: white;
@@ -1047,8 +1046,9 @@ header {
 .profileCardPP {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  height: 32vw;
-  width: 84vw;
+  height: 40vw;
+  margin: 0;
+  grid-gap: 1vw;
 }
 @media screen and (min-width: 800px) {
   .profileCardPP {
@@ -1075,7 +1075,6 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  left: 5vw;
   margin: auto;
   position: inherit;
   height: auto;
@@ -1122,6 +1121,7 @@ header {
   margin-bottom: 1rem;
   margin-top: 1rem;
   margin-left: 4vw;
+  display: block;
   cursor: pointer;
 }
 .logoP img {
@@ -1222,6 +1222,7 @@ select.filters-select:focus {
   background-color: white;
   border: 1px solid rgba(82, 82, 82, 0.2);
   border-radius: 16px;
+  padding: 2px 6px 2px 6px;
   background-color: white;
   color: #901C1C;
 }
@@ -1245,14 +1246,13 @@ select.filters-select:focus {
   color: white;
 }
 
-.not-checked {
+/* .not-checked {
   background-color: white;
-  color: #901C1C;
-}
-
-.not-checked:focus {
-  background-color: #901C1C;
+  color: $color-primary-1;
+} */
+/* .not-checked:focus {
+  background-color: $color-primary-1;
   color: white;
-}
+} */
 
 /*# sourceMappingURL=style.css.map */

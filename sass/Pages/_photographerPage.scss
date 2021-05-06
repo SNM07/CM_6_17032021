@@ -17,8 +17,10 @@ header {
 .profileCardPP {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  height: 32vw;
-  width: 84vw;
+  height: 40vw;
+  margin: 0;
+  grid-gap: 1vw;
+  //width: 84vw;
   @include large-only {
     height: 24vw;
     width: 88vw;
@@ -41,7 +43,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  left: 5vw;
+  //left: 5vw;
   margin: auto;
   position: inherit;
   height: auto;
@@ -82,6 +84,7 @@ header {
   margin-bottom: 1rem;
   margin-top: 1rem;
   margin-left: 4vw;
+  display: block;
   cursor: pointer;
   & img {
     width: 50%;
@@ -137,7 +140,7 @@ header {
 
 .filtButtonPP {
   @include boutonTags;
-
+  padding: 2px 6px 2px 6px;
   background-color: white;
   color: $color-primary-1;
   &:focus {
@@ -151,12 +154,12 @@ header {
   color: white;
 }
 
-.not-checked {
+/* .not-checked {
   background-color: white;
   color: $color-primary-1;
-}
+} */
 
-.not-checked:focus {
+/* .not-checked:focus {
   background-color: $color-primary-1;
   color: white;
-}
+} */

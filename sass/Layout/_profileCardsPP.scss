@@ -25,7 +25,7 @@
     border-radius: 50%;
     box-shadow: 1px 1px 5px rgba($color-secondary-1, 0.3);
     backface-visibility: hidden;
-    align-self: center;
+    //align-self: center;
     @include large-only {
       justify-self: end;
       height: 18vw;
