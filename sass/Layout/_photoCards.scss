@@ -76,11 +76,12 @@
         font-size: 1rem;
         padding: 0.5rem 0 0 0;
         @include likeButton;
+        & .far {
+          & .labeltext {
+            font-size: 0.1rem;
+          }
+        }
       }
     }
   }
-}
-
-.labeltext{
-  font-size: .1rem;
 }

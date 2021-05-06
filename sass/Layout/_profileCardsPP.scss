@@ -1,3 +1,4 @@
+//Profile Cards on Photographers Pages
 .profileCardPP {
   cursor: pointer;
   width: fit-content;
@@ -25,7 +26,6 @@
     border-radius: 50%;
     box-shadow: 1px 1px 5px rgba($color-secondary-1, 0.3);
     backface-visibility: hidden;
-    //align-self: center;
     @include large-only {
       justify-self: end;
       height: 18vw;
@@ -79,15 +79,10 @@
   }
 }
 
-.show {
-  display: block;
-}
-
 .contactFormButton {
   margin: auto;
   display: flex;
   justify-content: center;
-
   @include large-only {
     margin: initial;
     display: initial;

@@ -85,7 +85,7 @@
   cursor: pointer;
   color: #901C1C;
   font-weight: bold;
-  padding: 6px 8px 6px 8px;
+  padding: 3px 6px 3px 6px;
   margin: 0.2rem 0.2rem 0.2rem 0.2rem;
   background-color: white;
   border: 1px solid rgba(82, 82, 82, 0.2);
@@ -193,10 +193,6 @@
     flex-wrap: wrap;
     gap: 0;
   }
-}
-
-.show {
-  display: block;
 }
 
 .contactFormButton {
@@ -441,8 +437,7 @@
     font-weight: 900;
   }
 }
-
-.labeltext {
+.photoCard .photosInfos .photoLikesCount .like .far .labeltext {
   font-size: 0.1rem;
 }
 
@@ -774,7 +769,7 @@ nav {
   cursor: pointer;
   color: #901C1C;
   font-weight: bold;
-  padding: 6px 8px 6px 8px;
+  padding: 3px 6px 3px 6px;
   margin: 0.2rem 0.2rem 0.2rem 0.2rem;
   background-color: white;
   border: 1px solid rgba(82, 82, 82, 0.2);
@@ -873,98 +868,11 @@ nav {
   display: none;
 }
 
-header {
+body .page-header {
   height: fit-content;
   height: auto;
 }
-
-#photographer-main {
-  display: flex;
-  flex-direction: column;
-  padding: 26vw 5vw 5vw 5vw;
-  justify-content: normal;
-  height: 100%;
-}
-@media screen and (min-width: 800px) {
-  #photographer-main {
-    padding: 7rem 5vw 5vw 5vw !important;
-  }
-}
-
-.profileCardPP {
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  height: 40vw;
-  margin: 0;
-  grid-gap: 1vw;
-}
-@media screen and (min-width: 800px) {
-  .profileCardPP {
-    height: 24vw;
-    width: 88vw;
-    margin: auto;
-  }
-}
-
-#profilesPP {
-  width: 100%;
-  position: relative;
-  margin: 2vw 0 10vw 0;
-  z-index: 1;
-}
-@media screen and (min-width: 800px) {
-  #profilesPP {
-    margin: 0;
-  }
-}
-
-#photoGallery {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: auto;
-  position: inherit;
-  height: auto;
-}
-@media screen and (min-width: 800px) {
-  #photoGallery {
-    margin-left: -1%;
-    margin-right: -4%;
-    left: 2.2vw;
-  }
-}
-
-.filtr-item {
-  position: relative;
-  left: 0;
-  top: 0;
-  display: block;
-}
-@media screen and (min-width: 800px) {
-  .filtr-item {
-    position: absolute;
-    width: 30%;
-  }
-}
-
-#photoFilter {
-  top: 50vw;
-  left: 3vw;
-  padding: 3vw 0 3vw 0;
-  font-weight: bold;
-  display: none;
-}
-@media screen and (min-width: 800px) {
-  #photoFilter {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 2rem;
-  }
-}
-
-.logoP {
+body .page-header .logoP {
   width: 100vw;
   margin-bottom: 1rem;
   margin-top: 1rem;
@@ -972,21 +880,19 @@ header {
   display: block;
   cursor: pointer;
 }
-.logoP img {
+body .page-header .logoP img {
   width: 50%;
 }
 @media screen and (min-width: 800px) {
-  .logoP img {
+  body .page-header .logoP img {
     width: 20vw;
   }
 }
-
-#contentButtonContainer2 {
+body #contentButtonContainer2 {
   display: flex;
   justify-content: center;
 }
-
-#contentButton2 {
+body #contentButtonContainer2 #contentButton2 {
   display: none;
   position: fixed;
   top: 10px;
@@ -1001,24 +907,125 @@ header {
   border: 2px solid white;
   border-radius: 8px;
 }
-
-.profileTags li {
+body #photographer-main {
+  display: flex;
+  flex-direction: column;
+  padding: 26vw 5vw 5vw 5vw;
+  justify-content: normal;
+  height: 100%;
+}
+@media screen and (min-width: 800px) {
+  body #photographer-main {
+    padding: 7rem 5vw 5vw 5vw !important;
+  }
+}
+body #photographer-main #profilesPP {
+  width: 100%;
+  position: relative;
+  margin: 2vw 0 10vw 0;
+  z-index: 1;
+}
+@media screen and (min-width: 800px) {
+  body #photographer-main #profilesPP {
+    margin: 0;
+  }
+}
+body #photographer-main #profilesPP .profileCardPP {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  height: 40vw;
+  margin: 0;
+  grid-gap: 1vw;
+}
+@media screen and (min-width: 800px) {
+  body #photographer-main #profilesPP .profileCardPP {
+    height: 24vw;
+    width: 90vw;
+    margin: auto;
+  }
+}
+body #photographer-main #profilesPP .profileCardPP .profileTags li {
   cursor: pointer;
 }
-.profileTags li label {
+body #photographer-main #profilesPP .profileCardPP .profileTags li label {
   cursor: pointer;
 }
-.profileTags li input[type=checkbox] {
+body #photographer-main #profilesPP .profileCardPP .profileTags li input[type=checkbox] {
   width: 0;
   display: none;
 }
-
-.hidePhoto {
+body #photographer-main #profilesPP .profileCardPP .profileTags .filtButtonPP {
+  cursor: pointer;
+  color: #901C1C;
+  font-weight: bold;
+  padding: 3px 6px 3px 6px;
+  margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+  background-color: white;
+  border: 1px solid rgba(82, 82, 82, 0.2);
+  border-radius: 16px;
+  background-color: white;
+  color: #901C1C;
+}
+@media screen and (min-width: 800px) {
+  body #photographer-main #profilesPP .profileCardPP .profileTags .filtButtonPP {
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+}
+body #photographer-main #profilesPP .profileCardPP .profileTags .filtButtonPP:hover {
+  color: white;
+  background-color: #901C1C;
+}
+body #photographer-main #profilesPP .profileCardPP .profileTags .filtButtonPP:focus {
+  background-color: #901C1C;
+  color: white;
+}
+body #photographer-main #profilesPP .profileCardPP .profileTags .filtButtonPP.is-checked {
+  background-color: #901C1C;
+  color: white;
+}
+body #photographer-main #photoFilter {
+  top: 50vw;
+  left: 3vw;
+  padding: 3vw 0 3vw 0;
+  font-weight: bold;
   display: none;
 }
-
-.showPhoto {
-  display: initial;
+@media screen and (min-width: 800px) {
+  body #photographer-main #photoFilter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+body #photographer-main #photoGallery {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  position: inherit;
+  height: auto;
+}
+@media screen and (min-width: 800px) {
+  body #photographer-main #photoGallery {
+    margin-left: -1%;
+    margin-right: -4%;
+    left: 2.2vw;
+  }
+}
+body #photographer-main #photoGallery .filtr-item {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+}
+@media screen and (min-width: 800px) {
+  body #photographer-main #photoGallery .filtr-item {
+    position: absolute;
+    width: 30%;
+  }
 }
 
 select {
@@ -1041,7 +1048,6 @@ select::-ms-expand {
   background-color: white;
   display: none;
 }
-
 .selOpt:hover {
   background-color: #D3573C;
 }
@@ -1061,48 +1067,7 @@ select.filters-select:focus {
   outline: 0;
 }
 
-.filtButtonPP {
-  cursor: pointer;
-  color: #901C1C;
-  font-weight: bold;
-  padding: 6px 8px 6px 8px;
-  margin: 0.2rem 0.2rem 0.2rem 0.2rem;
-  background-color: white;
-  border: 1px solid rgba(82, 82, 82, 0.2);
-  border-radius: 16px;
-  padding: 2px 6px 2px 6px;
-  background-color: white;
-  color: #901C1C;
-}
-@media screen and (min-width: 800px) {
-  .filtButtonPP {
-    font-size: 0.75rem;
-    white-space: nowrap;
-  }
-}
-.filtButtonPP:hover {
-  color: white;
-  background-color: #901C1C;
-}
-.filtButtonPP:focus {
-  background-color: #901C1C;
-  color: white;
-}
-
-.filtButtonPP.is-checked {
-  background-color: #901C1C;
-  color: white;
-}
-
-/* .not-checked {
-  background-color: white;
-  color: $color-primary-1;
-} */
-/* .not-checked:focus {
-  background-color: $color-primary-1;
-  color: white;
-} */
-/* custom select styles */
+/* custom select styles (rest of css is in node_modules/customselect/build */
 .custom-select {
   position: relative;
   font-family: Arial;
