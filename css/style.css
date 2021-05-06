@@ -447,23 +447,99 @@
 }
 
 /* Modal form */
-#formTitle {
+.bground {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(82, 82, 82, 0.6);
+}
+.bground .content {
+  margin: 7% auto;
+  width: 100%;
+  max-width: 500px;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+  background: #D3573C;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  color: black;
+  padding-top: 10px;
+}
+.bground .content #close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(0.7);
+}
+.bground .content #close:before, .bground .content #close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 3px;
+  background-color: #fff;
+}
+.bground .content #close:before {
+  transform: rotate(45deg);
+}
+.bground .content #close:after {
+  transform: rotate(-45deg);
+}
+.bground .content .modal-body {
+  padding: 15px 8%;
+  margin: auto;
+  height: 90%;
+}
+.bground .content .modal-body #formTitle {
   font-size: 2.2rem;
   font-weight: 600;
   margin-bottom: 10px;
 }
 @media screen and (min-width: 800px) {
-  #formTitle {
+  .bground .content .modal-body #formTitle {
     font-size: 2.5rem;
   }
 }
 @media screen and (max-width: 340px) {
-  #formTitle {
+  .bground .content .modal-body #formTitle {
     font-size: 2rem;
   }
 }
-
-.button {
+.bground .content .modal-body #contact-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.bground .content .modal-body #contact-form .formData label {
+  font-family: var(--font-default);
+  font-size: 1.4rem;
+  font-weight: normal;
+  display: inline-block;
+  margin-top: 5px;
+}
+.bground .content .modal-body #contact-form .formData .text-control {
+  margin: 0;
+  border: 0.8px solid #ccc;
+  padding: 8px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 20px;
+  height: 6vh;
+}
+.bground .content .modal-body #contact-form .formData #message {
+  height: 18vh;
+}
+.bground .content .modal-body #contact-form .button {
   background-color: #901C1C;
   color: white;
   z-index: 150;
@@ -482,17 +558,17 @@
   height: 3rem;
   font-size: 1.5rem;
 }
-.button:hover {
+.bground .content .modal-body #contact-form .button:hover {
   background-color: #D3573C;
   font-weight: bold;
   color: black;
 }
-.button:focus {
+.bground .content .modal-body #contact-form .button:focus {
   background-color: #D3573C;
   color: black;
 }
 @media screen and (min-width: 800px) {
-  .button {
+  .bground .content .modal-body #contact-form .button {
     width: 12vw;
     height: 6vw;
     font-size: 1.4vw;
@@ -500,239 +576,22 @@
   }
 }
 @media screen and (min-width: 800px) {
-  .button {
+  .bground .content .modal-body #contact-form .button {
     margin: 3% 8% 8% 0;
     line-height: 2rem;
     height: 4rem;
     font-size: 1.2rem !important;
   }
 }
-.button:hover {
+.bground .content .modal-body #contact-form .button:hover {
   background-color: #dc7b66;
   font-weight: bold;
   border: 2px solid white;
 }
-.button:focus {
+.bground .content .modal-body #contact-form .button:focus {
   background-color: #dc7b66;
   font-weight: bold;
   border: 2px solid white;
-}
-
-#message {
-  height: 18vh;
-}
-
-.smFont {
-  font-size: 16px;
-}
-
-.bground {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  overflow: auto;
-  background-color: rgba(82, 82, 82, 0.6);
-}
-
-.content {
-  margin: 7% auto;
-  width: 100%;
-  max-width: 500px;
-  animation-name: modalopen;
-  animation-duration: var(--modal-duration);
-  background: #D3573C;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  color: black;
-  padding-top: 10px;
-}
-
-#contact-form {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.modal-body {
-  padding: 15px 8%;
-  margin: auto;
-  height: 90%;
-}
-
-.formData label {
-  font-family: var(--font-default);
-  font-size: 1.4rem;
-  font-weight: normal;
-  display: inline-block;
-  margin-top: 5px;
-}
-
-input {
-  padding: 8px;
-  border: 0.8px solid #ccc;
-  outline: none;
-}
-
-.text-control {
-  margin: 0;
-  padding: 8px;
-  width: 100%;
-  border-radius: 8px;
-  font-size: 20px;
-  height: 6vh;
-}
-
-.formData[data-error]::after {
-  content: attr(data-error);
-  font-size: 0.4em;
-  color: #e54858;
-  display: block;
-  margin-top: 7px;
-  margin-bottom: 7px;
-  text-align: right;
-  line-height: 0.3;
-  opacity: 0;
-  transition: 0.3s;
-}
-
-.formData[data-error-visible=true]::after {
-  opacity: 1;
-}
-
-.formData[data-error-visible=true] .text-control {
-  border: 2px solid #e54858;
-}
-
-.checkbox-label,
-.checkbox2-label {
-  position: relative;
-  margin-left: 36px;
-  font-size: 12px;
-  font-weight: normal;
-  cursor: pointer;
-}
-
-.checkbox-label .checkbox-icon,
-.checkbox2-label .checkbox-icon {
-  display: block;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #279e7a;
-  border-radius: 50%;
-  text-indent: 29px;
-  white-space: nowrap;
-  position: absolute;
-  left: -30px;
-  top: -1px;
-  transition: 0.3s;
-}
-
-.checkbox-label .checkbox-icon::after,
-.checkbox2-label .checkbox-icon::after {
-  content: "";
-  width: 13px;
-  height: 13px;
-  background-color: #279e7a;
-  border-radius: 50%;
-  text-indent: 29px;
-  white-space: nowrap;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  transition: 0.3s;
-  opacity: 0;
-}
-
-.checkbox-input {
-  opacity: 0;
-  position: absolute;
-  display: flex;
-  top: 50%;
-  left: 10px;
-}
-
-.checkbox-input:checked + .checkbox-label .checkbox-icon::after,
-.checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
-  opacity: 1;
-}
-
-.checkbox-input:checked + .checkbox2-label .checkbox-icon {
-  background: #279e7a;
-}
-
-.checkbox2-label .checkbox-icon {
-  border-radius: 4px;
-  border: 0;
-  background: #c4c4c4;
-}
-
-.checkbox2-label .checkbox-icon::after {
-  width: 7px;
-  height: 4px;
-  border-radius: 2px;
-  background: transparent;
-  border: 2px solid transparent;
-  border-bottom-color: #fff;
-  border-left-color: #fff;
-  transform: rotate(-55deg);
-  left: 21%;
-  top: 19%;
-}
-
-.conditions {
-  position: relative;
-  display: inline;
-}
-
-#close {
-  position: absolute;
-  right: 15px;
-  top: 15px;
-  width: 32px;
-  height: 32px;
-  opacity: 1;
-  cursor: pointer;
-  transform: scale(0.7);
-}
-
-#close:before,
-#close:after {
-  position: absolute;
-  left: 15px;
-  content: " ";
-  height: 33px;
-  width: 3px;
-  background-color: #fff;
-}
-
-#close:before {
-  transform: rotate(45deg);
-}
-
-#close:after {
-  transform: rotate(-45deg);
-}
-
-/* custom select styles */
-.custom-select {
-  position: relative;
-  font-family: Arial;
-  font-size: 1.1rem;
-  font-weight: normal;
-}
-
-.custom-select select {
-  display: none;
-}
-
-.select-selected {
-  background-color: #fff;
 }
 
 @keyframes modalopen {
@@ -745,7 +604,7 @@ input {
   }
 }
 /* The actual popup */
-.popuptext {
+#myPopup {
   visibility: hidden;
   width: 60%;
   background-color: #901C1C;
@@ -756,28 +615,17 @@ input {
   position: absolute;
   z-index: 1;
   margin: auto;
-}
-
-#myPopup {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: block !important;
 }
 
-/* Popup arrow */
-.popuptext::after {
-  content: "";
-  position: absolute;
-  border-style: solid;
-  border-color: #279e7a transparent transparent transparent;
-}
-
 /* Toggle this class - hide and show the popup */
 .showPopup {
-  visibility: visible;
-  -webkit-animation: fadeIn 4s;
-  animation: fadeIn 4s both;
+  visibility: visible !important;
+  -webkit-animation: fadeIn 4s !important;
+  animation: fadeIn 4s both !important;
 }
 
 /* Add animation (fade in the popup) */
@@ -1254,5 +1102,20 @@ select.filters-select:focus {
   background-color: $color-primary-1;
   color: white;
 } */
+/* custom select styles */
+.custom-select {
+  position: relative;
+  font-family: Arial;
+  font-size: 1.1rem;
+  font-weight: normal;
+}
+
+.custom-select select {
+  display: none;
+}
+
+.select-selected {
+  background-color: #fff;
+}
 
 /*# sourceMappingURL=style.css.map */

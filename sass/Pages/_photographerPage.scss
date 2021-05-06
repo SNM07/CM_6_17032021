@@ -163,3 +163,18 @@ header {
   background-color: $color-primary-1;
   color: white;
 } */
+
+/* custom select styles */
+.custom-select {
+  position: relative;
+  font-family: Arial;
+  font-size: 1.1rem;
+  font-weight: normal;
+}
+
+.custom-select select {
+  display: none;
+}
+.select-selected {
+  background-color: #fff;
+}
