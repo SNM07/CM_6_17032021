@@ -205,6 +205,7 @@ function createGallery() {
   const filters = $(".filtButtonPP.is-checked");
 
   let data = {
+    selector: '.photoAHREF',
     download: false,
     getCaptionFromTitleOrAlt: true,
     preload: 2,
