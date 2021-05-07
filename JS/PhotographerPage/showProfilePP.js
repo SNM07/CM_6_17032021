@@ -8,9 +8,6 @@ function showProfilePP(obj) {
   //Map JSON data
   const profilID = photog.map((photog) => photog.id);
 
-  //Heading construction
-  headingProfilePP();
-
   //Contact button construction
   contactButton();
 
@@ -18,15 +15,6 @@ function showProfilePP(obj) {
   for (let i = 0; i < photog.length; i++) {
     createProfilePP(i, photog, profilID, profURL);
   }
-}
-
-//Heading construction
-function headingProfilePP() {
-  const myH2 = document.createElement("h2");
-  myH2.setAttribute("aria-label", "photographer profile");
-  myH2.innerHTML = "profile";
-  myH2.style.display = "none";
-  profilesPP.appendChild(myH2);
 }
 
 //Contact button construction

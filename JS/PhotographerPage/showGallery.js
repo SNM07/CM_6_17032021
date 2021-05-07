@@ -1,16 +1,6 @@
 //Construct photographer gallery
 function showGallery(obj) {
-  //Heading construction
-  headingGalleryPP();
-  function headingGalleryPP() {
-    const myH2 = document.createElement("h2");
-    myH2.setAttribute("aria-label", "photographer gallery");
-    myH2.innerHTML = "gallery";
-    myH2.style.display = "none";
-    photoGallery.appendChild(myH2);
-  }
-
-  // Get photographer profile ID
+ // Get photographer profile ID
   let profURL = window.location.search.substr(4);
 
   //Get JSON data
