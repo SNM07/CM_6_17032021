@@ -8,16 +8,29 @@ function showProfilePP(obj) {
   //Map JSON data
   const profilID = photog.map((photog) => photog.id);
 
+  //Heading construction
+  headingProfilePP();
+
   //Contact button construction
   contactButton();
 
+  //Profile construction
   for (let i = 0; i < photog.length; i++) {
     createProfilePP(i, photog, profilID, profURL);
   }
 }
 
+//Heading construction
+function headingProfilePP() {
+  const myH2 = document.createElement("h2");
+  myH2.setAttribute("aria-label", "photographer profile");
+  myH2.innerHTML = "profile";
+  myH2.style.display = "none";
+  profilesPP.appendChild(myH2);
+}
+
+//Contact button construction
 function contactButton() {
-  //Contact button construction
   const myContactContainer = document.createElement("div");
   const myContact = document.createElement("button");
   const contactText = document.createTextNode("Contactez-moi");
@@ -29,6 +42,7 @@ function contactButton() {
   profilesPP.appendChild(myContactContainer);
 }
 
+//Profile construction
 function createProfilePP(i, photog, profilID, profURL) {
   let x = profilID[i];
   let y = profURL;

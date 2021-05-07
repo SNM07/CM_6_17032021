@@ -74,12 +74,13 @@
     <main id="photographer-main">
       <section id="profilesPP"></section>
       <section id="photoFilter">
-        <p aria-label="Trier par">Trier par</p>
+        <h2 aria-label="photo sorting" style="display: none";>sort</h2>
+        <p aria-label="Trier">Trier par</p>
         <select
           class="filters-select"
           name="photo filter"
           id="photoFilterDD"
-          aria-label="Order by"
+          aria-label="Sort by"
         >
           <option class="selOpt" value="Popularite" selected>Popularité</option>
           <option class="selOpt" value="Date">Date</option>
@@ -92,12 +93,12 @@
         <span
           class="popuptext"
           id="myPopup"
-          aria-label="Merci ! Votre message a été envoyé."
+          aria-describedby="myPopup"
           >Merci ! Votre message a été envoyé.</span
         >
 
         <div class="content">
-          <span id="close"></span>
+          <span id="close" aria-label="fermer"></span>
           <div class="modal-body">
             <h2 id="formTitle"></h2>
             <form

@@ -1,7 +1,7 @@
 //Profile Cards on Photographers Pages
 .profileCardPP {
   cursor: pointer;
-  width: fit-content;
+  width: 100%;
   margin: auto;
   margin-bottom: 3rem;
   background-color: transparent;
@@ -19,7 +19,7 @@
     grid-column: 2 / span 1;
     grid-row: 1 / span 4;
     width: 32vw;
-    justify-self: center;
+    justify-self: right;
     display: flex;
     object-fit: cover;
     height: 32vw;

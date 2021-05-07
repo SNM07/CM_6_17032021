@@ -59,6 +59,9 @@ body {
         height: 40vw;
         margin: 0;
         grid-gap: 1vw;
+        @media screen and (min-width: 540px) {
+          height: 30vw;
+        }
         @include large-only {
           height: 24vw;
           width: 90vw;
