@@ -6,7 +6,7 @@ import filterHome from "./filterHome.js";
 getHomeData();
 function getHomeData() {
   //Fetch JSON & construct page
-  fetch("./FishEyeDataFR.json")
+  fetch("./DATA/FishEyeDataFR.json")
     .then((response) => {
       return response.json();
     })

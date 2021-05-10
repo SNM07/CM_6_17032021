@@ -22,11 +22,12 @@ function emailJSParam() {
         )
         .then(
           function () {
-            console.log("SUCCESS!");
+            //console.log("SUCCESS!");
             Popup();
+            document.getElementById("contact-form").reset();
           },
           function (error) {
-            console.log("FAILED...", error);
+            //console.log("FAILED...", error);
             alert("Votre message n'a pas pu être envoyé, veuillez réessayer.");
           }
         );

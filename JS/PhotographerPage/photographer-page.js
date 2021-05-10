@@ -12,7 +12,7 @@ import * as scrollTop from "./scrollTop.js";
 getPPData();
 function getPPData() {
   // Fetch JSON and construct page
-  fetch("./FishEyeDataFR.json")
+  fetch("./DATA/FishEyeDataFR.json")
     .then((response) => {
       return response.json();
     })
