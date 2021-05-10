@@ -499,7 +499,6 @@
 .bground .content .modal-body #formTitle {
   font-size: 2.2rem;
   font-weight: 600;
-  margin-bottom: 10px;
 }
 @media screen and (min-width: 800px) {
   .bground .content .modal-body #formTitle {
@@ -508,6 +507,21 @@
 }
 @media screen and (max-width: 340px) {
   .bground .content .modal-body #formTitle {
+    font-size: 2rem;
+  }
+}
+.bground .content .modal-body #formTitleName {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+@media screen and (min-width: 800px) {
+  .bground .content .modal-body #formTitleName {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (max-width: 340px) {
+  .bground .content .modal-body #formTitleName {
     font-size: 2rem;
   }
 }

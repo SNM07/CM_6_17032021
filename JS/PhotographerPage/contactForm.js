@@ -28,10 +28,9 @@ function contactFormModule() {
   };
 
   //Set photographer name in contact form
-  const myFormTitle = document.getElementById("formTitle");
-  myFormTitle.innerHTML =
-    "Contactez-moi" +
-    "</br>" +
+  //const myFormTitle = document.getElementById("formTitle");
+  const myFormTitleName = document.getElementById("formTitleName");
+  myFormTitleName.innerHTML =
     document.querySelector(".profileName").innerHTML;
 }
 
