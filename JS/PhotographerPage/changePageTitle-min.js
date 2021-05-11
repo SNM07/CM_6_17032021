@@ -1,0 +1,1 @@
+function changePageTitle(){let e="FishEye - "+document.getElementsByClassName("profileName")[0].innerHTML+", Photographer Page";document.title=e}export{changePageTitle as default};

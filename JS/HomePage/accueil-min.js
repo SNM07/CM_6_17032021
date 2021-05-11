@@ -1,0 +1,1 @@
+import showProfileHome from"./showProfileHome.js";import*as boutonPac from"./boutonPaC.js";import filterHome from"./filterHome.js";function getHomeData(){fetch("./DATA/FishEyeDataFR.json").then((o=>o.json())).then((o=>{showProfileHome(o),filterHome(),boutonPac.buttonPaC()}))}getHomeData();
