@@ -4,7 +4,7 @@
   "description": "CM_6_17032021",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./sass/main.scss:./css/style.css --style expanded",
+    "sass": "sass --watch ./sass/main.scss:./css/style.css --style expanded ./node_modules/lightgallery.js/src/sass/lightgallery.scss:./node_modules/lightgallery.js/dist/css/lightgallery.css --style expanded",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +16,16 @@
   "bugs": {
     "url": "https://github.com/SNM07/CM_6_17032021/issues"
   },
-  "homepage": "https://github.com/SNM07/CM_6_17032021#readme"
+  "homepage": "https://github.com/SNM07/CM_6_17032021#readme",
+  "dependencies": {
+    "custom-select": "^1.1.15",
+    "filterizr": "^2.2.4",
+    "lg-fullscreen": "^1.2.1",
+    "lg-video.js": "^1.3.0",
+    "lightgallery.js": "^1.4.0",
+    "simple-lightbox": "^2.1.0"
+  },
+  "devDependencies": {
+    "fslightbox": "^3.2.3"
+  }
 }

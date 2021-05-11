@@ -1,6 +1,1081 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 * {
   font-family: "Roboto", sans-serif;
+  width: auto;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.profileCard {
+  cursor: pointer;
+  width: 100%;
+  margin: auto;
+  margin-bottom: 3rem;
+}
+@media screen and (min-width: 800px) {
+  .profileCard {
+    width: 32%;
+    justify-self: center;
+    padding: 2vw;
+    max-width: 100%;
+    margin: 0;
+    margin-bottom: 3rem;
+  }
+}
+.profileCard .profilePic {
+  width: 300px;
+  display: flex;
+  margin: auto;
+  object-fit: cover;
+  height: 300px;
+  border-radius: 50%;
+  box-shadow: 3px 5px 16px rgba(82, 82, 82, 0.3);
+  backface-visibility: hidden;
+}
+@media screen and (min-width: 800px) {
+  .profileCard .profilePic {
+    width: 20vw;
+    height: 20vw;
+    max-width: 100%;
+  }
+}
+.profileCard .profileName {
+  color: #D3573C;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 100;
+  margin: 2rem 0 1rem 0;
+}
+@media screen and (min-width: 800px) {
+  .profileCard .profileName {
+    font-size: 3vw;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .profileCard .profileName {
+    font-size: 2.5vw;
+  }
+}
+.profileCard .profileLocation {
+  text-align: center;
+  color: #901C1C;
+  margin: 1rem 0 1rem 0;
+}
+.profileCard .profileTagline {
+  text-align: center;
+  font-size: 0.8rem;
+  margin: 0.4rem 0 0.4rem 0;
+}
+.profileCard .profilePrice {
+  text-align: center;
+  color: #525252;
+  font-size: 0.8rem;
+  margin: 0.4rem 0 0.8rem 0;
+}
+.profileCard .profileTags {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0;
+}
+@media screen and (min-width: 800px) {
+  .profileCard .profileTags {
+    flex-wrap: wrap;
+    gap: 0;
+  }
+}
+.profileCard .profileTags button span {
+  display: block;
+  cursor: pointer;
+  color: #901C1C;
+  font-weight: bold;
+  padding: 3px 6px 3px 6px;
+  margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+  background-color: white;
+  border: 1px solid rgba(82, 82, 82, 0.2);
+  border-radius: 16px;
+  margin: 0;
+}
+@media screen and (min-width: 800px) {
+  .profileCard .profileTags button span {
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+}
+.profileCard .profileTags button span:hover {
+  color: white;
+  background-color: #901C1C;
+}
+
+.profileCardPP {
+  cursor: pointer;
+  width: 100%;
+  margin: auto;
+  margin-bottom: 3rem;
+  background-color: transparent;
+}
+@media screen and (min-width: 800px) {
+  .profileCardPP {
+    background-color: #FAFAFA;
+    justify-self: center;
+    padding: 1vw;
+    max-width: 100%;
+    margin: 0;
+    margin-bottom: 3rem;
+    padding: 5vw 3vw 5vw 3vw;
+    border-radius: 0.6rem;
+  }
+}
+.profileCardPP .profilePic {
+  grid-column: 2/span 1;
+  grid-row: 1/span 4;
+  width: 32vw;
+  justify-self: right;
+  display: flex;
+  object-fit: cover;
+  height: 32vw;
+  border-radius: 50%;
+  box-shadow: 1px 1px 5px rgba(82, 82, 82, 0.3);
+  backface-visibility: hidden;
+}
+@media screen and (min-width: 800px) {
+  .profileCardPP .profilePic {
+    justify-self: end;
+    height: 18vw;
+    width: 18vw;
+    align-self: center;
+  }
+}
+.profileCardPP .profileName {
+  grid-column: 1/span 1;
+  grid-row: 1/span 1;
+  color: #D3573C;
+  font-size: 2.1rem;
+  font-weight: 100;
+  align-self: center;
+  position: inherit;
+  margin: 0;
+}
+@media screen and (min-width: 800px) {
+  .profileCardPP .profileName {
+    font-size: 3.2vw;
+    background-color: transparent;
+    padding: 0;
+  }
+}
+.profileCardPP .profileLocation {
+  grid-column: 1/span 1;
+  grid-row: 2/span 1;
+  color: #901C1C;
+  align-self: center;
+}
+.profileCardPP .profileTagline {
+  grid-column: 1/span 1;
+  grid-row: 3/span 1;
+  font-size: 0.9rem;
+  align-self: center;
+}
+.profileCardPP .profilePrice {
+  display: none;
+}
+.profileCardPP .profileTags {
+  grid-column: 1/span 1;
+  grid-row: 4/span 1;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 0;
+}
+@media screen and (min-width: 800px) {
+  .profileCardPP .profileTags {
+    flex-wrap: wrap;
+    gap: 0;
+  }
+}
+
+.contactFormButton {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+@media screen and (min-width: 800px) {
+  .contactFormButton {
+    margin: initial;
+    display: initial;
+    justify-content: initial;
+  }
+}
+.contactFormButton .modal-btn {
+  background-color: #901C1C;
+  color: white;
+  z-index: 150;
+  width: 35vw;
+  height: 8vw;
+  border: none;
+  border-radius: 0.3rem;
+  align-content: center;
+  text-align: center;
+  font-size: 4vw;
+  line-height: 8vw;
+  cursor: pointer;
+  border: 2px solid white;
+  position: fixed;
+  justify-content: center;
+  display: flex;
+  margin: auto;
+  bottom: 4vw;
+  line-height: 7vw;
+}
+.contactFormButton .modal-btn:hover {
+  background-color: #D3573C;
+  font-weight: bold;
+  color: black;
+}
+.contactFormButton .modal-btn:focus {
+  background-color: #D3573C;
+  color: black;
+}
+@media screen and (min-width: 800px) {
+  .contactFormButton .modal-btn {
+    width: 12vw;
+    height: 6vw;
+    font-size: 1.4vw;
+    line-height: 4.5vw;
+  }
+}
+@media screen and (min-width: 800px) {
+  .contactFormButton .modal-btn {
+    line-height: 4.5vw;
+    border: none;
+    position: absolute;
+    left: 40%;
+    display: initial;
+    top: 4vw;
+    bottom: auto;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .contactFormButton .modal-btn {
+    line-height: 4.5vw;
+    border: none;
+    position: absolute;
+    left: 35%;
+    display: initial;
+    top: 4vw;
+    bottom: auto;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .contactFormButton .modal-btn {
+    line-height: 4.5vw;
+    border: none;
+    position: absolute;
+    left: 35%;
+    display: initial;
+    top: 4vw;
+    bottom: auto;
+    width: 10vw;
+    height: 5vw;
+    font-size: 1.2vw;
+  }
+}
+
+.photoCard {
+  position: relative;
+  width: 90vw;
+  height: 76vw;
+  margin: auto;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+@media screen and (min-width: 800px) {
+  .photoCard {
+    width: 100%;
+    height: 34vw;
+    margin-bottom: 0;
+  }
+}
+.photoCard .photoImg {
+  object-fit: cover;
+  object-position: 50% 25%;
+  position: absolute;
+  width: 100%;
+  height: 62vw;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+@media screen and (min-width: 800px) {
+  .photoCard .photoImg {
+    height: 25vw;
+  }
+}
+.photoCard .photoVid {
+  object-fit: cover;
+  object-position: 50% 25%;
+  position: absolute;
+  width: 100%;
+  height: 62vw;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+@media screen and (min-width: 800px) {
+  .photoCard .photoVid {
+    height: 25vw;
+  }
+}
+.photoCard .photosInfos {
+  display: flex;
+  position: absolute;
+  top: 64vw;
+  width: 100%;
+  justify-content: space-between;
+  background-color: white;
+}
+@media screen and (min-width: 800px) {
+  .photoCard .photosInfos {
+    top: 26vw;
+  }
+}
+.photoCard .photosInfos .photoTitle {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #901C1C;
+  padding: 0.5rem 0 0 0;
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+}
+@media screen and (min-width: 800px) {
+  .photoCard .photosInfos .photoTitle {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.photoCard .photosInfos .photoPrice {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #901C1C;
+  padding: 0.5rem 0 0 0;
+}
+.photoCard .photosInfos .photoLikesCount {
+  display: flex;
+  gap: 4px;
+}
+.photoCard .photosInfos .photoLikesCount .photoLikes {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #901C1C;
+  padding: 0.5rem 0 0 0;
+}
+.photoCard .photosInfos .photoLikesCount .like {
+  font-size: 1rem;
+  padding: 0.5rem 0 0 0;
+}
+.photoCard .photosInfos .photoLikesCount .like:focus > .fa-heart {
+  font-weight: 900 !important;
+  color: #D3573C;
+  opacity: 1;
+}
+.photoCard .photosInfos .photoLikesCount .like input {
+  display: none;
+  cursor: pointer;
+}
+.photoCard .photosInfos .photoLikesCount .like input + .fa-heart {
+  transition: all ease-in-out;
+  color: #901C1C;
+  font-weight: 400;
+  opacity: 1;
+  cursor: pointer;
+}
+.photoCard .photosInfos .photoLikesCount .like input:checked + .fa-heart {
+  font-weight: 900 !important;
+  color: #901C1C;
+  animation: coeur 0.8s ease;
+  opacity: 1;
+}
+@media screen and (min-width: 800px) {
+  .photoCard .photosInfos .photoLikesCount .like .fa-heart:hover {
+    font-weight: 900 !important;
+    color: #D3573C;
+    animation: coeurHover 0.6s ease;
+    opacity: 1;
+    cursor: pointer;
+  }
+}
+@keyframes coeur {
+  0% {
+    color: #901C1C;
+    opacity: 0.2;
+    font-weight: 400;
+  }
+  10% {
+    color: white;
+    opacity: 0.2;
+    font-weight: 900;
+  }
+  100% {
+    color: #901C1C;
+    opacity: 1;
+    font-weight: 900;
+  }
+}
+@keyframes coeurHover {
+  0% {
+    color: #901C1C;
+    opacity: 0.2;
+    font-weight: 400;
+  }
+  10% {
+    color: white;
+    opacity: 0.2;
+    font-weight: 900;
+  }
+  100% {
+    color: #D3573C;
+    opacity: 1;
+    font-weight: 900;
+  }
+}
+.photoCard .photosInfos .photoLikesCount .like .far .labeltext {
+  font-size: 0.1rem;
+}
+
+/* Modal form */
+.bground {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(82, 82, 82, 0.6);
+}
+.bground .content {
+  margin: 7% auto;
+  width: 100%;
+  max-width: 500px;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+  background: #D3573C;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  color: black;
+  padding-top: 10px;
+}
+.bground .content #close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(0.7);
+}
+.bground .content #close:before, .bground .content #close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 3px;
+  background-color: #fff;
+}
+.bground .content #close:before {
+  transform: rotate(45deg);
+}
+.bground .content #close:after {
+  transform: rotate(-45deg);
+}
+.bground .content .modal-body {
+  padding: 15px 8%;
+  margin: auto;
+  height: 90%;
+}
+.bground .content .modal-body #formTitle {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+@media screen and (min-width: 800px) {
+  .bground .content .modal-body #formTitle {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (max-width: 340px) {
+  .bground .content .modal-body #formTitle {
+    font-size: 2rem;
+  }
+}
+.bground .content .modal-body #formTitleName {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+@media screen and (min-width: 800px) {
+  .bground .content .modal-body #formTitleName {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (max-width: 340px) {
+  .bground .content .modal-body #formTitleName {
+    font-size: 2rem;
+  }
+}
+.bground .content .modal-body #contact-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.bground .content .modal-body #contact-form .formData label {
+  font-family: var(--font-default);
+  font-size: 1.4rem;
+  font-weight: normal;
+  display: inline-block;
+  margin-top: 5px;
+}
+.bground .content .modal-body #contact-form .formData .text-control {
+  margin: 0;
+  border: 0.8px solid #ccc;
+  padding: 8px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 20px;
+  height: 6vh;
+}
+.bground .content .modal-body #contact-form .formData #message {
+  height: 18vh;
+}
+.bground .content .modal-body #contact-form .button {
+  background-color: #901C1C;
+  color: white;
+  z-index: 150;
+  width: 35vw;
+  height: 8vw;
+  border: none;
+  border-radius: 0.3rem;
+  align-content: center;
+  text-align: center;
+  font-size: 4vw;
+  line-height: 8vw;
+  cursor: pointer;
+  line-height: 1.5rem;
+  margin: 4% auto 8% auto;
+  width: 12rem !important;
+  height: 3rem;
+  font-size: 1.5rem;
+}
+.bground .content .modal-body #contact-form .button:hover {
+  background-color: #D3573C;
+  font-weight: bold;
+  color: black;
+}
+.bground .content .modal-body #contact-form .button:focus {
+  background-color: #D3573C;
+  color: black;
+}
+@media screen and (min-width: 800px) {
+  .bground .content .modal-body #contact-form .button {
+    width: 12vw;
+    height: 6vw;
+    font-size: 1.4vw;
+    line-height: 4.5vw;
+  }
+}
+@media screen and (min-width: 800px) {
+  .bground .content .modal-body #contact-form .button {
+    margin: 3% 8% 8% 0;
+    line-height: 2rem;
+    height: 4rem;
+    font-size: 1.2rem !important;
+  }
+}
+.bground .content .modal-body #contact-form .button:hover {
+  background-color: #dc7b66;
+  font-weight: bold;
+  border: 2px solid white;
+}
+.bground .content .modal-body #contact-form .button:focus {
+  background-color: #dc7b66;
+  font-weight: bold;
+  border: 2px solid white;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* The actual popup */
+#myPopup {
+  visibility: hidden;
+  width: 60%;
+  background-color: #901C1C;
+  color: #fff;
+  text-align: center;
+  border-radius: 12px;
+  padding: 26px 0;
+  position: absolute;
+  z-index: 1;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block !important;
+}
+
+/* Toggle this class - hide and show the popup */
+.showPopup {
+  visibility: visible !important;
+  -webkit-animation: fadeIn 4s !important;
+  animation: fadeIn 4s both !important;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.priceGlobLikes {
+  position: fixed;
+  right: 2rem;
+  bottom: 0;
+  padding: 1rem 1.6rem 1rem 1.6rem;
+  border-radius: 4px 4px 0 0;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  display: none;
+  flex-direction: row;
+  align-items: baseline;
+  font-weight: bold;
+  z-index: 10;
+  background-color: #D3573C;
+}
+.priceGlobLikes .far {
+  font-weight: 800;
+  padding-right: 2rem;
+  padding-left: 0.5rem;
+  font-size: 0.9rem;
+}
+@media screen and (min-width: 800px) {
+  .priceGlobLikes {
+    display: flex;
+  }
+}
+
+body header {
+  position: fixed;
+  background-color: white;
+  z-index: 14;
+  height: 10rem;
+  transition: transform 0.4s;
+}
+@media screen and (min-width: 800px) {
+  body header {
+    border-radius: 0 0 60px 0;
+  }
+}
+body header .logo {
+  cursor: pointer;
+  float: left;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-left: 4vw;
+}
+body header .logo img {
+  width: 50%;
+}
+@media screen and (min-width: 800px) {
+  body header .logo img {
+    width: 20vw;
+  }
+}
+body header nav {
+  float: left;
+}
+@media screen and (min-width: 800px) {
+  body header nav {
+    width: 50vw;
+    padding: 2vw;
+  }
+}
+body header nav #filterButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+body header nav #filterButtons .filterButton {
+  cursor: pointer;
+  color: #901C1C;
+  font-weight: bold;
+  padding: 3px 6px 3px 6px;
+  margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+  background-color: white;
+  border: 1px solid rgba(82, 82, 82, 0.2);
+  border-radius: 16px;
+}
+@media screen and (min-width: 800px) {
+  body header nav #filterButtons .filterButton {
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+}
+body header nav #filterButtons .filterButton:hover {
+  color: white;
+  background-color: #901C1C;
+}
+body header nav #filterButtons .filterButton:focus {
+  background-color: #901C1C;
+  color: white;
+}
+body header nav #filterButtons .filterButton.filterProfiles.is-checked {
+  background-color: #901C1C !important;
+  color: white !important;
+}
+body header nav #filterButtons #all {
+  display: none;
+}
+body #contentButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+body #contentButtonContainer #contentButton {
+  display: none;
+  position: fixed;
+  top: 10px;
+  margin: auto;
+  z-index: 199;
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+  padding: 6px 8px 6px 8px;
+  margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+  background-color: #D3573C;
+  border: 2px solid white;
+  border-radius: 8px;
+}
+body #contentButtonContainer #contentButton:hover {
+  background-color: #901C1C;
+  color: #FAFAFA;
+}
+body #home-main {
+  height: 100vh;
+  padding: 0 5vw 5vw 5vw;
+  display: flex;
+  justify-content: center;
+}
+body #home-main #nosPhotog {
+  display: block;
+  transition: transform 0.2s;
+  z-index: 99;
+  position: fixed;
+  right: 2rem;
+  font-size: 1rem;
+  margin-top: 2rem;
+  color: #901C1C;
+}
+@media screen and (min-width: 800px) {
+  body #home-main #nosPhotog {
+    font-size: 2.2vw;
+    font-weight: 400;
+    margin-top: 1rem;
+    right: 1rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+}
+body #home-main #profiles {
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 12rem;
+}
+@media screen and (min-width: 800px) {
+  body #home-main #profiles {
+    top: 10rem;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    justify-content: center;
+    padding: 1vw;
+  }
+}
+body #home-main #profiles .profileTags .listTagsCont {
+  border: none !important;
+  background: transparent !important;
+  padding: 2px !important;
+}
+body #home-main #profiles .profileTags .listTagsCont:focus > span {
+  background-color: #901C1C !important;
+  color: white !important;
+}
+body #home-main #profiles .profileTags .filterProfiles:focus {
+  color: white;
+  background-color: #901C1C;
+}
+body #home-main #profiles .profileTags .filterProfiles.is-checked > span {
+  background-color: #901C1C !important;
+  color: white !important;
+}
+
+.scroll-down .page-header {
+  transform: translate3d(0, -100%, 0);
+}
+.scroll-down #nosPhotog {
+  transform: translate3d(0, -300%, 0);
+}
+
+.scroll-up .page-header {
+  transform: none;
+}
+.scroll-up #nosPhotog {
+  transform: none;
+}
+
+body header {
+  height: fit-content;
+  height: auto;
+}
+body header .logoP {
+  width: 100vw;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-left: 4vw;
+  display: block;
+  cursor: pointer;
+}
+body header .logoP img {
+  width: 50%;
+}
+@media screen and (min-width: 800px) {
+  body header .logoP img {
+    width: 20vw;
+  }
+}
+body #contentButtonContainer2 {
+  display: flex;
+  justify-content: center;
+}
+body #contentButtonContainer2 #contentButton2 {
+  display: none;
+  position: fixed;
+  top: 10px;
+  margin: auto;
+  z-index: 199;
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+  padding: 6px 8px 6px 8px;
+  margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+  background-color: #D3573C;
+  border: 2px solid white;
+  border-radius: 8px;
+}
+body #photographer-main {
+  display: flex;
+  flex-direction: column;
+  padding: 26vw 5vw 5vw 5vw;
+  justify-content: normal;
+  height: 100%;
+}
+@media screen and (min-width: 800px) {
+  body #photographer-main {
+    padding: 7rem 5vw 5vw 5vw !important;
+  }
+}
+body #photographer-main #profilesPP {
+  width: 100%;
+  position: relative;
+  margin: 2vw 0 10vw 0;
+  z-index: 1;
+}
+@media screen and (min-width: 800px) {
+  body #photographer-main #profilesPP {
+    margin: 0;
+  }
+}
+body #photographer-main #profilesPP .profileCardPP {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  height: 40vw;
+  margin: 0;
+  grid-gap: 1vw;
+}
+@media screen and (min-width: 540px) {
+  body #photographer-main #profilesPP .profileCardPP {
+    height: 30vw;
+  }
+}
+@media screen and (min-width: 800px) {
+  body #photographer-main #profilesPP .profileCardPP {
+    height: 24vw;
+    width: 90vw;
+    margin: auto;
+  }
+}
+body #photographer-main #profilesPP .profileCardPP .profileTags li {
+  cursor: pointer;
+}
+body #photographer-main #profilesPP .profileCardPP .profileTags li label {
+  cursor: pointer;
+}
+body #photographer-main #profilesPP .profileCardPP .profileTags li input[type=checkbox] {
+  width: 0;
+  display: none;
+}
+body #photographer-main #profilesPP .profileCardPP .profileTags .filtButtonPP {
+  cursor: pointer;
+  color: #901C1C;
+  font-weight: bold;
+  padding: 3px 6px 3px 6px;
+  margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+  background-color: white;
+  border: 1px solid rgba(82, 82, 82, 0.2);
+  border-radius: 16px;
+  background-color: white;
+  color: #901C1C;
+}
+@media screen and (min-width: 800px) {
+  body #photographer-main #profilesPP .profileCardPP .profileTags .filtButtonPP {
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+}
+body #photographer-main #profilesPP .profileCardPP .profileTags .filtButtonPP:hover {
+  color: white;
+  background-color: #901C1C;
+}
+body #photographer-main #profilesPP .profileCardPP .profileTags .filtButtonPP:focus {
+  background-color: #901C1C;
+  color: white;
+}
+body #photographer-main #profilesPP .profileCardPP .profileTags .filtButtonPP.is-checked {
+  background-color: #901C1C;
+  color: white;
+}
+body #photographer-main #photoFilter {
+  top: 50vw;
+  left: 3vw;
+  padding: 3vw 0 3vw 0;
+  font-weight: bold;
+  display: none;
+}
+@media screen and (min-width: 800px) {
+  body #photographer-main #photoFilter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+body #photographer-main #photoGallery {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  position: inherit;
+  height: auto;
+}
+@media screen and (min-width: 800px) {
+  body #photographer-main #photoGallery {
+    margin-left: -1%;
+    margin-right: -4%;
+    left: 2.2vw;
+  }
+}
+body #photographer-main #photoGallery .filtr-item {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+}
+@media screen and (min-width: 800px) {
+  body #photographer-main #photoGallery .filtr-item {
+    position: absolute;
+    width: 30%;
+  }
+}
+
+select {
+  width: 8rem;
+  padding: 12px;
+  color: white;
+  border: 0 !important;
+  background-color: #901C1C;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.selOpt {
+  color: black;
+  background-color: white;
+  display: none;
+}
+.selOpt:hover {
+  background-color: #D3573C;
+}
+
+select.filters-select {
+  background-image: linear-gradient(45deg, transparent 60%, white 60%), linear-gradient(135deg, white 60%, transparent 60%);
+  background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), 100% 0;
+  background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+  background-repeat: no-repeat;
+}
+select.filters-select:focus {
+  background-image: linear-gradient(45deg, white 60%, transparent 60%), linear-gradient(135deg, transparent 60%, white 60%);
+  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, 100% 0;
+  background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+  background-repeat: no-repeat;
+  border-color: grey;
+  outline: 0;
+}
+
+/* custom select styles (rest of css is in node_modules/customselect/build */
+.custom-select {
+  position: relative;
+  font-family: Arial;
+  font-size: 1.1rem;
+  font-weight: normal;
+}
+
+.custom-select select {
+  display: none;
+}
+
+.select-selected {
+  background-color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */

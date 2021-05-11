@@ -1,0 +1,153 @@
+body {
+  & header {
+    height: fit-content; //Firefox
+    height: auto; //Chrome
+    & .logoP {
+      width: 100vw;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+      margin-left: 4vw;
+      display: block;
+      cursor: pointer;
+      & img {
+        width: 50%;
+        @include large-only {
+          width: 20vw;
+        }
+      }
+    }
+  }
+  & #contentButtonContainer2 {
+    display: flex;
+    justify-content: center;
+    & #contentButton2 {
+      display: none;
+      position: fixed;
+      top: 10px;
+      margin: auto;
+      z-index: 199;
+      cursor: pointer;
+      color: black;
+      font-weight: bold;
+      padding: 6px 8px 6px 8px;
+      margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+      background-color: $color-primary-2;
+      border: 2px solid white;
+      border-radius: 8px;
+    }
+  }
+  & #photographer-main {
+    display: flex;
+    flex-direction: column;
+    padding: 26vw 5vw 5vw 5vw;
+    justify-content: normal;
+    height: 100%;
+    @include large-only {
+      padding: 7rem 5vw 5vw 5vw !important;
+    }
+    & #profilesPP {
+      width: 100%;
+      position: relative;
+      margin: 2vw 0 10vw 0;
+      z-index: 1;
+      @include large-only {
+        margin: 0;
+      }
+      & .profileCardPP {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        height: 40vw;
+        margin: 0;
+        grid-gap: 1vw;
+        @media screen and (min-width: 540px) {
+          height: 30vw;
+        }
+        @include large-only {
+          height: 24vw;
+          width: 90vw;
+          margin: auto;
+        }
+        & .profileTags {
+          & li {
+            cursor: pointer;
+            & label {
+              cursor: pointer;
+            }
+            & input[type="checkbox"] {
+              width: 0;
+              display: none;
+            }
+          }
+          & .filtButtonPP {
+            @include boutonTags;
+            background-color: white;
+            color: $color-primary-1;
+            &:focus {
+              background-color: $color-primary-1;
+              color: white;
+            }
+            &.is-checked {
+              background-color: $color-primary-1;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+    & #photoFilter {
+      top: 50vw;
+      left: 3vw;
+      padding: 3vw 0 3vw 0;
+      font-weight: bold;
+      display: none;
+      @include large-only {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+      }
+    }
+    & #photoGallery {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: auto;
+      position: inherit;
+      height: auto;
+      @include large-only {
+        margin-left: -1%;
+        margin-right: -4%;
+        left: 2.2vw;
+      }
+      & .filtr-item {
+        position: relative;
+        left: 0;
+        top: 0;
+        display: block;
+        @include large-only {
+          position: absolute;
+          width: 30%;
+        }
+      }
+    }
+  }
+}
+
+//Include selectbox
+@include selectBox;
+
+/* custom select styles (rest of css is in node_modules/customselect/build */
+.custom-select {
+  position: relative;
+  font-family: Arial;
+  font-size: 1.1rem;
+  font-weight: normal;
+}
+
+.custom-select select {
+  display: none;
+}
+.select-selected {
+  background-color: #fff;
+}

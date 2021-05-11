@@ -1,0 +1,131 @@
+//Profile Cards on Photographers Pages
+.profileCardPP {
+  cursor: pointer;
+  width: 100%;
+  margin: auto;
+  margin-bottom: 3rem;
+  background-color: transparent;
+  @include large-only {
+    background-color: $color-secondary-2;
+    justify-self: center;
+    padding: 1vw;
+    max-width: 100%;
+    margin: 0;
+    margin-bottom: 3rem;
+    padding: 5vw 3vw 5vw 3vw;
+    border-radius: 0.6rem;
+  }
+  & .profilePic {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 4;
+    width: 32vw;
+    justify-self: right;
+    display: flex;
+    object-fit: cover;
+    height: 32vw;
+    border-radius: 50%;
+    box-shadow: 1px 1px 5px rgba($color-secondary-1, 0.3);
+    backface-visibility: hidden;
+    @include large-only {
+      justify-self: end;
+      height: 18vw;
+      width: 18vw;
+      align-self: center;
+    }
+  }
+  & .profileName {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    color: $color-primary-2;
+    font-size: 2.1rem;
+    font-weight: 100;
+    align-self: center;
+    position: inherit;
+    margin: 0;
+    @include large-only {
+      font-size: 3.2vw;
+      background-color: transparent;
+      padding: 0;
+    }
+  }
+  & .profileLocation {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+    color: $color-primary-1;
+    align-self: center;
+  }
+  & .profileTagline {
+    grid-column: 1 / span 1;
+    grid-row: 3 / span 1;
+    font-size: 0.9rem;
+    align-self: center;
+  }
+  & .profilePrice {
+    display: none;
+  }
+  .profileTags {
+    grid-column: 1 / span 1;
+    grid-row: 4 / span 1;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 0;
+    @include large-only {
+      flex-wrap: wrap;
+      gap: 0;
+    }
+  }
+}
+
+.contactFormButton {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  @include large-only {
+    margin: initial;
+    display: initial;
+    justify-content: initial;
+  }
+  & .modal-btn {
+    @include buttonContact;
+    border: 2px solid white;
+    position: fixed;
+    justify-content: center;
+    display: flex;
+    margin: auto;
+    bottom: 4vw;
+    line-height: 7vw;
+    @include large-only {
+      line-height: 4.5vw;
+      border: none;
+      position: absolute;
+      left: 40%;
+      display: initial;
+      top: 4vw;
+      bottom: auto;
+    }
+    @media screen and (min-width: 1000px) {
+      line-height: 4.5vw;
+      border: none;
+      position: absolute;
+      left: 35%;
+      display: initial;
+      top: 4vw;
+      bottom: auto;
+    }
+    @media screen and (min-width: 1600px) {
+      line-height: 4.5vw;
+      border: none;
+      position: absolute;
+      left: 35%;
+      display: initial;
+      top: 4vw;
+      bottom: auto;
+      width: 10vw;
+      height: 5vw;
+      font-size: 1.2vw;
+    }
+  }
+}

@@ -1,0 +1,75 @@
+//Profile Cards on Home Page
+.profileCard {
+  cursor: pointer;
+  width: 100%;
+  margin: auto;
+  margin-bottom: 3rem;
+  @include large-only {
+    width: 32%;
+    justify-self: center;
+    padding: 2vw;
+    max-width: 100%;
+    margin: 0;
+    margin-bottom: 3rem;
+  }
+  & .profilePic {
+    width: 300px;
+    display: flex;
+    margin: auto;
+    object-fit: cover;
+    height: 300px;
+    border-radius: 50%;
+    box-shadow: 3px 5px 16px rgba($color-secondary-1, 0.3);
+    backface-visibility: hidden;
+    @include large-only {
+      width: 20vw;
+      height: 20vw;
+      max-width: 100%;
+    }
+  }
+  & .profileName {
+    color: $color-primary-2;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 100;
+    margin: 2rem 0 1rem 0;
+    @include large-only {
+      font-size: 3vw;
+    }
+    @media screen and (min-width: 1200px) {
+      font-size: 2.5vw;
+    }
+  }
+  & .profileLocation {
+    text-align: center;
+    color: $color-primary-1;
+    margin: 1rem 0 1rem 0;
+  }
+  & .profileTagline {
+    text-align: center;
+    font-size: 0.8rem;
+    margin: 0.4rem 0 0.4rem 0;
+  }
+  & .profilePrice {
+    text-align: center;
+    color: $color-secondary-1;
+    font-size: 0.8rem;
+    margin: 0.4rem 0 0.8rem 0;
+  }
+  .profileTags {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0;
+    @include large-only {
+      flex-wrap: wrap;
+      gap: 0;
+    }
+    & button span {
+      display: block;
+      @include boutonTags;
+      margin: 0;
+    }
+  }
+}

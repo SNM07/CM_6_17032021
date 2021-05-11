@@ -1,0 +1,25 @@
+.priceGlobLikes {
+  position: fixed;
+  right: 2rem;
+  bottom: 0;
+  padding: 1rem 1.6rem 1rem 1.6rem;
+  border-radius: 4px 4px 0 0;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  display: none;
+  flex-direction: row;
+  align-items: baseline;
+  font-weight: bold;
+  z-index: 10;
+  background-color: $color-primary-2;
+  & .far {
+    font-weight: 800;
+    padding-right: 2rem;
+    padding-left: 0.5rem;
+    font-size: 0.9rem;
+  }
+  @include large-only {
+    display: flex;
+  }
+}

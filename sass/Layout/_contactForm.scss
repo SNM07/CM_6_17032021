@@ -1,0 +1,193 @@
+/* Modal form */
+.bground {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba($color-secondary-1, 0.6);
+
+  & .content {
+    margin: 7% auto;
+    width: 100%;
+    max-width: 500px;
+    animation-name: modalopen;
+    animation-duration: var(--modal-duration);
+    background: $color-primary-2;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    color: black;
+    padding-top: 10px;
+
+    & #close {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      width: 32px;
+      height: 32px;
+      opacity: 1;
+      cursor: pointer;
+      transform: scale(0.7);
+      &:before,
+      &:after {
+        position: absolute;
+        left: 15px;
+        content: " ";
+        height: 33px;
+        width: 3px;
+        background-color: #fff;
+      }
+      &:before {
+        transform: rotate(45deg);
+      }
+      &:after {
+        transform: rotate(-45deg);
+      }
+    }
+
+    & .modal-body {
+      padding: 15px 8%;
+      margin: auto;
+      height: 90%;
+      & #formTitle {
+        font-size: 2.2rem;
+        font-weight: 600;
+        @include large-only {
+          font-size: 2.5rem;
+        }
+        @media screen and (max-width: 340px) {
+          font-size: 2rem;
+        }
+      }
+      & #formTitleName {
+        font-size: 2.2rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        @include large-only {
+          font-size: 2.5rem;
+        }
+        @media screen and (max-width: 340px) {
+          font-size: 2rem;
+        }
+      }
+      & #contact-form {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        & .formData {
+          & label {
+            font-family: var(--font-default);
+            font-size: 1.4rem;
+            font-weight: normal;
+            display: inline-block;
+            margin-top: 5px;
+          }
+          & .text-control {
+            margin: 0;
+            border: 0.8px solid #ccc;
+            padding: 8px;
+            width: 100%;
+            border-radius: 8px;
+            font-size: 20px;
+            height: 6vh;
+          }
+          & #message {
+            height: 18vh;
+          }
+        }
+        & .button {
+          @include buttonContact;
+          line-height: 1.5rem;
+          margin: 4% auto 8% auto;
+          width: 12rem !important;
+          height: 3rem;
+          font-size: 1.5rem;
+          @include large-only {
+            margin: 3% 8% 8% 0;
+            line-height: 2rem;
+            height: 4rem;
+            font-size: 1.2rem !important;
+          }
+          &:hover {
+            background-color: lighten($color-primary-2, 10%);
+            font-weight: bold;
+            border: 2px solid white;
+          }
+          &:focus {
+            background-color: lighten($color-primary-2, 10%);
+            font-weight: bold;
+            border: 2px solid white;
+          }
+        }
+      }
+    }
+  }
+}
+
+//Fermeture de la modale
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/////////////////////////////////////////////////
+
+/* The actual popup */
+#myPopup {
+  visibility: hidden;
+  width: 60%;
+  background-color: $color-primary-1;
+  color: #fff;
+  text-align: center;
+  border-radius: 12px;
+  padding: 26px 0;
+  position: absolute;
+  z-index: 1;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block !important;
+}
+
+/* Toggle this class - hide and show the popup */
+.showPopup {
+  visibility: visible !important;
+  -webkit-animation: fadeIn 4s !important;
+  animation: fadeIn 4s both !important;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
