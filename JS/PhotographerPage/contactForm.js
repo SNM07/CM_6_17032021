@@ -13,6 +13,7 @@ function contactFormModule() {
   // launch modal form
   function launchModal() {
     modalbg.style.display = "block";
+    $("#first").focus();
   }
 
   // When the user clicks on <span> (x), close the modal
@@ -26,6 +27,12 @@ function contactFormModule() {
       modalbg.style.display = "none";
     }
   };
+
+  // When the user hit escape close the modal
+  $(document).keydown(function(event) { 
+    if (event.keyCode == 27) { 
+      modalbg.style.display = "none";    }
+  });
 
   //Set photographer name in contact form
   const myFormTitleName = document.getElementById("formTitleName");
