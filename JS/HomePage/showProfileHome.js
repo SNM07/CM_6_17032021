@@ -74,7 +74,7 @@ function createProfiles(i, photog) {
   myProfContainer.setAttribute("tabindex", "0");
   myProfContainer.setAttribute("title", photog[i].name + " card");
   let myRedirect =
-    "location.href=" +
+    "window.location.href=" +
     "'" +
     "./photographer-page.html" +
     "?id=" +

@@ -17,5 +17,12 @@ function getHomeData() {
       filterHome();
       //Scroll top features
       boutonPac.buttonPaC();
+      //Link to photographer page with enter key
+      $(document).ready(function(){
+        $('.profileContainer').keypress(function(e){
+          if(e.keyCode==13)
+          $(this).click();
+        });
+    });
     });
 }
